@@ -6,7 +6,7 @@ import Button from '../components/Button';
 const sections = {
   battle: { title: 'BATTLE ARENA', icon: Swords, phase: 5, text: 'Draft your fighters, build your lineup, and face off across five rounds.' },
   quizzes: { title: 'ANIME QUIZZES', icon: CircleHelp, phase: 6, text: 'Canon questions, timed challenges, and a daily test of your anime knowledge.' },
-  games: { title: 'GUESSING GAMES', icon: Gamepad2, phase: 7, text: 'Character shadows, clue chains, and higher-or-lower power showdowns.' },
+  games: { title: 'GUESSING GAMES', icon: Gamepad2, phase: 7, text: 'Move Match, clue chains, and higher-or-lower power showdowns.' },
   profile: { title: 'YOUR PROFILE', icon: UserRound, phase: 4, text: 'Your future home for battle stats, ranks, quiz scores, and achievements.' },
   login: { title: 'JOIN THE CLASH', icon: UserRound, phase: 4, text: 'Accounts and login will arrive with the profile phase.' },
 };

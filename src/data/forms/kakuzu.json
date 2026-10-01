@@ -1,0 +1,17 @@
+[
+  { "id": "kakuzu--body-hardened", "characterId": "kakuzu", "name": "Living / hardened body", "era": "Akatsuki suppression",
+    "stats": {"attack": 37, "defense": 46, "speed": 33, "durability": 45, "intelligence": 56, "versatility": 35, "stamina": 42, "feats": 35}, "powerScore": 393, "rarity": "Common",
+    "abilityTags": ["threads", "hardening", "multiple-hearts"], "signatureMoves": ["Earth Release: Earth Spear", "Earth Grudge Fear"],
+    "limitations": "Available hearts remain finite but masked elemental bodies are not deployed in this snapshot. Hardening has demonstrated lightning counters.",
+    "sourceChapters": [[313, 314], [334, 336]], "confidence": "medium" },
+  { "id": "kakuzu--edo", "characterId": "kakuzu", "name": "Reanimated / available heart masks", "era": "Fourth Shinobi War",
+    "stats": {"attack": 40, "defense": 40, "speed": 34, "durability": 43, "intelligence": 59, "versatility": 44, "stamina": 80, "feats": 39}, "powerScore": 448, "rarity": "Rare",
+    "abilityTags": ["elements", "threads", "regeneration"], "signatureMoves": ["Earth Grudge Fear", "Fire Release: Intelligent Hard Work"],
+    "limitations": "War state has fewer demonstrated active resources; no automatic living five-heart maximum or unshown army. Reanimation is sealing-vulnerable.",
+    "sourceChapters": [[529, 534]], "confidence": "low" },
+  { "id": "kakuzu--five-hearts", "characterId": "kakuzu", "name": "Living five-heart / mask arsenal", "era": "Akatsuki suppression",
+    "stats": {"attack": 45, "defense": 45, "speed": 41, "durability": 52, "intelligence": 63, "versatility": 56, "stamina": 55, "feats": 43}, "powerScore": 481, "rarity": "Rare",
+    "abilityTags": ["elements", "threads", "hardening", "multiple-hearts"], "signatureMoves": ["Earth Grudge Fear", "Earth Release: Earth Spear", "Fire Release: Intelligent Hard Work"],
+    "limitations": "Finite stolen hearts and independently deployed masks; destroyed hearts reduce access. No Edo regeneration or unlimited elemental combinations.",
+    "sourceChapters": [[334, 342]], "confidence": "medium" }
+]

@@ -1,0 +1,17 @@
+[
+  { "id": "tobirama-senju--living", "characterId": "tobirama-senju", "name": "Living — demonstrated final stand", "era": "First war flashback",
+    "stats": {"attack": 58, "defense": 48, "speed": 69, "durability": 47, "intelligence": 85, "versatility": 66, "stamina": 57, "feats": 53}, "powerScore": 593, "rarity": "Rare",
+    "abilityTags": ["water", "space-time", "strategy"], "signatureMoves": ["Flying Thunder God Technique", "Water Release: Water Dragon Bullet Technique"],
+    "limitations": "Living-era repertoire is a low-confidence retained-technique estimate; final stand does not demonstrate an unlimited arsenal. No Edo regeneration or automatic multiplying-tag suicide loops.",
+    "sourceChapters": [[120, 120], [481, 481], [627, 627]], "confidence": "low" },
+  { "id": "tobirama-senju--part-one-edo", "characterId": "tobirama-senju", "name": "Restricted reanimation — Konoha invasion", "era": "Orochimaru’s first reanimation",
+    "stats": {"attack": 43, "defense": 42, "speed": 44, "durability": 40, "intelligence": 73, "versatility": 51, "stamina": 67, "feats": 43}, "powerScore": 478, "rarity": "Rare",
+    "abilityTags": ["water", "strategy", "regeneration"], "signatureMoves": ["Water Release: Water Dragon Bullet Technique", "Water Release: Water Formation Wall"],
+    "limitations": "Restricted early body; no later war teleportation feats or autonomous explosive-tag chains. Regeneration can be sealed.",
+    "sourceChapters": [[118, 123]], "confidence": "medium" },
+  { "id": "tobirama-senju--war-edo", "characterId": "tobirama-senju", "name": "War reanimation", "era": "Fourth Shinobi War",
+    "stats": {"attack": 68, "defense": 61, "speed": 80, "durability": 57, "intelligence": 92, "versatility": 81, "stamina": 95, "feats": 72}, "powerScore": 739, "rarity": "Epic",
+    "abilityTags": ["water", "space-time", "strategy", "regeneration"], "signatureMoves": ["Flying Thunder God Technique", "Water Release: Water Severing Wave", "Mutually Multiplying Explosive Tags"],
+    "limitations": "Regeneration is counterable by sealing; teleportation requires markings. Multiplying tags use their demonstrated prepared sacrificial setup, not unrestricted explosions.",
+    "sourceChapters": [[639, 644]], "confidence": "medium" }
+]

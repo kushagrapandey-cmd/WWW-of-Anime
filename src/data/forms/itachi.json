@@ -1,0 +1,17 @@
+[
+  { "id": "itachi-uchiha--living-sharingan", "characterId": "itachi-uchiha", "name": "Living Sharingan — no Susanoo", "era": "Part One encounter",
+    "stats": {"attack": 53, "defense": 44, "speed": 55, "durability": 35, "intelligence": 83, "versatility": 62, "stamina": 31, "feats": 55}, "powerScore": 511, "rarity": "Rare",
+    "abilityTags": ["genjutsu", "fire", "sharingan"], "signatureMoves": ["Tsukuyomi", "Amaterasu", "Fire Release: Great Fireball Technique"],
+    "limitations": "Living illness/eye strain and finite chakra; no Susanoo weapon frame or Edo recovery. Eye contact and technique conditions matter.",
+    "sourceChapters": [[142, 148]], "confidence": "medium" },
+  { "id": "itachi-uchiha--living-susanoo", "characterId": "itachi-uchiha", "name": "Living Mangekyo / Susanoo", "era": "Sasuke confrontation",
+    "stats": {"attack": 62, "defense": 82, "speed": 56, "durability": 36, "intelligence": 87, "versatility": 74, "stamina": 17, "feats": 66}, "powerScore": 587, "rarity": "Rare",
+    "abilityTags": ["genjutsu", "fire", "susanoo", "regeneration"], "signatureMoves": ["Tsukuyomi", "Amaterasu", "Susanoo: Totsuka Blade"],
+    "limitations": "Terminal illness, blindness and short sustain; sealing blade requires successful contact and Yata defense is not universal invulnerability.",
+    "sourceChapters": [[384, 393]], "confidence": "medium" },
+  { "id": "itachi-uchiha--edo", "characterId": "itachi-uchiha", "name": "War reanimation / Mangekyo", "era": "Fourth Shinobi War",
+    "stats": {"attack": 65, "defense": 88, "speed": 68, "durability": 52, "intelligence": 94, "versatility": 83, "stamina": 95, "feats": 77}, "powerScore": 743, "rarity": "Epic",
+    "abilityTags": ["genjutsu", "fire", "susanoo", "regeneration"], "signatureMoves": ["Tsukuyomi", "Amaterasu", "Susanoo: Totsuka Blade"],
+    "limitations": "Restored sustain excludes living illness but sealing can stop reanimation. Izanami, if eligible, requires setup and sacrifices an eye; not an unconditional win.",
+    "sourceChapters": [[549, 552], [578, 590]], "confidence": "medium" }
+]

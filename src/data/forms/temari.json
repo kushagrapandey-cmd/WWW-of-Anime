@@ -1,0 +1,17 @@
+[
+  { "id": "temari--chunin-fan", "characterId": "temari", "name": "Fan specialist — Chunin Exams", "era": "Part One",
+    "stats": {"attack": 27, "defense": 23, "speed": 24, "durability": 23, "intelligence": 39, "versatility": 29, "stamina": 30, "feats": 26}, "powerScore": 264, "rarity": "Common",
+    "abilityTags": ["wind", "range", "summoning"], "signatureMoves": ["Wind Release: Sickle Weasel Technique", "Giant Fan Parry"],
+    "limitations": "No later Kamatari summon or war coordination; fan parry is descriptive and wind output costs chakra.",
+    "sourceChapters": [[73, 74], [106, 108]], "confidence": "medium" },
+  { "id": "temari--retrieval-fan", "characterId": "temari", "name": "Fan / Kamatari — retrieval", "era": "Sasuke retrieval",
+    "stats": {"attack": 38, "defense": 27, "speed": 30, "durability": 27, "intelligence": 50, "versatility": 37, "stamina": 34, "feats": 37}, "powerScore": 341, "rarity": "Common",
+    "abilityTags": ["wind", "range", "summoning"], "signatureMoves": ["Wind Release: Great Sickle Weasel Technique", "Summoning: Quick Beheading Dance"],
+    "limitations": "Kamatari requires summoning; no free army or later war stamina. Clearing terrain does not imply guaranteed hits.",
+    "sourceChapters": [[212, 214]], "confidence": "medium" },
+  { "id": "temari--war-fan", "characterId": "temari", "name": "Fan / wind specialist — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 43, "defense": 30, "speed": 36, "durability": 30, "intelligence": 62, "versatility": 44, "stamina": 45, "feats": 42}, "powerScore": 403, "rarity": "Rare",
+    "abilityTags": ["wind", "range", "summoning"], "signatureMoves": ["Wind Release: Great Sickle Weasel Technique", "Summoning: Quick Beheading Dance"],
+    "limitations": "Finite wind/summon loadout; army assistance, prepared terrain and Kurama amplification are excluded.",
+    "sourceChapters": [[553, 554], [569, 569]], "confidence": "medium" }
+]

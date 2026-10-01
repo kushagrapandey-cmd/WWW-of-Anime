@@ -1,0 +1,12 @@
+[
+  { "id": "hidan--base", "characterId": "hidan", "name": "Living — before ritual", "era": "Akatsuki suppression",
+    "stats": {"attack": 27, "defense": 23, "speed": 31, "durability": 32, "intelligence": 25, "versatility": 17, "stamina": 56, "feats": 27}, "powerScore": 289, "rarity": "Common",
+    "abilityTags": ["weapons", "immortality", "taijutsu"], "signatureMoves": ["Triple-Bladed Scythe Assault", "Stake Strike"],
+    "limitations": "Survival trait is not regeneration or immunity to dismemberment. No linked damage until blood and ritual circle conditions are met; stake strike is descriptive.",
+    "sourceChapters": [[312, 314]], "confidence": "medium" },
+  { "id": "hidan--blood-ritual", "characterId": "hidan", "name": "Blood-linked curse ritual", "era": "Akatsuki suppression",
+    "stats": {"attack": 33, "defense": 26, "speed": 35, "durability": 39, "intelligence": 26, "versatility": 23, "stamina": 67, "feats": 33}, "powerScore": 346, "rarity": "Common",
+    "abilityTags": ["curse", "ritual", "immortality"], "signatureMoves": ["Curse Technique: Death Controlling Possessed Blood", "Triple-Bladed Scythe Assault"],
+    "limitations": "Requires target blood and remaining in the drawn ritual circle. Immortality does not prevent immobilization, decapitation or loss of combat access.",
+    "sourceChapters": [[315, 325], [335, 339]], "confidence": "medium" }
+]

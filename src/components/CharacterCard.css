@@ -1,0 +1,9 @@
+.character-card{padding:12px;min-width:0;color:inherit;background:var(--surface)}
+.character-card .character-info{padding:18px 6px 6px}
+.character-card .card-power strong{font-size:1.5rem;color:var(--rarity)}
+.character-tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:12px 0;padding:0}
+.character-tags li{font-size:.7rem;padding:4px 8px;border:1px solid #ffffff26;background:#ffffff08;border-radius:99px}
+.card-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.card-stats>div>div:first-child{display:flex;justify-content:space-between;gap:8px;font-size:.65rem;text-transform:capitalize;margin-bottom:5px}
+.card-stats .progress{height:6px}
+@media(max-width:400px){.card-stats{grid-template-columns:1fr}}

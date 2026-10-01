@@ -1,0 +1,17 @@
+[
+  { "id": "kankuro--crow", "characterId": "kankuro", "name": "Crow puppet — Part One", "era": "Chunin Exams",
+    "stats": {"attack": 20, "defense": 22, "speed": 18, "durability": 19, "intelligence": 36, "versatility": 28, "stamina": 25, "feats": 21}, "powerScore": 218, "rarity": "Common",
+    "abilityTags": ["puppets", "poison", "traps"], "signatureMoves": ["Puppet Technique", "Crow Weapon Trap"],
+    "limitations": "Single carried puppet, finite weapons and exposed controller; no later three-puppet trap or Sasori body. Trap is descriptive.",
+    "sourceChapters": [[70, 70], [125, 127]], "confidence": "medium" },
+  { "id": "kankuro--three-puppets", "characterId": "kankuro", "name": "Crow / Black Ant / Salamander", "era": "Retrieval / Kazekage rescue",
+    "stats": {"attack": 31, "defense": 33, "speed": 25, "durability": 24, "intelligence": 49, "versatility": 43, "stamina": 33, "feats": 32}, "powerScore": 318, "rarity": "Common",
+    "abilityTags": ["puppets", "poison", "traps"], "signatureMoves": ["Puppet Technique", "Black Secret Technique: Machine One Shot"],
+    "limitations": "Requires capture and matching puppet mechanisms; poison is conditional, not instant victory. Sasori knows this loadout’s weaknesses.",
+    "sourceChapters": [[212, 214], [249, 250]], "confidence": "medium" },
+  { "id": "kankuro--war-puppets", "characterId": "kankuro", "name": "War commander / Sasori puppet", "era": "Fourth Shinobi War",
+    "stats": {"attack": 38, "defense": 40, "speed": 32, "durability": 29, "intelligence": 66, "versatility": 55, "stamina": 43, "feats": 44}, "powerScore": 407, "rarity": "Rare",
+    "abilityTags": ["puppets", "poison", "traps"], "signatureMoves": ["Puppet Technique", "Black Secret Technique: Machine One Shot"],
+    "limitations": "Carried puppet collection and finite poisoned weapons; captured Sasori puppet is equipment, not a free independent Akatsuki teammate.",
+    "sourceChapters": [[518, 519], [531, 532]], "confidence": "medium" }
+]

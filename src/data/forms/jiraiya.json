@@ -1,0 +1,12 @@
+[
+  { "id": "jiraiya--base", "characterId": "jiraiya", "name": "Base — living Sannin", "era": "Search for Tsunade / Pain infiltration",
+    "stats": {"attack": 53, "defense": 44, "speed": 48, "durability": 47, "intelligence": 73, "versatility": 62, "stamina": 54, "feats": 54}, "powerScore": 529, "rarity": "Rare",
+    "abilityTags": ["summoning", "hair", "barriers", "strategy"], "signatureMoves": ["Rasengan", "Toad Mouth Bind", "Needle Jizo"],
+    "limitations": "No gathered sage chakra or elder-toad cooperation; summons and barriers cost chakra and need setup.",
+    "sourceChapters": [[148, 148], [164, 170], [368, 373]], "confidence": "medium" },
+  { "id": "jiraiya--imperfect-sage", "characterId": "jiraiya", "name": "Imperfect Sage Mode / elder toads", "era": "Pain confrontation",
+    "stats": {"attack": 63, "defense": 56, "speed": 58, "durability": 56, "intelligence": 80, "versatility": 76, "stamina": 65, "feats": 67}, "powerScore": 636, "rarity": "Epic",
+    "abilityTags": ["sage", "fire", "summoning", "barriers"], "signatureMoves": ["Sage Art: Massive Rasengan", "Sage Art: Goemon", "Toad Mouth Bind"],
+    "limitations": "Sage setup requires time and elder-toad cooperation. Combined Goemon is a cooperative technique; no free army, instant frog-song seal or perfect Sage body.",
+    "sourceChapters": [[374, 383]], "confidence": "medium" }
+]

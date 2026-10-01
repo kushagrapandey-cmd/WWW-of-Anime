@@ -1,0 +1,7 @@
+.character-avatar{--anime-primary:#c38cff;--anime-secondary:#69b7ff;--anime-bg:#272239;position:relative;isolation:isolate;display:grid;place-items:center;aspect-ratio:3/4;overflow:hidden;border:2px solid var(--avatar-rarity);border-radius:16px;background:radial-gradient(circle at 20% 15%,color-mix(in srgb,var(--anime-primary) 65%,transparent),transparent 62%),linear-gradient(145deg,var(--anime-bg),color-mix(in srgb,var(--anime-secondary) 32%,#10121d));box-shadow:inset 0 0 28px #0004,0 0 24px color-mix(in srgb,var(--avatar-rarity) 22%,transparent)}
+.character-avatar::before{content:'';position:absolute;inset:12px;border:1px solid #ffffff26;border-radius:10px;transform:rotate(-4deg);z-index:-1}
+.avatar-monogram{font-family:'Bangers',Impact,sans-serif;font-size:clamp(3rem,8vw,6rem);color:#fff;text-shadow:4px 4px 0 #0005;letter-spacing:.06em}
+.character-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.avatar-role{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:36px;height:36px;background:#10121dd9;border:1px solid var(--avatar-rarity);border-radius:10px;color:var(--avatar-rarity)}
+.guide-avatar{width:100px;flex-shrink:0}
+@media(max-width:700px){.guide-avatar{width:72px}.guide-avatar .avatar-monogram{font-size:2.5rem}.guide-avatar .avatar-role{width:26px;height:26px;right:5px;bottom:5px}.guide-avatar .avatar-role svg{width:16px}}

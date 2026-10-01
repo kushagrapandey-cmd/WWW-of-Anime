@@ -1,0 +1,17 @@
+[
+  { "id": "tsunade--base", "characterId": "tsunade", "name": "Base — medical Sannin", "era": "Search for Tsunade",
+    "stats": {"attack": 50, "defense": 34, "speed": 37, "durability": 46, "intelligence": 68, "versatility": 49, "stamina": 52, "feats": 49}, "powerScore": 469, "rarity": "Rare",
+    "abilityTags": ["healing", "strength", "chakra-control"], "signatureMoves": ["Chakra-enhanced Strike", "Mystical Palm Technique"],
+    "limitations": "No released regeneration seal; blood phobia applies in the early encounter. Enhanced strike is descriptive, not a new official jutsu.",
+    "sourceChapters": [[156, 171]], "confidence": "medium" },
+  { "id": "tsunade--creation-rebirth", "characterId": "tsunade", "name": "Creation Rebirth — first release", "era": "Sannin confrontation",
+    "stats": {"attack": 58, "defense": 40, "speed": 42, "durability": 61, "intelligence": 73, "versatility": 57, "stamina": 47, "feats": 57}, "powerScore": 536, "rarity": "Rare",
+    "abilityTags": ["healing", "strength", "regeneration", "summoning"], "signatureMoves": ["Creation Rebirth", "Summoning Technique: Katsuyu"],
+    "limitations": "Uses stored chakra and cell division with lifespan/recovery costs; no war-era sustained Hundred Healings mastery assumed.",
+    "sourceChapters": [[169, 171]], "confidence": "medium" },
+  { "id": "tsunade--hundred-healings", "characterId": "tsunade", "name": "Strength of a Hundred / Hundred Healings", "era": "Five Kage / Madara battle",
+    "stats": {"attack": 66, "defense": 47, "speed": 48, "durability": 71, "intelligence": 79, "versatility": 67, "stamina": 73, "feats": 67}, "powerScore": 636, "rarity": "Epic",
+    "abilityTags": ["healing", "strength", "regeneration", "summoning"], "signatureMoves": ["Creation Rebirth", "Strength of a Hundred Technique", "Summoning Technique: Katsuyu"],
+    "limitations": "Finite stored-chakra reserve; regeneration is not invulnerability and consumes resources. Allied Kage attacks and external refills excluded.",
+    "sourceChapters": [[577, 588]], "confidence": "medium" }
+]

@@ -5,6 +5,7 @@ import { powerTiers, statWeights } from '../data/power';
 import { rarityColors, animeConfig } from '../data/anime';
 import Card from '../components/Card';
 import Badge from '../components/Badge';
+import CharacterAvatar from '../components/CharacterAvatar';
 import './CharacterGuide.css';
 const roster = [...characters].sort((a, b) => a.name.localeCompare(b.name));
 const coverage = new Set(characterForms.map(form => form.characterId)).size;
@@ -52,7 +53,7 @@ export default function CharacterGuide() {
         </select></label>
       </div>
       <Card className="guide-rating" style={{ '--tier': rarityColors[character.rarity] }}>
-        <div className="guide-rating-heading"><div><h3>{character.name}</h3><p>{character.formName || peakFormNames[character.id]}</p>{character.era && <p>Era: {character.era}</p>}</div>
+        <div className="guide-rating-heading"><CharacterAvatar key={character.id} character={character} className="guide-avatar" /><div><h3>{character.name}</h3><p>{character.formName || peakFormNames[character.id]}</p>{character.era && <p>Era: {character.era}</p>}</div>
           <div><Badge color={rarityColors[character.rarity]}>{character.rarity} tier</Badge><p className="guide-power">{character.powerScore}<small> / 1000</small></p></div></div>
         <p><strong>Rating confidence:</strong> {character.confidence}. Scores are provisional fan estimates, not official canon levels or a guaranteed duel result.</p>
         <dl className="guide-stats">{Object.entries(character.stats).map(([stat, value]) => <div key={stat}><dt>{stat}</dt><dd>{value}<small> / 100</small></dd></div>)}</dl>

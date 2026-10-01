@@ -1,0 +1,22 @@
+[
+  { "id": "minato-namikaze--living-base", "characterId": "minato-namikaze", "name": "Living Fourth Hokage", "era": "Nine-Tails attack",
+    "stats": {"attack": 65, "defense": 55, "speed": 87, "durability": 47, "intelligence": 85, "versatility": 68, "stamina": 55, "feats": 69}, "powerScore": 661, "rarity": "Epic",
+    "abilityTags": ["space-time", "sealing", "strategy"], "signatureMoves": ["Flying Thunder God Technique", "Rasengan", "Reaper Death Seal"],
+    "limitations": "Teleportation requires marks; large barrier/sealing work has finite costs. Death seal kills the user. No personal Kurama cloak or invented living beast mode.",
+    "sourceChapters": [[500, 504]], "confidence": "medium" },
+  { "id": "minato-namikaze--edo-base", "characterId": "minato-namikaze", "name": "Reanimated base", "era": "Fourth Shinobi War",
+    "stats": {"attack": 65, "defense": 56, "speed": 86, "durability": 50, "intelligence": 87, "versatility": 70, "stamina": 88, "feats": 68}, "powerScore": 700, "rarity": "Epic",
+    "abilityTags": ["space-time", "sealing", "regeneration"], "signatureMoves": ["Flying Thunder God Technique", "Rasengan"],
+    "limitations": "No activated Kurama cloak or Sage Mode. Edo recovery is not sealing immunity; no external teammates added.",
+    "sourceChapters": [[630, 631], [637, 639]], "confidence": "medium" },
+  { "id": "minato-namikaze--edo-sage", "characterId": "minato-namikaze", "name": "Sage Mode — brief reanimation burst", "era": "Madara confrontation",
+    "stats": {"attack": 72, "defense": 57, "speed": 88, "durability": 51, "intelligence": 87, "versatility": 72, "stamina": 49, "feats": 65}, "powerScore": 683, "rarity": "Epic",
+    "abilityTags": ["space-time", "sage", "regeneration"], "signatureMoves": ["Sage-enhanced Rasengan", "Flying Thunder God Technique"],
+    "limitations": "Briefly demonstrated poor sustained sage proficiency; no simultaneous Kurama cloak or invented living Sage peak.",
+    "sourceChapters": [[665, 667]], "confidence": "low" },
+  { "id": "minato-namikaze--edo-kurama", "characterId": "minato-namikaze", "name": "Reanimated Kurama Link Mode", "era": "Fourth Shinobi War",
+    "stats": {"attack": 78, "defense": 77, "speed": 93, "durability": 65, "intelligence": 91, "versatility": 84, "stamina": 94, "feats": 83}, "powerScore": 822, "rarity": "Legendary",
+    "abilityTags": ["space-time", "tailed-beast", "sealing", "regeneration"], "signatureMoves": ["Flying Thunder God Technique", "Rasengan", "Tailed Beast Ball"],
+    "limitations": "Finite applicable beast output and marked teleportation; lost arms constrain signs and Kurama is later removed. Separate Sage Mode and allies’ chakra are not stacked.",
+    "sourceChapters": [[631, 631], [643, 645], [664, 665]], "confidence": "medium" }
+]

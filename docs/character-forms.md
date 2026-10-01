@@ -1,6 +1,6 @@
 # 🧬 Character forms and public power guide
 
-**User-requested scope revision, 2026-10-01:** important characters must have their supported forms, not just one peak record; the website must explain selection criteria and levels. The original 40 identities per series stay fixed. Form backfill is part of Phase 2 and must finish before Phase 3. The new `/characters` guide is an explicitly requested UI addition to the otherwise data-focused phase.
+**User-requested scope revision, 2026-10-01:** important characters must have their supported forms, not just one peak record; the website must explain selection criteria and levels. The original 40 identities per series stay fixed. Form backfill is part of Phase 2 and must finish before Phase 4 (Phase 3 is parked). The new `/characters` guide is an explicitly requested UI addition to the otherwise data-focused phase.
 
 ## Identity, form and level
 
@@ -46,9 +46,9 @@ Luffy has Base and Gears 2–5; Gear 1 is an informal base label, not a distinct
 | Naruto | Six Paths Kurama avatar · Final war / final duel | 890 | Legendary | medium | 676–690, 696–697 |
 | Naruto | Final-duel three-headed Kurama avatar · Final valley | 912 | Mythic | medium | 696–697 |
 
-## Current backfill — 89 snapshots, 16 identities
+## Current backfill — 138 snapshots, 31 identities
 
-The first Naruto roster group now has authored form inventories. This adds 66 snapshots for 14 identities; the initial Naruto and Luffy records remain unchanged. No identity peak records or score thresholds changed. [Batch inventory, limits and scores](naruto-forms-batch-1-audit.md) documents the additions. All inventories still require complete panel/alias and peer review before being called complete.
+The first two Naruto roster groups now have authored form inventories. Batch 1 added 66 snapshots for 14 identities; [batch 2](naruto-forms-batch-2-audit.md) adds 49 for Temari through Kakuzu. All previous identities and form records remain unchanged. No score thresholds changed. [Batch 1 inventory](naruto-forms-batch-1-audit.md) documents the earlier additions. All inventories still require complete panel/alias and peer review before being called complete.
 
 ## Evidence and ratings
 
@@ -58,16 +58,16 @@ The Luffy Gear Five and Naruto final-duel avatar records retain existing peak sc
 
 Shared comparisons: Luffy’s early Base is near the provisional local-combat band; later forms rise past Kakuzu 481 toward restored Nagato 744, with Gear Five below Hashirama 840. Naruto’s early Base is local; Sage/early chakra modes cross Kakuzu/Nagato context, while final Six Paths states approach existing Madara/Kaguya ceiling. These are compressed game comparisons, not claims of literal physical multipliers. All forms require peer calibration in the final audit.
 
-## Required backfill before Phase 3
+## Required backfill before Phase 4 (Phase 3 is parked)
 
-1. Identity rosters are now complete (120/120). The user requested final One Piece plus all Bleach together. Continue the form inventory and backfill; do not advance to Phase 3 yet.
+1. Identity rosters are now complete (120/120). The user requested final One Piece plus all Bleach together. Continue the form inventory and backfill; complete forms and calibration before Phase 4; Phase 3 is parked.
 2. Inventory distinct supported forms for all 120 identities; prioritize Sasuke, Kakashi, Guy, Lee, Gaara, Ichigo, Rukia, Renji, Aizen, Ulquiorra, Kaido, the Straw Hats, Zoan users and awakened users. Characters without transformations still get an explicit supported base/era record.
 3. Expand form JSON in modular files under 250 lines and register each file in `src/data/forms/index.js`. Keep form-specific moves/limits; never inherit a stronger form’s arsenal implicitly.
 4. Verify chapter scope, compare peers, audit all aliases, mark actual complete coverage, and review existing peak/form consistency and temporary resource costs.
-5. Phase 3 adds form-aware image matching/fallbacks. Phase 5 exposes pre-battle form selection, stores both identity and form IDs in replay data, and deduplicates character identities across teams.
+5. Phase 3 image acquisition is parked. `CharacterAvatar` already supplies shared image/fallback rendering; later artwork needs form-aware matching. Phase 5 exposes pre-battle form selection, stores both identity and form IDs in replay data, and deduplicates character identities across teams.
 
 ## Current website and testing
 
-Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 16 identities have form selectors with 89 authored snapshots. Naruto has 81 snapshots across its first 15 identities, One Piece has eight for Luffy, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
+Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 31 identities have form selectors with 138 authored snapshots. Naruto has 130 snapshots across its first 30 identities, One Piece has eight for Luffy, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
 
 Run `npm run validate:data` and `npm run build`. The forms validator checks schema, identity references, unique form IDs, chapter cutoffs, eight-stat bounds, exact scores, tier thresholds and move/tag counts. Browser/mobile/keyboard visual checks are manual when no browser binary is available.

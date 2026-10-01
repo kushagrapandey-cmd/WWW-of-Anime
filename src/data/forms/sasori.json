@@ -1,0 +1,22 @@
+[
+  { "id": "sasori--hiruko", "characterId": "sasori", "name": "Hiruko puppet shell", "era": "Kazekage rescue",
+    "stats": {"attack": 38, "defense": 45, "speed": 29, "durability": 31, "intelligence": 63, "versatility": 46, "stamina": 44, "feats": 38}, "powerScore": 394, "rarity": "Common",
+    "abilityTags": ["puppets", "poison", "weapons"], "signatureMoves": ["Hiruko: Poisoned Tail", "Hiruko: Needle Barrage"],
+    "limitations": "Finite shell mechanisms and conditional poison; shell can be broken. No Iron Sand or hundred-puppet army active through the shell.",
+    "sourceChapters": [[264, 266]], "confidence": "medium" },
+  { "id": "sasori--third-kazekage", "characterId": "sasori", "name": "Third Kazekage puppet", "era": "Sakura / Chiyo confrontation",
+    "stats": {"attack": 55, "defense": 47, "speed": 35, "durability": 35, "intelligence": 70, "versatility": 61, "stamina": 49, "feats": 54}, "powerScore": 494, "rarity": "Rare",
+    "abilityTags": ["puppets", "poison", "iron-sand"], "signatureMoves": ["Iron Sand World Method", "Iron Sand Gathering Assault"],
+    "limitations": "Carried human puppet needs control; antidotes and destroyed mechanisms can counter it. No concurrent hundred-puppet barrage.",
+    "sourceChapters": [[266, 271]], "confidence": "medium" },
+  { "id": "sasori--edo", "characterId": "sasori", "name": "Reanimated human body", "era": "Fourth Shinobi War",
+    "stats": {"attack": 29, "defense": 26, "speed": 28, "durability": 27, "intelligence": 66, "versatility": 39, "stamina": 75, "feats": 32}, "powerScore": 366, "rarity": "Common",
+    "abilityTags": ["puppets", "control", "regeneration"], "signatureMoves": ["Chakra Threads", "Controlled Weapon Assault"],
+    "limitations": "Lacks original puppet collection/body mechanisms; uses available captured tools and people. Second move is descriptive; no Iron Sand or flamethrowers restored by Edo.",
+    "sourceChapters": [[518, 519]], "confidence": "low" },
+  { "id": "sasori--puppet-body", "characterId": "sasori", "name": "Living puppet body / retained collection", "era": "Sakura / Chiyo confrontation",
+    "stats": {"attack": 58, "defense": 52, "speed": 44, "durability": 45, "intelligence": 78, "versatility": 72, "stamina": 64, "feats": 57}, "powerScore": 569, "rarity": "Rare",
+    "abilityTags": ["puppets", "poison", "iron-sand", "traps"], "signatureMoves": ["Iron Sand World Method", "Red Secret Technique: Performance of a Hundred Puppets", "Puppet Body: Flamethrower"],
+    "limitations": "Vulnerable living core; finite puppet stock, conditional poison and counterable mechanisms. Equipment changes consume actions; not every puppet attack simultaneously active.",
+    "sourceChapters": [[271, 275]], "confidence": "medium" }
+]

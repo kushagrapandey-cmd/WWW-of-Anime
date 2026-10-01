@@ -1,0 +1,17 @@
+[
+  { "id": "kisame-hoshigaki--base-samehada", "characterId": "kisame-hoshigaki", "name": "Living / Samehada carried", "era": "Part One / Killer B confrontation",
+    "stats": {"attack": 52, "defense": 47, "speed": 44, "durability": 51, "intelligence": 60, "versatility": 53, "stamina": 61, "feats": 53}, "powerScore": 515, "rarity": "Rare",
+    "abilityTags": ["water", "chakra-drain", "sword"], "signatureMoves": ["Water Release: Water Shark Bullet Technique", "Samehada Slash"],
+    "limitations": "Cooperative living sword is equipment; drain needs applicable contact and carries loyalty risks. Slash is descriptive; no fusion water dome.",
+    "sourceChapters": [[143, 148], [470, 471]], "confidence": "medium" },
+  { "id": "kisame-hoshigaki--without-samehada", "characterId": "kisame-hoshigaki", "name": "Living — without Samehada", "era": "Final Guy confrontation",
+    "stats": {"attack": 61, "defense": 48, "speed": 47, "durability": 51, "intelligence": 64, "versatility": 61, "stamina": 48, "feats": 58}, "powerScore": 546, "rarity": "Rare",
+    "abilityTags": ["water", "area-control", "strategy"], "signatureMoves": ["Water Release: Great Shark Bullet Technique", "Water Release: Thousand Feeding Sharks"],
+    "limitations": "No sword drain, fusion or borrowed reserves; Great Shark absorbs chakra attacks, not Guy’s compressed-air tiger.",
+    "sourceChapters": [[506, 508]], "confidence": "medium" },
+  { "id": "kisame-hoshigaki--samehada-fusion", "characterId": "kisame-hoshigaki", "name": "Samehada fusion / water dome", "era": "Killer B confrontation",
+    "stats": {"attack": 66, "defense": 61, "speed": 55, "durability": 64, "intelligence": 67, "versatility": 75, "stamina": 85, "feats": 67}, "powerScore": 663, "rarity": "Epic",
+    "abilityTags": ["water", "chakra-drain", "sword", "fusion"], "signatureMoves": ["Water Prison Shark Dance Technique", "Water Release: Great Shark Bullet Technique", "Samehada Fusion"],
+    "limitations": "Requires cooperative Samehada and water setup; finite chakra, conditional drain and ally/target interactions. Retained Great Shark is not absorption of non-chakra physical attacks.",
+    "sourceChapters": [[471, 473], [506, 507]], "confidence": "medium" }
+]

@@ -1,0 +1,22 @@
+[
+  { "id": "hashirama-senju--living-base", "characterId": "hashirama-senju", "name": "Living base / Wood Release", "era": "Valley of the End flashback",
+    "stats": {"attack": 78, "defense": 77, "speed": 66, "durability": 74, "intelligence": 77, "versatility": 77, "stamina": 82, "feats": 78}, "powerScore": 756, "rarity": "Legendary",
+    "abilityTags": ["wood", "sage", "healing", "suppression"], "signatureMoves": ["Wood Release: Wood Dragon Technique", "Wood Release: Wood Human Technique"],
+    "limitations": "No sage-enhanced thousand-hands statue, Kurama partner or ally support. Suppression requires successful applicable contact.",
+    "sourceChapters": [[621, 626]], "confidence": "medium" },
+  { "id": "hashirama-senju--part-one-edo", "characterId": "hashirama-senju", "name": "Restricted reanimation — Konoha invasion", "era": "Orochimaru’s first reanimation",
+    "stats": {"attack": 51, "defense": 53, "speed": 43, "durability": 47, "intelligence": 66, "versatility": 52, "stamina": 68, "feats": 50}, "powerScore": 520, "rarity": "Rare",
+    "abilityTags": ["wood", "control", "regeneration"], "signatureMoves": ["Wood Release: Deep Forest Emergence", "Wood Release Restraint"],
+    "limitations": "Restricted early Edo body, not living prime or restored war output. Restraint is descriptive; sealing counters regeneration.",
+    "sourceChapters": [[118, 123]], "confidence": "low" },
+  { "id": "hashirama-senju--war-edo", "characterId": "hashirama-senju", "name": "War reanimation / Sage Mode", "era": "Fourth Shinobi War",
+    "stats": {"attack": 80, "defense": 82, "speed": 70, "durability": 77, "intelligence": 79, "versatility": 82, "stamina": 91, "feats": 81}, "powerScore": 795, "rarity": "Legendary",
+    "abilityTags": ["wood", "sage", "control", "regeneration"], "signatureMoves": ["Sage Art: Gracious Deity Gates", "Wood Release: Wood Dragon Technique"],
+    "limitations": "Edo chakra/recovery remain counterable by sealing. No living final-valley thousand-hands feat automatically assigned to this demonstrated war snapshot.",
+    "sourceChapters": [[631, 638], [655, 656]], "confidence": "medium" },
+  { "id": "hashirama-senju--living-sage", "characterId": "hashirama-senju", "name": "Living Sage Mode", "era": "Final valley flashback",
+    "stats": {"attack": 86, "defense": 86, "speed": 75, "durability": 83, "intelligence": 80, "versatility": 86, "stamina": 91, "feats": 87}, "powerScore": 840, "rarity": "Legendary",
+    "abilityTags": ["wood", "sage", "healing", "suppression"], "signatureMoves": ["Sage Art: Wood Release: True Several Thousand Hands", "Wood Release: Wood Dragon Technique", "Wood Release: Wood Human Technique"],
+    "limitations": "Requires sage gathering and finite living chakra; no Edo regeneration or separately controlled Kurama added to this loadout.",
+    "sourceChapters": [[621, 626]], "confidence": "medium" }
+]

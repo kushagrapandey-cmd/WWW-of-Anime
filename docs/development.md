@@ -43,7 +43,7 @@ WWW-of-Anime/
       power.js
       peakForms.js
       characters/{naruto,onepiece,bleach}.json
-      forms/index.js and 16 modular character JSON files
+      forms/index.js and 31 modular character JSON files
       quizzes/.gitkeep
     services/.gitkeep
     game/.gitkeep
@@ -56,7 +56,7 @@ All paths above are tracked source files in this repository. Empty directories r
 
 - Home: animated gradient hero, three anime portals, Battle banner and locked Daily Challenge teaser are visible.
 - Click Home, Battle, Quizzes, Games and Profile / Login. Each reaches its correct route and highlights its navigation item where applicable.
-- Characters: visit `/characters`, switch Luffy from Base to Gear Five, then Naruto from Part One Base to final-duel avatar. Check scores, tiers, eras, moves and limits change. Switch Sasuke from early Base to Indra Susanoo: no early Rinnegan/Indra moves, and score/tier/limits must change. Check Kakashi’s temporary dual-eye limits, Lee’s individual gates and Choji’s pill costs. Confirm per-series counts (Naruto 81, One Piece 8, Bleach 0), chapter ranges and review status. Select Kaido and check the pending-forms notice.
+- Characters: visit `/characters`, switch Luffy from Base to Gear Five, then Naruto from Part One Base to final-duel avatar. Check scores, tiers, eras, moves and limits change. Switch Sasuke from early Base to Indra Susanoo: no early Rinnegan/Indra moves, and score/tier/limits must change. Check Kakashi’s temporary dual-eye limits, Lee’s individual gates and Choji’s pill costs. Confirm per-series counts (Naruto 130, One Piece 8, Bleach 0), chapter ranges and review status. Select Kaido and check the pending-forms notice.
 - Click each anime portal. Verify Naruto, One Piece and Bleach preview pages and their theme colors.
 - Visit `/profile`, `/login`, `/does-not-exist` and `/anime/unknown`. The first two show previews; the last two show the 404 screen.
 - At 360px width: open/close the navigation menu, select a route, and check that the menu closes. Confirm no horizontal scroll.
@@ -71,9 +71,15 @@ All paths above are tracked source files in this repository. Empty directories r
 - `Modal`: `open`, `onClose`, `title`, `children`. Native dialog provides focus trapping, Escape handling and focus return; backdrop clicks close it.
 - `Badge`: `children`, optional `color`, `className`.
 - `ProgressBar`: `value`, `max`, `label`, `color`. Values are clamped and exposed accessibly.
-- `CharacterCard`: `name`, `anime`, `image`, `rarity`, `powerScore`, `selected`, optional `onSelect`. Props only; initials appear when no image is supplied or loading fails.
+- `CharacterAvatar`: `character`, optional `className`; shared lazy image/fallback renderer with role icon.
+- `CharacterCard`: `character` object or legacy name/anime/image/rarity/powerScore props, plus role/stats/abilityTags, selected and onSelect. Uses CharacterAvatar, stat bars and ability chips.
+- `LocalHeroArt`: optional decorative covers only from `/public/hero/`; missing files leave gradients. No web downloads.
 
 
 ## Verification
 
 Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; battle/account/gameplay phases remain pending.
+
+## Revised phase order and fallback checks
+
+See [task memory](../TASKS.md). Phase 3 is parked; after Phase 2 review proceed to Phase 4. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is Phase 7; no silhouette game is planned.

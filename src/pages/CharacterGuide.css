@@ -27,3 +27,5 @@
 .character-guide summary{cursor:pointer;color:var(--lime)}
 @media(max-width:800px){.navigation{gap:12px}.navigation>a{font-size:.8rem}}
 @media(max-width:700px){.guide-rules,.guide-selectors{grid-template-columns:1fr}.guide-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-rules>.card,.guide-rating{padding:20px}.character-guide{padding-top:24px}.guide-rating h3{font-size:1.9rem}}
+
+.guide-rating-heading>div:nth-child(2){flex:1;min-width:180px}

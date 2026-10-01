@@ -1,0 +1,22 @@
+[
+  { "id": "deidara--clay-base", "characterId": "deidara", "name": "Clay arsenal — living", "era": "Kazekage rescue / Sasuke battle",
+    "stats": {"attack": 63, "defense": 35, "speed": 40, "durability": 31, "intelligence": 61, "versatility": 51, "stamina": 38, "feats": 54}, "powerScore": 477, "rarity": "Rare",
+    "abilityTags": ["explosion", "clay", "flight"], "signatureMoves": ["C1 Clay Explosives", "C3"],
+    "limitations": "Finite prepared clay with lightning counters; aerial clay mount needs stock. No C4 microbombs or suicide C0 body.",
+    "sourceChapters": [[247, 250], [357, 360]], "confidence": "medium" },
+  { "id": "deidara--c4", "characterId": "deidara", "name": "C4 Karura loadout", "era": "Sasuke confrontation",
+    "stats": {"attack": 72, "defense": 37, "speed": 42, "durability": 32, "intelligence": 67, "versatility": 56, "stamina": 27, "feats": 57}, "powerScore": 508, "rarity": "Rare",
+    "abilityTags": ["explosion", "clay", "flight", "traps"], "signatureMoves": ["C4 Karura", "C2 Dragon"],
+    "limitations": "Microbombs need inhalation and delivery; lightning and perception provide demonstrated counters. No simultaneously activated C0 or infinite clay.",
+    "sourceChapters": [[360, 362]], "confidence": "medium" },
+  { "id": "deidara--edo", "characterId": "deidara", "name": "Reanimated clay arsenal", "era": "Fourth Shinobi War",
+    "stats": {"attack": 62, "defense": 38, "speed": 39, "durability": 35, "intelligence": 64, "versatility": 54, "stamina": 81, "feats": 53}, "powerScore": 528, "rarity": "Rare",
+    "abilityTags": ["explosion", "clay", "flight", "regeneration"], "signatureMoves": ["C1 Clay Explosives", "C2 Dragon"],
+    "limitations": "No demonstrated repeatable C0 loop inferred from reanimation. Finite clay mechanisms and sealing counters; allies’ traps not free.",
+    "sourceChapters": [[517, 519]], "confidence": "medium" },
+  { "id": "deidara--c0", "characterId": "deidara", "name": "C0 — final suicide loadout", "era": "Sasuke confrontation",
+    "stats": {"attack": 76, "defense": 39, "speed": 45, "durability": 34, "intelligence": 70, "versatility": 60, "stamina": 19, "feats": 57}, "powerScore": 525, "rarity": "Rare",
+    "abilityTags": ["explosion", "clay", "flight", "traps"], "signatureMoves": ["C3", "C4 Karura", "C0"],
+    "limitations": "C0 irreversibly detonates the living body; C3/C4 list reflects retained preparation, not three simultaneous active forms. Finite clay and no post-blast fighting.",
+    "sourceChapters": [[362, 363]], "confidence": "medium" }
+]

@@ -6,11 +6,11 @@
 
 | Series | Identities | Separate form snapshots | Form-complete status |
 | --- | ---: | ---: | --- |
-| Naruto | 40/40 | 81 across 15 identities | Authored first roster group; complete review pending |
+| Naruto | 40/40 | 130 across 30 identities | Authored first two roster groups; complete review pending |
 | One Piece | 40/40 | 8 for Luffy | Initial major-form set; full inventory pending |
 | Bleach | 40/40 | 0 | Alternate-form backfill pending |
 
-The website now lists all 120 selected peak records in `/characters`; every record has a precise selected-state label. Sixteen characters have authored form selectors (89 snapshots); their full inventories and evidence still require review. Other characters display a pending notice rather than pretending base/Bankai/release records already exist. A peak identity and an alternate form are separate data concepts.
+The website now lists all 120 selected peak records in `/characters`; every record has a precise selected-state label. Thirty-one characters have authored form selectors (138 snapshots); their full inventories and evidence still require review. Other characters display a pending notice rather than pretending base/Bankai/release records already exist. A peak identity and an alternate form are separate data concepts.
 
 ## Actual rarity distribution
 
@@ -41,6 +41,6 @@ Unaudited score endpoints at ranks 42/78/102/115 are 547, 659, 769, 899. These a
 
 Full JSON schema, unique identities, approved roster order, exact formulas, rarity, tags/moves/clues, image-null policy and merged exports are checked. Prior Naruto and the first 30 One Piece records are preserved. Existing form selection continues to preserve character identity. The guide is loaded as a separate route chunk so all 120 records do not inflate the initial home bundle. Build and server-render checks verify the expanded guide; visual/mobile QA remains manual without a browser binary.
 
-Next: finish distinct supported forms for all 120 identities, prioritizing transformed protagonists and major opponents, with separate era labels/limits and chapter references. Review current peak consistency, aliases and peer calibration. Only then mark Phase 2 complete and proceed to the image pipeline. Images, battle/account logic and quizzes remain later phases.
+Next: finish distinct supported forms for all 120 identities, prioritizing transformed protagonists and major opponents, with separate era labels/limits and chapter references. Review current peak consistency, aliases and peer calibration. Only then mark Phase 2 complete and proceed directly to Phase 4. Phase 3 image acquisition is parked by user instruction. Images, battle/account logic and quizzes remain later phases.
 
 [Naruto audit 1](naruto-batch-1-audit.md) · [2](naruto-batch-2-audit.md) · [3](naruto-batch-3-audit.md) · [One Piece audit 1](onepiece-batch-1-audit.md) · [2](onepiece-batch-2-audit.md) · [3](onepiece-batch-3-audit.md) · [Bleach audit 1](bleach-batch-1-audit.md) · [2](bleach-batch-2-audit.md) · [3](bleach-batch-3-audit.md)

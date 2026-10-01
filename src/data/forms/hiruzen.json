@@ -1,0 +1,12 @@
+[
+  { "id": "hiruzen-sarutobi--elderly-living", "characterId": "hiruzen-sarutobi", "name": "Elderly living Hokage", "era": "Konoha invasion",
+    "stats": {"attack": 53, "defense": 43, "speed": 45, "durability": 40, "intelligence": 84, "versatility": 70, "stamina": 27, "feats": 53}, "powerScore": 504, "rarity": "Rare",
+    "abilityTags": ["elements", "staff", "sealing"], "signatureMoves": ["Summoning Technique: Enma", "Fire Release: Fire Dragon Flame Bullet", "Reaper Death Seal"],
+    "limitations": "Old-age chakra limits clones and sustained combat; death seal is fatal and resisted by strong targets. No invented young-prime boost.",
+    "sourceChapters": [[117, 138]], "confidence": "medium" },
+  { "id": "hiruzen-sarutobi--war-edo", "characterId": "hiruzen-sarutobi", "name": "War reanimation", "era": "Fourth Shinobi War",
+    "stats": {"attack": 61, "defense": 54, "speed": 53, "durability": 52, "intelligence": 88, "versatility": 83, "stamina": 93, "feats": 65}, "powerScore": 657, "rarity": "Epic",
+    "abilityTags": ["elements", "clones", "staff", "regeneration"], "signatureMoves": ["Five Release Great Combo Technique", "Shadow Clone Technique", "Summoning Technique: Enma"],
+    "limitations": "Demonstrated restored endurance; no unseen young prime or automatic soul removal. Regeneration remains vulnerable to sealing.",
+    "sourceChapters": [[662, 663]], "confidence": "medium" }
+]
