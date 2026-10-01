@@ -1,0 +1,22 @@
+[
+  { "id": "sakura-haruno--part-one-base", "characterId": "sakura-haruno", "name": "Base — Part One", "era": "Chunin Exams",
+    "stats": {"attack": 10, "defense": 12, "speed": 15, "durability": 13, "intelligence": 42, "versatility": 19, "stamina": 23, "feats": 15}, "powerScore": 158, "rarity": "Common",
+    "abilityTags": ["tools", "chakra-control", "strategy"], "signatureMoves": ["Substitution Technique", "Clone Technique"],
+    "limitations": "No medical training, chakra-enhanced strength, Katsuyu or stored-chakra seal. Ordinary academy techniques are not attack clones.",
+    "sourceChapters": [[53, 54], [71, 73]], "confidence": "medium" },
+  { "id": "sakura-haruno--medic-base", "characterId": "sakura-haruno", "name": "Medic / enhanced strength — early Shippuden", "era": "Kazekage rescue",
+    "stats": {"attack": 46, "defense": 29, "speed": 36, "durability": 35, "intelligence": 64, "versatility": 49, "stamina": 47, "feats": 47}, "powerScore": 429, "rarity": "Rare",
+    "abilityTags": ["healing", "strength", "chakra-control"], "signatureMoves": ["Cherry Blossom Impact", "Mystical Palm Technique"],
+    "limitations": "No released Strength of a Hundred seal; antidotes and Chiyo assistance are not automatic solo resources.",
+    "sourceChapters": [[246, 275]], "confidence": "medium" },
+  { "id": "sakura-haruno--war-base", "characterId": "sakura-haruno", "name": "Base — war before seal release", "era": "Fourth Shinobi War",
+    "stats": {"attack": 52, "defense": 37, "speed": 45, "durability": 43, "intelligence": 72, "versatility": 56, "stamina": 54, "feats": 53}, "powerScore": 502, "rarity": "Rare",
+    "abilityTags": ["healing", "strength", "chakra-control"], "signatureMoves": ["Cherry Blossom Impact", "Mystical Palm Technique"],
+    "limitations": "No active regeneration seal or free Katsuyu support in this pre-release snapshot. Stored chakra is not added to ordinary stamina.",
+    "sourceChapters": [[540, 540], [631, 631]], "confidence": "low" },
+  { "id": "sakura-haruno--hundred-healings", "characterId": "sakura-haruno", "name": "Strength of a Hundred / Hundred Healings", "era": "War / Kaguya confrontation",
+    "stats": {"attack": 65, "defense": 48, "speed": 56, "durability": 58, "intelligence": 76, "versatility": 68, "stamina": 69, "feats": 65}, "powerScore": 624, "rarity": "Epic",
+    "abilityTags": ["healing", "strength", "regeneration", "summoning"], "signatureMoves": ["Strength of a Hundred Technique", "Cherry Blossom Impact", "Summoning Technique: Katsuyu"],
+    "limitations": "Uses chakra accumulated over years; regeneration and Katsuyu support spend that finite reserve. No invulnerability or allied medical network added to solo offense.",
+    "sourceChapters": [[632, 635], [676, 689]], "confidence": "medium" }
+]

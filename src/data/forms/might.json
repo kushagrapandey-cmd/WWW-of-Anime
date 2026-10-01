@@ -1,0 +1,22 @@
+[
+  { "id": "might-guy--war-base", "characterId": "might-guy", "name": "Base — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 43, "defense": 34, "speed": 50, "durability": 39, "intelligence": 64, "versatility": 24, "stamina": 56, "feats": 45}, "powerScore": 434, "rarity": "Rare",
+    "abilityTags": ["taijutsu", "speed", "weapons"], "signatureMoves": ["Leaf Strong Whirlwind", "Nunchaku Assault"],
+    "limitations": "No opened gates; nunchaku assault is descriptive. Ordinary stamina does not include external chakra gifts.",
+    "sourceChapters": [[595, 598]], "confidence": "medium" },
+  { "id": "might-guy--sixth-gate", "characterId": "might-guy", "name": "Sixth Gate — Gate of View", "era": "Kazekage rescue",
+    "stats": {"attack": 60, "defense": 42, "speed": 65, "durability": 41, "intelligence": 66, "versatility": 25, "stamina": 32, "feats": 57}, "powerScore": 501, "rarity": "Rare",
+    "abilityTags": ["taijutsu", "speed", "eight-gates"], "signatureMoves": ["Morning Peacock", "Leaf Strong Whirlwind"],
+    "limitations": "Burst exertion strains the body; Morning Peacock is friction-based taijutsu, not unrestricted Fire Release. No Daytime Tiger or eighth-gate moves.",
+    "sourceChapters": [[258, 258]], "confidence": "medium" },
+  { "id": "might-guy--seventh-gate", "characterId": "might-guy", "name": "Seventh Gate — Gate of Wonder", "era": "Kisame confrontation",
+    "stats": {"attack": 76, "defense": 51, "speed": 77, "durability": 44, "intelligence": 70, "versatility": 27, "stamina": 20, "feats": 73}, "powerScore": 582, "rarity": "Rare",
+    "abilityTags": ["taijutsu", "speed", "eight-gates"], "signatureMoves": ["Daytime Tiger", "Leaf Strong Whirlwind"],
+    "limitations": "Compressed-air tiger is physical rather than chakra absorption fodder. Severe exhaustion; no Evening Elephant or Night Guy.",
+    "sourceChapters": [[506, 507]], "confidence": "medium" },
+  { "id": "might-guy--eighth-gate", "characterId": "might-guy", "name": "Eighth Gate — Gate of Death", "era": "Madara confrontation",
+    "stats": {"attack": 95, "defense": 66, "speed": 95, "durability": 50, "intelligence": 73, "versatility": 28, "stamina": 8, "feats": 90}, "powerScore": 688, "rarity": "Epic",
+    "abilityTags": ["taijutsu", "speed", "eight-gates"], "signatureMoves": ["Night Guy", "Evening Elephant"],
+    "limitations": "Fatal gate with extremely brief output; damage and recovery costs dominate stamina. Naruto’s rescue and allies creating openings are excluded from self-sustain.",
+    "sourceChapters": [[669, 672]], "confidence": "medium" }
+]

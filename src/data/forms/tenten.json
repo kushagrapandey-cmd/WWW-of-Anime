@@ -1,0 +1,17 @@
+[
+  { "id": "tenten--part-one-tools", "characterId": "tenten", "name": "Ninja tools — Part One", "era": "Chunin Exams",
+    "stats": {"attack": 16, "defense": 15, "speed": 21, "durability": 18, "intelligence": 29, "versatility": 26, "stamina": 27, "feats": 18}, "powerScore": 195, "rarity": "Common",
+    "abilityTags": ["weapons", "projectiles", "tools"], "signatureMoves": ["Summoning: Ninja Tools", "Projectile Volley"],
+    "limitations": "Sparse manga combat evidence; volley is descriptive. No anime-only Twin Rising Dragons or war treasure tools.",
+    "sourceChapters": [[73, 74]], "confidence": "low" },
+  { "id": "tenten--war-tools", "characterId": "tenten", "name": "Ninja tools — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 25, "defense": 22, "speed": 28, "durability": 23, "intelligence": 40, "versatility": 35, "stamina": 34, "feats": 25}, "powerScore": 274, "rarity": "Common",
+    "abilityTags": ["weapons", "projectiles", "tools"], "signatureMoves": ["Summoning: Ninja Tools", "Projectile Volley"],
+    "limitations": "Ordinary carried weapons only; no Bashosen or full Sage treasure set. Volley is descriptive, not an anime technique.",
+    "sourceChapters": [[530, 536]], "confidence": "low" },
+  { "id": "tenten--bashosen", "characterId": "tenten", "name": "Bashosen — borrowed treasure fan", "era": "Fourth Shinobi War",
+    "stats": {"attack": 35, "defense": 25, "speed": 31, "durability": 26, "intelligence": 43, "versatility": 47, "stamina": 20, "feats": 30}, "powerScore": 315, "rarity": "Common",
+    "abilityTags": ["weapons", "projectiles", "elements"], "signatureMoves": ["Summoning Technique: Ninja Tools", "Bashosen: Elemental Fan Attack"],
+    "limitations": "Brief borrowed fan use consumes unusually heavy chakra and causes exhaustion. Other Sage treasures are not stacked; no mastery of every element is assumed.",
+    "sourceChapters": [[536, 537]], "confidence": "medium" }
+]

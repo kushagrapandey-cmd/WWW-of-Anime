@@ -60,7 +60,7 @@ These are paths inside the running app, not links to a deployed website.
 | 🎮 Games | `/games` | Guessing games preview |
 | 👤 Profile / Login | `/login` | Account preview; also links to the profile preview |
 | 🏅 Profile | `/profile` | Profile preview |
-| 🧬 **Characters & Power** | `/characters` | Browse ratings, compare Luffy/Naruto forms, understand selection and tiers |
+| 🧬 **Characters & Power** | `/characters` | Browse ratings, compare forms, understand selection and tiers |
 | 🌌 Anime portals | `/anime/:animeId` | Naruto, One Piece or Bleach introduction |
 | 🌀 Unknown page | Any unmatched path | A 404 page with a way home |
 
@@ -145,13 +145,13 @@ We build one phase at a time. Nothing is publicly deployed yet.
 - 🔌 `src/services` reserves the interface for future local accounts and persistence.
 - ♿ The foundation includes focus styles, a skip link and reduced-motion handling. Full accessibility QA is still pending.
 
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Latest State Summary](STATE_SUMMARY.md)
+[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit](docs/naruto-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Latest State Summary](STATE_SUMMARY.md)
 
 ## 📚 About the characters and scores
 
 Character forms and abilities will be based on a fixed manga snapshot. The approved Phase 2 rubric specifies the cutoff, evidence policy, and uncertainty rules. Peak forms can contain major spoilers.
 
-All **120 character identities** are loaded: **40 Naruto, 40 One Piece and 40 Bleach**. Visit **Characters** to explore their selected peak ratings and the initial **23 alternate snapshots for Luffy and Naruto**. Other alternate forms are clearly marked pending; full form coverage is part of Phase 2 before images and gameplay. Character images remain empty until Phase 3. Power score and tier are game estimates; player rank is a separate future feature.
+All **120 character identities** are loaded: **40 Naruto, 40 One Piece and 40 Bleach**. Visit **Characters** to explore their selected peak ratings and **89 form snapshots across 16 identities** (81 Naruto snapshots across 15 characters, plus 8 for Luffy). Forms include Sasuke’s curse marks and eyes, Kakashi’s temporary dual Sharingan, Guy/Lee’s gates, Choji’s pills and Gaara’s Shukaku states. Counts describe authored records; complete canon and inventory review remains pending. Unexpanded characters are clearly marked pending; full form coverage is part of Phase 2 before images and gameplay. Character images remain empty until Phase 3. Power score and tier are game estimates; player rank is a separate future feature.
 
 Cross-series scores are fan-made gameplay estimates. Rarity reflects those scores; it is not a measure of a character’s popularity or importance to the story.
 

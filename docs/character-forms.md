@@ -16,7 +16,7 @@ Cover all distinct, manga-supported battle transformations and materially differ
 
 Luffy has Base and Gears 2–5; Gear 1 is an informal base label, not a distinct canon transformation. Gear Four includes Boundman, Snakeman and the demonstrated stuffed Tankman; an unshown standard Tankman is not invented. Early and late Base have different Haki/access. Naruto’s original-series range includes base eras, demonstrated fox-chakra/cloak states, Sage Mode, KCM 1, KCM 2, supported sage combination and Six Paths/avatar states. Boruto/Baryon Mode, films and unsupported adult peak estimates remain excluded.
 
-## Initial coverage — 23 snapshots, two identities
+## Initial seed — 23 snapshots, two identities (historical)
 
 **This is an initial major-form set, not completed coverage for every roster character.** The guide states the live coverage count and marks every unexpanded character as pending. Further chapter review may split additional materially different era snapshots. All form ratings remain provisional. Complete the inventory and evidence audit before marking a character fully covered.
 
@@ -46,6 +46,10 @@ Luffy has Base and Gears 2–5; Gear 1 is an informal base label, not a distinct
 | Naruto | Six Paths Kurama avatar · Final war / final duel | 890 | Legendary | medium | 676–690, 696–697 |
 | Naruto | Final-duel three-headed Kurama avatar · Final valley | 912 | Mythic | medium | 696–697 |
 
+## Current backfill — 89 snapshots, 16 identities
+
+The first Naruto roster group now has authored form inventories. This adds 66 snapshots for 14 identities; the initial Naruto and Luffy records remain unchanged. No identity peak records or score thresholds changed. [Batch inventory, limits and scores](naruto-forms-batch-1-audit.md) documents the additions. All inventories still require complete panel/alias and peer review before being called complete.
+
 ## Evidence and ratings
 
 [Official Naruto Sage/Pain retrospective](https://naruto-official.com/en/news/01_1321), [war chakra-mode retrospective](https://naruto-official.com/en/news/01_1327) and [Six Paths retrospective](https://naruto-official.com/en/news/01_1355) provide event context and embedded manga references. They are adaptation-oriented summaries, not permission to add anime-only feats. [VIZ One Piece 1044](https://www.viz.com/shonenjump/one-piece-chapter-1044/chapter/24172) locates awakening, and official merchandise searches corroborated Gear naming, not power levels. Individual chapter ranges in each JSON are panel-review targets, not a claim of exhaustive inspection.
@@ -64,6 +68,6 @@ Shared comparisons: Luffy’s early Base is near the provisional local-combat ba
 
 ## Current website and testing
 
-Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all loaded characters; two have alternate-form selectors. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
+Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 16 identities have form selectors with 89 authored snapshots. Naruto has 81 snapshots across its first 15 identities, One Piece has eight for Luffy, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
 
 Run `npm run validate:data` and `npm run build`. The forms validator checks schema, identity references, unique form IDs, chapter cutoffs, eight-stat bounds, exact scores, tier thresholds and move/tag counts. Browser/mobile/keyboard visual checks are manual when no browser binary is available.

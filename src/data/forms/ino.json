@@ -1,0 +1,12 @@
+[
+  { "id": "ino-yamanaka--part-one-base", "characterId": "ino-yamanaka", "name": "Mind techniques — Part One", "era": "Chunin Exams",
+    "stats": {"attack": 9, "defense": 13, "speed": 17, "durability": 15, "intelligence": 40, "versatility": 30, "stamina": 23, "feats": 19}, "powerScore": 176, "rarity": "Common",
+    "abilityTags": ["mind-control", "tools", "strategy"], "signatureMoves": ["Mind Body Switch Technique", "Kunai Assault"],
+    "limitations": "Transfer can miss and leaves her own body exposed; no war communication network or later Mind Clone Switch. Kunai attack is descriptive.",
+    "sourceChapters": [[71, 73]], "confidence": "medium" },
+  { "id": "ino-yamanaka--war-mind", "characterId": "ino-yamanaka", "name": "Mind / sensory techniques — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 18, "defense": 23, "speed": 29, "durability": 24, "intelligence": 70, "versatility": 59, "stamina": 43, "feats": 45}, "powerScore": 337, "rarity": "Common",
+    "abilityTags": ["mind-control", "sensory", "communication"], "signatureMoves": ["Mind Body Switch Technique", "Mind Clone Switch Technique", "Mind Transmission Technique"],
+    "limitations": "Brief control and transmissions depend on target resistance, aim and chakra; allies’ attacks and Kurama amplification are excluded.",
+    "sourceChapters": [[534, 534], [611, 616]], "confidence": "medium" }
+]

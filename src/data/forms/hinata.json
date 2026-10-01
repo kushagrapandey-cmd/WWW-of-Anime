@@ -1,0 +1,17 @@
+[
+  { "id": "hinata-hyuga--part-one-byakugan", "characterId": "hinata-hyuga", "name": "Byakugan / Gentle Fist — Part One", "era": "Chunin Exams",
+    "stats": {"attack": 16, "defense": 18, "speed": 23, "durability": 19, "intelligence": 35, "versatility": 20, "stamina": 25, "feats": 19}, "powerScore": 200, "rarity": "Common",
+    "abilityTags": ["byakugan", "taijutsu", "chakra-control"], "signatureMoves": ["Gentle Fist", "Byakugan Tracking"],
+    "limitations": "No Twin Lion Fists, completed Sixty-Four Palms or anime-only protective palm techniques; tracking is descriptive.",
+    "sourceChapters": [[78, 80]], "confidence": "medium" },
+  { "id": "hinata-hyuga--pain-twin-lions", "characterId": "hinata-hyuga", "name": "Gentle Step Twin Lion Fists — Pain invasion", "era": "Pain invasion",
+    "stats": {"attack": 28, "defense": 25, "speed": 32, "durability": 24, "intelligence": 45, "versatility": 28, "stamina": 28, "feats": 29}, "powerScore": 286, "rarity": "Common",
+    "abilityTags": ["byakugan", "taijutsu", "chakra-control"], "signatureMoves": ["Gentle Step Twin Lion Fists", "Gentle Fist"],
+    "limitations": "Brief demonstrated combat; no completed war Sixty-Four Palms or movie/Boruto abilities. Not automatic chakra absorption victory.",
+    "sourceChapters": [[437, 437]], "confidence": "low" },
+  { "id": "hinata-hyuga--war-gentle-fist", "characterId": "hinata-hyuga", "name": "Byakugan / Twin Lion Fists — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 33, "defense": 31, "speed": 39, "durability": 30, "intelligence": 52, "versatility": 33, "stamina": 42, "feats": 36}, "powerScore": 355, "rarity": "Common",
+    "abilityTags": ["byakugan", "taijutsu", "chakra-control"], "signatureMoves": ["Gentle Step Twin Lion Fists", "Eight Trigrams Sixty-Four Palms", "Eight Trigrams Air Palm"],
+    "limitations": "Uses demonstrated original-series toolkit without donated Kurama chakra. No The Last movie upgrades, anime-only forms or adult estimates.",
+    "sourceChapters": [[633, 633]], "confidence": "medium" }
+]

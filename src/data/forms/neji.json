@@ -1,0 +1,12 @@
+[
+  { "id": "neji-hyuga--part-one-byakugan", "characterId": "neji-hyuga", "name": "Byakugan / Gentle Fist — Part One", "era": "Chunin Exams / Sasuke retrieval",
+    "stats": {"attack": 29, "defense": 40, "speed": 38, "durability": 27, "intelligence": 55, "versatility": 29, "stamina": 35, "feats": 33}, "powerScore": 337, "rarity": "Common",
+    "abilityTags": ["byakugan", "taijutsu", "chakra-control"], "signatureMoves": ["Eight Trigrams Sixty-Four Palms", "Eight Trigrams Palms Revolving Heaven"],
+    "limitations": "Byakugan has a blind spot; Rotation needs timing and chakra. No war-era Air Palm or donated cloak.",
+    "sourceChapters": [[100, 105], [194, 198]], "confidence": "medium" },
+  { "id": "neji-hyuga--war-byakugan", "characterId": "neji-hyuga", "name": "Byakugan / Gentle Fist — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 36, "defense": 48, "speed": 46, "durability": 32, "intelligence": 68, "versatility": 35, "stamina": 45, "feats": 42}, "powerScore": 417, "rarity": "Rare",
+    "abilityTags": ["byakugan", "taijutsu", "chakra-control"], "signatureMoves": ["Eight Trigrams Sixty-Four Palms", "Eight Trigrams Palms Revolving Heaven", "Eight Trigrams Air Palm"],
+    "limitations": "Chakra strikes require contact or applicable range; vision has a blind spot. No Kurama cloak or invented immunity to projectiles.",
+    "sourceChapters": [[614, 614], [633, 633]], "confidence": "medium" }
+]

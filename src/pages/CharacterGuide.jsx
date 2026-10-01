@@ -13,6 +13,7 @@ export default function CharacterGuide() {
   const [formId, setFormId] = useState('monkey-d-luffy--gear-five');
   const forms = getFormsForCharacter(characterId);
   const character = getRatedCharacter(characterId, formId);
+  const selectedForm = forms.find(form => form.id === formId);
   const chooseCharacter = event => {
     const id = event.target.value;
     setCharacterId(id);
@@ -38,7 +39,12 @@ export default function CharacterGuide() {
     </section>
     <section aria-labelledby="form-heading" className="guide-preview">
       <div className="section-heading"><div><span className="eyebrow">FORM EXPLORER</span><h2 id="form-heading">PICK A VERSION</h2></div></div>
-      <p>{characters.length} character identities loaded · {characterForms.length} alternate form snapshots across {coverage} characters. Full form coverage is in progress; this is an information preview, not battle setup.</p>
+      <p>{characters.length} character identities loaded · {characterForms.length} alternate form snapshots across {coverage} characters. These counts show authored snapshots, not completed canon review. Full form coverage is in progress; this is an information preview, not battle setup.</p>
+      <ul className="guide-status">{animeConfig.map(anime => {
+        const ids = new Set(characters.filter(item => item.anime === anime.id).map(item => item.id));
+        const snapshots = characterForms.filter(form => ids.has(form.characterId));
+        return <li key={anime.id}>{anime.name}: {snapshots.length} snapshots across {new Set(snapshots.map(form => form.characterId)).size} / {ids.size} identities</li>;
+      })}</ul>
       <div className="guide-selectors">
         <label htmlFor="guide-character">Character<select id="guide-character" value={characterId} onChange={chooseCharacter}>{roster.map(item => <option key={item.id} value={item.id}>{item.name} · {animeConfig.find(anime => anime.id === item.anime)?.name}</option>)}</select></label>
         <label htmlFor="guide-form">Form<select id="guide-form" value={formId || ''} onChange={event => setFormId(event.target.value)}>
@@ -52,6 +58,7 @@ export default function CharacterGuide() {
         <dl className="guide-stats">{Object.entries(character.stats).map(([stat, value]) => <div key={stat}><dt>{stat}</dt><dd>{value}<small> / 100</small></dd></div>)}</dl>
         <p><strong>Moves:</strong> {character.signatureMoves.join(' · ')}</p>
         <p><strong>{formId ? 'Form limits' : 'Rating notes'}:</strong> {character.limitations || character.reasoning}</p>
+        {selectedForm && <p><strong>Manga review ranges:</strong> {selectedForm.sourceChapters.map(([start, end]) => start === end ? start : `${start}–${end}`).join(', ')}. Full inventory and panel review remain pending.</p>}
         {!forms.length && <p className="guide-status">This character has a peak record. Alternate forms have not been authored yet.</p>}
       </Card>
     </section>

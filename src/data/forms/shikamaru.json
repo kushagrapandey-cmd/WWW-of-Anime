@@ -1,0 +1,17 @@
+[
+  { "id": "shikamaru-nara--part-one-base", "characterId": "shikamaru-nara", "name": "Shadow techniques — Part One", "era": "Chunin Exams / Sasuke retrieval",
+    "stats": {"attack": 18, "defense": 21, "speed": 23, "durability": 21, "intelligence": 79, "versatility": 35, "stamina": 24, "feats": 31}, "powerScore": 272, "rarity": "Common",
+    "abilityTags": ["shadow", "control", "strategy"], "signatureMoves": ["Shadow Possession Technique", "Shadow Strangle Technique"],
+    "limitations": "Shadows depend on terrain, range and chakra; early restraint is finite. No war network or pre-installed explosive forest.",
+    "sourceChapters": [[107, 109], [200, 208]], "confidence": "medium" },
+  { "id": "shikamaru-nara--revenge-loadout", "characterId": "shikamaru-nara", "name": "Shadow techniques — Asuma revenge", "era": "Akatsuki suppression",
+    "stats": {"attack": 24, "defense": 26, "speed": 29, "durability": 25, "intelligence": 90, "versatility": 48, "stamina": 30, "feats": 43}, "powerScore": 347, "rarity": "Common",
+    "abilityTags": ["shadow", "control", "strategy"], "signatureMoves": ["Shadow Possession Technique", "Shadow Sewing Technique", "Chakra Blade Shadow Trap"],
+    "limitations": "Requires carried chakra blades for blade traps; Hidan’s defeat used a prepared location and deception, not automatic duel execution.",
+    "sourceChapters": [[323, 339]], "confidence": "medium" },
+  { "id": "shikamaru-nara--war-shadow", "characterId": "shikamaru-nara", "name": "Shadow techniques — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 26, "defense": 29, "speed": 33, "durability": 28, "intelligence": 94, "versatility": 51, "stamina": 40, "feats": 48}, "powerScore": 386, "rarity": "Common",
+    "abilityTags": ["shadow", "control", "strategy"], "signatureMoves": ["Shadow Possession Technique", "Shadow Strangle Technique", "Shadow Sewing Technique"],
+    "limitations": "Restraint consumes finite chakra and can be resisted; allies, Kurama cloak and battlefield preparation are not free resources.",
+    "sourceChapters": [[616, 630]], "confidence": "medium" }
+]

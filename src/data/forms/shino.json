@@ -1,0 +1,12 @@
+[
+  { "id": "shino-aburame--part-one-insects", "characterId": "shino-aburame", "name": "Insect host — Part One", "era": "Chunin Exams / invasion",
+    "stats": {"attack": 22, "defense": 24, "speed": 20, "durability": 20, "intelligence": 51, "versatility": 38, "stamina": 32, "feats": 26}, "powerScore": 263, "rarity": "Common",
+    "abilityTags": ["insects", "chakra-drain", "tracking", "control"], "signatureMoves": ["Parasitic Insects", "Insect Tracking"],
+    "limitations": "Finite carried insect colony with environmental counters; tracking is descriptive. No war giant-insect loadout or instant drain.",
+    "sourceChapters": [[68, 69], [125, 127]], "confidence": "medium" },
+  { "id": "shino-aburame--war-insects", "characterId": "shino-aburame", "name": "Insect host — war", "era": "Fourth Shinobi War",
+    "stats": {"attack": 30, "defense": 34, "speed": 29, "durability": 27, "intelligence": 74, "versatility": 55, "stamina": 45, "feats": 37}, "powerScore": 375, "rarity": "Common",
+    "abilityTags": ["insects", "chakra-drain", "tracking", "control"], "signatureMoves": ["Parasitic Insects Technique", "Insect Clone Technique"],
+    "limitations": "Insect drain requires applicable contact/time; cultivated insects are finite resources, not unlimited summons or automatic immunity.",
+    "sourceChapters": [[633, 633]], "confidence": "medium" }
+]

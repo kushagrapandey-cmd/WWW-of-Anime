@@ -43,7 +43,7 @@ WWW-of-Anime/
       power.js
       peakForms.js
       characters/{naruto,onepiece,bleach}.json
-      forms/{index.js,luffy.json,naruto.json}
+      forms/index.js and 16 modular character JSON files
       quizzes/.gitkeep
     services/.gitkeep
     game/.gitkeep
@@ -56,7 +56,7 @@ All paths above are tracked source files in this repository. Empty directories r
 
 - Home: animated gradient hero, three anime portals, Battle banner and locked Daily Challenge teaser are visible.
 - Click Home, Battle, Quizzes, Games and Profile / Login. Each reaches its correct route and highlights its navigation item where applicable.
-- Characters: visit `/characters`, switch Luffy from Base to Gear Five, then Naruto from Part One Base to final-duel avatar. Check scores, tiers, eras, moves and limits change. Select Kaido and check the pending-forms notice.
+- Characters: visit `/characters`, switch Luffy from Base to Gear Five, then Naruto from Part One Base to final-duel avatar. Check scores, tiers, eras, moves and limits change. Switch Sasuke from early Base to Indra Susanoo: no early Rinnegan/Indra moves, and score/tier/limits must change. Check Kakashi’s temporary dual-eye limits, Lee’s individual gates and Choji’s pill costs. Confirm per-series counts (Naruto 81, One Piece 8, Bleach 0), chapter ranges and review status. Select Kaido and check the pending-forms notice.
 - Click each anime portal. Verify Naruto, One Piece and Bleach preview pages and their theme colors.
 - Visit `/profile`, `/login`, `/does-not-exist` and `/anime/unknown`. The first two show previews; the last two show the 404 screen.
 - At 360px width: open/close the navigation menu, select a route, and check that the menu closes. Confirm no horizontal scroll.
