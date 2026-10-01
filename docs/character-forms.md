@@ -56,7 +56,7 @@ Shared comparisons: Luffy’s early Base is near the provisional local-combat ba
 
 ## Required backfill before Phase 3
 
-1. Finish the approved One Piece and Bleach identity batches, at most 15 identities per response.
+1. Identity rosters are now complete (120/120). The user requested final One Piece plus all Bleach together. Continue the form inventory and backfill; do not advance to Phase 3 yet.
 2. Inventory distinct supported forms for all 120 identities; prioritize Sasuke, Kakashi, Guy, Lee, Gaara, Ichigo, Rukia, Renji, Aizen, Ulquiorra, Kaido, the Straw Hats, Zoan users and awakened users. Characters without transformations still get an explicit supported base/era record.
 3. Expand form JSON in modular files under 250 lines and register each file in `src/data/forms/index.js`. Keep form-specific moves/limits; never inherit a stronger form’s arsenal implicitly.
 4. Verify chapter scope, compare peers, audit all aliases, mark actual complete coverage, and review existing peak/form consistency and temporary resource costs.

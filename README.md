@@ -4,7 +4,7 @@
 
 A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore your favorite worlds, test your knowledge, and eventually draft a team for a crossover showdown.
 
-**🟢 Phase 1 interface built · 📚 Naruto 40/40 · One Piece 30/40 · 🧬 Form explorer available · 🎮 Gameplay coming later**
+**🟢 Phase 1 interface built · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 🎮 Gameplay coming later**
 
 [🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
 
@@ -125,7 +125,7 @@ If Git reports local conflicts, resolve those before updating. Do not discard yo
 | 0 | Master brief | ✅ Complete |
 | 1 | Scaffold, theme, home and navigation | ✅ Built; browser QA pending |
 | 2 A | Power rubric, calibration and 120-character roster proposal | ✅ Approved |
-| 2 B | Character JSON in small reviewed batches | 🚧 Naruto 40/40; One Piece 30/40; Bleach 0/40 |
+| 2 B | Character JSON in small reviewed batches | 🚧 All 120 identities complete; alternate forms and calibration in progress |
 | 3 | Character image pipeline | 🔒 Planned |
 | 4 | Accounts and profiles | 🔒 Planned |
 | 5 | Battle Arena | 🔒 Planned |
@@ -145,13 +145,13 @@ We build one phase at a time. Nothing is publicly deployed yet.
 - 🔌 `src/services` reserves the interface for future local accounts and persistence.
 - ♿ The foundation includes focus styles, a skip link and reduced-motion handling. Full accessibility QA is still pending.
 
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Latest State Summary](STATE_SUMMARY.md)
+[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Latest State Summary](STATE_SUMMARY.md)
 
 ## 📚 About the characters and scores
 
 Character forms and abilities will be based on a fixed manga snapshot. The approved Phase 2 rubric specifies the cutoff, evidence policy, and uncertainty rules. Peak forms can contain major spoilers.
 
-70 character identities are loaded: all 40 Naruto characters and 30 One Piece characters. Visit **Characters** to explore their selected peak ratings and the initial **23 alternate snapshots for Luffy and Naruto**. Other alternate forms are clearly marked pending; full form coverage is part of Phase 2 before images and gameplay. Character images remain empty until Phase 3. Power score and tier are game estimates; player rank is a separate future feature.
+All **120 character identities** are loaded: **40 Naruto, 40 One Piece and 40 Bleach**. Visit **Characters** to explore their selected peak ratings and the initial **23 alternate snapshots for Luffy and Naruto**. Other alternate forms are clearly marked pending; full form coverage is part of Phase 2 before images and gameplay. Character images remain empty until Phase 3. Power score and tier are game estimates; player rank is a separate future feature.
 
 Cross-series scores are fan-made gameplay estimates. Rarity reflects those scores; it is not a measure of a character’s popularity or importance to the story.
 

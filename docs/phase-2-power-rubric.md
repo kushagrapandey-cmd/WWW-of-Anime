@@ -1,6 +1,6 @@
 # ⚖️ Phase 2 — Step A: shared power system proposal
 
-**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–3 contain 40 records; One Piece batches 1–2 contain 30 records. The user subsequently requested alternate forms and a public power guide; see [forms policy](character-forms.md). The rules below remain the approved baseline.
+**Status: approved by the user on 2026-10-01.** Step B is in progress; All 120 identities are drafted: 40 Naruto, 40 One Piece, 40 Bleach. Alternate-form backfill and cross-series audit remain pending. The user subsequently requested alternate forms and a public power guide; see [forms policy](character-forms.md). The rules below remain the approved baseline.
 
 ## 1. Canon scope and peak-form policy
 
@@ -90,7 +90,7 @@ Start with these transparent provisional thresholds:
 | Legendary | 750–899 | 11% | 13 |
 | Mythic | 900–1000 | 4% | 5 |
 
-Fixed thresholds cannot guarantee those percentages before ratings exist. These counts are roster-composition goals, not draw probabilities; rarity-weighted RNG is defined in Phase 5.
+All identities now exist; [completion review](roster-completion-review.md) records the actual distribution. Form/peer audit is still pending. Fixed thresholds cannot guarantee those percentages before ratings exist. These counts are roster-composition goals, not draw probabilities; rarity-weighted RNG is defined in Phase 5.
 
 If the provisional thresholds miss the target substantially, review global score quantiles after all 120 ratings are audited. For sorted scores `x1…x120`, candidate lower-tier endpoints are `x42`, `x78`, `x102`, `x115`; the next tier begins at endpoint + 1. Keep identical scores in the same tier, accepting deviations in counts. If endpoints coincide, do not create empty/inverted ranges: retain the fixed thresholds and report the discrepancy. Any proposed threshold change requires approval and recalculates rarity for all batches together. Draft batches use the provisional cutoffs; scores do not change to force a percentage.
 
@@ -151,7 +151,7 @@ Each batch uses the requested schema: `id`, `name`, `anime`, `faction`, `role`, 
 - Confidence: **high** = supported form and repeated relevant feats; **medium** = some indirect scaling or incomplete comparisons; **low** = sparse evidence, disputed form interpretation or major inference. Cross-series translation always remains interpretive.
 - Companion audit notes record form, chapter/volume references, assumptions and the reason for low confidence; the 25-word reasoning field cannot carry the whole audit.
 - Validate integer stats, exact formula, rarity threshold, unique slugs, 3–5 tags, 2–3 moves and exactly three name-free clues. One anime per batch, at most 15 characters. Character image fields start as `null`.
-- Naruto first: 15 + 15 + 10; then One Piece and Bleach in the same batch sizes. Produce no Step B records until approval.
+- Original sequence: Naruto, One Piece, Bleach in 15 + 15 + 10 identity batches after approval. The user explicitly overrode the response cap for the final One Piece and entire Bleach completion on 2026-10-01. Full form backfill stays in Phase 2.
 
 ## 8. Sources and limits of this review
 

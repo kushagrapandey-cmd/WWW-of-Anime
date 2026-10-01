@@ -76,4 +76,4 @@ All paths above are tracked source files in this repository. Empty directories r
 
 ## Verification
 
-Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; battle/account/gameplay phases remain pending.
+Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; battle/account/gameplay phases remain pending.
