@@ -1,6 +1,6 @@
 # ⚖️ Phase 2 — Step A: shared power system proposal
 
-**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–3 contain 40 records. The rules below remain the approved baseline.
+**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–3 contain 40 records; One Piece batch 1 contains 15 records. The rules below remain the approved baseline.
 
 ## 1. Canon scope and peak-form policy
 
