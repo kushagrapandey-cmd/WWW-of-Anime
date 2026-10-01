@@ -1,0 +1,5 @@
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Placeholder, { NotFound } from './pages/Placeholder';
+export default function App() { return <Routes><Route element={<Layout />}><Route index element={<Home />} />{['battle', 'quizzes', 'games', 'profile', 'login'].map(section => <Route key={section} path={section} element={<Placeholder section={section} />} />)}<Route path="anime/:animeId" element={<Placeholder />} /><Route path="*" element={<NotFound />} /></Route></Routes>; }
