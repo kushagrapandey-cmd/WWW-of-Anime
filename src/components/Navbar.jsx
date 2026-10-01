@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, Zap, UserRound } from 'lucide-react';
-const links = [['/', 'Home'], ['/battle', 'Battle'], ['/quizzes', 'Quizzes'], ['/games', 'Games']];
+const links = [['/', 'Home'], ['/battle', 'Battle'], ['/quizzes', 'Quizzes'], ['/games', 'Games'], ['/characters', 'Characters']];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();

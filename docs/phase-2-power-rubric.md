@@ -1,6 +1,6 @@
 # ⚖️ Phase 2 — Step A: shared power system proposal
 
-**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–3 contain 40 records; One Piece batch 1 contains 15 records. The rules below remain the approved baseline.
+**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–3 contain 40 records; One Piece batches 1–2 contain 30 records. The user subsequently requested alternate forms and a public power guide; see [forms policy](character-forms.md). The rules below remain the approved baseline.
 
 ## 1. Canon scope and peak-form policy
 
@@ -32,7 +32,7 @@ Stat guide: **1–14** civilian/basic; **15–29** trained/local; **30–49** ma
 
 Attack/durability use the ladder below as context. Defense, speed, intelligence, versatility, stamina and feats need dimension-specific comparisons: a brilliant low-power tactician may have 85 intelligence without planetary attacks. Reserve 95–100 for unusually well-supported extremes; “main character” gives no bonus.
 
-Rating procedure: select form → collect manga evidence → compare with at least two shared anchors → assign each stat independently → apply formula → audit nearest peers from other series. A placement outside the expected broad band needs a written explanation. Never change scores just to fill rarity quotas.
+Rating procedure: select form → collect manga evidence → compare with at least two shared anchors → assign each stat independently → apply formula → audit nearest peers from other series. A placement outside the expected broad band needs a written explanation. Never change scores just to fill rarity quotas. Alternate forms now receive separate ratings under one character identity; complete that backfill before Phase 3.
 
 ## 3. Exact powerScore formula: 1–1000
 
@@ -76,7 +76,7 @@ Lower-rung civilians are calibration references only, not launch roster entries.
 
 Reference confidence: civilians/local comparisons are relatively straightforward; city/island/country placements are preliminary cross-series interpretations; the planetary+ candidates have low confidence as literal physical-scale comparisons. No candidate automatically receives a score at the top of its band. A series may have no Mythic characters.
 
-The completed Naruto data places restored Edo Nagato at 744, outside the initial 501–650 regional candidate band. That anchor estimate remains provisional: see the batch 3 audit. Keep the approved formula and actual ratings; never clamp scores to the preliminary ladder.
+One Piece batch 2 places awakened Doflamingo at 566, above the initial 301–500 candidate band, with the utility/tactics explanation recorded in its audit. The completed Naruto data places restored Edo Nagato at 744, outside the initial 501–650 regional candidate band. That anchor estimate remains provisional: see the batch 3 audit. Keep the approved formula and actual ratings; never clamp scores to the preliminary ladder.
 
 ## 5. Rarity cutoffs and distribution
 

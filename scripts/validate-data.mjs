@@ -1,13 +1,11 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { statWeights as weights, calculatePower as score, getPowerTier } from '../src/data/power.js';
 
 const root = new URL('../', import.meta.url);
-const weights = { attack: 25, defense: 10, speed: 15, durability: 12, intelligence: 8, versatility: 10, stamina: 10, feats: 10 };
 const fields = ['id', 'name', 'anime', 'faction', 'role', 'stats', 'powerScore', 'rarity', 'abilityTags', 'signatureMoves', 'clues', 'reasoning', 'confidence', 'imageQuery', 'image'];
 const roles = new Set(['Striker', 'Tank', 'Support', 'Tactician', 'Hybrid']);
-const tiers = [[399, 'Common'], [599, 'Rare'], [749, 'Epic'], [899, 'Legendary'], [1000, 'Mythic']];
 const ids = new Set();
-const score = stats => 1 + Math.round(999 * (Object.entries(weights).reduce((total, [key, weight]) => total + stats[key] * weight, 0) / 100 - 1) / 99);
 const string = (value, label) => assert(typeof value === 'string' && value.trim().length > 0, `${label}: expected nonempty string`);
 const normalized = value => value.normalize('NFKD').replace(/\p{Diacritic}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 
@@ -32,7 +30,7 @@ for (const anime of ['naruto', 'onepiece', 'bleach']) {
     assert.deepEqual(Object.keys(character.stats).sort(), Object.keys(weights).sort(), `${label}: stat keys`);
     for (const [key, value] of Object.entries(character.stats)) assert(Number.isInteger(value) && value >= 1 && value <= 100, `${label}/${key}: stat range`);
     assert.equal(character.powerScore, score(character.stats), `${label}: power formula`);
-    assert.equal(character.rarity, tiers.find(([limit]) => character.powerScore <= limit)[1], `${label}: rarity`);
+    assert.equal(character.rarity, getPowerTier(character.powerScore), `${label}: rarity`);
     for (const [key, min, max] of [['abilityTags', 3, 5], ['signatureMoves', 2, 3], ['clues', 3, 3]]) {
       const values = character[key];
       assert(Array.isArray(values) && values.length >= min && values.length <= max, `${label}/${key}: count`);

@@ -17,7 +17,8 @@ WWW-of-Anime/
   public/
     favicon.svg
     characters/.gitkeep
-  scripts/.gitkeep
+  scripts/validate-data.mjs
+  scripts/validate-forms.mjs
   src/
     main.jsx
     App.jsx
@@ -34,21 +35,28 @@ WWW-of-Anime/
     pages/
       Home.jsx
       Placeholder.jsx
+      CharacterGuide.jsx
+      CharacterGuide.css
     data/
       anime.js
-      characters/.gitkeep
+      index.js
+      power.js
+      peakForms.js
+      characters/{naruto,onepiece,bleach}.json
+      forms/{index.js,luffy.json,naruto.json}
       quizzes/.gitkeep
     services/.gitkeep
     game/.gitkeep
     hooks/.gitkeep
 ```
 
-All paths above are tracked source files in this repository. Empty directories reserve the later phases; they contain no unfinished Phase 1 logic.
+All paths above are tracked source files in this repository. Empty directories reserve later phases. Phase 2 adds character data, form snapshots and the user-requested guide.
 
 ## How to test
 
 - Home: animated gradient hero, three anime portals, Battle banner and locked Daily Challenge teaser are visible.
 - Click Home, Battle, Quizzes, Games and Profile / Login. Each reaches its correct route and highlights its navigation item where applicable.
+- Characters: visit `/characters`, switch Luffy from Base to Gear Five, then Naruto from Part One Base to final-duel avatar. Check scores, tiers, eras, moves and limits change. Select Kaido and check the pending-forms notice.
 - Click each anime portal. Verify Naruto, One Piece and Bleach preview pages and their theme colors.
 - Visit `/profile`, `/login`, `/does-not-exist` and `/anime/unknown`. The first two show previews; the last two show the 404 screen.
 - At 360px width: open/close the navigation menu, select a route, and check that the menu closes. Confirm no horizontal scroll.
@@ -68,4 +76,4 @@ All paths above are tracked source files in this repository. Empty directories r
 
 ## Verification
 
-The Phase 1 production build passes. Visual, mobile, keyboard and dialog checks remain manual; Chromium was unavailable in the build environment. Documentation-only changes do not alter app behavior.
+Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; battle/account/gameplay phases remain pending.

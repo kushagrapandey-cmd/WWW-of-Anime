@@ -1,0 +1,29 @@
+.character-guide{padding-top:40px;padding-bottom:60px}
+.guide-heading{max-width:820px;margin-bottom:28px}
+.guide-heading h1{font-size:clamp(2.5rem,6vw,4.7rem);margin:16px 0}
+.guide-heading h1 span{color:var(--lime)}
+.character-guide p{color:var(--muted);line-height:1.8;margin:12px 0;overflow-wrap:anywhere}
+.guide-rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.guide-rules>.card{padding:26px;min-width:0}
+.guide-rules h2{font-size:1.9rem}
+.guide-preview{margin:32px 0}
+.guide-selectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:22px 0}
+.guide-selectors label{display:flex;flex-direction:column;gap:8px;font-weight:600;min-width:0}
+.guide-selectors select{width:100%;min-width:0;max-width:100%;padding:12px;border:1px solid #ffffff38;border-radius:10px;background:#201b2c;color:#f4f1fa;font:inherit;font-size:.9rem}
+.guide-rating{padding:26px;border-color:var(--tier)}
+.guide-rating-heading{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.guide-rating h3{font-size:2.2rem}
+.guide-rating .guide-power{font-size:2.3rem;color:var(--tier);line-height:1.2}
+.guide-power small,.guide-stats small{font-size:.8rem;color:var(--muted)}
+.guide-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:20px 0}
+.guide-stats>div{background:#ffffff06;border-radius:10px;padding:12px}
+.guide-stats dt{font-size:.75rem;text-transform:capitalize;color:var(--muted)}
+.guide-stats dd{font-size:1.25rem;font-weight:700;margin-top:4px}
+.guide-status{border-top:1px solid #ffffff25;padding-top:12px}
+.guide-tiers,.guide-weights{list-style:none;padding:0;margin:20px 0}
+.guide-tiers li,.guide-weights li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid #ffffff12}
+.guide-weights li span{text-transform:capitalize}
+.character-guide details{border-top:1px solid #ffffff25;padding-top:12px}
+.character-guide summary{cursor:pointer;color:var(--lime)}
+@media(max-width:800px){.navigation{gap:12px}.navigation>a{font-size:.8rem}}
+@media(max-width:700px){.guide-rules,.guide-selectors{grid-template-columns:1fr}.guide-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.guide-rules>.card,.guide-rating{padding:20px}.character-guide{padding-top:24px}.guide-rating h3{font-size:1.9rem}}
