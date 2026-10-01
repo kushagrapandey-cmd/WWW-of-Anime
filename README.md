@@ -4,7 +4,7 @@
 
 A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore your favorite worlds, test your knowledge, and eventually draft a team for a crossover showdown.
 
-**🟢 Phase 1 interface built · 📚 Naruto roster 15/40 · 🎮 Gameplay coming in later phases**
+**🟢 Phase 1 interface built · 📚 Naruto roster 30/40 · 🎮 Gameplay coming in later phases**
 
 [🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
 
@@ -124,7 +124,7 @@ If Git reports local conflicts, resolve those before updating. Do not discard yo
 | 0 | Master brief | ✅ Complete |
 | 1 | Scaffold, theme, home and navigation | ✅ Built; browser QA pending |
 | 2 A | Power rubric, calibration and 120-character roster proposal | ✅ Approved |
-| 2 B | Character JSON in small reviewed batches | 🚧 Naruto 15/40; One Piece 0/40; Bleach 0/40 |
+| 2 B | Character JSON in small reviewed batches | 🚧 Naruto 30/40; One Piece 0/40; Bleach 0/40 |
 | 3 | Character image pipeline | 🔒 Planned |
 | 4 | Accounts and profiles | 🔒 Planned |
 | 5 | Battle Arena | 🔒 Planned |
@@ -144,13 +144,13 @@ We build one phase at a time. Nothing is publicly deployed yet.
 - 🔌 `src/services` reserves the interface for future local accounts and persistence.
 - ♿ The foundation includes focus styles, a skip link and reduced-motion handling. Full accessibility QA is still pending.
 
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Latest State Summary](STATE_SUMMARY.md)
+[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Latest State Summary](STATE_SUMMARY.md)
 
 ## 📚 About the characters and scores
 
 Character forms and abilities will be based on a fixed manga snapshot. The approved Phase 2 rubric specifies the cutoff, evidence policy, and uncertainty rules. Peak forms can contain major spoilers.
 
-The first 15 Naruto records are available as static data; the UI does not display them yet. Character images remain empty until Phase 3.
+The first 30 Naruto records are available as static data; the UI does not display them yet. Character images remain empty until Phase 3.
 
 Cross-series scores are fan-made gameplay estimates. Rarity reflects those scores; it is not a measure of a character’s popularity or importance to the story.
 
