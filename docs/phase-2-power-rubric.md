@@ -1,6 +1,6 @@
 # ⚖️ Phase 2 — Step A: shared power system proposal
 
-**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–2 contain 30 records. The rules below remain the approved baseline.
+**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batches 1–3 contain 40 records. The rules below remain the approved baseline.
 
 ## 1. Canon scope and peak-form policy
 
@@ -75,6 +75,8 @@ Lower-rung civilians are calibration references only, not launch roster entries.
 **Explicit exception to the brief:** three references from three different series cannot honestly be supplied at planetary+ here. The three upper-ceiling candidates are **Kaguya Otsutsuki, Hagoromo Otsutsuki and Yhwach**, from two series. Their literal planetary classification is disputed/inferred; realm effects and statements must not be treated as measured planetary attack power. Hagoromo has especially sparse direct combat evidence. If the evidence audit cannot support the upper rung, leave it unoccupied rather than inflate anyone.
 
 Reference confidence: civilians/local comparisons are relatively straightforward; city/island/country placements are preliminary cross-series interpretations; the planetary+ candidates have low confidence as literal physical-scale comparisons. No candidate automatically receives a score at the top of its band. A series may have no Mythic characters.
+
+The completed Naruto data places restored Edo Nagato at 744, outside the initial 501–650 regional candidate band. That anchor estimate remains provisional: see the batch 3 audit. Keep the approved formula and actual ratings; never clamp scores to the preliminary ladder.
 
 ## 5. Rarity cutoffs and distribution
 
