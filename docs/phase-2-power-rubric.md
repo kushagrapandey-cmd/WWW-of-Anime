@@ -1,6 +1,6 @@
 # ⚖️ Phase 2 — Step A: shared power system proposal
 
-**Status: awaiting approval.** No character JSON, rating implementation or game logic is added in this step. This is the complete design proposal to review before Step B.
+**Status: approved by the user on 2026-10-01.** Step B is in progress; Naruto batch 1 contains 15 records. The rules below remain the approved baseline.
 
 ## 1. Canon scope and peak-form policy
 
@@ -178,4 +178,4 @@ Open Codespaces port 5173 or local `http://localhost:5173`. Check the home page 
 
 Proposal checklist: weights total 100%; formula endpoints equal 1/1000; synthetic example equals 682; rarity ranges cover 1–1000 without overlap; roster has 40 unique names per series; manga cutoffs and upper-anchor exception are explicit.
 
-Approve or revise the **canon cutoffs, rubric, anchor exception, rarity policy and roster** before Step B.
+The user approved the canon cutoffs, rubric, anchor exception, rarity policy and roster. Continue Step B one batch at a time on “next”.
