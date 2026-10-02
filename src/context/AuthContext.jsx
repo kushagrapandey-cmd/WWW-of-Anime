@@ -32,6 +32,7 @@ export function AuthProvider({ children }) {
   return <AuthContext.Provider value={{ user, loading, error, refresh,
     signUp: data => run('signUp', data), logIn: data => run('logIn', data),
     logOut: () => run('logOut'), updateProfile: data => run('updateProfile', data),
+    recordGameResult: session => run('recordGameResult', session),
     recordQuizResult: attempt => run('recordQuizResult', attempt),
     updateStats: (data, battle) => run('updateStats', data, battle),
   }}>{children}</AuthContext.Provider>;

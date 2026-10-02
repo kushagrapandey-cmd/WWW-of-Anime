@@ -1,0 +1,10 @@
+import { MINI, boardLabel } from '../../minigames/config';
+import { scoreSession, correctChoice } from '../../minigames/engine';
+import Button from '../Button';
+export default function GameResults({ session, highScore, saving, saveError, onSave, onAgain, onNew }) {
+  const result = scoreSession(session);
+  return <section className="mini-panel mini-results"><span className="eyebrow">TEN ROUNDS COMPLETE</span><h2 tabIndex={-1} className="mini-result-title">YOUR GAME SCORE.</h2><p className="mini-note">{boardLabel(session.board)}</p><dl className="mini-result-stats">{[['Score', result.score], ['Correct', `${result.correct} / ${MINI.rounds}`], ['Best streak', result.bestStreak], ['Board high score', highScore]].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p role="status">{saving ? 'Saving game result…' : session.saved ? 'Result and high score saved.' : 'Result is not yet fully saved.'}</p>{saveError && <p role="alert" className="account-error">{saveError}</p>}<div className="mini-actions">{saveError && <Button disabled={saving} onClick={onSave}>Retry save</Button>}<Button disabled={saving || !session.saved} onClick={onAgain}>Play again</Button><Button variant="secondary" disabled={saving} onClick={onNew}>Choose another game</Button></div><h3 className="mini-review-title">ROUND RECAP</h3><ol className="mini-review">{session.rounds.map((round, index) => {
+    const detail = result.details[index], answer = session.answers[index];
+    return <li key={index}><strong>Round {index + 1} · {detail.correct ? 'Correct' : detail.timeout ? 'Timeout' : 'Incorrect'} · +{detail.points}</strong>{session.settings.mode === 'power' ? <p>{round.pair[1].name} ({round.pair[1].powerScore}) is {correctChoice(session, index)} than {round.pair[0].name} ({round.pair[0].powerScore}).</p> : <><p>Answer: {round.target.name} · {round.target.formName}</p>{session.settings.mode === 'clue' && <p>{answer.hints} clues used.</p>}{answer.input && <p>Your guess: {answer.input}</p>}</>}</li>;
+  })}</ol></section>;
+}

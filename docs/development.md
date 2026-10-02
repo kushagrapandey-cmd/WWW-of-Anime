@@ -39,6 +39,7 @@ WWW-of-Anime/
       ProtectedRoute.jsx
       battle/{ArenaSetup,ArenaDraft,ArenaLineup,ArenaRounds,ArenaResults,FighterMini}.jsx
       quiz/{QuizSetup,QuizQuestion,QuizResults}.jsx
+      games/{GameSetup,GameShell,NameAnswer,MoveRound,ClueRound,PowerRound,RoundFeedback,GameResults}.jsx
     pages/
       Home.jsx
       Placeholder.jsx
@@ -50,6 +51,8 @@ WWW-of-Anime/
       BattleArena.css
       Quizzes.jsx
       Quizzes.css
+      Games.jsx
+      Games.css
       Accounts.css
     data/
       anime.js
@@ -60,16 +63,20 @@ WWW-of-Anime/
       forms/index.js and 55 modular character JSON files
       quizzes/{naruto,onepiece,bleach}.json
       quizzes/index.js
+      game-aliases.json
+      miniRoster.js
     services/
       AuthService.js
       BattleService.js
       QuizService.js
+      MiniGameService.js
       LocalAuthService.js
       passwords.js
       localStorageStore.js
       authRouting.js
     game/{config,random,pool,draft,engine,profileResult}.js
     quiz/{config,date,engine,profileResult}.js
+    minigames/{config,names,questions,validation,engine}.js
     hooks/.gitkeep
     context/AuthContext.jsx
     config/auth.js
@@ -78,6 +85,8 @@ WWW-of-Anime/
   tests/game-storage.test.js
   tests/quiz-engine.test.js
   tests/quiz-storage.test.js
+  tests/mini-engine.test.js
+  tests/mini-storage.test.js
   .env.example
 ```
 
@@ -92,6 +101,7 @@ All paths above are tracked source files in this repository. Empty directories r
 - Visit `/profile`, `/login`, `/does-not-exist` and `/anime/unknown`. The first requires login and shows the profile, the second shows login, and the last two show the 404 screen. Test `/signup`, avatar saving, logout and protected `/battle` returns using [the Phase 4 checklist](phase-4-accounts.md).
 - Play CPU and local-friend matches, variant drafts and saved replays using [the Phase 5 checklist](phase-5-arena.md).
 - Play Classic, Mixed, Blitz and Daily Challenge, resume attempts and verify profile progress using [the Phase 6 checklist](phase-6-quizzes.md).
+- Play all three guessing games, check hard/typed modes, clue rewards, power streaks, timers and saved boards with [the Phase 7 checklist](phase-7-games.md).
 - At 360px width: open/close the navigation menu, select a route, and check that the menu closes. Confirm no horizontal scroll.
 - Use Tab and Enter to navigate links; check visible focus and the skip-to-content link.
 - Turn on the operating system's reduced-motion preference. Decorative motion should stop.
@@ -111,8 +121,8 @@ All paths above are tracked source files in this repository. Empty directories r
 
 ## Verification
 
-Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; local accounts and Battle Arena are implemented; quizzes are implemented; guessing games remain pending.
+Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; local accounts and Battle Arena are implemented; quizzes and guessing games are implemented.
 
 ## Revised phase order and fallback checks
 
-See [task memory](../TASKS.md). Phase 3 is parked; Phase 2 is closed and Phases 4–6 are implemented. Proceed to Phase 7 only on the user’s “next”. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is Phase 7; no silhouette game is planned.
+See [task memory](../TASKS.md). Phase 3 is parked; Phase 2 is closed and Phases 4–7 are implemented. Proceed to Phase 8 only on the user’s “next”. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is implemented; no silhouette game is planned.
