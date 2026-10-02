@@ -23,8 +23,8 @@ User said the current characters are enough and asked to wind up Phase 2 and mov
 - [x] User accepted current Phase 2 scope; proceed directly to Phase 4.
 - [ ] Phase 3: PARKED / optional later; no downloader currently exists.
 - [x] Phase 4: local accounts/profile via AuthService, salted PBKDF2, login/signup, protected profile/Battle entry, guest flag, avatars/ranks and logout. Eight auth tests, DOM form/redirect/profile/session/guest checks and production build pass; browser/mobile visual QA pending.
-- [ ] Next: Phase 5 Battle Arena on user’s “next”; use the accepted existing character/form data.
-- [ ] Phase 5: seeded five-card draft/battle, form pool fixed before drafting, identity deduplication across teams, locked forms and replay IDs. Card flips use fallback art; optional stronger rarity effects obey reduced motion.
+- [ ] Next: Phase 6 quizzes/Blitz/Daily Challenge only on user’s “next”.
+- [x] Phase 5: CPU/local-friend five-card rarity-weighted draft, one reroll each, hidden lineups/handoffs, seeded rounds/explanations/MVP, Elo-style rank/stats/achievements, copy/rematch, last-20 snapshot replays and retry-safe profile receipts. Peak/variant pool fixed before drafting; identity dedup and locked forms. 16 Vitest engine/storage tests plus 8 auth tests, full account/guest DOM arena flows, data validation and build pass. Browser/mobile visual QA remains pending.
 - [ ] Phase 6: canon quizzes, Blitz and Daily Challenge.
 - [ ] Phase 7: **Move Match** replaces Who’s That Shadow. Show 2–3 moves plus tags; four choices or fuzzy typed answers. Hard mode uses stat bars without names; reject ambiguous profiles. Clue Chain and Higher or Lower stay.
 - [ ] Phase 8: QA, battle/auth/quiz tests, optional sound, expansion and deployment guidance. Image licensing is no longer a mandatory phase task. Optional later roadmap: implement/run `fetch-images` when explicitly reopened.

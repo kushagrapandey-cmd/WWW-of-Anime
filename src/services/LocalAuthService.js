@@ -1,3 +1,5 @@
+import { GAME } from '../game/config.js';
+import { applyBattleResult } from '../game/profileResult.js';
 import { profileAvatars } from '../data/profile.js';
 import { createLocalStore, USERS_KEY, SESSION_KEY } from './localStorageStore.js';
 import { createPasswordTools } from './passwords.js';
@@ -10,7 +12,7 @@ function validateCredentials(username, password, signingUp) {
   return username.trim();
 }
 function publicUser(record) {
-  const { credential, ...profile } = record;
+  const { credential, battleReceipts, ...profile } = record;
   return structuredClone(profile);
 }
 function numericStats(current, updates, allowed) {
@@ -72,9 +74,23 @@ export class LocalAuthService {
     if (!avatarIds.has(avatar)) throw new Error('Choose an available avatar.');
     return this.updateCurrent(record => ({ ...record, avatar }));
   }
-  async updateStats(updates) {
+  async getBattleReceipt(id) {
+    const session = this.store.read(SESSION_KEY, null);
+    const record = this.readUsers().find(user => user.id === session?.userId);
+    return structuredClone(record?.battleReceipts?.find(receipt => receipt.id === id) ?? null);
+  }
+  async updateStats(updates, battle = null) {
     if (!updates || typeof updates !== 'object' || Array.isArray(updates) || Object.keys(updates).some(key => !['battleStats', 'quizStats', 'achievements'].includes(key))) throw new Error('Invalid profile update.');
     return this.updateCurrent(record => {
+      if (battle) {
+        if (record.id !== battle.ownerId) throw new Error('The signed-in account changed. This battle belongs to its original player.');
+        if (typeof battle.id !== 'string' || !/^battle-[a-zA-Z0-9-]{1,80}$/.test(battle.id)) throw new Error('Invalid battle ID.');
+        const receipts = record.battleReceipts ?? [];
+        if (receipts.some(receipt => receipt.id === battle.id)) return record;
+        const result = applyBattleResult(record, battle);
+        return { ...record, battleStats: result.battleStats, achievements: result.achievements,
+          battleReceipts: [...receipts, { id: battle.id, delta: result.delta, rankPoints: result.battleStats.rankPoints }].slice(-GAME.receiptLimit) };
+      }
       const battleStats = updates.battleStats === undefined ? record.battleStats : numericStats(record.battleStats, updates.battleStats, battleDefaults);
       const quizStats = updates.quizStats === undefined ? record.quizStats : numericStats(record.quizStats, updates.quizStats, quizDefaults);
       if (battleStats.bestStreak < battleStats.winStreak || quizStats.bestScore > 100 || quizStats.bestDailyStreak < quizStats.dailyStreak) throw new Error('Profile statistics are inconsistent.');

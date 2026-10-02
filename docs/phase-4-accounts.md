@@ -1,11 +1,11 @@
 # Phase 4 — local accounts and profiles
 
-Implemented after the user closed Phase 2 at its current scope on 2026-10-02. No character/form records changed. Phase 3 remains parked; Phase 5 gameplay is next.
+Implemented after the user closed Phase 2 at its current scope on 2026-10-02. No character/form records changed. Phase 3 remains parked; Phase 5 gameplay is now implemented; see [the arena guide](phase-5-arena.md).
 
 ## Working behavior
 
 - `/signup` creates a local profile and signs in. `/login` checks credentials, supports password visibility and friendly validation, and returns to the protected route including query/hash.
-- `/profile` always requires login. `/battle` requires login by default and remains a Phase 5 preview. `VITE_REQUIRE_LOGIN=false` opens guest Battle entry with Player 1/2 name fields; it does not expose anonymous profile editing.
+- `/profile` always requires login. `/battle` requires login by default and now opens the playable arena. `VITE_REQUIRE_LOGIN=false` opens the guest arena with player name fields; it does not expose anonymous profile editing.
 - Navbar switches between Login and Profile. Login survives reload. Logout preserves the account/progress and clears its session; other same-origin tabs refresh on storage changes.
 - Profile includes username, joined date, saved avatar picker, battle/quiz counters, rank progress, achievements and logout. New statistics are zero; no fake played games or earned achievements are added.
 - All six profile archetypes use the shared `CharacterAvatar` renderer and no artwork download. Account/profile/Battle chunks remain lazy routes.
@@ -45,7 +45,7 @@ Passwords are derived with Web Crypto PBKDF2/SHA-256, 600,000 iterations, indepe
 | Master | 600 |
 | Legend | 1000 |
 
-Ranks derive from `battleStats.rankPoints`, separate from character rarity/power. Phase 5 will calculate Elo-style gains/losses; this phase does not manufacture a played battle to demonstrate promotion.
+Ranks derive from `battleStats.rankPoints`, separate from character rarity/power. Phase 5 calculates Elo-style gains/losses; this phase does not manufacture a played battle to demonstrate promotion.
 
 ## Run and test
 

@@ -32,7 +32,7 @@ export function AuthProvider({ children }) {
   return <AuthContext.Provider value={{ user, loading, error, refresh,
     signUp: data => run('signUp', data), logIn: data => run('logIn', data),
     logOut: () => run('logOut'), updateProfile: data => run('updateProfile', data),
-    updateStats: data => run('updateStats', data),
+    updateStats: (data, battle) => run('updateStats', data, battle),
   }}>{children}</AuthContext.Provider>;
 }
 export function useAuth() {

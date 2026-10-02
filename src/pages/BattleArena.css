@@ -1,0 +1,84 @@
+.arena-page { padding-block: 48px 72px; }
+.arena-heading .eyebrow { display: flex; gap: 8px; align-items: center; }
+.arena-heading h1 { font-size: clamp(2.8rem, 7vw, 5.2rem); margin: 12px 0; line-height: .98; }
+.arena-heading h1 span { color: var(--lime, #c2ff43); }
+.arena-heading p, .arena-note { color: #a7b0c2; }
+.arena-stages { display: flex; list-style: none; padding: 0; gap: 8px; margin: 30px 0; flex-wrap: wrap; }
+.arena-stages li { text-transform: uppercase; font-size: .75rem; letter-spacing: .08em; padding: 9px 15px; border: 1px solid #303647; border-radius: 24px; color: #a7b0c2; }
+.arena-stages [aria-current] { color: #c2ff43; border-color: #c2ff43; background: #c2ff4310; }
+.arena-setup { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.arena-panel { padding: clamp(20px, 4vw, 36px); background: #131720; border: 1px solid #303647; border-radius: 20px; }
+.arena-panel h2 { font-size: clamp(1.5rem, 4vw, 2.3rem); margin-block: 12px 20px; overflow-wrap: anywhere; }
+.arena-panel h3 { font-size: .9rem; letter-spacing: .04em; }
+.arena-panel p { line-height: 1.6; }
+.arena-panel form { display: grid; gap: 20px; }
+.arena-panel label { display: grid; gap: 8px; font-size: .9rem; }
+.arena-panel input:not([type=radio]):not([type=checkbox]), .arena-panel select, .arena-panel textarea { width: 100%; padding: 12px; border: 1px solid #424b60; border-radius: 10px; background: #0c1018; color: #fff; font: inherit; }
+.arena-panel input[type=radio], .arena-panel input[type=checkbox] { width: 18px; height: 18px; accent-color: #c2ff43; }
+.arena-panel fieldset { display: flex; flex-wrap: wrap; gap: 18px; border: 1px solid #303647; border-radius: 10px; padding: 16px; }
+.arena-panel legend { padding-inline: 6px; }
+.arena-panel .arena-choice { display: flex; align-items: center; gap: 10px; }
+.arena-note { font-size: .82rem; line-height: 1.65; overflow-wrap: anywhere; }
+.arena-rules { padding-left: 22px; display: grid; gap: 20px; line-height: 1.6; }
+.arena-history { grid-column: 1 / -1; }
+.arena-history ul { padding: 0; list-style: none; }
+.arena-history li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 16px; border-bottom: 1px solid #303647; }
+.arena-history li div { display: grid; gap: 6px; }
+.arena-history li span { color: #a7b0c2; font-size: .8rem; }
+.draft-layout, .result-layout { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 36px; margin-top: 24px; }
+.draft-reveal { perspective: 1000px; }
+.arena-page .character-card > .character-avatar { height: 220px; aspect-ratio: auto; }
+.card-back { min-height: 430px; border: 2px dashed #424b60; border-radius: 16px; display: flex; flex-direction: column; gap: 24px; align-items: center; justify-content: center; background: radial-gradient(ellipse, #303947, #10131d); }
+.card-back span { font-size: 9rem; color: #c2ff43; }
+.locked-form { font-size: .8rem; color: #c2ff43; text-align: center; }
+.fighter-mini { display: flex; align-items: center; gap: 16px; background: #0c1018; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+.fighter-mini > .character-avatar { width: 60px; min-width: 60px; height: 70px; aspect-ratio: auto; border-radius: 8px; }
+.fighter-mini .avatar-monogram { font-size: 1.2rem; }
+.fighter-mini .avatar-role { display: none; }
+.fighter-mini > div { flex: 1; min-width: 0; }
+.fighter-mini strong, .fighter-mini span { display: block; overflow-wrap: anywhere; }
+.fighter-mini span { font-size: .76rem; color: #a7b0c2; margin-top: 6px; }
+.arena-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.lineup-list { padding: 0; list-style: none; margin-block: 28px; }
+.round-slot { display: block; font-size: .75rem; color: #c2ff43; margin-bottom: 8px; }
+.lineup-buttons { display: flex; gap: 8px; flex: 0 0 auto !important; }
+.lineup-buttons .button { min-width: 44px; padding: 12px; }
+.pass-device { text-align: center; padding-block: 72px; }
+.pass-device > svg { margin: 0 auto 24px; color: #c2ff43; }
+.pass-device .eyebrow { display: block; }
+.pass-device .button { margin-top: 24px; }
+.round-duel { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin-block: 32px; }
+.round-fighter { min-width: 0; padding: 24px; border: 1px solid #424b60; border-radius: 16px; background: #0c1018; }
+.round-victor { border-color: #c2ff43; box-shadow: 0 0 28px #c2ff4310; }
+.round-fighter > .character-avatar { height: 230px; width: 100%; margin-block: 16px; }
+.round-fighter > strong { display: block; margin-block: 20px 12px; color: #c2ff43; }
+.round-fighter h3 { font-size: 1.4rem; }
+.round-fighter > p { color: #a7b0c2; }
+.duel-vs { position: absolute; left: 50%; top: 34%; transform: translateX(-50%); font-size: 1.9rem; font-weight: 900; color: #c2ff43; background: #131720; padding: 8px; border-radius: 12px; }
+.round-explanation { margin-bottom: 28px; padding: 20px; background: #c2ff4309; border-radius: 12px; }
+.round-explanation h3 { color: #c2ff43; font-size: 1.2rem; }
+.score-display { color: #c2ff43; white-space: nowrap; margin-inline: 12px; }
+.result-score { font-size: 1.3rem; }
+.result-score strong { font-size: 2rem; margin-inline: 16px; color: #c2ff43; white-space: nowrap; }
+.round-recap { list-style: none; padding: 0; display: grid; gap: 20px; }
+.round-recap li { display: grid; gap: 8px; }
+.round-recap span { color: #a7b0c2; font-size: .85rem; line-height: 1.6; }
+.arena-footer { text-align: center; margin-top: 36px; }
+.arena-panel :focus-visible { outline: 2px solid #c2ff43; outline-offset: 4px; }
+@media (max-width: 760px) {
+  .arena-setup, .draft-layout, .result-layout { grid-template-columns: 1fr; }
+  .draft-reveal, .result-layout > div:first-child { max-width: 340px; width: 100%; margin-inline: auto; }
+  .round-duel { gap: 16px; }
+  .round-fighter { padding: 12px; }
+  .round-fighter > .character-avatar { height: 160px; }
+  .round-fighter h3 { font-size: 1rem; }
+  .round-fighter > strong { font-size: .85rem; }
+  .duel-vs { font-size: 1rem; padding: 6px; }
+  .fighter-mini { gap: 10px; }
+  .lineup-buttons { flex-direction: column; }
+  .arena-history li { align-items: flex-start; }
+  .arena-history li .button { padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arena-page *, .arena-page *::before, .arena-page *::after { animation: none !important; transition: none !important; }
+}
