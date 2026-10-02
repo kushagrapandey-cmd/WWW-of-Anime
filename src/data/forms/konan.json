@@ -1,0 +1,12 @@
+[
+  { "id": "konan--paper-body", "characterId": "konan", "name": "Paper body / ordinary arsenal", "era": "Akatsuki / Rain defense",
+    "stats": {"attack": 43, "defense": 44, "speed": 45, "durability": 32, "intelligence": 74, "versatility": 49, "stamina": 48, "feats": 44}, "powerScore": 453, "rarity": "Rare",
+    "abilityTags": ["paper", "flight", "traps"], "signatureMoves": ["Dance of the Shikigami", "Paper Shuriken"],
+    "limitations": "Finite paper and chakra; no prebuilt ocean of explosive tags. Oil obstructs paper manipulation; her counter to oil does not establish universal immunity.",
+    "sourceChapters": [[372, 373], [449, 449], [509, 510]], "confidence": "medium" },
+  { "id": "konan--prepared-explosives", "characterId": "konan", "name": "Prepared paper-explosive confrontation", "era": "Final Rain defense",
+    "stats": {"attack": 78, "defense": 45, "speed": 47, "durability": 30, "intelligence": 79, "versatility": 54, "stamina": 22, "feats": 57}, "powerScore": 539, "rarity": "Rare",
+    "abilityTags": ["paper", "explosion", "flight", "traps"], "signatureMoves": ["Dance of the Shikigami", "Paper Person of God Technique"],
+    "limitations": "Requires the prepared Rain battlefield and finite explosive stock. Ten-minute detonation is not portable infinite ammunition or an instant ordinary-arena action.",
+    "sourceChapters": [[509, 511]], "confidence": "medium" }
+]

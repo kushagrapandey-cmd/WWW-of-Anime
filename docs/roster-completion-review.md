@@ -6,11 +6,11 @@
 
 | Series | Identities | Separate form snapshots | Form-complete status |
 | --- | ---: | ---: | --- |
-| Naruto | 40/40 | 130 across 30 identities | Authored first two roster groups; complete review pending |
+| Naruto | 40/40 | 170 across 40 identities | Authored all Naruto identities; complete review pending |
 | One Piece | 40/40 | 8 for Luffy | Initial major-form set; full inventory pending |
 | Bleach | 40/40 | 0 | Alternate-form backfill pending |
 
-The website now lists all 120 selected peak records in `/characters`; every record has a precise selected-state label. Thirty-one characters have authored form selectors (138 snapshots); their full inventories and evidence still require review. Other characters display a pending notice rather than pretending base/Bankai/release records already exist. A peak identity and an alternate form are separate data concepts.
+The website now lists all 120 selected peak records in `/characters`; every record has a precise selected-state label. Forty-one characters have authored form selectors (178 snapshots); their full inventories and evidence still require review. Other characters display a pending notice rather than pretending base/Bankai/release records already exist. A peak identity and an alternate form are separate data concepts.
 
 ## Actual rarity distribution
 

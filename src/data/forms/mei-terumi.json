@@ -1,0 +1,7 @@
+[
+  { "id": "mei-terumi--living-kage", "characterId": "mei-terumi", "name": "Living Mizukage / elemental bloodlines", "era": "Summit / Five Kage war battle",
+    "stats": {"attack": 54, "defense": 45, "speed": 40, "durability": 37, "intelligence": 68, "versatility": 61, "stamina": 51, "feats": 48}, "powerScore": 494, "rarity": "Rare",
+    "abilityTags": ["lava", "boil", "water", "area-control"], "signatureMoves": ["Lava Release: Melting Apparition Technique", "Boil Release: Skilled Mist Technique", "Water Release: Water Dragon Bullet Technique"],
+    "limitations": "No distinct supported transformation is invented. Mist concentration and allies constrain corrosive area control; team participation is not solo Madara parity. No ice release or general acid immunity.",
+    "sourceChapters": [[465, 466], [563, 563], [577, 588]], "confidence": "medium" }
+]

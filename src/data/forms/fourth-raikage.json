@@ -1,0 +1,12 @@
+[
+  { "id": "fourth-raikage--one-arm-armor", "characterId": "fourth-raikage", "name": "Lightning armor / one-arm war state", "era": "Jinchuriki checkpoint",
+    "stats": {"attack": 56, "defense": 63, "speed": 79, "durability": 61, "intelligence": 61, "versatility": 28, "stamina": 63, "feats": 60}, "powerScore": 591, "rarity": "Rare",
+    "abilityTags": ["lightning", "speed", "strength"], "signatureMoves": ["Lightning Release Chakra Mode", "One-Armed Lightning Strike"],
+    "limitations": "Lost left arm is not regenerated; strike is descriptive and intact-arm grappling is not silently restored. Cooperative Double Lariat requires B and is excluded from solo moves.",
+    "sourceChapters": [[541, 544], [563, 563], [577, 588]], "confidence": "medium" },
+  { "id": "fourth-raikage--lightning-armor", "characterId": "fourth-raikage", "name": "Lightning armor / intact-arm state", "era": "Five Kage Summit",
+    "stats": {"attack": 58, "defense": 65, "speed": 79, "durability": 63, "intelligence": 59, "versatility": 29, "stamina": 66, "feats": 61}, "powerScore": 604, "rarity": "Epic",
+    "abilityTags": ["lightning", "speed", "strength"], "signatureMoves": ["Lightning Release Chakra Mode", "Liger Bomb", "Lariat"],
+    "limitations": "Demonstrated living armor with intact arms, not the Third Raikage or a healed later limb. Finite chakra, contact exposure and narrow range remain; no unsupported numerical armor levels.",
+    "sourceChapters": [[461, 464]], "confidence": "medium" }
+]

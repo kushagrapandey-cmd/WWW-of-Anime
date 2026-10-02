@@ -8,9 +8,9 @@ Phase 3 image acquisition is **parked**, not a dependency. Do not search for/dow
 
 - [x] Phase 0: brief and approved rubric.
 - [x] Phase 1: scaffold/home/navigation; shared fallback avatar and stat-rich CharacterCard added. Browser/mobile QA remains open.
-- [x] Phase 2: 120 identities, 40 per series, preserved.
-- [x] Form backfill: initial Luffy/Naruto seed, Naruto identities 2–15, then 16–30 authored. Current 138 snapshots / 31 identities (Naruto 130 / 30; One Piece 8 / 1; Bleach 0).
-- [ ] Next: Naruto forms 31–40, then One Piece and Bleach inventories. No identity certified fully covered yet.
+- [ ] Phase 2: all 120 identities authored (40 per series); forms and calibration still in progress.
+- [x] Form backfill: initial Luffy/Naruto seed and all Naruto identities 2–40 authored. Current 178 snapshots / 41 identities (Naruto 170 / 40; One Piece 8 / 1; Bleach 0).
+- [ ] Next: One Piece form inventory/backfill, then Bleach inventories. No identity certified fully covered yet.
 - [ ] Complete panel/alias inventory and peer calibration, borrowed resource costs, peak consistency, rarity distribution review. Preserve formula/thresholds; never force scores to quotas.
 - [ ] Sign off Phase 2 after actual coverage/review, then go directly to Phase 4.
 - [ ] Phase 3: PARKED / optional later; no downloader currently exists.

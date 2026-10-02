@@ -1,0 +1,12 @@
+[
+  { "id": "kaguya-otsutsuki--unstable-beast", "characterId": "kaguya-otsutsuki", "name": "Unstable tailed-beast mass", "era": "Final Team Seven battle",
+    "stats": {"attack": 94, "defense": 88, "speed": 56, "durability": 92, "intelligence": 12, "versatility": 40, "stamina": 53, "feats": 83}, "powerScore": 700, "rarity": "Epic",
+    "abilityTags": ["tailed-beast", "chakra", "absorption"], "signatureMoves": ["Chakra Absorption", "Tailed-Beast Mass Lunge"],
+    "limitations": "Brief destabilization after resonating beast chakra; descriptive lunge. No simultaneous precise human bone/portal toolkit or preserved tactical intelligence. Contact danger does not establish an unconditional instant kill.",
+    "sourceChapters": [[688, 689]], "confidence": "low" },
+  { "id": "kaguya-otsutsuki--revived", "characterId": "kaguya-otsutsuki", "name": "Revived / dimension-shifting body", "era": "Final Team Seven battle",
+    "stats": {"attack": 99, "defense": 98, "speed": 93, "durability": 98, "intelligence": 72, "versatility": 98, "stamina": 98, "feats": 97}, "powerScore": 953, "rarity": "Mythic",
+    "abilityTags": ["space-time", "byakugan", "chakra", "bone", "truth-seeking"], "signatureMoves": ["Amenominaka", "All-Killing Ash Bones", "Expansive Truth-Seeking Ball"],
+    "limitations": "Dimension shifts cost chakra. Expansive ball uses demonstrated external chakra/setup, not a freely repeatable attack; no separate unstable-beast body stacked. Sealing vulnerability and tactical weaknesses remain; resource/peak calibration is pending.",
+    "sourceChapters": [[679, 690]], "confidence": "low" }
+]

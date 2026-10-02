@@ -1,0 +1,7 @@
+[
+  { "id": "onoki--elderly-war", "characterId": "onoki", "name": "Elderly / Particle Style and weight control", "era": "Five Kage war battle",
+    "stats": {"attack": 74, "defense": 43, "speed": 37, "durability": 34, "intelligence": 86, "versatility": 77, "stamina": 36, "feats": 70}, "powerScore": 572, "rarity": "Rare",
+    "abilityTags": ["particle", "earth", "flight", "weight-control"], "signatureMoves": ["Particle Style: Atomic Dismantling Jutsu", "Earth Release: Light-Weight Rock Technique", "Earth Release: Added-Weight Rock Technique"],
+    "limitations": "Elderly body, back pain and finite personal chakra. Tsunade refills and team combinations are external support, not repeatable solo stamina. No speculative younger-prime or real-world atomic-energy scaling.",
+    "sourceChapters": [[464, 466], [553, 554], [560, 563], [577, 588]], "confidence": "medium" }
+]

@@ -1,0 +1,17 @@
+[
+  { "id": "kabuto-yakushi--medical-spy", "characterId": "kabuto-yakushi", "name": "Living medical spy", "era": "Part One Sannin confrontation",
+    "stats": {"attack": 34, "defense": 30, "speed": 34, "durability": 29, "intelligence": 75, "versatility": 43, "stamina": 39, "feats": 34}, "powerScore": 371, "rarity": "Common",
+    "abilityTags": ["medical", "healing", "taijutsu"], "signatureMoves": ["Chakra Scalpel", "Yin Healing Wound Destruction"],
+    "limitations": "Anticipatory healing requires identifying the injury location and chakra. No Orochimaru implants, Sage Mode or reanimated army; medical precision is not universal organ-damage immunity.",
+    "sourceChapters": [[162, 169]], "confidence": "medium" },
+  { "id": "kabuto-yakushi--orochimaru-graft", "characterId": "kabuto-yakushi", "name": "Orochimaru-grafted body / before Sage reveal", "era": "Pre-war / war preparation",
+    "stats": {"attack": 46, "defense": 41, "speed": 39, "durability": 42, "intelligence": 82, "versatility": 58, "stamina": 47, "feats": 45}, "powerScore": 476, "rarity": "Rare",
+    "abilityTags": ["snakes", "medical", "implants"], "signatureMoves": ["Chakra Scalpel", "Snake Body Extension"],
+    "limitations": "Sparse personal combat depiction while assimilating Orochimaru; snake extension is descriptive. No demonstrated Sage enhancement assigned and no independent reanimated army counted as personal stats.",
+    "sourceChapters": [[356, 357], [489, 490], [520, 521]], "confidence": "low" },
+  { "id": "kabuto-yakushi--snake-sage", "characterId": "kabuto-yakushi", "name": "Snake Sage Mode / incorporated traits", "era": "Uchiha cave confrontation",
+    "stats": {"attack": 68, "defense": 66, "speed": 64, "durability": 63, "intelligence": 88, "versatility": 87, "stamina": 76, "feats": 70}, "powerScore": 708, "rarity": "Epic",
+    "abilityTags": ["sage", "sound", "regeneration", "snakes", "terrain-control"], "signatureMoves": ["Sage Art: White Rage Technique", "Sage Art: Inorganic Reincarnation", "Chakra Scalpel"],
+    "limitations": "Cave/terrain, natural energy and incorporated traits are contextual resources; sensory techniques have conditions. No separately reanimated combatants, unlimited healing or Izanami immunity.",
+    "sourceChapters": [[579, 590]], "confidence": "medium" }
+]
