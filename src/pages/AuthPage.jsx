@@ -36,7 +36,7 @@ export default function AuthPage() {
   if (user) return <Navigate to={destination} replace />;
   return <div className="container account-layout">
     <section className="account-intro"><Badge>YOUR NEXT ARC STARTS HERE</Badge><h1>ONE PROFILE.<br /><span>THREE WORLDS.</span></h1><p>Pick your identity. Keep your progress. Get ready for the clash.</p>
-      <ul className="account-perks"><li><Swords /><div><strong>Build your battle record</strong><span>Wins, streaks and rank points when the arena opens.</span></div></li><li><Trophy /><div><strong>Climb from Rookie to Legend</strong><span>Your player rank is separate from character rarity.</span></div></li><li><Sparkles /><div><strong>Make it your own</strong><span>Six anime-themed avatars. One profile for every mode.</span></div></li></ul>
+      <ul className="account-perks"><li><Swords /><div><strong>Build your battle record</strong><span>Wins, streaks and rank points from your arena matches.</span></div></li><li><Trophy /><div><strong>Climb from Rookie to Legend</strong><span>Your player rank is separate from character rarity.</span></div></li><li><Sparkles /><div><strong>Make it your own</strong><span>Six anime-themed avatars. One profile for every mode.</span></div></li></ul>
       <p className="local-account-note">This demo profile stays in this browser. Use a demo password; it won’t sync between devices.</p>
     </section>
     <Card className="auth-card"><div className="auth-switch"><Link to="/login" state={location.state} aria-current={!signup ? 'page' : undefined}>Log in</Link><Link to="/signup" state={location.state} aria-current={signup ? 'page' : undefined}>Create account</Link></div>

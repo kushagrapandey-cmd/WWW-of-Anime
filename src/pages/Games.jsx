@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { Gamepad2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { miniRoster } from '../data/miniRoster';
-import { answerRound, advanceRound, revealClue } from '../minigames/engine';
+import { useSound } from '../context/SoundContext';
+import { answerRound, advanceRound, revealClue, scoreSession } from '../minigames/engine';
 import MiniGameService from '../services/MiniGameService';
 import Button from '../components/Button';
 import GameSetup from '../components/games/GameSetup';
@@ -15,6 +16,7 @@ import GameResults from '../components/games/GameResults';
 import './Games.css';
 export default function Games() {
   const { user, loading, error: authError, refresh, recordGameResult } = useAuth();
+  const { play } = useSound();
   const ownerId = user?.id ?? null;
   const [session, setSession] = useState(null), [history, setHistory] = useState([]), [highScores, setHighScores] = useState({});
   const [error, setError] = useState(''), [saveError, setSaveError] = useState(''), [saving, setSaving] = useState(false), [now, setNow] = useState(Date.now());
@@ -59,6 +61,8 @@ export default function Games() {
     try {
       const previous = active.current, next = transform();
       MiniGameService.write(next, previous.revision); replace(next); setError('');
+      if (next.answers.length > previous.answers.length) play(scoreSession(next).details.at(-1).correct ? 'correct' : 'wrong');
+      else if (next.status === 'complete') play('victory');
       if (next.status === 'complete' && !next.saved) save(next);
     } catch (reason) { setError(reason.message); }
   }
@@ -87,6 +91,6 @@ export default function Games() {
       <RoundFeedback session={session} onNext={() => act(() => advanceRound(active.current))} />
     </GameShell>}
     {session?.status === 'complete' && <GameResults session={session} highScore={Math.max(highScores[session.board] ?? 0, user?.gameProgress?.highScores?.[session.board] ?? 0)} saving={saving} saveError={saveError} onSave={() => save(active.current)} onAgain={() => start(session.settings)} onNew={leave} />}
-    <p className="mini-note mini-footer">Saved in this browser. Fixed peak forms; no silhouette artwork. Clearing site data removes local game history.</p>
+    <p className="mini-note mini-footer">Saved in this browser. Fixed peak forms. Clearing site data removes local game history.</p>
   </div>;
 }

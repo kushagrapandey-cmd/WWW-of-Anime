@@ -82,3 +82,5 @@
 @media (prefers-reduced-motion: reduce) {
   .arena-page *, .arena-page *::before, .arena-page *::after { animation: none !important; transition: none !important; }
 }
+
+@media(max-width:400px){.round-duel{grid-template-columns:1fr}.duel-vs{position:static;transform:none;justify-self:center;grid-row:2}.round-fighter{width:100%}}

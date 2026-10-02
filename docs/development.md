@@ -28,6 +28,8 @@ WWW-of-Anime/
     components/
       Navbar.jsx
       Layout.jsx
+      RouteErrorBoundary.jsx
+      SoundToggle.jsx
       Button.jsx
       Card.jsx
       Modal.jsx
@@ -55,7 +57,7 @@ WWW-of-Anime/
       Games.css
       Accounts.css
     data/
-      anime.js
+      anime-catalog.json, anime.js, registry.js
       index.js
       power.js
       peakForms.js
@@ -70,6 +72,7 @@ WWW-of-Anime/
       BattleService.js
       QuizService.js
       MiniGameService.js
+      SoundService.js
       LocalAuthService.js
       passwords.js
       localStorageStore.js
@@ -78,7 +81,7 @@ WWW-of-Anime/
     quiz/{config,date,engine,profileResult}.js
     minigames/{config,names,questions,validation,engine}.js
     hooks/.gitkeep
-    context/AuthContext.jsx
+    context/{AuthContext,SoundContext}.jsx
     config/auth.js
   tests/auth.test.mjs
   tests/game.test.js
@@ -87,10 +90,18 @@ WWW-of-Anime/
   tests/quiz-storage.test.js
   tests/mini-engine.test.js
   tests/mini-storage.test.js
+  tests/sound.test.js
+  tests/data-registry.test.js
+  tests/browser/helpers.js
+  tests/browser/{battle,games,polish,quiz}.spec.js
+  playwright.config.js
+  vercel.json
+  netlify.toml
+  .github/workflows/ci.yml
   .env.example
 ```
 
-All paths above are tracked source files in this repository. Empty directories reserve later phases. Phase 2 adds character data, form snapshots and the user-requested guide.
+The listed groups describe tracked source files; browser scenario files use the `.spec.js` suffix. Empty directories reserve later phases. Phase 2 adds character data, form snapshots and the user-requested guide.
 
 ## How to test
 
@@ -105,7 +116,7 @@ All paths above are tracked source files in this repository. Empty directories r
 - At 360px width: open/close the navigation menu, select a route, and check that the menu closes. Confirm no horizontal scroll.
 - Use Tab and Enter to navigate links; check visible focus and the skip-to-content link.
 - Turn on the operating system's reduced-motion preference. Decorative motion should stop.
-- Run `npm test`, `npm run validate:data` and `npm run build`; they should succeed. Visit routes using `npm run preview`.
+- Run `npm test`, `npm run validate:data`, `npm run test:e2e` and `npm run build`; they should succeed. Install Chromium first with `npx playwright install --with-deps chromium`. Visit routes using `npm run preview`.
 
 ## Reusable component interfaces
 
@@ -121,8 +132,12 @@ All paths above are tracked source files in this repository. Empty directories r
 
 ## Verification
 
-Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; local accounts and Battle Arena are implemented; quizzes and guessing games are implemented.
+Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Phase 8 adds 16 production-build Playwright runs at desktop/360px, keyboard and axe checks plus screenshot review in Chromium. Safari/Firefox, physical devices, assistive technology/audio listening and hosted checks remain manual. The user-requested guide changes the UI; local accounts and Battle Arena are implemented; quizzes and guessing games are implemented.
 
 ## Revised phase order and fallback checks
 
-See [task memory](../TASKS.md). Phase 3 is parked; Phase 2 is closed and Phases 4–7 are implemented. Proceed to Phase 8 only on the user’s “next”. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is implemented; no silhouette game is planned.
+See [task memory](../TASKS.md). Phase 3 is parked; Phase 2 is closed and Phases 4–8 are implemented. Further hosting/backend/expansion scope needs user direction. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is implemented; no silhouette game is planned.
+
+## Phase 8 and release
+
+See [polish and browser QA](phase-8-polish.md), [data-only expansion/backend roadmap](expansion.md) and [static deployment](deployment.md). SoundProvider wraps the app; useSound exposes opt-in `play(cue)` and toggle state. Sound errors are separate from game results. RouteErrorBoundary protects lazy content while navigation stays mounted. JSON loaders use Vite globs; pure engine files remain independent of React and JSON loaders.

@@ -33,7 +33,7 @@ export default function CharacterGuide() {
       </Card>
       <Card><h2>WHICH FORM COUNTS?</h2>
         <p>The original roster rates one supported peak state per character. Alternate forms get their own stats, moves, power and tier. An early-series Base is different from a late-series Base.</p>
-        <p><strong>Battle selection (planned):</strong> each player drafts five random, rarity-weighted fighters with one reroll. Duplicate character identities are excluded across both teams, even when forms differ. The eligible form pool is fixed before drafting.</p>
+        <p><strong>Battle selection:</strong> each player drafts five random, rarity-weighted fighters with one reroll. Duplicate character identities are excluded across both teams, even when forms differ. The eligible form pool is fixed before drafting.</p>
         <p>A form keeps one coherent set of abilities. Time limits, preparation, equipment and recovery costs matter. One fighter keeps one identity across forms.</p>
         <p>Luffy’s sequence is Base, then Gears 2–5. “Gear 1” is an informal label for Base. Gear Four also has Boundman, Snakeman and the demonstrated stuffed Tankman.</p>
       </Card>
@@ -66,7 +66,7 @@ export default function CharacterGuide() {
     <section className="guide-rules" aria-label="Understand power levels">
       <Card><h2>WHAT DOES THE LEVEL MEAN?</h2><p>We show a power score from 1–1000 and its rarity tier. These are game ratings, not official anime levels. Common does not mean unimportant; Mythic does not mean unbeatable.</p>
         <ul className="guide-tiers">{powerTiers.map(tier => <li key={tier.name}><Badge color={rarityColors[tier.name]}>{tier.name}</Badge><span>{tier.min}–{tier.max}</span></li>)}</ul>
-        <p>Player rank will be separate from character power. It arrives with accounts and battles.</p>
+        <p>Player rank is separate from character power. Your profile tracks it through battle results.</p>
       </Card>
       <Card><h2>HOW WE RATE POWER</h2><p>Every series uses the same eight stats and weights. A form’s tier follows its calculated score; there are no series or popularity bonuses.</p>
         <ul className="guide-weights">{Object.entries(statWeights).map(([stat, weight]) => <li key={stat}><span>{stat}</span><strong>{weight}%</strong></li>)}</ul>

@@ -4,6 +4,7 @@ import { CircleHelp } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { quizQuestions } from '../data/quizzes';
 import { challengeDate } from '../quiz/date';
+import { useSound } from '../context/SoundContext';
 import { answerAttempt, advanceAttempt, finishAttempt } from '../quiz/engine';
 import QuizService from '../services/QuizService';
 import Button from '../components/Button';
@@ -18,6 +19,7 @@ export default function Quizzes() {
   const [error, setError] = useState(''), [saveError, setSaveError] = useState(''), [saving, setSaving] = useState(false);
   const [now, setNow] = useState(Date.now());
   const active = useRef(null), actor = useRef(user?.id ?? null), busy = useRef(new Set()), section = useRef(null);
+  const { play } = useSound();
   const ownerId = user?.id ?? null;
   function replace(next) { active.current = next; setAttempt(next); }
   function readHistory(id = ownerId) {
@@ -59,6 +61,8 @@ export default function Quizzes() {
       const previous = active.current, next = transform();
       if (previous?.id === next.id) QuizService.write(next, previous.revision);
       replace(next); setError('');
+      if (next.answers.length > previous.answers.length) play(next.answers.at(-1).optionIndex === next.questions[previous.cursor].answerIndex ? 'correct' : 'wrong');
+      else if (next.status === 'complete' && previous.status !== 'complete') play('victory');
       if (next.status === 'complete' && !next.saved) save(next);
     } catch (reason) { setError(reason.message); }
   }
@@ -74,7 +78,7 @@ export default function Quizzes() {
   }
   function leave() { replace(null); setError(''); readHistory(); }
   const today = challengeDate(now);
-  return <div ref={section} className="container quiz-page"><header className="quiz-heading"><span className="eyebrow"><CircleHelp size={18} /> THE KNOWLEDGE ARC</span><h1>ANIME <span>QUIZZES.</span></h1><p>Three worlds. Ninety questions. Bring your memory.</p></header>
+  return <div ref={section} className="container quiz-page"><header className="quiz-heading"><span className="eyebrow"><CircleHelp size={18} /> THE KNOWLEDGE ARC</span><h1>ANIME <span>QUIZZES.</span></h1><p>{quizQuestions.length} questions. Bring your memory.</p></header>
     {authError && <p role="alert" className="account-error">{authError}<Button onClick={refresh}>Reload profile</Button></p>}
     {error && <div role="alert" className="account-error">{error}{attempt && <Button variant="secondary" onClick={() => open(attempt)}>Load saved attempt</Button>}</div>}
     {!attempt && <QuizSetup key={`${ownerId}:${params.get('mode')}`} user={user} initialMode={params.get('mode') === 'daily' ? 'daily' : 'classic'} today={today} history={history} disabled={loading || Boolean(authError) || saving} onStart={settings => { try { open(QuizService.start(quizQuestions, settings, ownerId)); } catch (reason) { setError(reason.message); } }} onOpen={open} />}

@@ -1,5 +1,5 @@
-import naruto from './naruto.json';
-import onepiece from './onepiece.json';
-import bleach from './bleach.json';
-export const quizBanks = { naruto, onepiece, bleach };
+import { indexAnimeFiles } from '../registry.js';
+import { animeConfig } from '../anime.js';
+const banks = import.meta.glob('./*.json', { eager: true, import: 'default' });
+export const quizBanks = indexAnimeFiles(animeConfig, banks, './');
 export const quizQuestions = Object.values(quizBanks).flat();

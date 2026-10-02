@@ -4,7 +4,7 @@
 
 A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore your favorite worlds, test your knowledge, and draft a team for a crossover showdown.
 
-**🟢 Phase 1 interface built · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 👤 Local profiles available · ⚔️ Battle Arena playable**
+**🟢 Prototype phases complete · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 👤 Local profiles available · ⚔️ Battle Arena playable**
 
 [🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
 
@@ -108,6 +108,15 @@ npm run preview
 
 Open **http://localhost:4173**, or forwarded port **4173** in Codespaces. This previews the build without publishing it.
 
+### 🧪 Browser and accessibility smoke checks
+
+```bash
+npx playwright install --with-deps chromium
+npm run test:e2e
+```
+
+Playwright runs CPU/local-friend battles, quizzes, guessing games, navigation, image/storage errors and lazy-route recovery at desktop and 360px using the production build. It checks keyboard focus, clipped headings, horizontal overflow and axe accessibility rules. `npm test` runs 67 unit tests; browser checks run separately. Reports/traces are ignored by Git. CI runs both suites on Node 24.
+
 ### 🔄 Already have a Codespace?
 
 Save or commit your own changes first. Stop the development server, then update from `main`:
@@ -120,34 +129,46 @@ npm run dev
 
 If Git reports local conflicts, resolve those before updating. Do not discard your changes to force a pull.
 
+## 🔊 Optional sound
+
+The footer **Sound off** button enables short generated effects for game reveals, answers and results. Off by default; your preference stays in this browser. Muting stops active tones. No audio files are downloaded.
+
+## 🚢 Deployment and expansion
+
+[Static deployment steps](docs/deployment.md) cover Vercel and Netlify with tracked SPA rewrites for direct links and refreshes. Build command: `npm run build`; output: `dist`; Node 24. Hosting has not been performed.
+
+To add an anime later, add its entry to `src/data/anime-catalog.json`, matching character/stats and quiz JSON, and optional form JSON. Imports, filters and themes update automatically at build time. Validate and test every game pool; [the full checklist](docs/expansion.md) specifies schemas/minimums and optional local images. Phase 3 remains parked; no image downloader exists yet.
+
+The [backend roadmap](docs/expansion.md#backend-roadmap) covers Express, Postgres/MongoDB, JWT sessions, server-owned battle/draft and game scoring, atomic progress receipts and leaderboards. Current accounts and scores remain browser-local demo data.
+
 ## 🗺️ Roadmap
 
 | Phase | Milestone | Status |
 | --- | --- | --- |
 | 0 | Master brief | ✅ Complete |
-| 1 | Scaffold, theme, home and navigation | ✅ Built; browser QA pending |
+| 1 | Scaffold, theme, home and navigation | ✅ Built; Chromium QA in Phase 8 |
 | 2 A | Power rubric, calibration and 120-character roster proposal | ✅ Approved |
 | 2 B | Character database and forms | ✅ Current scope accepted: 120 identities / 237 snapshots; further review deferred |
 | 3 | Optional character image pipeline | ⏸️ Parked; no gameplay dependency |
-| 4 | Accounts and profiles | ✅ Local prototype implemented; browser visual QA pending |
-| 5 | Battle Arena | ✅ Implemented and tested; browser visual QA pending |
-| 6 | Quizzes and Daily Challenge | ✅ Implemented and tested; browser visual QA pending |
-| 7 | Guessing games | ✅ Implemented and tested; browser visual QA pending |
-| 8 | Polish, tests, expansion and deployment | 🔒 Planned |
+| 4 | Accounts and profiles | ✅ Local prototype implemented; Chromium QA in Phase 8 |
+| 5 | Battle Arena | ✅ Implemented and tested; Chromium QA in Phase 8 |
+| 6 | Quizzes and Daily Challenge | ✅ Implemented and tested; Chromium QA in Phase 8 |
+| 7 | Guessing games | ✅ Implemented and tested; Chromium QA in Phase 8 |
+| 8 | Polish, tests, expansion and deployment | ✅ Implemented; hosting prepared |
 
-We build one phase at a time. Phase 2 is closed at the user’s accepted scope, and Phases 4–7 local accounts, Battle Arena, quizzes and guessing games are implemented. Phase 8 polish and QA are next. Phase 3 is optional and parked. Nothing is publicly deployed yet.
+We build one phase at a time. Phase 2 is closed at the user’s accepted scope, and Phases 4–8 local accounts, Battle Arena, quizzes, guessing games, polish and QA are implemented. Phase 3 is optional and parked. Nothing is publicly deployed yet.
 
 ## 🛠️ Under the hood
 
 **React · Vite · Tailwind CSS · React Router · Framer Motion · JavaScript**
 
-- 🎨 Anime palettes live together in `src/data/anime.js`.
+- 🎨 Anime palettes and manga cutoffs live in `src/data/anime-catalog.json`; JSON banks/forms load automatically.
 - 🧩 Shared UI includes Button, Card, Modal, Badge, ProgressBar, CharacterAvatar and CharacterCard. Cards include stats, power and ability chips with no artwork dependency.
 - 📂 `src/data` holds characters/forms; `src/game` contains the pure seeded draft, battle engine and rank calculation.
 - 🔌 `src/services/AuthService.js` exposes async local account/profile operations and can later swap to an API adapter.
-- ♿ The foundation includes focus styles, a skip link and reduced-motion handling. Full accessibility QA is still pending.
+- ♿ Keyboard focus, skip navigation, reduced motion and tested WCAG checks pass in desktop/360px Chromium; other browsers and assistive technology still need release checks.
 
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Phase 4 accounts](docs/phase-4-accounts.md) · [Phase 5 arena and testing](docs/phase-5-arena.md) · [Phase 6 quizzes and testing](docs/phase-6-quizzes.md) · [Phase 7 games and testing](docs/phase-7-games.md) · [Latest State Summary](STATE_SUMMARY.md)
+[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Phase 4 accounts](docs/phase-4-accounts.md) · [Phase 5 arena and testing](docs/phase-5-arena.md) · [Phase 6 quizzes and testing](docs/phase-6-quizzes.md) · [Phase 7 games and testing](docs/phase-7-games.md) · [Phase 8 polish & browser QA](docs/phase-8-polish.md) · [Deployment](docs/deployment.md) · [Expansion & backend roadmap](docs/expansion.md) · [Latest State Summary](STATE_SUMMARY.md)
 
 ## 📚 About the characters and scores
 

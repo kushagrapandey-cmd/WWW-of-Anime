@@ -1,9 +1,8 @@
-import naruto from './characters/naruto.json';
-import onepiece from './characters/onepiece.json';
-import bleach from './characters/bleach.json';
+import { indexAnimeFiles } from './registry.js';
+import { animeConfig } from './anime.js';
 import { getFormById } from './forms/index.js';
-
-export const charactersByAnime = { naruto, onepiece, bleach };
+const rosters = import.meta.glob('./characters/*.json', { eager: true, import: 'default' });
+export const charactersByAnime = indexAnimeFiles(animeConfig, rosters, './characters/');
 export const characters = Object.values(charactersByAnime).flat();
 export const getCharacterById = (id) => characters.find(character => character.id === id) ?? null;
 export default characters;

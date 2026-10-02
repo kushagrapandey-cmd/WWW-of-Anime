@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
-import { CircleHelp, Gamepad2, Flame, Anchor, Sword } from 'lucide-react';
+import { CircleHelp, Gamepad2, Flame, Anchor, Sword, Sparkles } from 'lucide-react';
 import { animeConfig, animeTheme } from '../data/anime';
 import Badge from '../components/Badge';
 import Button from '../components/Button';
@@ -11,7 +11,7 @@ export default function Placeholder({ section }) {
   const { animeId } = useParams();
   const anime = animeConfig.find(item => item.id === animeId);
   if (animeId && !anime) return <NotFound />;
-  const config = anime ? { title: anime.name, icon: { naruto: Flame, onepiece: Anchor, bleach: Sword }[anime.id], phase: 2, text: anime.description } : sections[section];
+  const config = anime ? { title: anime.name, icon: { naruto: Flame, onepiece: Anchor, bleach: Sword }[anime.id] ?? Sparkles, phase: 2, text: anime.description } : sections[section];
   const Icon = config.icon;
   return <section className="placeholder container" style={anime ? animeTheme(anime) : undefined}><div className="placeholder-icon"><Icon size={44} /></div><Badge>{anime ? "UNIVERSE PREVIEW" : `COMING IN PHASE ${config.phase}`}</Badge><h1>{config.title}</h1><p>{config.text}</p><p className="placeholder-note">This section is a preview. There’s nothing to play here yet.</p><Button to="/" variant="secondary">Back to home</Button><Link className="text-link" to="/characters">Explore characters, forms & power tiers</Link></section>;
 }

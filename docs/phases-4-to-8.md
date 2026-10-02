@@ -160,7 +160,9 @@ Bleach / All).
 
 ---
 
-## Phase 8: Polish, tests, expansion
+## Phase 8: Polish, tests, expansion — implemented
+
+See [Phase 8 implementation, verification and limits](phase-8-polish.md).
 
 ```
 PHASE 8: Polish, QA, expansion

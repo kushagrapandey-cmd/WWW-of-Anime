@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
+import { animeConfig } from '../src/data/anime.js';
 import { readFile, readdir } from 'node:fs/promises';
 import { calculatePower, getPowerTier, statWeights } from '../src/data/power.js';
 const root = new URL('../', import.meta.url);
 const characters = [];
-for (const anime of ['naruto', 'onepiece', 'bleach']) {
+for (const { id: anime } of animeConfig) {
   characters.push(...JSON.parse(await readFile(new URL(`src/data/characters/${anime}.json`, root), 'utf8')));
 }
 const byId = new Map(characters.map(character => [character.id, character]));
@@ -34,7 +35,7 @@ for (const filename of (await readdir(new URL('src/data/forms/', root))).filter(
     }
     form.abilityTags.forEach(tag => assert.match(tag, /^[a-z0-9]+(?:-[a-z0-9]+)*$/));
     assert(['high', 'medium', 'low'].includes(form.confidence), `${label}: confidence`);
-    const cutoff = { naruto: 700, onepiece: 1122, bleach: 686 }[byId.get(form.characterId).anime];
+    const cutoff = animeConfig.find(anime => anime.id === byId.get(form.characterId).anime).cutoffChapter;
     assert(Array.isArray(form.sourceChapters) && form.sourceChapters.length > 0, `${label}: sources`);
     for (const range of form.sourceChapters) {
       assert(Array.isArray(range) && range.length === 2 && range.every(Number.isInteger), `${label}: chapter range`);

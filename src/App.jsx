@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -11,14 +11,13 @@ const Profile = lazy(() => import('./pages/Profile'));
 const Games = lazy(() => import('./pages/Games'));
 const Quizzes = lazy(() => import('./pages/Quizzes'));
 const BattleEntry = lazy(() => import('./pages/BattleEntry'));
-const loading = <section className="placeholder container"><p role="status">Loading your next arc…</p></section>;
 export default function App() {
-  return <Suspense fallback={loading}><Routes><Route element={<Layout />}>
+  return <Routes><Route element={<Layout />}>
     <Route index element={<Home />} /><Route path="characters" element={<CharacterGuide />} />
     <Route path="login" element={<AuthPage />} /><Route path="signup" element={<AuthPage />} />
     <Route element={<ProtectedRoute />}><Route path="profile" element={<Profile />} /></Route>
     <Route element={<ProtectedRoute required={REQUIRE_LOGIN} />}><Route path="battle" element={<BattleEntry />} /></Route>
     <Route path="quizzes" element={<Quizzes />} /><Route path="games" element={<Games />} />
     <Route path="anime/:animeId" element={<Placeholder />} /><Route path="*" element={<NotFound />} />
-  </Route></Routes></Suspense>;
+  </Route></Routes>;
 }

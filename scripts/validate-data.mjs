@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { animeConfig } from '../src/data/anime.js';
 import { readFile } from 'node:fs/promises';
 import { statWeights as weights, calculatePower as score, getPowerTier } from '../src/data/power.js';
 
@@ -13,9 +14,9 @@ assert.equal(Object.values(weights).reduce((a, b) => a + b), 100);
 assert.equal(score(Object.fromEntries(Object.keys(weights).map(key => [key, 1]))), 1);
 assert.equal(score(Object.fromEntries(Object.keys(weights).map(key => [key, 100]))), 1000);
 let total = 0;
-for (const anime of ['naruto', 'onepiece', 'bleach']) {
+for (const { id: anime } of animeConfig) {
   const data = JSON.parse(await readFile(new URL(`src/data/characters/${anime}.json`, root), 'utf8'));
-  assert(Array.isArray(data), `${anime}: expected JSON array`);
+  assert(Array.isArray(data) && data.length >= 12, `${anime}: expected JSON array`);
   const names = new Set();
   for (const character of data) {
     const label = `${anime}/${character.id}`;
