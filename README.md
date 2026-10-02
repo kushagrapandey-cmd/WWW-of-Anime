@@ -4,7 +4,7 @@
 
 A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore your favorite worlds, test your knowledge, and draft a team for a crossover showdown.
 
-**🟢 Prototype phases complete · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 👤 Local profiles available · ⚔️ Battle Arena playable**
+**🌐 Online upgrade available · 🟢 Prototype phases complete · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 👤 Local profiles available · ⚔️ Battle Arena playable**
 
 [🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
 
@@ -191,3 +191,10 @@ Optional later roadmap: reopen Phase 3 and implement/run `fetch-images` after ga
 WWW-of-Anime is an unofficial fan prototype. Naruto, One Piece, Bleach and their characters belong to their respective rights holders. No third-party character artwork is bundled yet; future artwork requires appropriate usage rights before a public launch.
 
 **Built for the rivalry. Stay for the next arc. ⚡**
+
+
+## Online accounts and multiplayer
+
+Production now uses **Vercel Functions + PostgreSQL** for accounts, invites, private drafts and shared results. Sign-in and progress work across devices after the database is configured. Guests can practice quizzes/games locally. Browser-only prototype accounts do not migrate automatically.
+
+Start with [Vercel deployment and environment setup](docs/deployment.md) and the [online upgrade handoff](docs/online-upgrade.md). **A static deployment alone does not activate the backend.** Public hosting has not been performed yet. Email recovery and production operations remain pending.

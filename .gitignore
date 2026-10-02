@@ -5,3 +5,6 @@ dist/
 .sites-runtime/
 test-results/
 playwright-report/
+
+.env.*
+!.env.example

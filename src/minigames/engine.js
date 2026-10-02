@@ -44,10 +44,12 @@ export function advanceRound(session, now = Date.now()) {
   validateSession(next); return next;
 }
 export function correctChoice(session, index) {
+  if (session.online) return session.correctChoices[index];
   const round = session.rounds[index];
   return session.settings.mode === 'power' ? round.pair[1].powerScore > round.pair[0].powerScore ? 'higher' : 'lower' : round.target.id;
 }
 export function scoreSession(session) {
+  if (session.online) return session.result;
   validateSession(session);
   let score = 0, streak = 0, bestStreak = 0, correct = 0;
   const details = session.answers.map((answer, index) => {

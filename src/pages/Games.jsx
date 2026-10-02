@@ -1,3 +1,5 @@
+import { ONLINE } from '../config/online';
+import { OnlineActivityService as Remote } from '../services/OnlineActivityService';
 import { useEffect, useRef, useState } from 'react';
 import { Gamepad2 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
@@ -18,12 +20,13 @@ export default function Games() {
   const { user, loading, error: authError, refresh, recordGameResult } = useAuth();
   const { play } = useSound();
   const ownerId = user?.id ?? null;
+  const requestPending = useRef(false);
   const [session, setSession] = useState(null), [history, setHistory] = useState([]), [highScores, setHighScores] = useState({});
   const [error, setError] = useState(''), [saveError, setSaveError] = useState(''), [saving, setSaving] = useState(false), [now, setNow] = useState(Date.now());
   const active = useRef(null), actor = useRef(ownerId), pending = useRef(new Set()), lastSettings = useRef(null), page = useRef(null);
   function replace(next) { active.current = next; setSession(next); }
-  function read(id = ownerId) {
-    try { const store = MiniGameService.read(id); setHistory(store.records); const scores = { ...store.highScores };
+  async function read(id = ownerId) {
+    try { const store = ONLINE && id ? { records: await Remote.history('mini'), highScores: user?.gameProgress?.highScores ?? {} } : MiniGameService.read(id); if (actor.current !== id) return; setHistory(store.records); const scores = { ...store.highScores };
       for (const [key, score] of Object.entries(user?.id === id ? user.gameProgress?.highScores ?? {} : {})) scores[key] = Math.max(scores[key] ?? 0, score);
       setHighScores(scores); }
     catch (reason) { setError(reason.message); }
@@ -40,7 +43,7 @@ export default function Games() {
     const timer = setInterval(() => {
       const time = Date.now(); setNow(time);
       const current = active.current;
-      if (current?.status === 'active' && current.answers.length === current.cursor && time >= current.deadline) act(() => answerRound(current, null, time));
+      if (current?.status === 'active' && current.answers.length === current.cursor && time >= current.deadline) act(() => answerRound(current, null, time), 'timeout');
     }, 250);
     return () => clearInterval(timer);
     // A stored wall-clock deadline survives reloads; the ref handles current answers.
@@ -52,31 +55,39 @@ export default function Games() {
     if (pending.current.has(key)) return;
     pending.current.add(key); setSaving(true); setSaveError('');
     try {
-      const saved = await MiniGameService.save(next, recordGameResult);
+      const saved = ONLINE && next.ownerId ? await Remote.latest('mini', next) : await MiniGameService.save(next, recordGameResult);
+      if (ONLINE && next.ownerId) await refresh();
       if (actor.current === next.ownerId) { if (active.current?.id === next.id) replace(saved); read(next.ownerId); }
     } catch (reason) { if (actor.current === next.ownerId) setSaveError(reason.message); }
     finally { pending.current.delete(key); if (actor.current === next.ownerId) setSaving(false); }
   }
-  function act(transform) {
+  async function act(transform, action, input) {
+    if (requestPending.current) return;
+    requestPending.current = true;
     try {
-      const previous = active.current, next = transform();
-      MiniGameService.write(next, previous.revision); replace(next); setError('');
+      const previous = active.current;
+      const next = ONLINE && previous.ownerId ? await Remote.act('mini', previous, action, input) : transform();
+      if (actor.current !== next.ownerId || active.current?.id !== next.id) return;
+      if (!ONLINE || !previous.ownerId) MiniGameService.write(next, previous.revision); replace(next); setError('');
       if (next.answers.length > previous.answers.length) play(scoreSession(next).details.at(-1).correct ? 'correct' : 'wrong');
       else if (next.status === 'complete') play('victory');
       if (next.status === 'complete' && !next.saved) save(next);
     } catch (reason) { setError(reason.message); }
+    finally { requestPending.current = false; }
   }
-  function open(record) {
+  async function open(record) {
     try {
-      let latest = MiniGameService.latest(record);
+      let latest = ONLINE && record.ownerId ? await Remote.latest('mini', record) : MiniGameService.latest(record);
       if (latest.status === 'active' && latest.answers.length === latest.cursor && Date.now() >= latest.deadline) {
-        const timedOut = answerRound(latest); MiniGameService.write(timedOut, latest.revision); latest = timedOut;
+        if (ONLINE && latest.ownerId) latest = await Remote.act('mini', latest, 'timeout');
+        else { const timedOut = answerRound(latest); MiniGameService.write(timedOut, latest.revision); latest = timedOut; }
       }
+      if (actor.current !== latest.ownerId) return;
       lastSettings.current = latest.settings; replace(latest); setNow(Date.now()); setError(''); setSaveError('');
       if (latest.status === 'complete' && !latest.saved) save(latest);
     } catch (reason) { setError(reason.message); }
   }
-  function start(settings) { try { open(MiniGameService.start(miniRoster, settings, ownerId)); } catch (reason) { setError(reason.message); } }
+  async function start(settings) { try { open(ONLINE && ownerId ? await Remote.start('mini', settings) : MiniGameService.start(miniRoster, settings, ownerId)); } catch (reason) { setError(reason.message); } }
   function leave() { replace(null); setError(''); read(); }
   const answered = session && session.answers.length > session.cursor;
   const disabled = Boolean(answered || (session && now >= session.deadline));
@@ -85,12 +96,12 @@ export default function Games() {
     {error && <div role="alert" className="account-error">{error}{session && <Button variant="secondary" onClick={() => open(session)}>Load saved session</Button>}</div>}
     {!session && <GameSetup user={user} history={history} highScores={highScores} initialSettings={lastSettings.current} disabled={loading || Boolean(authError) || saving} onStart={start} onOpen={open} />}
     {session?.status === 'active' && <GameShell session={session} now={now} highScore={highScores[session.board] ?? 0} onLeave={leave}>
-      {session.settings.mode === 'move' && <MoveRound session={session} disabled={disabled} onAnswer={value => act(() => answerRound(active.current, value))} />}
-      {session.settings.mode === 'clue' && <ClueRound session={session} disabled={disabled} onReveal={() => act(() => revealClue(active.current))} onAnswer={value => act(() => answerRound(active.current, value))} />}
-      {session.settings.mode === 'power' && <PowerRound session={session} disabled={disabled} revealed={Boolean(answered)} onAnswer={value => act(() => answerRound(active.current, value))} />}
-      <RoundFeedback session={session} onNext={() => act(() => advanceRound(active.current))} />
+      {session.settings.mode === 'move' && <MoveRound session={session} disabled={disabled} onAnswer={value => act(() => answerRound(active.current, value), 'answer', value)} />}
+      {session.settings.mode === 'clue' && <ClueRound session={session} disabled={disabled} onReveal={() => act(() => revealClue(active.current), 'clue')} onAnswer={value => act(() => answerRound(active.current, value), 'answer', value)} />}
+      {session.settings.mode === 'power' && <PowerRound session={session} disabled={disabled} revealed={Boolean(answered)} onAnswer={value => act(() => answerRound(active.current, value), 'answer', value)} />}
+      <RoundFeedback session={session} onNext={() => act(() => advanceRound(active.current), 'next')} />
     </GameShell>}
     {session?.status === 'complete' && <GameResults session={session} highScore={Math.max(highScores[session.board] ?? 0, user?.gameProgress?.highScores?.[session.board] ?? 0)} saving={saving} saveError={saveError} onSave={() => save(active.current)} onAgain={() => start(session.settings)} onNew={leave} />}
-    <p className="mini-note mini-footer">Saved in this browser. Fixed peak forms. Clearing site data removes local game history.</p>
+    <p className="mini-note mini-footer">{ONLINE && user ? 'Saved to your online account. Fixed peak forms. Deadlines and scoring are enforced by the server.' : 'Guest progress stays in this browser. Fixed peak forms.'}</p>
   </div>;
 }

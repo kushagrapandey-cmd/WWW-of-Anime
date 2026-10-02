@@ -1,53 +1,78 @@
-# Static deployment
+# Vercel + PostgreSQL deployment
 
-This repository is ready for a static prototype deployment. No hosting account or deployment was created during Phase 8. Use the repository root as the project root and Node 24 (minimum supported runtime 22.12).
+This release adds an online backend; static-only deployment is no longer sufficient for online accounts or matches. Production builds select online accounts by default and fail closed if the backend is not configured. Local prototype accounts do not become online accounts. Do not import browser password hashes or editable rank data into production.
 
-## Verify locally
+## Architecture
+
+- Vercel serves `dist` and the same-origin Node Function `api/index.js`.
+- PostgreSQL stores accounts, opaque session hashes, private match state and signed-in quiz/game progress.
+- `pg` uses the provider's pooled connection string; `attachDatabasePool` manages idle Vercel connections.
+- Turn-based matches poll every four seconds while the tab is visible. This is online multiplayer, not a same-device handoff or an always-on socket service.
+- Draft seeds, opponent cards/order and pre-answer solutions are withheld from active API views. Server operations use transactions, account/match row locks and revisions. Client-supplied player IDs, scores and fighter statistics are ignored.
+
+## One-time account setup
+
+1. Sign in to Vercel and import GitHub `kushagrapandey-cmd/WWW-of-Anime`, branch `main`. Select Vite, Node 24, build `npm run build`, output `dist`.
+2. Provision PostgreSQL (Neon is a suitable starting choice, including via Vercel Marketplace). Choose a database region close to your Function region.
+3. Obtain a pooled connection URL. Set `sslmode=verify-full` (or the provider's documented equivalent with certificate and hostname verification). Do not set `rejectUnauthorized: false` or disable TLS.
+4. Add the following environment variables. Scope the production database and secret to **Production**; previews must use their own database and exact origin.
+
+| Variable | Value | Exposure |
+|---|---|---|
+| `VITE_AUTH_MODE` | `online` | Public build flag |
+| `DATABASE_URL` | Pooled PostgreSQL URL with verified TLS | Server only |
+| `APP_ORIGIN` | Exact `https://your-project.vercel.app`, no trailing slash | Server only |
+| `RATE_LIMIT_SECRET` | Random secret, at least 32 characters | Server only |
+
+Generate a secret on your own machine: `node -e "console.log(require('node:crypto').randomBytes(32).toString('hex'))"`. Put it directly into Vercel's environment settings. **Never paste passwords, database URLs or API tokens into chat or prefix secrets with `VITE_`.**
+
+5. Initialize the database once. In Codespaces/local checkout, create `.env.local` from `.env.example`, fill the same values securely, run `npm ci`, then `npm run db:migrate`. Alternatively run `server/schema.sql` in the provider's authenticated SQL editor. This migration creates tables/indexes and does not delete existing data.
+6. Deploy/redeploy. Verify `/api/index?route=auth/me` returns JSON `{"data":null}` without a cookie, not the SPA HTML. Direct links and `/battle?invite=...` must survive refresh.
+7. Create two real test accounts on two independent devices/browser profiles. Join an invite, draft privately, finish a match and verify both profiles. Also verify quiz/game resume after signing into another device. Perform this smoke test against the deployed database; local tests do not prove production configuration.
+
+## Local online development
 
 ```bash
-git pull --ff-only
 npm ci
-npm test
-npm run validate:data
-npx playwright install --with-deps chromium
-npm run test:e2e
-npm run build
-npm run preview
+cp .env.example .env.local
+# Fill .env.local in your editor. APP_ORIGIN=http://localhost:5173
+npm run db:migrate
+npm run dev:api
+# In a second terminal:
+npm run dev
 ```
 
-Visit port 4173. Check `/`, `/characters`, `/games`, `/quizzes`, `/signup` and `/battle` after logging in. Test a direct URL and a browser refresh, not just navigation from Home. In environments without a default browser download, `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` can point to an existing compatible Chromium executable; the repository does not bundle a browser.
+Use **http://localhost:5173** consistently. `http://127.0.0.1:5173` has a different origin and is deliberately rejected unless it matches `APP_ORIGIN`.
 
-## Vercel
+For Codespaces forwarded URLs, set `APP_ORIGIN` to the exact forwarded **5173** HTTPS URL and restart the API. Requests reach the API through Vite's same-origin proxy; do not expose port 3001 publicly. Use a development database, not production credentials.
 
-1. Import `kushagrapandey-cmd/WWW-of-Anime` into your Vercel account and select `main`.
-2. Choose the Vite preset, root `.`, build command `npm run build`, output directory `dist`, install command `npm ci`, Node 24.
-3. Keep the tracked `vercel.json`. Its SPA rewrite serves `index.html` for direct routes such as `/games` and `/profile`.
-4. Leave `VITE_REQUIRE_LOGIN` unset to require a local account for Battle, or set it to `false` before building to enable guest Battle. No API secrets are needed.
-5. Deploy, then run the smoke checklist below on the issued URL. Later commits to the connected branch can trigger builds through your hosting settings.
+## Validation
 
-Source: [Vercel’s official Vite and SPA guidance](https://vercel.com/docs/frameworks/frontend/vite).
+```bash
+npm test
+npm run validate:data
+npm run build
+npx playwright install --with-deps chromium
+npm run test:e2e
+npm run test:e2e:online
+```
 
-## Netlify
+The online browser harness uses a disposable PGlite PostgreSQL database. It never substitutes that database in deployed code. `test:e2e` explicitly builds the local demo adapter; `test:e2e:online` builds the real API adapter. Run them sequentially because they share ports 3001/4173.
 
-1. Import the same GitHub repository into your Netlify account and select `main`.
-2. Root `.`, build command `npm run build`, publish directory `dist`, Node 24. The tracked `netlify.toml` supplies these build and runtime settings.
-3. Keep its `/* → /index.html` status-200 rewrite. Existing static files remain served; other routes enter React Router.
-4. Set `VITE_REQUIRE_LOGIN=false` only if you want guest Battle; rebuilding is required after a Vite environment change.
-5. Deploy and use the same smoke checklist.
+## Costs and domains (checked 2026-10-02)
 
-Source: [Netlify’s official SPA setup](https://docs.netlify.com/build/configure-builds/javascript-spas/) and [rewrite behavior](https://docs.netlify.com/manage/routing/redirects/rewrites-proxies/).
+- Vercel Hobby: $0 for non-commercial personal use, within quotas. Monetization/commercial use needs a suitable paid plan. Vercel Pro lists $20/month before tax, with usage charges possible; it can exceed a ₹1,000–2,000 budget once taxes/database spending are included.
+- A small Neon database can start on its $0 plan, within current quotas. Free database compute can sleep and cause first-request latency. It is not an always-on availability guarantee. Check provider quotas, restore retention and usage notifications in the account before launch.
+- You can initially use the included `.vercel.app` address at no domain-purchase cost.
+- A domain is a renewable registration, not a permanent purchase. Namecheap's published `.com` example is $11.28 first year or a limited $6.79 new-customer promotion, then $18.48/year renewal, plus applicable ICANN fee/tax. Availability and premiums change the exact quote. Compare renewals, not only the introductory price.
+- Buy from any registrar, then add the domain in Vercel Project Settings → Domains and copy the DNS records Vercel actually gives you. Update `APP_ORIGIN` to the canonical HTTPS domain and redeploy. Redirect other domains to it so login cookies are not split across hosts. Vercel supplies HTTPS; buying separate shared hosting or a separate SSL certificate is unnecessary for this setup.
 
-## Hosted smoke checklist
+Sources: [Vercel pricing](https://vercel.com/pricing), [Hobby use restrictions](https://vercel.com/docs/plans/hobby), [Neon pricing](https://neon.com/pricing), [Neon free storage update](https://neon.com/blog/neon-free-plan-1-gb-per-project), [Namecheap .com pricing](https://www.namecheap.com/domains/registration/gtld/com/), [Vercel connection pooling](https://vercel.com/kb/guide/connection-pooling-with-functions).
 
-- Open and refresh `/games`, `/quizzes?mode=daily` and `/characters` directly. Expect the app, not a server 404. Unknown routes show the app’s 404 screen.
-- At 360px, open the menu, navigate and use Escape with a keyboard. Check visible focus, readable text and no horizontal scroll.
-- Create a demo account, complete a CPU battle and replay it. Replaying must leave profile totals unchanged.
-- Complete a quiz and guessing game, leave/resume an unfinished game and reload the profile.
-- Verify missing images retain the generated avatars/gradients. Sound starts off; enabling it is optional.
-- Check browser Console for runtime errors. If a stale deployed chunk fails, the app offers Reload while retaining navigation.
+## Remaining before an unrestricted public launch
 
-## Prototype limits
+This is a tested online MVP, not a completed production-operations program. Email verification/password recovery, an owner-approved privacy/contact policy and account deletion workflow, operational monitoring, scheduled retention cleanup, a tested backup/restore process, abuse controls/load testing and live-deployment checks remain. Recovery needs an email provider and a verified sender domain. A forgotten username/password currently cannot be recovered by email; do not promise otherwise to users.
 
-Profiles, sessions and scores are stored by browser origin. Codespaces, localhost, a preview domain and a production domain have separate storage. Changing the domain does not transfer progress. Local account hashing does not provide server authentication; users can edit scores and account data. Use demo passwords and do not treat these profiles as public secure accounts or a competitive leaderboard.
+The shipped password-change and sign-out-all-devices controls revoke all sessions. Normal logout revokes the current cookie session. Cookies are HttpOnly/Secure/SameSite in production and expire after seven days. Passwords use salted server-side scrypt, never plaintext. HTTPS and verified database TLS protect transport; this is not a guarantee against every security issue or an independent security audit.
 
-External Google Fonts are optional; CSS has system-font fallbacks. Covers and character artwork remain optional. Phase 3 is parked and `fetch-images` does not exist. This phase prepares deployment settings and instructions, not a live public launch or cross-browser certification.
+Do not retain authentication logs containing passwords, cookies, invite tokens or connection URLs. The API's own error logging records only a request ID and error code. Configure Vercel access-log retention with that sensitivity in mind.

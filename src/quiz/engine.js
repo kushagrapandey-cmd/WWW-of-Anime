@@ -53,6 +53,7 @@ export function finishAttempt(attempt, now = Date.now()) {
   validateAttempt(next); return next;
 }
 export function scoreAttempt(attempt) {
+  if (attempt.online) return attempt.result;
   validateAttempt(attempt);
   let score = 0, streak = 0, bestStreak = 0, correct = 0;
   for (const [index, answer] of attempt.answers.entries()) {

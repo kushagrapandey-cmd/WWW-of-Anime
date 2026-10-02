@@ -11,7 +11,29 @@
       "secondary": "#518eff",
       "background": "#2c1b18"
     },
-    "cutoffChapter": 700
+    "cutoffChapter": 700,
+    "creator": "Masashi Kishimoto",
+    "mangaLength": "700 chapters · 72 volumes",
+    "animeLength": "720 episodes · Naruto + Shippuden",
+    "seriesStatus": "Original story complete",
+    "premise": "A young ninja pursues recognition and the title of Hokage while confronting rival clans, powerful enemies and the cycle of hatred.",
+    "powers": "Chakra, ninjutsu, genjutsu, taijutsu and kekkei genkai.",
+    "watchNote": "220 Naruto episodes + 500 Shippuden episodes. Anime-only material and Boruto are outside this game’s ratings.",
+    "sources": [
+      {
+        "label": "Official manga guide",
+        "url": "https://naruto-official.com/comics"
+      },
+      {
+        "label": "Official series overview",
+        "url": "https://naruto-official.com/en/about"
+      },
+      {
+        "label": "Official anime guide",
+        "url": "https://naruto-official.com/en/anime"
+      }
+    ],
+    "metadataCheckedAt": "2026-10-02"
   },
   {
     "id": "onepiece",
@@ -26,7 +48,25 @@
       "tertiary": "#439de5",
       "background": "#281925"
     },
-    "cutoffChapter": 1122
+    "cutoffChapter": 1122,
+    "creator": "Eiichiro Oda",
+    "mangaLength": "1,122+ chapters · ongoing story",
+    "animeLength": "1,000+ episodes",
+    "seriesStatus": "Continuing series",
+    "premise": "Monkey D. Luffy and the Straw Hat crew sail the Grand Line in search of the One Piece and the freedom to follow their dreams.",
+    "powers": "Devil Fruits, Haki, swordsmanship and inventive fighting styles.",
+    "watchNote": "The story extends beyond our game’s chapter 1,122 cutoff. These length labels are lower bounds, not a live episode or chapter counter.",
+    "sources": [
+      {
+        "label": "Official story and episode guide",
+        "url": "https://one-piece.com/story/index.html"
+      },
+      {
+        "label": "Official anime catalog",
+        "url": "https://www.toei-animation.com/catalog/one-piece/"
+      }
+    ],
+    "metadataCheckedAt": "2026-10-02"
   },
   {
     "id": "bleach",
@@ -41,6 +81,28 @@
       "tertiary": "#090a10",
       "background": "#172634"
     },
-    "cutoffChapter": 686
+    "cutoffChapter": 686,
+    "creator": "Tite Kubo",
+    "mangaLength": "Through chapter 686 · 74 volumes",
+    "animeLength": "366 original episodes + TYBW",
+    "seriesStatus": "Original manga complete",
+    "premise": "Ichigo Kurosaki becomes a Substitute Soul Reaper and protects the living and spirit worlds as rival factions clash over the balance of souls.",
+    "powers": "Spiritual pressure, Zanpakuto, Shikai, Bankai and faction-specific abilities.",
+    "watchNote": "The Thousand-Year Blood War adaptation is separate from the original 366-episode run. Extra chapters and sequels are outside this game’s chapter 686 cutoff.",
+    "sources": [
+      {
+        "label": "Official final manga volume",
+        "url": "https://www.viz.com/manga-books/manga/bleach-volume-74/product/5664"
+      },
+      {
+        "label": "Official Bleach guide",
+        "url": "https://www.viz.com/bleach"
+      },
+      {
+        "label": "Official anime",
+        "url": "https://bleach-anime.com/"
+      }
+    ],
+    "metadataCheckedAt": "2026-10-02"
   }
 ]

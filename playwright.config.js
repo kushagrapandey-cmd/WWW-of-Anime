@@ -16,7 +16,7 @@ export default defineConfig({
     { name: 'mobile-360', use: { viewport: { width: 360, height: 800 }, isMobile: true, hasTouch: true } },
   ],
   webServer: {
-    command: 'npm run build && npm run preview -- --host 127.0.0.1', url: 'http://127.0.0.1:4173',
+    command: 'VITE_AUTH_MODE=demo npm run build && npm run preview -- --host 127.0.0.1', url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI, timeout: 120000,
   },
 });

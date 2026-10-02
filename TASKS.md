@@ -32,3 +32,10 @@ User said the current characters are enough and asked to wind up Phase 2 and mov
 ## Persistent working constraints
 
 Use GitHub `kushagrapandey-cmd/WWW-of-Anime`, branch `main`; push completed authorized work. React/Vite/Tailwind/Router/Framer Motion, JavaScript. Manga cutoffs Naruto 700, One Piece 1122, Bleach 686. No anime-only/film/game/novel abilities or unshown transformations. Follow modular prompts in `docs/project-brief.md` and `docs/phases-4-to-8.md`; newer user instructions override earlier prompts. Keep updated counts and decisions here and in `STATE_SUMMARY.md` after every batch. Do not claim canon review or visual QA is complete merely because schema/build checks pass.
+
+
+## Online upgrade — Vercel decision, 2026-10-02
+
+User selected Vercel and authorized continuing the professional upgrade. Published Phase 8 recovered; prior uncommitted backend work was absent. Added PostgreSQL/Vercel API, secure server sessions, online invites/private drafts/CPU, server-owned quiz/game persistence, world detail metadata, loading improvements and account security. Production selects online by default; local accounts are separate, never silently migrated.
+
+Completed local checks do not certify live deployment. Vercel sign-in and production database/environment setup are outstanding. Email recovery/verification, owner privacy/contact/deletion policy, monitoring/backups/load checks remain before unrestricted public launch. See docs/deployment.md and docs/online-upgrade.md. Continue authorized publication to main; preserve parked Phase 3 and closed roster scope.

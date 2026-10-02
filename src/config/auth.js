@@ -1,2 +1,2 @@
-// Set VITE_REQUIRE_LOGIN=false in .env.local to allow guest Battle entry.
-export const REQUIRE_LOGIN = import.meta.env?.VITE_REQUIRE_LOGIN !== 'false';
+import { ONLINE } from './online';
+export const REQUIRE_LOGIN = ONLINE || import.meta.env?.VITE_REQUIRE_LOGIN !== 'false';

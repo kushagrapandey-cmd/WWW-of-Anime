@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { characters, characterForms, getFormsForCharacter, getRatedCharacter } from '../data';
 import { peakFormNames } from '../data/peakForms';
 import { powerTiers, statWeights } from '../data/power';
@@ -10,8 +11,10 @@ import './CharacterGuide.css';
 const roster = [...characters].sort((a, b) => a.name.localeCompare(b.name));
 const coverage = new Set(characterForms.map(form => form.characterId)).size;
 export default function CharacterGuide() {
-  const [characterId, setCharacterId] = useState('monkey-d-luffy');
-  const [formId, setFormId] = useState('monkey-d-luffy--gear-five');
+  const [params] = useSearchParams();
+  const initial = roster.find(item => item.anime === params.get('anime'))?.id ?? 'monkey-d-luffy';
+  const [characterId, setCharacterId] = useState(initial);
+  const [formId, setFormId] = useState(initial === 'monkey-d-luffy' ? 'monkey-d-luffy--gear-five' : getFormsForCharacter(initial).at(-1)?.id ?? '');
   const forms = getFormsForCharacter(characterId);
   const character = getRatedCharacter(characterId, formId);
   const selectedForm = forms.find(form => form.id === formId);
