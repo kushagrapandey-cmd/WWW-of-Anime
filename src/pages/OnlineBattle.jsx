@@ -8,6 +8,11 @@ import ArenaDraft from '../components/battle/ArenaDraft';
 import ArenaLineup from '../components/battle/ArenaLineup';
 import ArenaResults from '../components/battle/ArenaResults';
 import './BattleArena.css';
+const retryableDraftActions = new Set(['draw','reroll','keep','lock']);
+function ownDraftKey(value) {
+  if (!value) return '';
+  return JSON.stringify([value.stage,value.team?.map(card=>[card.id,card.formId??null])??[],value.rerolls,value.kept,value.locked]);
+}
 export default function OnlineBattle() {
   const {user,refresh}=useAuth(), [params,setParams]=useSearchParams();
   const id=params.get('match'),invite=params.get('invite');
@@ -51,22 +56,28 @@ export default function OnlineBattle() {
     if(working.current)return;working.current=true;setBusy(true);setError('');
     const version=generation.current;
     try{
-      const next=await api(`match/${name}`,{id:current.current?.id,revision:current.current?.revision,...extra});
-      if(version===generation.current){accept(next);if(name==='create')setParams({match:next.id});if(next.stage==='complete')await refresh();}
-    }catch(reason){
-      if(version===generation.current){
-        if(reason.status===409&&current.current?.id&&name!=='create'){
-          try{
-            const latest=await api('match/view',{id:current.current.id},'GET');
-            if(version===generation.current){accept(latest);setError('The match changed in another tab or device. Latest state loaded; your action was not repeated.');}
-          }catch(refreshReason){
-            if(version===generation.current){if(refreshReason.status===410){current.current=null;setMatch(null);}setError(refreshReason.message);}
+      let base=current.current;
+      for(let attempt=0;attempt<2;attempt++){
+        try{
+          const next=await api(`match/${name}`,{id:base?.id,revision:base?.revision,...extra});
+          if(version===generation.current){accept(next);if(name==='create')setParams({match:next.id});if(next.stage==='complete')await refresh();}
+          return;
+        }catch(reason){
+          if(reason.status!==409||!base?.id||name==='create')throw reason;
+          const latest=await api('match/view',{id:base.id},'GET');
+          if(version!==generation.current)return;
+          const retry=attempt===0&&latest.stage==='draft'&&retryableDraftActions.has(name)&&ownDraftKey(base)===ownDraftKey(latest);
+          accept(latest);
+          if(!retry){
+            if(latest.stage==='complete')await refresh();
+            else setError('The match changed in another tab or device. Latest state loaded; your action was not repeated.');
+            return;
           }
-        }else{
-          if(reason.status===410){current.current=null;setMatch(null);}
-          setError(reason.message);
+          base=latest;
         }
       }
+    }catch(reason){
+      if(version===generation.current){if(reason.status===410){current.current=null;setMatch(null);}setError(reason.message);}
     }finally{working.current=false;setBusy(false);}
   }
   return <div className="container arena-page"><header className="arena-heading"><span className="eyebrow">SERVER-VERIFIED ARENA</span><h1>BATTLE <span>ONLINE.</span></h1><p>Separate accounts. Private teams. Shared showdown.</p></header>
