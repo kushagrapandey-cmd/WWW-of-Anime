@@ -1,6 +1,6 @@
 # 🧬 Character forms and public power guide
 
-**User-requested scope revision, 2026-10-01:** important characters must have their supported forms, not just one peak record; the website must explain selection criteria and levels. The original 40 identities per series stay fixed. Form backfill is part of Phase 2 and must finish before Phase 4 (Phase 3 is parked). The new `/characters` guide is an explicitly requested UI addition to the otherwise data-focused phase.
+**User-requested scope revision, 2026-10-01:** important characters must have their supported forms, not just one peak record; the website must explain selection criteria and levels. The original 40 identities per series stay fixed. **Newer decision, 2026-10-02:** the user accepted current scope and closed Phase 2 at 120 identities / 237 snapshots. Further form backfill and calibration are deferred optional work; Phase 4 proceeds now. Phase 3 is parked. The new `/characters` guide is an explicitly requested UI addition to the otherwise data-focused phase.
 
 ## Identity, form and level
 
@@ -18,7 +18,7 @@ Luffy has Base and Gears 2–5; Gear 1 is an informal base label, not a distinct
 
 ## Initial seed — 23 snapshots, two identities (historical)
 
-**This is an initial major-form set, not completed coverage for every roster character.** The guide states the live coverage count and marks every unexpanded character as pending. Further chapter review may split additional materially different era snapshots. All form ratings remain provisional. Complete the inventory and evidence audit before marking a character fully covered.
+**This is an initial major-form set, not completed coverage for every roster character.** The guide states the live coverage count and marks every unexpanded character as pending. Further chapter review may split additional materially different era snapshots. All form ratings remain provisional. A future completed-coverage certification still requires inventory/evidence review; current scope acceptance does not grant that certification.
 
 | Character | Form / era | Score | Tier | Confidence | Manga review ranges |
 | --- | --- | ---: | --- | --- | --- |
@@ -48,7 +48,7 @@ Luffy has Base and Gears 2–5; Gear 1 is an informal base label, not a distinct
 
 ## Current backfill — 237 snapshots, 55 identities
 
-All 40 Naruto identities now have authored form records (170 snapshots); One Piece has 67 across its first 15. [One Piece forms batch 1](onepiece-forms-batch-1-audit.md) adds 59: five early/borrowed Luffy variants and 54 for Zoro through Teach. The original eight Luffy snapshots remain unchanged. [Batch 3](naruto-forms-batch-3-audit.md) adds 40 for Konan through Mei: Pain bodies, Obito's host/Kamui transitions, Madara's eye/host configurations and B's cloak/beast states. [Batch 1](naruto-forms-batch-1-audit.md) and [batch 2](naruto-forms-batch-2-audit.md) remain historical batch records. All previous identity and form data remain unchanged. No thresholds changed, and no inventory is certified complete. Continue One Piece identities 16–40 and Bleach backfill and panel/alias/peer review before Phase 2 sign-off.
+All 40 Naruto identities now have authored form records (170 snapshots); One Piece has 67 across its first 15. [One Piece forms batch 1](onepiece-forms-batch-1-audit.md) adds 59: five early/borrowed Luffy variants and 54 for Zoro through Teach. The original eight Luffy snapshots remain unchanged. [Batch 3](naruto-forms-batch-3-audit.md) adds 40 for Konan through Mei: Pain bodies, Obito's host/Kamui transitions, Madara's eye/host configurations and B's cloak/beast states. [Batch 1](naruto-forms-batch-1-audit.md) and [batch 2](naruto-forms-batch-2-audit.md) remain historical batch records. All previous identity and form data remain unchanged. No thresholds changed, and no inventory is certified complete. The user closed Phase 2 at this coverage on 2026-10-02. Remaining One Piece/Bleach forms and full panel/alias/peer review are deferred optional work, not a gameplay prerequisite.
 
 ## Evidence and ratings
 
@@ -58,9 +58,9 @@ The Luffy Gear Five and Naruto final-duel avatar records retain existing peak sc
 
 Shared comparisons: Luffy’s early Base is near the provisional local-combat band; later forms rise past Kakuzu 481 toward restored Nagato 744, with Gear Five below Hashirama 840. Naruto’s early Base is local; Sage/early chakra modes cross Kakuzu/Nagato context, while final Six Paths states approach existing Madara/Kaguya ceiling. These are compressed game comparisons, not claims of literal physical multipliers. All forms require peer calibration in the final audit.
 
-## Required backfill before Phase 4 (Phase 3 is parked)
+## Deferred optional character work
 
-1. Identity rosters are now complete (120/120). The user requested final One Piece plus all Bleach together. Continue the form inventory and backfill; complete forms and calibration before Phase 4; Phase 3 is parked.
+1. Identity rosters are now complete (120/120). The user requested final One Piece plus all Bleach together. The current inventory is accepted for the prototype; extra forms and full calibration are deferred. Phase 3 is parked.
 2. Inventory distinct supported forms for all 120 identities; prioritize Sasuke, Kakashi, Guy, Lee, Gaara, Ichigo, Rukia, Renji, Aizen, Ulquiorra, Kaido, the Straw Hats, Zoan users and awakened users. Characters without transformations still get an explicit supported base/era record.
 3. Expand form JSON in modular files under 250 lines and register each file in `src/data/forms/index.js`. Keep form-specific moves/limits; never inherit a stronger form’s arsenal implicitly.
 4. Verify chapter scope, compare peers, audit all aliases, mark actual complete coverage, and review existing peak/form consistency and temporary resource costs.
@@ -68,6 +68,6 @@ Shared comparisons: Luffy’s early Base is near the provisional local-combat ba
 
 ## Current website and testing
 
-Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 55 identities have form selectors with 237 authored snapshots. Naruto has 170 snapshots across all 40 identities, One Piece has 67 across its first 15 identities, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
+Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 55 identities have form selectors with 237 authored snapshots. Naruto has 170 snapshots across all 40 identities, One Piece has 67 across its first 15 identities, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit deferred-forms notice. This is a read-only information preview; battle setup is not implemented.
 
 Run `npm run validate:data` and `npm run build`. The forms validator checks schema, identity references, unique form IDs, chapter cutoffs, eight-stat bounds, exact scores, tier thresholds and move/tag counts. Browser/mobile/keyboard visual checks are manual when no browser binary is available.

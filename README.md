@@ -4,11 +4,11 @@
 
 A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore your favorite worlds, test your knowledge, and eventually draft a team for a crossover showdown.
 
-**🟢 Phase 1 interface built · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 🎮 Gameplay coming later**
+**🟢 Phase 1 interface built · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 👤 Local profiles available · 🎮 Gameplay coming later**
 
 [🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
 
-> **What can I use today?** Browse character ratings and fallback avatars, explore the animated home page, explore the three anime portal previews, and navigate the responsive layout. Battles, quizzes, games and accounts are previews right now—there are no playable modes or working login forms yet.
+> **What can I use today?** Browse character ratings and fallback avatars, explore the animated home page, explore the three anime portal previews, and navigate the responsive layout. Create a local account, log in, choose an avatar and view your profile. Battles, quizzes and games remain previews.
 
 ## 🌌 Pick your universe
 
@@ -18,7 +18,7 @@ A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore yo
 | 🏴‍☠️ **One Piece** | The Grand Line, Devil Fruits, and pirate adventures | `/anime/onepiece` |
 | ⚔️ **Bleach** | Soul Reapers, clashing blades, and Bankai | `/anime/bleach` |
 
-Orange and blue for Naruto, red/gold/ocean blue for One Piece, and black/orange/ice blue for Bleach. Each portal currently introduces its world; character catalogs arrive later.
+Orange and blue for Naruto, red/gold/ocean blue for One Piece, and black/orange/ice blue for Bleach. Each portal currently introduces its world; the shared `/characters` explorer contains all 120 identities.
 
 ## 🎮 What’s in the playground?
 
@@ -46,7 +46,7 @@ The approved power system uses one shared scale across all three worlds. It is a
 
 ### 👤 Your Profile
 
-**Planned for Phase 4.** A prototype account will hold an avatar, battle records, quiz progress, achievements and rank points. Local accounts will be device-specific; a real backend is on the long-term roadmap.
+**Available now.** Create a username/password account, pick an avatar, and view your rank, battle record, quiz progress and achievements. New profiles start at zero; future games will populate those stats. Accounts stay in this browser and do not sync to other devices. Use a demo password; a real backend remains on the roadmap.
 
 ## 🧭 Find your way around
 
@@ -55,11 +55,12 @@ These are paths inside the running app, not links to a deployed website.
 | Navigation | Path | What happens today |
 | --- | --- | --- |
 | 🏠 Home | `/` | Hero, anime portals, Battle banner and Daily Challenge teaser |
-| ⚔️ Battle | `/battle` | Battle Arena preview |
+| ⚔️ Battle | `/battle` | Login-protected Arena preview; guest flag available |
 | 🧠 Quizzes | `/quizzes` | Quiz preview |
 | 🎮 Games | `/games` | Guessing games preview |
-| 👤 Profile / Login | `/login` | Account preview; also links to the profile preview |
-| 🏅 Profile | `/profile` | Profile preview |
+| 👤 Login | `/login` | Local account login; returns to the requested page |
+| ✨ Create account | `/signup` | Local signup with validation |
+| 🏅 Profile | `/profile` | Protected profile, avatar picker, stats, rank and logout |
 | 🧬 **Characters & Power** | `/characters` | Browse ratings, compare forms, understand selection and tiers |
 | 🌌 Anime portals | `/anime/:animeId` | Naruto, One Piece or Bleach introduction |
 | 🌀 Unknown page | Any unmatched path | A 404 page with a way home |
@@ -100,6 +101,7 @@ Open **http://localhost:5173**. If the port is occupied, stop the old server or 
 
 ```bash
 npm run validate:data
+npm test
 npm run build
 npm run preview
 ```
@@ -125,15 +127,15 @@ If Git reports local conflicts, resolve those before updating. Do not discard yo
 | 0 | Master brief | ✅ Complete |
 | 1 | Scaffold, theme, home and navigation | ✅ Built; browser QA pending |
 | 2 A | Power rubric, calibration and 120-character roster proposal | ✅ Approved |
-| 2 B | Character JSON in small reviewed batches | 🚧 All 120 identities complete; alternate forms and calibration in progress |
+| 2 B | Character database and forms | ✅ Current scope accepted: 120 identities / 237 snapshots; further review deferred |
 | 3 | Optional character image pipeline | ⏸️ Parked; no gameplay dependency |
-| 4 | Accounts and profiles | 🔒 Next phase after Phase 2 review |
+| 4 | Accounts and profiles | ✅ Local prototype implemented; browser visual QA pending |
 | 5 | Battle Arena | 🔒 Planned |
 | 6 | Quizzes and Daily Challenge | 🔒 Planned |
 | 7 | Guessing games | 🔒 Planned |
 | 8 | Polish, tests, expansion and deployment | 🔒 Planned |
 
-We build one phase at a time. After Phase 2 review, we go straight to Phase 4. Phase 3 is optional and parked. Nothing is publicly deployed yet.
+We build one phase at a time. Phase 2 is closed at the user’s accepted scope, and Phase 4 local accounts are implemented. Phase 5 is next. Phase 3 is optional and parked. Nothing is publicly deployed yet.
 
 ## 🛠️ Under the hood
 
@@ -142,16 +144,16 @@ We build one phase at a time. After Phase 2 review, we go straight to Phase 4. P
 - 🎨 Anime palettes live together in `src/data/anime.js`.
 - 🧩 Shared UI includes Button, Card, Modal, Badge, ProgressBar, CharacterAvatar and CharacterCard. Cards include stats, power and ability chips with no artwork dependency.
 - 📂 `src/data` will hold static characters and quizzes; `src/game` will hold pure battle logic.
-- 🔌 `src/services` reserves the interface for future local accounts and persistence.
+- 🔌 `src/services/AuthService.js` exposes async local account/profile operations and can later swap to an API adapter.
 - ♿ The foundation includes focus styles, a skip link and reduced-motion handling. Full accessibility QA is still pending.
 
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Latest State Summary](STATE_SUMMARY.md)
+[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Phase 4 accounts](docs/phase-4-accounts.md) · [Latest State Summary](STATE_SUMMARY.md)
 
 ## 📚 About the characters and scores
 
 Character forms and abilities will be based on a fixed manga snapshot. The approved Phase 2 rubric specifies the cutoff, evidence policy, and uncertainty rules. Peak forms can contain major spoilers.
 
-All **120 character identities** are loaded: **40 Naruto, 40 One Piece and 40 Bleach**. Visit **Characters** to explore their selected peak ratings and **237 form snapshots across 55 identities** (170 Naruto snapshots across all 40 characters, plus 67 One Piece snapshots across its first 15 identities). One Piece additions include early Luffy Gears/Nightmare, Zoro’s sword/Asura states, Sanji’s suit/Ifrit, Chopper’s Points and Robin’s giant blooms. Naruto forms separate Pain’s bodies, Obito’s Kamui/host states, Madara’s eye/host configurations and Killer B’s cloaks/Gyuki. Forms also include Sasuke’s curse marks and eyes, Kakashi’s temporary dual Sharingan, Guy/Lee’s gates, Choji’s pills and Gaara’s Shukaku states. Counts describe authored records; complete canon and inventory review remains pending. Unexpanded characters are clearly marked pending; full form coverage is part of Phase 2 before gameplay. Character images remain empty; polished fallback avatars are the default. Phase 3 is parked, so accounts, battles and text games proceed without artwork. Power score and tier are game estimates; player rank is a separate future feature.
+All **120 character identities** are loaded: **40 Naruto, 40 One Piece and 40 Bleach**. Visit **Characters** to explore their selected peak ratings and **237 form snapshots across 55 identities** (170 Naruto snapshots across all 40 characters, plus 67 One Piece snapshots across its first 15 identities). One Piece additions include early Luffy Gears/Nightmare, Zoro’s sword/Asura states, Sanji’s suit/Ifrit, Chopper’s Points and Robin’s giant blooms. Naruto forms separate Pain’s bodies, Obito’s Kamui/host states, Madara’s eye/host configurations and Killer B’s cloaks/Gyuki. Forms also include Sasuke’s curse marks and eyes, Kakashi’s temporary dual Sharingan, Guy/Lee’s gates, Choji’s pills and Gaara’s Shukaku states. Counts describe authored records; complete canon and inventory review is deferred. Unexpanded characters are clearly marked deferred; the user accepted the current character scope and deferred additional forms and complete calibration. Character images remain empty; polished fallback avatars are the default. Phase 3 is parked, so accounts, battles and text games proceed without artwork. Power score and tier are game estimates; player rank is separate and now shown on local profiles.
 
 Cross-series scores are fan-made gameplay estimates. Rarity reflects those scores; it is not a measure of a character’s popularity or importance to the story.
 

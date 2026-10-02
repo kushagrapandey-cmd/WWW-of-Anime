@@ -1,0 +1,116 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { LocalAuthService } from '../src/services/LocalAuthService.js';
+import { USERS_KEY, SESSION_KEY } from '../src/services/localStorageStore.js';
+import { PASSWORD_ITERATIONS } from '../src/services/passwords.js';
+import { getRank } from '../src/data/profile.js';
+import { getReturnPath } from '../src/services/authRouting.js';
+function setup(options = {}) {
+  const values = new Map();
+  const storage = { getItem: key => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: key => values.delete(key) };
+  return { service: new LocalAuthService({ getStorage: () => storage, iterations: 1000, ...options }), values, storage };
+}
+const account = { username: 'Kushagra', password: 'demo password 123' };
+test('signup stores salted hashes, safe profiles and a restorable session', async () => {
+  const { service, values, storage } = setup({ iterations: PASSWORD_ITERATIONS });
+  const user = await service.signUp(account);
+  assert.equal(user.username, 'Kushagra');
+  assert.equal(user.battleStats.rankPoints, 0);
+  assert.deepEqual(user.achievements, []);
+  assert(!('credential' in user));
+  const serialized = values.get(USERS_KEY);
+  assert(!serialized.includes(account.password));
+  const credential = JSON.parse(serialized)[0].credential;
+  assert.equal(credential.iterations, 600000);
+  assert.match(credential.salt, /^[a-f0-9]{32}$/);
+  assert.match(credential.hash, /^[a-f0-9]{64}$/);
+  const fresh = new LocalAuthService({ getStorage: () => storage });
+  assert.equal((await fresh.getCurrentUser()).id, user.id);
+  user.battleStats.wins = 999;
+  assert.equal((await fresh.getCurrentUser()).battleStats.wins, 0);
+  await fresh.logOut();
+  assert.equal(await fresh.getCurrentUser(), null);
+  assert(values.has(USERS_KEY));
+  assert.equal((await fresh.logIn({ ...account, username: 'kUsHaGrA' })).id, user.id);
+});
+test('duplicate names, wrong passwords and invalid fields are rejected without changing accounts', async () => {
+  const { service, values } = setup();
+  await service.signUp(account);
+  const before = values.get(USERS_KEY);
+  await assert.rejects(service.signUp({ ...account, username: 'kushagra' }), /already taken/);
+  await service.logOut();
+  await assert.rejects(service.logIn({ ...account, password: 'incorrect' }), /does not match/);
+  await assert.rejects(service.logIn({ ...account, username: 'Missing' }), /does not match/);
+  await assert.rejects(service.signUp({ ...account, username: 'ab' }), /3–24/);
+  await assert.rejects(service.signUp({ ...account, password: 'short' }), /8–128/);
+  await assert.rejects(service.signUp({ ...account, username: 'Second', avatar: 'invalid' }), /avatar/);
+  assert.equal(values.get(USERS_KEY), before);
+  assert.equal(await service.getCurrentUser(), null);
+});
+test('password spaces are preserved and identical passwords receive distinct salts', async () => {
+  const { service, values } = setup();
+  await service.signUp({ username: 'First', password: '  secret pass  ' });
+  await service.signUp({ username: 'Second', password: '  secret pass  ' });
+  const users = JSON.parse(values.get(USERS_KEY));
+  assert.notEqual(users[0].credential.salt, users[1].credential.salt);
+  assert.notEqual(users[0].credential.hash, users[1].credential.hash);
+  await service.logOut();
+  await assert.rejects(service.logIn({ username: 'First', password: 'secret pass' }), /does not match/);
+  await service.logIn({ username: 'First', password: '  secret pass  ' });
+});
+test('avatar and stats updates stay in the current account and preserve credentials', async () => {
+  const { service, values } = setup();
+  const first = await service.signUp(account);
+  const credential = JSON.parse(values.get(USERS_KEY))[0].credential;
+  await service.signUp({ username: 'Other', password: 'another password' });
+  await service.logIn(account);
+  assert.equal((await service.updateProfile({ avatar: 'pirate' })).avatar, 'pirate');
+  const updated = await service.updateStats({ battleStats: { wins: 2, winStreak: 2, bestStreak: 2, rankPoints: 110 }, quizStats: { quizzesPlayed: 1, bestScore: 80, xp: 20 }, achievements: ['first-win', 'first-win'] });
+  assert.equal(updated.id, first.id);
+  assert.equal(updated.battleStats.wins, 2);
+  assert.deepEqual(updated.achievements, ['first-win']);
+  const stored = JSON.parse(values.get(USERS_KEY));
+  assert.deepEqual(stored[0].credential, credential);
+  assert.equal(stored[1].battleStats.wins, 0);
+  const before = values.get(USERS_KEY);
+  for (const updates of [{ username: 'hijack' }, { battleStats: { wins: -1 } }, { battleStats: { wins: 1.5 } }, { battleStats: { toString: 1 } }, { quizStats: { bestScore: 101 } }, { achievements: [42] }]) await assert.rejects(service.updateStats(updates));
+  assert.equal(values.get(USERS_KEY), before);
+  await service.logOut();
+  await assert.rejects(service.updateStats({ battleStats: { wins: 4 } }), /Sign in/);
+});
+test('corrupted storage and unavailable storage fail clearly without overwriting data', async () => {
+  const { service, values } = setup();
+  values.set(USERS_KEY, '{broken');
+  await assert.rejects(service.signUp(account), /not been replaced/);
+  assert.equal(values.get(USERS_KEY), '{broken');
+  values.set(USERS_KEY, '{}');
+  await assert.rejects(service.signUp(account), /invalid/);
+  values.set(SESSION_KEY, '{}');
+  await assert.rejects(service.getCurrentUser(), /session data/);
+  const unavailable = setup({ getStorage: () => { throw new Error('blocked'); } }).service;
+  await assert.rejects(unavailable.signUp(account), /storage is unavailable/);
+  const noCrypto = setup({ getCrypto: () => null }).service;
+  await assert.rejects(noCrypto.signUp(account), /HTTPS or localhost/);
+});
+test('concurrent signups recheck unique names after derivation and retain distinct accounts', async () => {
+  const { service, values } = setup();
+  const results = await Promise.allSettled([service.signUp(account), service.signUp({ ...account, username: 'kushagra' })]);
+  assert.equal(results.filter(result => result.status === 'fulfilled').length, 1);
+  await Promise.all([service.signUp({ ...account, username: 'Alpha' }), service.signUp({ ...account, username: 'Beta' })]);
+  assert.equal(JSON.parse(values.get(USERS_KEY)).length, 3);
+});
+test('partial session write keeps the created account and permits later login', async () => {
+  const { service, storage, values } = setup();
+  const original = storage.setItem;
+  storage.setItem = (key, value) => { if (key === SESSION_KEY) throw new Error('quota'); original(key, value); };
+  await assert.rejects(service.signUp(account), /profile was created/);
+  assert.equal(JSON.parse(values.get(USERS_KEY)).length, 1);
+  storage.setItem = original;
+  assert.equal((await service.logIn(account)).username, account.username);
+});
+test('rank boundaries and internal login return paths are stable', () => {
+  for (const [points, name] of [[0,'Rookie'],[99,'Rookie'],[100,'Fighter'],[299,'Fighter'],[300,'Elite'],[600,'Master'],[1000,'Legend']]) assert.equal(getRank(points).name, name);
+  assert.equal(getRank(1000).next, null);
+  assert.equal(getReturnPath({ pathname: '/battle', search: '?mode=cpu', hash: '#setup' }), '/battle?mode=cpu#setup');
+  for (const path of ['https://evil.example', '//evil.example', '/\\evil.example', '/login?again=1', '/signup', '']) assert.equal(getReturnPath(path), '/profile');
+});

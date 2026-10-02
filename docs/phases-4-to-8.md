@@ -1,8 +1,10 @@
 # Execution prompts — Phases 4–8
 
-Phase 3 is parked by user instruction. Execute these only after Phase 2 forms and calibration finish, one phase at a time. Shared `CharacterAvatar` is mandatory; no image acquisition prerequisite.
+Phase 3 is parked by user instruction. The user closed Phase 2 at current coverage on 2026-10-02 and deferred remaining forms/calibration. Execute these one phase at a time. Shared `CharacterAvatar` is mandatory; no image acquisition prerequisite.
 
-## Phase 4: Accounts and profile
+## Phase 4: Accounts and profile — implemented
+
+See [Phase 4 implementation and tests](phase-4-accounts.md).
 
 ```
 PHASE 4: Prototype auth + profile

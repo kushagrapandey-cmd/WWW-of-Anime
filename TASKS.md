@@ -8,17 +8,22 @@ Phase 3 image acquisition is **parked**, not a dependency. Do not search for/dow
 
 User explicitly approved publishing the completed Naruto batch to `main` and continuing the project ("Yes and continue"). Continue publishing completed, validated authorized batches to `main`; do not request the same approval again.
 
+## Scope closure — 2026-10-02
+
+User said the current characters are enough and asked to wind up Phase 2 and move forward. Close the launch character scope at 120 identities and 237 forms across 55 identities. Stop form backfill. Remaining One Piece/Bleach forms and complete inventory/panel/peer calibration are deferred optional work, not prerequisites to Phase 4/5. This is accepted prototype scope, not certified exhaustive canon coverage.
+
 ## Execution order and tasks
 
 - [x] Phase 0: brief and approved rubric.
 - [x] Phase 1: scaffold/home/navigation; shared fallback avatar and stat-rich CharacterCard added. Browser/mobile QA remains open.
-- [ ] Phase 2: all 120 identities authored (40 per series); forms and calibration still in progress.
+- [x] Phase 2: closed by user acceptance of current prototype scope (120 identities / 237 snapshots); exhaustive forms and calibration deferred.
 - [x] Form backfill: all Naruto identities and One Piece identities 1–15 authored. Current 237 snapshots / 55 identities (Naruto 170 / 40; One Piece 67 / 15; Bleach 0).
-- [ ] Next: One Piece identities 16–30 forms (Kaido through Mihawk), then 31–40 and Bleach inventories. No identity certified fully covered yet.
-- [ ] Complete panel/alias inventory and peer calibration, borrowed resource costs, peak consistency, rarity distribution review. Preserve formula/thresholds; never force scores to quotas.
-- [ ] Sign off Phase 2 after actual coverage/review, then go directly to Phase 4.
+- [ ] Optional deferred: remaining One Piece/Bleach form inventories. No identity certified fully covered.
+- [ ] Optional deferred: panel/alias inventory, peer calibration, borrowed resource costs, peak consistency and rarity review. Preserve formula/thresholds; never force scores to quotas.
+- [x] User accepted current Phase 2 scope; proceed directly to Phase 4.
 - [ ] Phase 3: PARKED / optional later; no downloader currently exists.
-- [ ] Phase 4: local accounts/profile via AuthService; guest flag; no image dependency.
+- [x] Phase 4: local accounts/profile via AuthService, salted PBKDF2, login/signup, protected profile/Battle entry, guest flag, avatars/ranks and logout. Eight auth tests, DOM form/redirect/profile/session/guest checks and production build pass; browser/mobile visual QA pending.
+- [ ] Next: Phase 5 Battle Arena on user’s “next”; use the accepted existing character/form data.
 - [ ] Phase 5: seeded five-card draft/battle, form pool fixed before drafting, identity deduplication across teams, locked forms and replay IDs. Card flips use fallback art; optional stronger rarity effects obey reduced motion.
 - [ ] Phase 6: canon quizzes, Blitz and Daily Challenge.
 - [ ] Phase 7: **Move Match** replaces Who’s That Shadow. Show 2–3 moves plus tags; four choices or fuzzy typed answers. Hard mode uses stat bars without names; reject ambiguous profiles. Clue Chain and Higher or Lower stay.

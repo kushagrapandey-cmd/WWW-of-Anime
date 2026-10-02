@@ -1,6 +1,6 @@
 # ⚖️ Phase 2 — Step A: shared power system proposal
 
-**Status: approved by the user on 2026-10-01.** Step B is in progress; All 120 identities are drafted: 40 Naruto, 40 One Piece, 40 Bleach. Alternate-form backfill and cross-series audit remain pending. The user subsequently requested alternate forms and a public power guide; see [forms policy](character-forms.md). The rules below remain the approved baseline.
+**Status: approved by the user on 2026-10-01.** **Phase 2 closed by user acceptance on 2026-10-02;** All 120 identities are drafted: 40 Naruto, 40 One Piece, 40 Bleach. Alternate-form backfill and cross-series audit remain pending. The user subsequently requested alternate forms and a public power guide; see [forms policy](character-forms.md). The rules below remain the approved baseline.
 
 ## 1. Canon scope and peak-form policy
 
@@ -32,7 +32,7 @@ Stat guide: **1–14** civilian/basic; **15–29** trained/local; **30–49** ma
 
 Attack/durability use the ladder below as context. Defense, speed, intelligence, versatility, stamina and feats need dimension-specific comparisons: a brilliant low-power tactician may have 85 intelligence without planetary attacks. Reserve 95–100 for unusually well-supported extremes; “main character” gives no bonus.
 
-Rating procedure: select form → collect manga evidence → compare with at least two shared anchors → assign each stat independently → apply formula → audit nearest peers from other series. A placement outside the expected broad band needs a written explanation. Never change scores just to fill rarity quotas. Alternate forms now receive separate ratings under one character identity; complete that backfill and calibration before Phase 4. Phase 3 image acquisition is parked by user instruction; see `TASKS.md`.
+Rating procedure: select form → collect manga evidence → compare with at least two shared anchors → assign each stat independently → apply formula → audit nearest peers from other series. A placement outside the expected broad band needs a written explanation. Never change scores just to fill rarity quotas. Alternate forms now receive separate ratings under one character identity; remaining backfill and complete calibration are now deferred by user instruction; current scope supports Phase 4. Phase 3 image acquisition is parked by user instruction; see `TASKS.md`.
 
 ## 3. Exact powerScore formula: 1–1000
 

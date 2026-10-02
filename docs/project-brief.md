@@ -166,7 +166,7 @@ src/data/index.js that merges them.
 
 Do not execute or write the image downloader until the user explicitly reopens this phase. Keep `imageQuery` and `image: null` in identity JSON. Images are optional; all later phases use `CharacterAvatar` and work without them. A future image pipeline must preserve identity/form matching and write compatible image values without replacing UI components.
 
-After Phase 2 forms and calibration are complete, continue directly to Phase 4. `run fetch-images` is an optional future roadmap item; no script or command exists today.
+On 2026-10-02 the user accepted current Phase 2 scope and deferred remaining forms/calibration. Continue directly to Phase 4. `run fetch-images` is an optional future roadmap item; no script or command exists today.
 
 ---
 
