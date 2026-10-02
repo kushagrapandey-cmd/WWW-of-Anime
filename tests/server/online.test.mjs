@@ -41,6 +41,13 @@ test('password hashes, opaque cookies and profiles never expose credentials',asy
  assert(!encoded.includes('password_hash'));assert(!encoded.includes('token_hash'));
  assert.match(sessionCookie('x',true),/__Host-aniclash=x.*HttpOnly.*Secure/);
 });
+test('account validation handles duplicate names, case-insensitive login and malformed JSON bodies',async()=>{
+ const duplicate=await alice.call('auth/signup',{username:'onlinealice',password});assert.equal(duplicate.status,409);
+ assert.equal((await alice.call('auth/login',{username:'ONLINEALICE',password:'wrong password'})).status,401);
+ assert.equal((await alice.call('auth/login',{username:'onlinealice',password})).status,200);
+ const malformed=await fetch(`${origin}/api/index?route=auth/signup`,{method:'POST',headers:{Origin:origin,'Content-Type':'application/json'},body:'null'});
+ assert.equal(malformed.status,400);assert.equal((await malformed.json()).error,'Invalid request.');
+});
 test('cross-origin writes, missing cookies, arbitrary profile changes and wrong methods fail',async()=>{
  assert.equal((await alice.call('match/create',{},'POST',{Origin:'https://evil.example'})).status,403);
  assert.equal((await alice.call('auth/signup',{},'GET')).status,405);
@@ -117,10 +124,13 @@ test('mini games hide targets and challenger scores in actual API data',async()=
  const result=await bob.call('activity/answer',{kind:'mini',id:power.id,revision:power.revision,input:'higher'});
  assert.equal(result.status,200);assert.equal(typeof result.body.data.rounds[0].pair[1].powerScore,'number');
 });
-test('expired invites and revoked sessions are rejected',async()=>{
+test('expired invites and unfinished matches are rejected while history marks them expired',async()=>{
  const match=(await bob.call('match/create',{mode:'friend'})).body.data;
  await db.query("UPDATE app_matches SET expires_at=now()-interval '1 second' WHERE id=$1",[match.id]);
  assert.equal((await charlie.call('match/join',{invite:match.invite})).status,410);
+ assert.equal((await bob.call('match/view',{id:match.id},'GET')).status,410);
+ const history=(await bob.call('match/list',{},'GET')).body.data;
+ assert.equal(history.find(item=>item.id===match.id).stage,'expired');
  const old=bob.cookie();await bob.call('auth/logout');
  const response=await fetch(`${origin}/api/index?route=auth/me`,{headers:{Cookie:old}});
  assert.equal((await response.json()).data,null);
