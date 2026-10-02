@@ -8,6 +8,10 @@ const methods = {
  'auth/me':'GET','auth/signup':'POST','auth/login':'POST','auth/logout':'POST',
  'profile/password':'POST','profile/sessions':'POST','profile/avatar':'POST','match/list':'GET','match/view':'GET','activity/list':'GET','activity/view':'GET',
 };
+function validData(value) {
+  if (!value || typeof value!=='object' || Array.isArray(value)) fail(400,'Invalid request.');
+  return value;
+}
 async function body(req) {
   if (req.method==='GET') return {};
   if (req.body !== undefined) {
@@ -34,13 +38,12 @@ export function createHandler({ database, origin=process.env.APP_ORIGIN, secret=
       const db=database??getDatabase(), ip=rateKey(req,secret);
       // Shared DB limits survive function cold starts. Polling is capped per authenticated account below.
       if (route.startsWith('auth/')) {
-        const value=await authRoute(db,route.split('/')[1],await body(req),req,res,secure,ip);
+        const value=await authRoute(db,route.split('/')[1],validData(await body(req)),req,res,secure,ip);
         res.statusCode=200;res.end(JSON.stringify({data:value}));return;
       }
       const user=await currentUser(db,req,secure);if(!user) fail(401,'Sign in to use online features.');
       await rateLimit(db,`api:${user.id}`,240,60);
-      const data=req.method==='GET'?Object.fromEntries(url.searchParams):await body(req);
-      if (!data || typeof data!=='object' || Array.isArray(data)) fail(400,'Invalid request.');
+      const data=validData(req.method==='GET'?Object.fromEntries(url.searchParams):await body(req));
       let value;
       if (route==='profile/password' || route==='profile/sessions') {
         await rateLimit(db,`security:${user.id}`,10,900);
@@ -55,10 +58,9 @@ export function createHandler({ database, origin=process.env.APP_ORIGIN, secret=
       else fail(404,'Endpoint not found.');
       res.statusCode=200;res.end(JSON.stringify({data:value}));
     } catch(error) {
-      const status=Number.isInteger(error.status)?error.status:400;
-      // Only intentional client errors expose messages. Never log credentials, cookies or DB URLs.
-      const publicStatus=error.status?status:error.code||!(error instanceof Error)?500:400;
-      if(publicStatus>=500) logger.error({requestId,code:error.code??'INTERNAL'});
+      // Only intentional application errors expose messages. Unexpected exceptions are 500s and stay generic.
+      const publicStatus=Number.isInteger(error?.status)?error.status:500;
+      if(publicStatus>=500) logger.error({requestId,code:error?.code??'INTERNAL'});
       res.statusCode=publicStatus;
       res.end(JSON.stringify({error:publicStatus>=500?'Online service is temporarily unavailable.':error.message,requestId}));
     }
