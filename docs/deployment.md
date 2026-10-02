@@ -2,6 +2,17 @@
 
 This release adds an online backend; static-only deployment is no longer sufficient for online accounts or matches. Production builds select online accounts by default and fail closed if the backend is not configured. Local prototype accounts do not become online accounts. Do not import browser password hashes or editable rank data into production.
 
+## Current deployment — 2026-10-02
+
+- Production: https://www-of-anime.vercel.app/; GitHub main auto-deploys through the Vercel app, limited to this repository.
+- Hosting: Vercel Hobby. Database: `www-of-anime-db`, Neon Free, Washington, D.C. (`iad1`). No paid plan or payment method was enabled during setup.
+- Database integration, `APP_ORIGIN`, and `RATE_LIMIT_SECRET` are scoped to Production. `VITE_AUTH_MODE=online` is a public build flag for Production and Preview; previews have no production database access.
+- The five application tables and their indexes were initialized through the authenticated Vercel SQL editor. That editor accepts one prepared statement, so wrap `server/schema.sql` in `DO $migration$ BEGIN ... END $migration$;` there; the migration script remains transactional for local/CLI use. The editor was restored to read-only mode afterward.
+- The unauthenticated live API returns HTTP 200 JSON `{"data":null}` with no-store and the configured security headers. The homepage and direct Naruto world URL render.
+- Live API smoke checks passed: two-account signup, Secure/HttpOnly cookies, authenticated profiles, cross-origin rejection, private friend drafts, stale-revision rejection, shared five-round results and exactly-once credit. A full ten-question quiz completed and its history persisted through a fresh login. Logout and session revocation also passed. Test accounts use a random smoke prefix and are not owner accounts.
+- Desktop/360px browser gameplay tests passed locally; physical-device and cross-browser production checks remain.
+- Free-tier quotas can limit service availability. Do not upgrade or enable paid services without the owner's explicit approval.
+
 ## Architecture
 
 - Vercel serves `dist` and the same-origin Node Function `api/index.js`.

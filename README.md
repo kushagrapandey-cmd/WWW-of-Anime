@@ -135,7 +135,7 @@ The footer **Sound off** button enables short generated effects for game reveals
 
 ## 🚢 Deployment and expansion
 
-[Static deployment steps](docs/deployment.md) cover Vercel and Netlify with tracked SPA rewrites for direct links and refreshes. Build command: `npm run build`; output: `dist`; Node 24. Hosting has not been performed.
+[Deployment steps](docs/deployment.md) cover the Vercel Functions + PostgreSQL setup and tracked SPA rewrites. Build command: `npm run build`; output: `dist`; Node 24. Production is hosted at https://www-of-anime.vercel.app/.
 
 To add an anime later, add its entry to `src/data/anime-catalog.json`, matching character/stats and quiz JSON, and optional form JSON. Imports, filters and themes update automatically at build time. Validate and test every game pool; [the full checklist](docs/expansion.md) specifies schemas/minimums and optional local images. Phase 3 remains parked; no image downloader exists yet.
 
@@ -197,4 +197,4 @@ WWW-of-Anime is an unofficial fan prototype. Naruto, One Piece, Bleach and their
 
 Production now uses **Vercel Functions + PostgreSQL** for accounts, invites, private drafts and shared results. Sign-in and progress work across devices after the database is configured. Guests can practice quizzes/games locally. Browser-only prototype accounts do not migrate automatically.
 
-Start with [Vercel deployment and environment setup](docs/deployment.md) and the [online upgrade handoff](docs/online-upgrade.md). **A static deployment alone does not activate the backend.** Public hosting has not been performed yet. Email recovery and production operations remain pending.
+Start with [Vercel deployment and environment setup](docs/deployment.md) and the [online upgrade handoff](docs/online-upgrade.md). **A static deployment alone does not activate the backend.** Production is deployed on Vercel Hobby with Neon Free PostgreSQL. Email recovery and production operations remain pending.

@@ -15,7 +15,7 @@ Two independent Chromium contexts complete a shared match, including sign-up fro
 
 ## Known limitations
 
-- Not deployed yet: Vercel requires account authentication and no production PostgreSQL database/environment settings are connected.
+- Deployed at https://www-of-anime.vercel.app/ on Vercel Hobby + Neon Free. Production-only credentials/settings and the database schema are configured; see deployment.md for live verification.
 - Four-second polling trades instant updates for a simpler turn-based deployment. Requests stop while hidden and reconnect on future polls; expired unfinished matches require a new draft.
 - Email reset/verification, data-deletion/support policy, provider monitoring/backups and load testing remain before an unrestricted launch.
 - Local accounts/history remain separate from online accounts. Do not migrate tamperable browser rankings or password hashes as trusted server records.
@@ -26,4 +26,4 @@ See [deployment.md](deployment.md) for exact setup, variables, commands and curr
 
 ## Final validation
 
-78 unit/integration tests (8 local auth + 59 game/quiz/sound/registry + 11 PostgreSQL API checks), 16 prototype Chromium scenarios and 6 online Chromium scenarios pass. Both desktop and 360px layouts are covered. Data validation, production builds and a production-dependency audit pass (no known production dependency vulnerabilities reported). Browser screenshots were visually reviewed. Production Vercel/PostgreSQL configuration, other browsers and physical devices are not certified by these local checks.
+78 unit/integration tests (8 local auth + 59 game/quiz/sound/registry + 11 PostgreSQL API checks), 16 prototype Chromium scenarios and 6 online Chromium scenarios pass. Both desktop and 360px layouts are covered. Data validation, production builds and a production-dependency audit pass (no known production dependency vulnerabilities reported). Browser screenshots were visually reviewed. These local checks do not certify other browsers or physical devices. Production deployment and separate live smoke checks are recorded in deployment.md.
