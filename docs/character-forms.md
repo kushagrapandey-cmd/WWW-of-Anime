@@ -46,9 +46,9 @@ Luffy has Base and Gears 2–5; Gear 1 is an informal base label, not a distinct
 | Naruto | Six Paths Kurama avatar · Final war / final duel | 890 | Legendary | medium | 676–690, 696–697 |
 | Naruto | Final-duel three-headed Kurama avatar · Final valley | 912 | Mythic | medium | 696–697 |
 
-## Current backfill — 178 snapshots, 41 identities
+## Current backfill — 237 snapshots, 55 identities
 
-All 40 Naruto identities now have authored form records (170 snapshots); Luffy retains eight. [Batch 3](naruto-forms-batch-3-audit.md) adds 40 for Konan through Mei: Pain bodies, Obito's host/Kamui transitions, Madara's eye/host configurations and B's cloak/beast states. [Batch 1](naruto-forms-batch-1-audit.md) and [batch 2](naruto-forms-batch-2-audit.md) remain historical batch records. All previous identity and form data remain unchanged. No thresholds changed, and no inventory is certified complete. Continue One Piece/Bleach backfill and panel/alias/peer review before Phase 2 sign-off.
+All 40 Naruto identities now have authored form records (170 snapshots); One Piece has 67 across its first 15. [One Piece forms batch 1](onepiece-forms-batch-1-audit.md) adds 59: five early/borrowed Luffy variants and 54 for Zoro through Teach. The original eight Luffy snapshots remain unchanged. [Batch 3](naruto-forms-batch-3-audit.md) adds 40 for Konan through Mei: Pain bodies, Obito's host/Kamui transitions, Madara's eye/host configurations and B's cloak/beast states. [Batch 1](naruto-forms-batch-1-audit.md) and [batch 2](naruto-forms-batch-2-audit.md) remain historical batch records. All previous identity and form data remain unchanged. No thresholds changed, and no inventory is certified complete. Continue One Piece identities 16–40 and Bleach backfill and panel/alias/peer review before Phase 2 sign-off.
 
 ## Evidence and ratings
 
@@ -68,6 +68,6 @@ Shared comparisons: Luffy’s early Base is near the provisional local-combat ba
 
 ## Current website and testing
 
-Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 41 identities have form selectors with 178 authored snapshots. Naruto has 170 snapshots across all 40 identities, One Piece has eight for Luffy, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
+Navigation → Characters opens `/characters`. Home and section previews link to the same page. It explains roster balance, manga snapshots, exact weights/formula, tiers, uncertainty and form limits. The explorer lists all 120 characters; 55 identities have form selectors with 237 authored snapshots. Naruto has 170 snapshots across all 40 identities, One Piece has 67 across its first 15 identities, and Bleach has none yet. Counts are not a completed-review badge. Per-series counts and selected-form manga review ranges are visible. The remaining characters show their exact selected peak label plus an explicit pending notice. This is a read-only information preview; battle setup is not implemented.
 
 Run `npm run validate:data` and `npm run build`. The forms validator checks schema, identity references, unique form IDs, chapter cutoffs, eight-stat bounds, exact scores, tier thresholds and move/tag counts. Browser/mobile/keyboard visual checks are manual when no browser binary is available.

@@ -1,0 +1,22 @@
+[
+  { "id": "nico-robin--early-limbs", "characterId": "nico-robin", "name": "Early limb blooms", "era": "Alabasta / Enies Lobby",
+    "stats": {"attack": 27, "defense": 18, "speed": 22, "durability": 19, "intelligence": 73, "versatility": 40, "stamina": 29, "feats": 26}, "powerScore": 288, "rarity": "Common",
+    "abilityTags": ["limb-blooms", "grappling", "control"], "signatureMoves": ["Treinta Fleur: Clutch", "Cien Fleur: Delphinium"],
+    "limitations": "Sprouted limbs share injury and need effective holds; no post-training giant body, Demonio or confirmed Haki. Joint control is not an automatic crossover knockout.",
+    "sourceChapters": [[170, 170], [198, 200], [264, 265]], "confidence": "medium" },
+  { "id": "nico-robin--trained-mil-fleur", "characterId": "nico-robin", "name": "Trained Mil Fleur / giant limbs", "era": "Fish-Man Island / Dressrosa",
+    "stats": {"attack": 35, "defense": 25, "speed": 27, "durability": 24, "intelligence": 78, "versatility": 51, "stamina": 33, "feats": 34}, "powerScore": 356, "rarity": "Common",
+    "abilityTags": ["limb-blooms", "giant-limbs", "clones"], "signatureMoves": ["Mil Fleur: Gigantesco Mano", "Cuerpo Fleur"],
+    "limitations": "Large limbs and supported clone technique cost stamina and share damage. No Demonio body or confirmed Armament; giant parts are not extra drafted identities.",
+    "sourceChapters": [[605, 605], [629, 629], [633, 633], [757, 757]], "confidence": "medium" },
+  { "id": "nico-robin--gigante-fleur", "characterId": "nico-robin", "name": "Gigante Fleur / large upper-body bloom", "era": "Black Maria confrontation",
+    "stats": {"attack": 40, "defense": 28, "speed": 28, "durability": 26, "intelligence": 80, "versatility": 52, "stamina": 24, "feats": 39}, "powerScore": 375, "rarity": "Common",
+    "abilityTags": ["limb-blooms", "giant-body", "grappling"], "signatureMoves": ["Gigante Fleur", "Mil Fleur: Fish-Man Karate Giganteum"],
+    "limitations": "Large upper-body projection shares injury and increases exposed surface; learned palm technique is contextual. No Demonio wings or confirmed Armament inferred from shading.",
+    "sourceChapters": [[1020, 1021]], "confidence": "medium" },
+  { "id": "nico-robin--demonio", "characterId": "nico-robin", "name": "Demonio Fleur", "era": "Onigashima",
+    "stats": {"attack": 44, "defense": 31, "speed": 30, "durability": 28, "intelligence": 80, "versatility": 59, "stamina": 27, "feats": 43}, "powerScore": 407, "rarity": "Rare",
+    "abilityTags": ["limb-blooms", "giant-body", "grappling"], "signatureMoves": ["Demonio Fleur: Grand Jacuzzi Clutch", "Demonio Fleur: Giant Limb Restraint"],
+    "limitations": "Large demonic bloom has severe exhaustion and shared-injury costs; restraint is descriptive. Dark shading does not confirm Armament, real demon species, flight mastery or a new Devil Fruit.",
+    "sourceChapters": [[1021, 1021]], "confidence": "medium" }
+]

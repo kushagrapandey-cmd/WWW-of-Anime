@@ -1,0 +1,7 @@
+[
+  { "id": "portgas-d-ace--living-flame", "characterId": "portgas-d-ace", "name": "Living Flame-Flame Fruit fighter", "era": "Banaro Island / Marineford",
+    "stats": {"attack": 60, "defense": 45, "speed": 47, "durability": 41, "intelligence": 55, "versatility": 46, "stamina": 57, "feats": 53}, "powerScore": 510, "rarity": "Rare",
+    "abilityTags": ["fire", "logia", "ranged"], "signatureMoves": ["Fire Fist", "Great Flame Commandment: Flame Emperor", "Firefly Light: Fiery Doll"],
+    "limitations": "No manga-supported awakening or novel-derived peak is invented. Logia has applicable Haki/elemental/seastone counters; flame creation is not invulnerability or a universal energy nullifier.",
+    "sourceChapters": [[158, 159], [440, 441], [572, 574]], "confidence": "medium" }
+]

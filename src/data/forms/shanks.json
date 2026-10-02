@@ -1,0 +1,7 @@
+[
+  { "id": "shanks--adult-haki", "characterId": "shanks", "name": "Adult Haki swordsman / one-arm state", "era": "Supported Emperor encounters",
+    "stats": {"attack": 87, "defense": 80, "speed": 88, "durability": 66, "intelligence": 85, "versatility": 47, "stamina": 73, "feats": 86}, "powerScore": 781, "rarity": "Legendary",
+    "abilityTags": ["haki", "swordsmanship", "future-sight"], "signatureMoves": ["Divine Departure", "Conqueror’s Haki Burst"],
+    "limitations": "Sparse adult feats support the selected one-arm state, not an unseen two-arm prime. Burst is descriptive; no film techniques, Devil Fruit, teleportation or undemonstrated prolonged-combat ceiling.",
+    "sourceChapters": [[434, 434], [1055, 1055], [1079, 1079]], "confidence": "low" }
+]

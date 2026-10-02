@@ -1,0 +1,12 @@
+[
+  { "id": "jinbe--marineford", "characterId": "jinbe", "name": "Fish-Man Karate — Marineford veteran", "era": "Impel Down / Marineford",
+    "stats": {"attack": 52, "defense": 49, "speed": 41, "durability": 52, "intelligence": 75, "versatility": 43, "stamina": 56, "feats": 52}, "powerScore": 509, "rarity": "Rare",
+    "abilityTags": ["fish-man-karate", "water", "grappling"], "signatureMoves": ["Fish-Man Karate: Five Thousand Brick Fist", "Fish-Man Jujutsu: Ocean Current Shoulder Throw"],
+    "limitations": "Water attacks require available water; neutral arenas do not supply an unlimited ocean. No inferred transformation or later solo Wano feats retroactively assigned.",
+    "sourceChapters": [[546, 546], [560, 560], [578, 578]], "confidence": "medium" },
+  { "id": "jinbe--war-veteran", "characterId": "jinbe", "name": "Fish-Man Karate / Armament veteran", "era": "Wano / Egghead",
+    "stats": {"attack": 58, "defense": 57, "speed": 46, "durability": 58, "intelligence": 78, "versatility": 49, "stamina": 65, "feats": 60}, "powerScore": 573, "rarity": "Rare",
+    "abilityTags": ["fish-man-karate", "water", "haki", "grappling"], "signatureMoves": ["Fish-Man Karate: Vagabond Drill", "Fish-Man Karate: Five Thousand Brick Fist", "Fish-Man Jujutsu: Ocean Current Shoulder Throw"],
+    "limitations": "Supported adult toolkit, not a new transformation or automatic internal-water knockout. Water supply, contact, applicable Haki and finite personal endurance constrain use.",
+    "sourceChapters": [[629, 629], [980, 980], [1017, 1018]], "confidence": "medium" }
+]

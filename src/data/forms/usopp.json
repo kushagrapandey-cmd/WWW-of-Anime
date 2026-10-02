@@ -1,0 +1,22 @@
+[
+  { "id": "usopp--east-blue-slingshot", "characterId": "usopp", "name": "Slingshot / early ammunition", "era": "East Blue",
+    "stats": {"attack": 14, "defense": 11, "speed": 19, "durability": 16, "intelligence": 58, "versatility": 34, "stamina": 23, "feats": 17}, "powerScore": 207, "rarity": "Common",
+    "abilityTags": ["slingshot", "traps", "fire"], "signatureMoves": ["Exploding Star", "Lead Star"],
+    "limitations": "Finite mundane ammunition and early aim; no Dials, Kabuto, Pop Greens or Observation Haki. Bluffing is not a damaging supernatural ability.",
+    "sourceChapters": [[39, 40], [87, 88]], "confidence": "medium" },
+  { "id": "usopp--sogeking-kabuto", "characterId": "usopp", "name": "Sogeking / Kabuto and Dials", "era": "Enies Lobby / Thriller Bark",
+    "stats": {"attack": 22, "defense": 15, "speed": 24, "durability": 20, "intelligence": 68, "versatility": 48, "stamina": 26, "feats": 24}, "powerScore": 276, "rarity": "Common",
+    "abilityTags": ["slingshot", "dials", "fire"], "signatureMoves": ["Firebird Star", "Impact Dial"],
+    "limitations": "Prepared ammunition and recoil-bearing Dials; Sogeking is an alias, not another identity or transformation. No Pop Greens or later Haki.",
+    "sourceChapters": [[419, 420], [465, 466]], "confidence": "medium" },
+  { "id": "usopp--pop-greens", "characterId": "usopp", "name": "Black Kabuto / Pop Greens", "era": "Post-timeskip before Haki awakening",
+    "stats": {"attack": 24, "defense": 18, "speed": 26, "durability": 22, "intelligence": 72, "versatility": 55, "stamina": 31, "feats": 28}, "powerScore": 309, "rarity": "Common",
+    "abilityTags": ["slingshot", "plants", "traps"], "signatureMoves": ["Green Star: Impact Wolf", "Green Star: Skull Bombgrass", "Green Star: Devil"],
+    "limitations": "Cultivated ammunition is finite and setup-dependent; no Observation Haki yet or automatic plant control of an entire arena.",
+    "sourceChapters": [[646, 646], [681, 681]], "confidence": "medium" },
+  { "id": "usopp--observation-pop-greens", "characterId": "usopp", "name": "Black Kabuto / awakened Observation", "era": "Dressrosa through Wano",
+    "stats": {"attack": 25, "defense": 19, "speed": 27, "durability": 23, "intelligence": 74, "versatility": 58, "stamina": 33, "feats": 30}, "powerScore": 324, "rarity": "Common",
+    "abilityTags": ["slingshot", "plants", "traps", "observation-haki"], "signatureMoves": ["Green Star: Impact Wolf", "Green Star: Skull Bombgrass", "Green Star: Devil"],
+    "limitations": "Brief Observation awakening is not consistent future sight or unlimited range. Ammunition/growth conditions remain; no confirmed Armament or Conqueror Haki.",
+    "sourceChapters": [[758, 758], [1004, 1004], [1016, 1016]], "confidence": "medium" }
+]

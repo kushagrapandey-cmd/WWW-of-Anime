@@ -1,0 +1,17 @@
+[
+  { "id": "marshall-d-teach--darkness-only", "characterId": "marshall-d-teach", "name": "Darkness Fruit only", "era": "Banaro Island",
+    "stats": {"attack": 53, "defense": 36, "speed": 38, "durability": 49, "intelligence": 76, "versatility": 50, "stamina": 52, "feats": 50}, "powerScore": 493, "rarity": "Rare",
+    "abilityTags": ["darkness", "absorption", "grappling"], "signatureMoves": ["Black Vortex", "Liberation"],
+    "limitations": "No quake fruit yet. Darkness increases received pain and does not provide ordinary Logia intangibility; contact fruit suppression does not automatically cancel chakra/reiatsu.",
+    "sourceChapters": [[440, 441]], "confidence": "medium" },
+  { "id": "marshall-d-teach--dual-fruit-marineford", "characterId": "marshall-d-teach", "name": "Newly acquired dual fruits", "era": "Marineford finale",
+    "stats": {"attack": 68, "defense": 44, "speed": 42, "durability": 58, "intelligence": 79, "versatility": 63, "stamina": 52, "feats": 62}, "powerScore": 583, "rarity": "Rare",
+    "abilityTags": ["darkness", "quake", "absorption"], "signatureMoves": ["Black Vortex", "Liberation", "Quake Punch"],
+    "limitations": "Immediate post-acquisition quake use, not later Emperor mastery/Haki proof or Whitebeard's physical body. No third fruit, awakening or known acquisition mechanism invented.",
+    "sourceChapters": [[577, 579]], "confidence": "medium" },
+  { "id": "marshall-d-teach--emperor-dual-fruit", "characterId": "marshall-d-teach", "name": "Dual-fruit Emperor / supported Haki", "era": "Post-timeskip",
+    "stats": {"attack": 84, "defense": 59, "speed": 58, "durability": 78, "intelligence": 83, "versatility": 77, "stamina": 77, "feats": 79}, "powerScore": 747, "rarity": "Epic",
+    "abilityTags": ["darkness", "quake", "haki", "absorption"], "signatureMoves": ["Black Vortex", "Liberation", "Quake Punch"],
+    "limitations": "Contact suppression has applicable Devil Fruit conditions, not universal supernatural nullification. Heightened pain and finite combat speed remain; no assumed third fruit, awakening or Conqueror Haki.",
+    "sourceChapters": [[1059, 1059], [1063, 1064], [1081, 1081]], "confidence": "medium" }
+]

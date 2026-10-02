@@ -1,0 +1,12 @@
+[
+  { "id": "edward-newgate--marineford-ill", "characterId": "edward-newgate", "name": "Elderly / ill Marineford state", "era": "Marineford before terminal injuries",
+    "stats": {"attack": 77, "defense": 59, "speed": 52, "durability": 69, "intelligence": 82, "versatility": 51, "stamina": 33, "feats": 73}, "powerScore": 632, "rarity": "Epic",
+    "abilityTags": ["quake", "polearm", "strength"], "signatureMoves": ["Quake Punch", "Seaquake", "Polearm Strike"],
+    "limitations": "Illness impairs sustained Haki and causes combat interruptions; no healthy-prime endurance or simultaneous terminal injury recovery. Attacks are descriptive; allies' actions are excluded.",
+    "sourceChapters": [[552, 554], [563, 569], [575, 577]], "confidence": "low" },
+  { "id": "edward-newgate--roger-era", "characterId": "edward-newgate", "name": "Roger-era adult / quake and Haki", "era": "Oden flashback",
+    "stats": {"attack": 87, "defense": 79, "speed": 74, "durability": 84, "intelligence": 83, "versatility": 59, "stamina": 78, "feats": 84}, "powerScore": 794, "rarity": "Legendary",
+    "abilityTags": ["quake", "haki", "polearm", "strength"], "signatureMoves": ["Quake Punch", "Seaquake", "Haki-Coated Polearm Strike"],
+    "limitations": "Directly depicted adult flashback plus retained established quake repertoire, not an invented unseen prime. Exact Seaquake era applicability and long-duration endurance require review; labels are descriptive and no Marineford injuries stacked.",
+    "sourceChapters": [[963, 966], [552, 554]], "confidence": "low" }
+]

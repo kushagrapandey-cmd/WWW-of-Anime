@@ -4,13 +4,17 @@
 
 Phase 3 image acquisition is **parked**, not a dependency. Do not search for/download artwork or implement/run `fetch-images` unless the user explicitly reopens it. Retain `imageQuery` and `image: null` in identity data. Every character display uses `CharacterAvatar`; optional images lazy-load, failed/missing images use initials, anime gradient, rarity glow and role icon. Hero covers are manually supplied in `/public/hero/`; gradients work without them. Portal logos remain text.
 
+## Publication authorization — 2026-10-02
+
+User explicitly approved publishing the completed Naruto batch to `main` and continuing the project ("Yes and continue"). Continue publishing completed, validated authorized batches to `main`; do not request the same approval again.
+
 ## Execution order and tasks
 
 - [x] Phase 0: brief and approved rubric.
 - [x] Phase 1: scaffold/home/navigation; shared fallback avatar and stat-rich CharacterCard added. Browser/mobile QA remains open.
 - [ ] Phase 2: all 120 identities authored (40 per series); forms and calibration still in progress.
-- [x] Form backfill: initial Luffy/Naruto seed and all Naruto identities 2–40 authored. Current 178 snapshots / 41 identities (Naruto 170 / 40; One Piece 8 / 1; Bleach 0).
-- [ ] Next: One Piece form inventory/backfill, then Bleach inventories. No identity certified fully covered yet.
+- [x] Form backfill: all Naruto identities and One Piece identities 1–15 authored. Current 237 snapshots / 55 identities (Naruto 170 / 40; One Piece 67 / 15; Bleach 0).
+- [ ] Next: One Piece identities 16–30 forms (Kaido through Mihawk), then 31–40 and Bleach inventories. No identity certified fully covered yet.
 - [ ] Complete panel/alias inventory and peer calibration, borrowed resource costs, peak consistency, rarity distribution review. Preserve formula/thresholds; never force scores to quotas.
 - [ ] Sign off Phase 2 after actual coverage/review, then go directly to Phase 4.
 - [ ] Phase 3: PARKED / optional later; no downloader currently exists.

@@ -1,0 +1,17 @@
+[
+  { "id": "franky--original-cyborg", "characterId": "franky", "name": "Original cyborg body", "era": "Water Seven / Enies Lobby",
+    "stats": {"attack": 31, "defense": 31, "speed": 20, "durability": 29, "intelligence": 62, "versatility": 40, "stamina": 28, "feats": 30}, "powerScore": 315, "rarity": "Common",
+    "abilityTags": ["cyborg", "cola", "fire"], "signatureMoves": ["Strong Right", "Coup de Vent", "Fresh Fire"],
+    "limitations": "Cola supply is finite, unmodified back is vulnerable, and original hardware has no Radical Beam, General suit or extra vehicles.",
+    "sourceChapters": [[336, 338], [399, 406]], "confidence": "medium" },
+  { "id": "franky--trained-cyborg", "characterId": "franky", "name": "Trained cyborg body / Radical Beam", "era": "Post-timeskip",
+    "stats": {"attack": 43, "defense": 41, "speed": 25, "durability": 39, "intelligence": 69, "versatility": 52, "stamina": 34, "feats": 42}, "powerScore": 411, "rarity": "Rare",
+    "abilityTags": ["cyborg", "cola", "laser"], "signatureMoves": ["Radical Beam", "Strong Right", "Franky Fireball"],
+    "limitations": "Body-mounted laser has charge/aim/resource needs; no General armor and cannon firing simultaneously. Finite cola, vulnerable transitions and ordinary equipment damage remain.",
+    "sourceChapters": [[605, 605], [635, 636], [1019, 1019]], "confidence": "medium" },
+  { "id": "franky--general", "characterId": "franky", "name": "General Franky / piloted mecha", "era": "Fish-Man Island / Onigashima",
+    "stats": {"attack": 51, "defense": 51, "speed": 24, "durability": 47, "intelligence": 71, "versatility": 58, "stamina": 40, "feats": 46}, "powerScore": 467, "rarity": "Rare",
+    "abilityTags": ["cyborg", "mecha", "cola", "artillery"], "signatureMoves": ["General Cannon", "General Franky: Victory V-Flash"],
+    "limitations": "Supported finite piloted armor, not another teammate. General Cannon belongs to mecha position; pilot Radical Beam requires exiting/repositioning and is excluded from this locked-mecha move list. Cola, exposed transitions and equipment damage matter.",
+    "sourceChapters": [[636, 636], [696, 696], [1019, 1019]], "confidence": "medium" }
+]

@@ -1,0 +1,12 @@
+[
+  { "id": "brook--pre-timeskip-skeleton", "characterId": "brook", "name": "Skeleton swordsman — early crew era", "era": "Thriller Bark",
+    "stats": {"attack": 24, "defense": 19, "speed": 34, "durability": 18, "intelligence": 56, "versatility": 30, "stamina": 32, "feats": 25}, "powerScore": 277, "rarity": "Common",
+    "abilityTags": ["skeleton", "swordsmanship", "music"], "signatureMoves": ["Three-Pace Hum: Notch Slash", "Lullaby Parry"],
+    "limitations": "Existing once-only revival is spent; no repeated resurrection, trained cold blade or freely wandering soul. Bones remain breakable and music conditions matter.",
+    "sourceChapters": [[442, 443], [457, 459]], "confidence": "medium" },
+  { "id": "brook--trained-soul", "characterId": "brook", "name": "Trained soul / cold swordsmanship", "era": "Post-timeskip",
+    "stats": {"attack": 33, "defense": 27, "speed": 43, "durability": 24, "intelligence": 64, "versatility": 49, "stamina": 44, "feats": 35}, "powerScore": 376, "rarity": "Common",
+    "abilityTags": ["skeleton", "swordsmanship", "soul", "ice"], "signatureMoves": ["Soul Solid", "Three-Pace Hum: Notch Slash", "Lullaby Parry"],
+    "limitations": "Soul movement and cold blade do not grant automatic soul destruction or invulnerability. Physical body remains vulnerable during separation; no extra revival or confirmed Haki.",
+    "sourceChapters": [[643, 643], [849, 851]], "confidence": "medium" }
+]

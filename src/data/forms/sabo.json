@@ -1,0 +1,12 @@
+[
+  { "id": "sabo--dragon-claw", "characterId": "sabo", "name": "Dragon Claw / before Flame-Flame Fruit", "era": "Dressrosa colosseum",
+    "stats": {"attack": 52, "defense": 49, "speed": 50, "durability": 47, "intelligence": 76, "versatility": 39, "stamina": 53, "feats": 50}, "powerScore": 509, "rarity": "Rare",
+    "abilityTags": ["dragon-claw", "haki", "staff"], "signatureMoves": ["Dragon Claw", "Dragon Claw Fist: Dragon’s Breath"],
+    "limitations": "Adult supported pre-fruit Haki/claw toolkit, not a child estimate. No fire Logia or later awakening; staff is equipment, not a separate ally.",
+    "sourceChapters": [[737, 737], [743, 744]], "confidence": "medium" },
+  { "id": "sabo--flame-dragon-claw", "characterId": "sabo", "name": "Flame-Flame Fruit / Dragon Claw", "era": "Dressrosa through Reverie",
+    "stats": {"attack": 64, "defense": 58, "speed": 58, "durability": 54, "intelligence": 78, "versatility": 56, "stamina": 64, "feats": 61}, "powerScore": 610, "rarity": "Epic",
+    "abilityTags": ["fire", "logia", "haki", "dragon-claw"], "signatureMoves": ["Dragon Claw Fist: Dragon’s Breath", "Dragon Claw", "Fire Fist"],
+    "limitations": "Early inherited fire and supported Haki do not imply awakening, advanced Conqueror coating or an automatic win against every pursuer. Finite control and applicable fruit counters remain.",
+    "sourceChapters": [[744, 744], [751, 752], [1085, 1085]], "confidence": "medium" }
+]
