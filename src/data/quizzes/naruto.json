@@ -1,0 +1,212 @@
+[
+  {
+    "id": "naruto-quiz-01", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which tailed beast is sealed inside Naruto at the start of the manga?",
+    "options": ["Kurama", "Shukaku", "Gyuki", "Matatabi"], "answerIndex": 0,
+    "explanation": "Naruto is the jinchuriki of Kurama, the Nine-Tails.",
+    "canonReference": {"medium": "manga", "arc": "Opening arc", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-02", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Who leads the original Team Seven as its jonin teacher?",
+    "options": ["Kakashi Hatake", "Asuma Sarutobi", "Might Guy", "Kurenai Yuhi"], "answerIndex": 0,
+    "explanation": "Kakashi leads Naruto, Sasuke and Sakura on Team Seven.",
+    "canonReference": {"medium": "manga", "arc": "Team Seven formation", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-03", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which hidden village is Naruto’s home?",
+    "options": ["Konohagakure", "Sunagakure", "Kirigakure", "Kumogakure"], "answerIndex": 0,
+    "explanation": "Naruto grows up in Konohagakure, the Hidden Leaf Village.",
+    "canonReference": {"medium": "manga", "arc": "Opening arc", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-04", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which clan does Sasuke belong to?",
+    "options": ["Uchiha", "Hyuga", "Nara", "Akimichi"], "answerIndex": 0,
+    "explanation": "Sasuke is a member of the Uchiha clan.",
+    "canonReference": {"medium": "manga", "arc": "Opening arc", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-05", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which legendary medical ninja trains Sakura?",
+    "options": ["Tsunade", "Chiyo", "Kurenai", "Anko"], "answerIndex": 0,
+    "explanation": "Sakura trains in medical ninjutsu and chakra control under Tsunade.",
+    "canonReference": {"medium": "manga", "arc": "Time-skip training", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-06", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which tailed beast was sealed in Gaara?",
+    "options": ["Shukaku", "Kurama", "Isobu", "Saiken"], "answerIndex": 0,
+    "explanation": "Gaara was the jinchuriki of Shukaku, the One-Tail.",
+    "canonReference": {"medium": "manga", "arc": "Chunin Exams", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-07", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which fighting discipline is Rock Lee’s specialty?",
+    "options": ["Taijutsu", "Genjutsu", "Medical ninjutsu", "Puppet techniques"], "answerIndex": 0,
+    "explanation": "Lee specializes in physical taijutsu under Might Guy.",
+    "canonReference": {"medium": "manga", "arc": "Chunin Exams", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-08", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which eye technique is associated with Hinata’s Hyuga clan?",
+    "options": ["Byakugan", "Rinnegan", "Mangekyo Sharingan", "Rinne Sharingan"], "answerIndex": 0,
+    "explanation": "The Hyuga clan’s Byakugan supports their Gentle Fist fighting style.",
+    "canonReference": {"medium": "manga", "arc": "Chunin Exams", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-09", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "What does Shikamaru manipulate with his signature clan techniques?",
+    "options": ["Shadows", "Sand", "Insects", "Bones"], "answerIndex": 0,
+    "explanation": "The Nara clan uses shadow techniques to restrain and control opponents.",
+    "canonReference": {"medium": "manga", "arc": "Chunin Exams", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-10", "anime": "naruto", "difficulty": "easy", "confidence": "high",
+    "question": "Which organization is recognizable by black cloaks with red clouds?",
+    "options": ["Akatsuki", "ANBU", "Root", "Seven Ninja Swordsmen"], "answerIndex": 0,
+    "explanation": "Akatsuki members wear black cloaks patterned with red clouds.",
+    "canonReference": {"medium": "manga", "arc": "Akatsuki introduction", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-11", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Who originally developed the Rasengan?",
+    "options": ["Minato Namikaze", "Jiraiya", "Naruto Uzumaki", "Kakashi Hatake"], "answerIndex": 0,
+    "explanation": "Minato developed the Rasengan; Jiraiya later teaches it to Naruto.",
+    "canonReference": {"medium": "manga", "arc": "Search for Tsunade", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-12", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which of these ninja is one of the three legendary Sannin?",
+    "options": ["Orochimaru", "Kakashi Hatake", "Danzo Shimura", "Might Guy"], "answerIndex": 0,
+    "explanation": "Orochimaru, Jiraiya and Tsunade are the legendary Sannin.",
+    "canonReference": {"medium": "manga", "arc": "Search for Tsunade", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-13", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which Hokage is Hiruzen Sarutobi?",
+    "options": ["Third", "Second", "Fourth", "Fifth"], "answerIndex": 0,
+    "explanation": "Hiruzen Sarutobi is the Third Hokage.",
+    "canonReference": {"medium": "manga", "arc": "Konoha Crush", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-14", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which religion does Hidan follow?",
+    "options": ["Jashin worship", "Ninshu", "The Will of Fire", "The Infinite Tsukuyomi"], "answerIndex": 0,
+    "explanation": "Hidan’s rituals and curse technique are tied to his worship of Jashin.",
+    "canonReference": {"medium": "manga", "arc": "Akatsuki Suppression Mission", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-15", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Who gave Kakashi his original Sharingan eye?",
+    "options": ["Obito Uchiha", "Itachi Uchiha", "Sasuke Uchiha", "Shisui Uchiha"], "answerIndex": 0,
+    "explanation": "Obito gives Kakashi his left Sharingan during the Kannabi Bridge mission.",
+    "canonReference": {"medium": "manga", "arc": "Kakashi Gaiden", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-16", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Where does Naruto train to learn toad Sage Mode?",
+    "options": ["Mount Myoboku", "Ryuchi Cave", "Shikkotsu Forest", "Valley of the End"], "answerIndex": 0,
+    "explanation": "Naruto learns toad Sage Mode at Mount Myoboku.",
+    "canonReference": {"medium": "manga", "arc": "Pain Assault", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-17", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which eye technique does Nagato possess?",
+    "options": ["Rinnegan", "Byakugan", "Sharingan", "Mangekyo Sharingan"], "answerIndex": 0,
+    "explanation": "Nagato uses the Rinnegan to control the Six Paths of Pain.",
+    "canonReference": {"medium": "manga", "arc": "Pain Assault", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-18", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which secret organization trained Sai before he joined Team Seven?",
+    "options": ["Root", "Akatsuki", "Sound Four", "Seven Ninja Swordsmen"], "answerIndex": 0,
+    "explanation": "Sai was trained in Danzo’s Root organization.",
+    "canonReference": {"medium": "manga", "arc": "Tenchi Bridge Reconnaissance", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-19", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which sword is closely associated with Kisame?",
+    "options": ["Samehada", "Kubikiribocho", "Kusanagi", "Hiramekarei"], "answerIndex": 0,
+    "explanation": "Kisame wields the chakra-absorbing sword Samehada.",
+    "canonReference": {"medium": "manga", "arc": "Akatsuki introduction", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-20", "anime": "naruto", "difficulty": "medium", "confidence": "high",
+    "question": "Which animals does Jiraiya commonly summon?",
+    "options": ["Toads", "Snakes", "Slugs", "Dogs"], "answerIndex": 0,
+    "explanation": "Jiraiya summons toads through his contract with Mount Myoboku.",
+    "canonReference": {"medium": "manga", "arc": "Search for Tsunade", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-21", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Which powerful genjutsu is associated with Itachi’s Mangekyo Sharingan?",
+    "options": ["Tsukuyomi", "Flying Raijin", "Shinra Tensei", "Chidori"], "answerIndex": 0,
+    "explanation": "Itachi uses Tsukuyomi to trap a target in a controlled illusion.",
+    "canonReference": {"medium": "manga", "arc": "Search for Tsunade", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-22", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Which space-time technique is Minato famous for using?",
+    "options": ["Flying Raijin", "Kamui", "Amenotejikara", "Limbo"], "answerIndex": 0,
+    "explanation": "Minato uses Flying Raijin to teleport to marked locations.",
+    "canonReference": {"medium": "manga", "arc": "Kakashi Gaiden and Fourth War", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-23", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Which former village leader became Sasori’s famous human puppet?",
+    "options": ["Third Kazekage", "Second Hokage", "Fourth Raikage", "Third Tsuchikage"], "answerIndex": 0,
+    "explanation": "Sasori turns the Third Kazekage into a human puppet that uses Iron Sand.",
+    "canonReference": {"medium": "manga", "arc": "Kazekage Rescue", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-24", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Which of Pain’s Six Paths uses attraction and repulsion?",
+    "options": ["Deva Path", "Animal Path", "Preta Path", "Naraka Path"], "answerIndex": 0,
+    "explanation": "The Deva Path uses forces such as Shinra Tensei and Bansho Tenin.",
+    "canonReference": {"medium": "manga", "arc": "Pain Assault", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-25", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "What material does the Fourth Kazekage Rasa manipulate?",
+    "options": ["Gold dust", "Iron sand", "Bone", "Lava"], "answerIndex": 0,
+    "explanation": "Rasa uses Magnet Release to manipulate gold dust.",
+    "canonReference": {"medium": "manga", "arc": "Fourth Shinobi World War", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-26", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Which advanced nature transformation does the Second Tsuchikage Mu use?",
+    "options": ["Dust Release", "Ice Release", "Boil Release", "Scorch Release"], "answerIndex": 0,
+    "explanation": "Mu uses Dust Release, combining earth, wind and fire nature transformations.",
+    "canonReference": {"medium": "manga", "arc": "Fourth Shinobi World War", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-27", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Who sacrifices her own life to revive Gaara after Shukaku’s extraction?",
+    "options": ["Chiyo", "Tsunade", "Sakura", "Temari"], "answerIndex": 0,
+    "explanation": "Chiyo uses her life-transfer technique to bring Gaara back.",
+    "canonReference": {"medium": "manga", "arc": "Kazekage Rescue", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-28", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Who developed the Impure World Reincarnation technique?",
+    "options": ["Tobirama Senju", "Orochimaru", "Kabuto Yakushi", "Madara Uchiha"], "answerIndex": 0,
+    "explanation": "Tobirama develops the technique later used by Orochimaru and Kabuto.",
+    "canonReference": {"medium": "manga", "arc": "Fourth Shinobi World War", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-29", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Who is Shikamaru’s original Team Ten jonin teacher?",
+    "options": ["Asuma Sarutobi", "Kakashi Hatake", "Might Guy", "Yamato"], "answerIndex": 0,
+    "explanation": "Asuma leads Shikamaru, Ino and Choji on Team Ten.",
+    "canonReference": {"medium": "manga", "arc": "Chunin Exams and Akatsuki Suppression", "cutoffChapter": 700}
+  },
+  {
+    "id": "naruto-quiz-30", "anime": "naruto", "difficulty": "hard", "confidence": "high",
+    "question": "Which nature transformation is Hashirama particularly known for?",
+    "options": ["Wood Release", "Dust Release", "Scorch Release", "Storm Release"], "answerIndex": 0,
+    "explanation": "Hashirama’s Wood Release is a defining part of his abilities.",
+    "canonReference": {"medium": "manga", "arc": "Fourth Shinobi World War", "cutoffChapter": 700}
+  }
+]

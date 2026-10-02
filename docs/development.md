@@ -20,6 +20,7 @@ WWW-of-Anime/
     characters/.gitkeep
   scripts/validate-data.mjs
   scripts/validate-forms.mjs
+  scripts/validate-quizzes.mjs
   src/
     main.jsx
     App.jsx
@@ -37,6 +38,7 @@ WWW-of-Anime/
       AvatarPicker.jsx
       ProtectedRoute.jsx
       battle/{ArenaSetup,ArenaDraft,ArenaLineup,ArenaRounds,ArenaResults,FighterMini}.jsx
+      quiz/{QuizSetup,QuizQuestion,QuizResults}.jsx
     pages/
       Home.jsx
       Placeholder.jsx
@@ -46,6 +48,8 @@ WWW-of-Anime/
       Profile.jsx
       BattleEntry.jsx
       BattleArena.css
+      Quizzes.jsx
+      Quizzes.css
       Accounts.css
     data/
       anime.js
@@ -54,21 +58,26 @@ WWW-of-Anime/
       peakForms.js
       characters/{naruto,onepiece,bleach}.json
       forms/index.js and 55 modular character JSON files
-      quizzes/.gitkeep
+      quizzes/{naruto,onepiece,bleach}.json
+      quizzes/index.js
     services/
       AuthService.js
       BattleService.js
+      QuizService.js
       LocalAuthService.js
       passwords.js
       localStorageStore.js
       authRouting.js
     game/{config,random,pool,draft,engine,profileResult}.js
+    quiz/{config,date,engine,profileResult}.js
     hooks/.gitkeep
     context/AuthContext.jsx
     config/auth.js
   tests/auth.test.mjs
   tests/game.test.js
   tests/game-storage.test.js
+  tests/quiz-engine.test.js
+  tests/quiz-storage.test.js
   .env.example
 ```
 
@@ -76,12 +85,13 @@ All paths above are tracked source files in this repository. Empty directories r
 
 ## How to test
 
-- Home: animated gradient hero, three anime portals, Battle banner and locked Daily Challenge teaser are visible.
+- Home: animated gradient hero, three anime portals, Battle banner and playable Daily Challenge link are visible.
 - Click Home, Battle, Quizzes, Games and Profile / Login. Each reaches its correct route and highlights its navigation item where applicable.
 - Characters: visit `/characters`, switch Luffy from Base to Gear Five, then Naruto from Part One Base to final-duel avatar. Check scores, tiers, eras, moves and limits change. Switch Sasuke from early Base to Indra Susanoo: no early Rinnegan/Indra moves, and score/tier/limits must change. Check Kakashi’s temporary dual-eye limits, Lee’s individual gates and Choji’s pill costs. Confirm per-series counts (Naruto 170 across 40 identities, One Piece 67 across 15 identities, Bleach 0), chapter ranges and review status. Compare Pain’s Deva-only and restored Nagato moves; check Obito’s host has no Kamui and Madara’s final state has no stolen eye. Compare B’s swords with Gyuki’s ball/ink/tentacles. Compare early Luffy Gears/Nightmare with Gear Five; check Sanji’s Ifrit has no Raid Suit, Chopper’s Monster body has no Guard move, and General Franky has no simultaneous pilot Radical Beam. Select Kaido and check the deferred-forms notice.
 - Click each anime portal. Verify Naruto, One Piece and Bleach preview pages and their theme colors.
 - Visit `/profile`, `/login`, `/does-not-exist` and `/anime/unknown`. The first requires login and shows the profile, the second shows login, and the last two show the 404 screen. Test `/signup`, avatar saving, logout and protected `/battle` returns using [the Phase 4 checklist](phase-4-accounts.md).
 - Play CPU and local-friend matches, variant drafts and saved replays using [the Phase 5 checklist](phase-5-arena.md).
+- Play Classic, Mixed, Blitz and Daily Challenge, resume attempts and verify profile progress using [the Phase 6 checklist](phase-6-quizzes.md).
 - At 360px width: open/close the navigation menu, select a route, and check that the menu closes. Confirm no horizontal scroll.
 - Use Tab and Enter to navigate links; check visible focus and the skip-to-content link.
 - Turn on the operating system's reduced-motion preference. Decorative motion should stop.
@@ -101,8 +111,8 @@ All paths above are tracked source files in this repository. Empty directories r
 
 ## Verification
 
-Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; local accounts and Battle Arena are implemented; quiz and guessing-game phases remain pending.
+Production build, data validation and bundled form-selection/identity checks pass. Guide server rendering is checked. The `/characters` route loads its roster chunk on demand and shows an accessible loading status. Visual, mobile, keyboard and dialog checks remain manual; no browser binary is installed in this environment. The user-requested guide changes the UI; local accounts and Battle Arena are implemented; quizzes are implemented; guessing games remain pending.
 
 ## Revised phase order and fallback checks
 
-See [task memory](../TASKS.md). Phase 3 is parked; Phase 2 is closed and Phases 4–5 are implemented. Proceed to Phase 6 only on the user’s “next”. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is Phase 7; no silhouette game is planned.
+See [task memory](../TASKS.md). Phase 3 is parked; Phase 2 is closed and Phases 4–6 are implemented. Proceed to Phase 7 only on the user’s “next”. Check `/characters` for readable initials/role icon, anime color and rarity frame. Use keyboard selectors and inspect narrow screens. Test CharacterCard with null image, valid local image and broken local path: fallback remains on errors, stats/chips are readable. Home/portals must retain gradients without covers. Add your own covers per `public/hero/README.md` and verify text contrast. Move Match is Phase 7; no silhouette game is planned.

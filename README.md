@@ -8,7 +8,7 @@ A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore yo
 
 [🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
 
-> **What can I use today?** Browse character ratings and fallback avatars, explore the animated home page, explore the three anime portal previews, and navigate the responsive layout. Create a local account, log in, choose an avatar and view your profile. Draft against the CPU or a local friend in Battle Arena. Quizzes and guessing games remain previews.
+> **What can I use today?** Browse character ratings and fallback avatars, explore the animated home page, explore the three anime portal previews, and navigate the responsive layout. Create a local account, log in, choose an avatar and view your profile. Draft against the CPU or a local friend in Battle Arena. Play Classic quizzes, Timed Blitz and Daily Challenge. Guessing games remain previews.
 
 ## 🌌 Pick your universe
 
@@ -30,7 +30,7 @@ The approved power system uses one shared scale across all three worlds. It is a
 
 ### 🧠 Anime Quizzes
 
-**Planned for Phase 6.** Choose a single anime or a mixed quiz, select difficulty, and test yourself with canon questions and answer explanations. Timed Blitz will add a 60-second challenge.
+**Available now.** Choose one anime or Mixed, select difficulty and play 10-question Classic or 60-second Blitz with streak multipliers. The bank has 90 four-option questions (30 per anime). Every answer shows an explanation; results save XP, best accuracy and mode high scores.
 
 ### 🔍 Guessing Games
 
@@ -42,11 +42,11 @@ The approved power system uses one shared scale across all three worlds. It is a
 
 ### 📅 Daily Challenge
 
-**Planned for Phase 6.** Five date-seeded questions, one attempt per day, and a streak counter. Today’s home card is a locked teaser.
+**Available now.** Five shared, date-seeded mixed questions. One attempt per account or guest browser profile each day, reset at midnight India time. Resume unfinished attempts; signed-in completions build a daily streak. The Home card opens today’s challenge.
 
 ### 👤 Your Profile
 
-**Available now.** Create a username/password account, pick an avatar, and view your rank, battle record, quiz progress and achievements. New profiles start at zero; Arena matches update wins, losses, streaks, rank points and achievements. Quiz progress awaits Phase 6. Accounts stay in this browser and do not sync to other devices. Use a demo password; a real backend remains on the roadmap.
+**Available now.** Create a username/password account, pick an avatar, and view your rank, battle record, quiz progress and achievements. New profiles start at zero; Arena matches update wins, losses, streaks, rank points and achievements. Quizzes save XP, best accuracy, mode high scores and daily streaks. Accounts stay in this browser and do not sync to other devices. Use a demo password; a real backend remains on the roadmap.
 
 ## 🧭 Find your way around
 
@@ -54,9 +54,9 @@ These are paths inside the running app, not links to a deployed website.
 
 | Navigation | Path | What happens today |
 | --- | --- | --- |
-| 🏠 Home | `/` | Hero, anime portals, Battle banner and Daily Challenge teaser |
+| 🏠 Home | `/` | Hero, anime portals, Battle banner and playable Daily Challenge link |
 | ⚔️ Battle | `/battle` | Five-card CPU/local-friend arena, results and replays; guest flag available |
-| 🧠 Quizzes | `/quizzes` | Quiz preview |
+| 🧠 Quizzes | `/quizzes` | Classic, Mixed, Timed Blitz, Daily Challenge and saved attempts |
 | 🎮 Games | `/games` | Guessing games preview |
 | 👤 Login | `/login` | Local account login; returns to the requested page |
 | ✨ Create account | `/signup` | Local signup with validation |
@@ -131,11 +131,11 @@ If Git reports local conflicts, resolve those before updating. Do not discard yo
 | 3 | Optional character image pipeline | ⏸️ Parked; no gameplay dependency |
 | 4 | Accounts and profiles | ✅ Local prototype implemented; browser visual QA pending |
 | 5 | Battle Arena | ✅ Implemented and tested; browser visual QA pending |
-| 6 | Quizzes and Daily Challenge | 🔒 Planned |
+| 6 | Quizzes and Daily Challenge | ✅ Implemented and tested; browser visual QA pending |
 | 7 | Guessing games | 🔒 Planned |
 | 8 | Polish, tests, expansion and deployment | 🔒 Planned |
 
-We build one phase at a time. Phase 2 is closed at the user’s accepted scope, and Phases 4–5 local accounts and Battle Arena are implemented. Phase 6 quizzes are next. Phase 3 is optional and parked. Nothing is publicly deployed yet.
+We build one phase at a time. Phase 2 is closed at the user’s accepted scope, and Phases 4–6 local accounts, Battle Arena and quizzes are implemented. Phase 7 guessing games are next. Phase 3 is optional and parked. Nothing is publicly deployed yet.
 
 ## 🛠️ Under the hood
 
@@ -147,7 +147,7 @@ We build one phase at a time. Phase 2 is closed at the user’s accepted scope, 
 - 🔌 `src/services/AuthService.js` exposes async local account/profile operations and can later swap to an API adapter.
 - ♿ The foundation includes focus styles, a skip link and reduced-motion handling. Full accessibility QA is still pending.
 
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Phase 4 accounts](docs/phase-4-accounts.md) · [Phase 5 arena and testing](docs/phase-5-arena.md) · [Latest State Summary](STATE_SUMMARY.md)
+[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Phase 4 accounts](docs/phase-4-accounts.md) · [Phase 5 arena and testing](docs/phase-5-arena.md) · [Phase 6 quizzes and testing](docs/phase-6-quizzes.md) · [Latest State Summary](STATE_SUMMARY.md)
 
 ## 📚 About the characters and scores
 

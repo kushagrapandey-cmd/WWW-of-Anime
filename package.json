@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0 --port 5173 --strictPort",
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port 4173 --strictPort",
-    "validate:data": "node scripts/validate-data.mjs && node scripts/validate-forms.mjs",
+    "validate:data": "node scripts/validate-data.mjs && node scripts/validate-forms.mjs && node scripts/validate-quizzes.mjs",
     "test": "npm run test:auth && npm run test:game",
     "test:auth": "node --test tests/*.test.mjs",
     "test:game": "vitest run"

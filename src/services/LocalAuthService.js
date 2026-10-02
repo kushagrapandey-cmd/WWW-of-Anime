@@ -1,3 +1,6 @@
+import { validDate } from '../quiz/date.js';
+import { QUIZ } from '../quiz/config.js';
+import { applyQuizResult } from '../quiz/profileResult.js';
 import { GAME } from '../game/config.js';
 import { applyBattleResult } from '../game/profileResult.js';
 import { profileAvatars } from '../data/profile.js';
@@ -12,7 +15,7 @@ function validateCredentials(username, password, signingUp) {
   return username.trim();
 }
 function publicUser(record) {
-  const { credential, battleReceipts, ...profile } = record;
+  const { credential, battleReceipts, quizReceipts, ...profile } = record;
   return structuredClone(profile);
 }
 function numericStats(current, updates, allowed) {
@@ -36,6 +39,7 @@ export class LocalAuthService {
   readUsers() {
     const users = this.store.read(USERS_KEY, []);
     if (!Array.isArray(users) || users.some(user => !user || typeof user.id !== 'string' || !/^[a-zA-Z0-9_]{3,24}$/.test(user.username) || !avatarIds.has(user.avatar) || !Number.isFinite(Date.parse(user.createdAt)) || !user.credential || !Array.isArray(user.achievements) || [ [user.battleStats, battleDefaults], [user.quizStats, quizDefaults] ].some(([stats, defaults]) => !stats || Object.keys(defaults).some(key => !Number.isSafeInteger(stats[key]) || stats[key] < 0)))) throw new Error('Saved account data is invalid. Your existing data has not been replaced.');
+    if (users.some(user => (user.quizProgress !== undefined && (!user.quizProgress || !(user.quizProgress.lastDailyDate === null || validDate(user.quizProgress.lastDailyDate)) || !user.quizProgress.bestScores || typeof user.quizProgress.bestScores !== 'object' || Array.isArray(user.quizProgress.bestScores) || Object.entries(user.quizProgress.bestScores).some(([mode, score]) => !['classic', 'blitz', 'daily'].includes(mode) || !Number.isSafeInteger(score) || score < 0))) || [user.quizReceipts, user.battleReceipts].some(receipts => receipts !== undefined && (!Array.isArray(receipts) || receipts.some(receipt => !receipt || typeof receipt.id !== 'string'))))) throw new Error('Saved progress data is invalid. Your existing data has not been replaced.');
     return users;
   }
   async getCurrentUser() {
@@ -73,6 +77,21 @@ export class LocalAuthService {
   async updateProfile({ avatar }) {
     if (!avatarIds.has(avatar)) throw new Error('Choose an available avatar.');
     return this.updateCurrent(record => ({ ...record, avatar }));
+  }
+  async getQuizReceipt(id) {
+    const session = this.store.read(SESSION_KEY, null);
+    const record = this.readUsers().find(user => user.id === session?.userId);
+    return structuredClone(record?.quizReceipts?.find(receipt => receipt.id === id) ?? null);
+  }
+  async recordQuizResult(attempt) {
+    return this.updateCurrent(record => {
+      if (record.id !== attempt.ownerId) throw new Error('The signed-in account changed. Resume this quiz with its original account.');
+      const receipts = record.quizReceipts ?? [];
+      if (receipts.some(receipt => receipt.id === attempt.id)) return record;
+      if (attempt.mode === 'daily' && record.quizProgress?.lastDailyDate === attempt.date) throw new Error('This daily challenge has already been credited.');
+      const { result, ...updates } = applyQuizResult(record, attempt);
+      return { ...record, ...updates, quizReceipts: [...receipts, { id: attempt.id, ...result }].slice(-QUIZ.receiptLimit) };
+    });
   }
   async getBattleReceipt(id) {
     const session = this.store.read(SESSION_KEY, null);
