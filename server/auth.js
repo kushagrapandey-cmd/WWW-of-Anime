@@ -21,7 +21,7 @@ export async function authRoute(db, action, data, req, res, secure, ipKey) {
     res.setHeader('Set-Cookie', sessionCookie('', secure, true)); return null;
   }
   if (!['signup', 'login'].includes(action)) fail(404, 'Unknown account operation.');
-  await rateLimit(db, `auth-ip:${ipKey}`, 20);
+  await rateLimit(db, `auth-ip:${action}:${ipKey}`, action === 'signup' ? 20 : 40);
   const { username, normalized, password } = credentials(data, action === 'signup');
   await rateLimit(db, `auth-name:${digest(normalized)}`, 12);
   let profile, hashForSession;

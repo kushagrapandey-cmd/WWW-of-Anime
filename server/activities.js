@@ -5,6 +5,16 @@ import { challengeDate } from '../src/quiz/date.js';
 import { createSession, answerRound, advanceRound, revealClue, scoreSession, correctChoice, applyMiniResult } from '../src/minigames/engine.js';
 import { questions, miniRoster } from './catalog.js';
 import { fail } from './security.js';
+const clientActivityErrors = new Set([
+  'Unknown quiz settings.','Not enough questions for those settings.','This question is already answered.','Time is up.',
+  'Choose an available answer.','Answer this question first.','This quiz is still in progress.','Invalid mini-game settings.',
+  'No further clue available.','This round is already answered.','That name matches several fighters. Use a full name.',
+  'Enter a character name.','Choose Higher or Lower.','Choose an available fighter.','Answer this round first.'
+]);
+function clientActivity(operation) {
+  try { return operation(); }
+  catch (error) { if (clientActivityErrors.has(error?.message)) fail(400,error.message); throw error; }
+}
 export function activityView(kind,state) {
   const next = structuredClone(state); next.online = true;
   if (kind === 'quiz') {
@@ -50,7 +60,7 @@ export async function activityRoute(db,user,kind,action,data) {
         if (rows.length) return activityView(kind,rows[0].state);
       }
       const options = { id:`${kind==='quiz'?'quiz':'mini'}-${randomUUID()}`,ownerId:user.id,seed:randomUUID(),now:Date.now() };
-      state = kind==='quiz' ? createAttempt(questions,data.settings??{},options) : createSession(miniRoster,data.settings??{},options);
+      state = clientActivity(() => kind==='quiz' ? createAttempt(questions,data.settings??{},options) : createSession(miniRoster,data.settings??{},options));
       await client.query('INSERT INTO app_activities(id,user_id,kind,daily_date,state) VALUES($1,$2,$3,$4,$5)',[state.id,user.id,kind,date,JSON.stringify(state)]);
     } else {
       const { rows } = await client.query('SELECT state FROM app_activities WHERE user_id=$1 AND id=$2 AND kind=$3 FOR UPDATE',[user.id,data.id,kind]);
@@ -60,14 +70,14 @@ export async function activityRoute(db,user,kind,action,data) {
       const now=Date.now();
       if (kind==='quiz') {
         if (state.status==='active' && state.deadline!==null && now>=state.deadline) state=finishAttempt(state,now);
-        else if (action==='answer') state=answerAttempt(state,data.input,now);
-        else if (action==='next') state=advanceAttempt(state,now);
+        else if (action==='answer') state=clientActivity(() => answerAttempt(state,data.input,now));
+        else if (action==='next') state=clientActivity(() => advanceAttempt(state,now));
         else if (action==='timeout') fail(409,'The server timer has not expired yet.');
         else fail(400,'Unknown quiz operation.');
       } else {
-        if (action==='answer' || action==='timeout') state=answerRound(state,action==='timeout'?null:data.input,now);
-        else if (action==='next') state=advanceRound(state,now);
-        else if (action==='clue') state=revealClue(state,now);
+        if (action==='answer' || action==='timeout') state=clientActivity(() => answerRound(state,action==='timeout'?null:data.input,now));
+        else if (action==='next') state=clientActivity(() => advanceRound(state,now));
+        else if (action==='clue') state=clientActivity(() => revealClue(state,now));
         else fail(400,'Unknown game operation.');
       }
       if (state.status==='complete' && !state.saved) {

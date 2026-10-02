@@ -8,6 +8,11 @@ import ArenaDraft from '../components/battle/ArenaDraft';
 import ArenaLineup from '../components/battle/ArenaLineup';
 import ArenaResults from '../components/battle/ArenaResults';
 import './BattleArena.css';
+const retryableDraftActions = new Set(['draw','reroll','keep','lock']);
+function ownDraftKey(value) {
+  if (!value) return '';
+  return JSON.stringify([value.stage,value.team?.map(card=>[card.id,card.formId??null])??[],value.rerolls,value.kept,value.locked]);
+}
 export default function OnlineBattle() {
   const {user,refresh}=useAuth(), [params,setParams]=useSearchParams();
   const id=params.get('match'),invite=params.get('invite');
@@ -17,8 +22,8 @@ export default function OnlineBattle() {
   const current=useRef(null),working=useRef(false),generation=useRef(0),refreshRef=useRef(refresh);
   refreshRef.current=refresh;
   function accept(next) {
-    if(next.invite){const url=new URL('/battle',location.origin);url.searchParams.set('invite',next.invite);setLink(url.href);}
     if(current.current?.id===next.id && current.current.revision>next.revision)return;
+    if(next.invite){const url=new URL('/battle',location.origin);url.searchParams.set('invite',next.invite);setLink(url.href);}
     current.current=next;setMatch(next);
   }
   useEffect(()=>{setOrder(match?.team??[]);},[match?.id,match?.kept]);
@@ -41,7 +46,7 @@ export default function OnlineBattle() {
     async function poll(){
       if(!document.hidden&&!working.current){
         try{const next=await api('match/view',{id},'GET');if(!stopped){accept(next);setError('');if(next.stage==='complete')await refreshRef.current();}}
-        catch(reason){if(!stopped)setError(reason.message);}
+        catch(reason){if(!stopped){if(reason.status===410){current.current=null;setMatch(null);}setError(reason.message);}}
       }
       if(!stopped)timer=setTimeout(poll,4000);
     }
@@ -51,18 +56,28 @@ export default function OnlineBattle() {
     if(working.current)return;working.current=true;setBusy(true);setError('');
     const version=generation.current;
     try{
-      let next;
-      try { next=await api(`match/${name}`,{id:current.current?.id,revision:current.current?.revision,...extra}); }
-      catch(reason) {
-        if(reason.status!==409 || !current.current?.id || name==='create')throw reason;
-        const latest=await api('match/view',{id:current.current.id},'GET');
-        if(version!==generation.current)return;
-        accept(latest);
-        next=await api(`match/${name}`,{id:latest.id,revision:latest.revision,...extra});
+      let base=current.current;
+      for(let attempt=0;attempt<2;attempt++){
+        try{
+          const next=await api(`match/${name}`,{id:base?.id,revision:base?.revision,...extra});
+          if(version===generation.current){accept(next);if(name==='create')setParams({match:next.id});if(next.stage==='complete')await refresh();}
+          return;
+        }catch(reason){
+          if(reason.status!==409||!base?.id||name==='create')throw reason;
+          const latest=await api('match/view',{id:base.id},'GET');
+          if(version!==generation.current)return;
+          const retry=attempt===0&&latest.stage==='draft'&&retryableDraftActions.has(name)&&ownDraftKey(base)===ownDraftKey(latest);
+          accept(latest);
+          if(!retry){
+            if(latest.stage==='complete')await refresh();
+            else setError('The match changed in another tab or device. Latest state loaded; your action was not repeated.');
+            return;
+          }
+          base=latest;
+        }
       }
-      if(version===generation.current){accept(next);if(name==='create')setParams({match:next.id});if(next.stage==='complete')await refresh();}
     }catch(reason){
-      if(version===generation.current){setError(reason.message);if(reason.status===409&&current.current?.id){try{accept(await api('match/view',{id:current.current.id},'GET'));}catch{}}}
+      if(version===generation.current){if(reason.status===410){current.current=null;setMatch(null);}setError(reason.message);}
     }finally{working.current=false;setBusy(false);}
   }
   return <div className="container arena-page"><header className="arena-heading"><span className="eyebrow">SERVER-VERIFIED ARENA</span><h1>BATTLE <span>ONLINE.</span></h1><p>Separate accounts. Private teams. Shared showdown.</p></header>
@@ -72,7 +87,7 @@ export default function OnlineBattle() {
       <label>World<select value={anime} onChange={e=>setAnime(e.target.value)}><option value="all">All worlds</option>{animeConfig.map(item=><option key={item.id} value={item.id}>{item.name}</option>)}</select></label>
       <label className="arena-choice"><input type="checkbox" checked={variants} onChange={e=>setVariants(e.target.checked)}/>Include form variants</label>
       <Button disabled={busy} type="submit">{busy?'Creating match…':'Create match'}</Button></form><p className="arena-note">Invite your friend to open the link on their device and sign in with their own account. Invites and unfinished matches expire after 24 hours.</p></section>
-      <section className="arena-panel arena-history"><h2>YOUR ONLINE MATCHES</h2>{!history.length&&<p>No matches yet.</p>}<ul>{history.map(item=><li key={item.id}><span>{item.names.join(' vs ')} · {item.stage}</span><Button onClick={()=>setParams({match:item.id})}>Open</Button></li>)}</ul></section></>}
+      <section className="arena-panel arena-history"><h2>YOUR ONLINE MATCHES</h2>{!history.length&&<p>No matches yet.</p>}<ul>{history.map(item=><li key={item.id}><span>{item.names.join(' vs ')} · {item.stage}</span><Button disabled={item.stage==='expired'} onClick={()=>setParams({match:item.id})}>{item.stage==='expired'?'Expired':'Open'}</Button></li>)}</ul></section></>}
     {(id||invite)&&!match&&!error&&<p role="status">Loading match…</p>}
     {match?.stage==='waiting'&&<section className="arena-panel"><h2>WAITING FOR YOUR RIVAL.</h2><p>Player 2 must use a separate account. Opening this link yourself cannot join your own match.</p>
       {link?<label>Private invite link<input readOnly value={link} onFocus={e=>e.target.select()}/></label>:<Button disabled={busy} onClick={()=>action('invite')}>Create fresh invite link</Button>}

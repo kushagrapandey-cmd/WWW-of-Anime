@@ -7,7 +7,10 @@ const uuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 export async function matchRoute(db, user, action, data) {
   if (action === 'list') {
     const { rows } = await db.query('SELECT * FROM app_matches WHERE host_id=$1 OR guest_id=$1 ORDER BY created_at DESC LIMIT 20', [user.id]);
-    return rows.map(row => ({ id: row.id, names: row.state.names, stage: row.state.stage, createdAt: row.created_at }));
+    return rows.map(row => {
+      const expired = row.state.stage !== 'complete' && new Date(row.expires_at).getTime() <= Date.now();
+      return { id: row.id, names: row.state.names, stage: expired ? 'expired' : row.state.stage, createdAt: row.created_at };
+    });
   }
   if (action === 'create') {
     const id = randomUUID(), raw = token(), state = newMatch(user, data);
@@ -28,8 +31,8 @@ export async function matchRoute(db, user, action, data) {
       if (!row.guest_id) { row.guest_id = user.id; row.state.names[1] = user.username; row.state.stage = 'draft'; row.state.revision++; }
     } else {
       const player = matchPlayer(row,user.id);
-      if (action === 'view') return matchView(row,user.id);
       if (row.state.stage !== 'complete' && new Date(row.expires_at).getTime() <= Date.now()) fail(410,'This match has expired. Start a new draft.');
+      if (action === 'view') return matchView(row,user.id);
       if (!Number.isInteger(data.revision) || data.revision !== row.state.revision) fail(409,'The match changed. Refresh and try again.');
       if (action === 'invite') {
         if (player !== 0 || row.guest_id || row.state.mode !== 'friend') fail(409,'This match cannot issue another invite.');

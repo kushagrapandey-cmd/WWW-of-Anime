@@ -33,6 +33,23 @@ test('two separate accounts accept an invite, keep private teams and receive one
  await page.reload();await expect(page.locator('.arena-results')).toBeVisible();
  await rivalContext.close();
 });
+test('same-account tabs do not replay a stale draft action',async({page},info)=>{
+ await signup(page,`Tabs${Date.now().toString().slice(-8)}${info.project.name.slice(-3)}`);
+ await page.goto('/battle');
+ await page.getByLabel('Opponent').selectOption('cpu');
+ await page.getByRole('button',{name:'Create match',exact:true}).click();
+ await expect(page.getByRole('button',{name:'Reveal fighter 1',exact:true})).toBeVisible();
+ const mirror=await page.context().newPage();await mirror.goto(page.url());
+ await expect(mirror.getByRole('button',{name:'Reveal fighter 1',exact:true})).toBeVisible();
+ await Promise.all([
+  page.getByRole('button',{name:'Reveal fighter 1',exact:true}).click(),
+  mirror.getByRole('button',{name:'Reveal fighter 1',exact:true}).click(),
+ ]);
+ await page.reload();
+ await expect(page.getByRole('button',{name:'Reveal fighter 2',exact:true})).toBeVisible();
+ await expect(page.getByRole('button',{name:'Reveal fighter 3',exact:true})).toHaveCount(0);
+ await mirror.close();
+});
 test('server quizzes and guessing games resume without browser-owned scores',async({page},info)=>{
  await signup(page,`Scholar${Date.now().toString().slice(-8)}${info.project.name.slice(-3)}`);
  await page.goto('/quizzes');await page.getByRole('button',{name:'Start quiz',exact:true}).click();
