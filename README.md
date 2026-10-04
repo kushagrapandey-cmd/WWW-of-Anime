@@ -1,92 +1,93 @@
-# ⚡ WWW-of-Anime
+# WWW-of-Anime
 
-### 🍥 Shinobi. 🏴‍☠️ Pirates. ⚔️ Soul Reapers. One anime playground.
+**Three worlds. One playground.** An interactive fan project for Naruto, One Piece and Bleach, featuring character exploration, private online battles, quizzes and guessing games.
 
-A passion project for **Naruto**, **One Piece**, and **Bleach** fans: explore your favorite worlds, test your knowledge, and draft a team for a crossover showdown.
+[Live demo](https://www-of-anime.vercel.app/) · [Architecture & interview guide](docs/architecture-interview-guide.md) · [Development](docs/development.md) · [Deployment](docs/deployment.md)
 
-**🌐 Online upgrade available · 🟢 Prototype phases complete · 📚 Naruto 40/40 · One Piece 40/40 · Bleach 40/40 · 🧬 Form explorer available · 👤 Local profiles available · ⚔️ Battle Arena playable**
+**Status: public beta.** Production uses Vercel Functions and PostgreSQL for online accounts and progress. An explicit browser-local demo mode remains available for development. Email password recovery and production operations work remain pending.
 
-[🚀 Run the website](#-run-the-website) · [🧭 Navigation](#-find-your-way-around) · [🎮 Features](#-whats-in-the-playground) · [🗺️ Roadmap](#️-roadmap) · [🛠️ Developer guide](docs/development.md)
+![WWW-of-Anime home page with crossover hero and primary navigation](docs/screenshots/home.png)
 
-> **What can I use today?** Browse character ratings and fallback avatars, explore the animated home page, explore the three anime portal previews, and navigate the responsive layout. Create a local account, log in, choose an avatar and view your profile. Draft against the CPU or a local friend in Battle Arena. Play Classic quizzes, Timed Blitz and Daily Challenge. Play Move Match, Clue Chain and Higher or Lower.
+## Product walkthrough
 
-## 🌌 Pick your universe
+The screenshots below were supplied by the project creator. They illustrate the interface, not automated proof that every workflow passes. Some captures show page sections rather than the entire viewport.
 
-| World | The vibe | Your portal |
-| --- | --- | --- |
-| 🍥 **Naruto** | Shinobi rivalries, legendary jutsu, and the will of fire | `/anime/naruto` |
-| 🏴‍☠️ **One Piece** | The Grand Line, Devil Fruits, and pirate adventures | `/anime/onepiece` |
-| ⚔️ **Bleach** | Soul Reapers, clashing blades, and Bankai | `/anime/bleach` |
+### Home — `/`
 
-Orange and blue for Naruto, red/gold/ocean blue for One Piece, and black/orange/ice blue for Bleach. Each portal currently introduces its world; the shared `/characters` explorer contains all 120 identities.
+The landing page introduces the crossover experience and directs visitors to battles, quizzes and the character power guide. Shared navigation connects the major sections.
 
-## 🎮 What’s in the playground?
+### Three anime worlds — `/` and `/anime/:animeId`
 
-### ⚔️ Battle Arena — the main event
+Naruto, One Piece and Bleach each have themed portal cards with introductory story and publication metadata. Selecting a world opens its introduction; the shared character explorer covers all three rosters. Publication counts are editorial snapshots and may need updating as ongoing series progress.
 
-**Available now.** Face the CPU or a friend on the same device. Draft five random characters, reveal rarity cards, use a reroll, secretly arrange your lineup, and watch five rounds decide the winner. Results explain each round, show an MVP and update your profile. Replay the last 20 battles, copy results or rematch. Peak forms are the default; variant mode locks the drawn form before play.
+![The Naruto, One Piece and Bleach world cards with themed introductions](docs/screenshots/worlds.png)
 
-The approved power system uses one shared scale across all three worlds. It is a transparent game model, not an official ranking or a guarantee about hypothetical anime fights.
+### Accounts — `/login` and `/signup`
 
-### 🧠 Anime Quizzes
+Username/password authentication connects users to a persistent online profile. Account creation validates input; protected routes return signed-in users to their intended destination. Production uses server sessions in HttpOnly cookies, not browser-local credentials. Email recovery is not yet available.
 
-**Available now.** Choose one anime or Mixed, select difficulty and play 10-question Classic or 60-second Blitz with streak multipliers. The bank has 90 four-option questions (30 per anime). Every answer shows an explanation; results save XP, best accuracy and mode high scores.
+![Login page with account benefits, username field and password control](docs/screenshots/login.png)
 
-### 🔍 Guessing Games
+### Battle Arena — `/battle`
 
-**Available now.** Three games reuse fixed peak snapshots from the existing roster. Each has 10 rounds, timers, saved high scores and resumable sessions:
+Create a CPU match or invite a friend using a private link. Filter by world and optionally include form variants. Each participant drafts five fighters, uses an optional reroll, orders their lineup and locks it. The server checks account ownership, hides the opponent's lineup until completion, computes results and awards rank. Unfinished matches expire after 24 hours; visible tabs refresh match state every four seconds.
 
-- **Move Match:** Identify a character from 2–3 signature moves and ability tags. Choose four options or typed names; hard mode uses unnamed stat bars.
-- **Clue Chain:** Reveal clues one at a time; fewer clues mean more points.
-- **Higher or Lower:** Compare peak game power scores; equal pairs are excluded. Optional streak scoring rewards consecutive correct answers.
+![Online Battle Arena setup with opponent, world and form variant controls](docs/screenshots/battle.png)
 
-### 📅 Daily Challenge
+### Anime quizzes — `/quizzes`
 
-**Available now.** Five shared, date-seeded mixed questions. One attempt per account or guest browser profile each day, reset at midnight India time. Resume unfinished attempts; signed-in completions build a daily streak. The Home card opens today’s challenge.
+A 90-question authored bank supports Classic, Timed Blitz and Daily Challenge modes. Anime/difficulty filters, answer explanations, XP, accuracy and streaks provide progression. Signed-in attempts and scoring are managed by the server; guest practice remains browser-local. Daily challenges reset at midnight India time.
 
-### 👤 Your Profile
+![Quiz setup and profile progress showing XP, accuracy and daily streak](docs/screenshots/quizzes.png)
 
-**Available now.** Create a username/password account, pick an avatar, and view your rank, battle record, quiz progress and achievements. New profiles start at zero; Arena matches update wins, losses, streaks, rank points and achievements. Quizzes save XP, best accuracy, mode high scores and daily streaks. Guessing games save completed-game counts and separate high-score boards. Accounts stay in this browser and do not sync to other devices. Use a demo password; a real backend remains on the roadmap.
+### Guessing games — `/games`
 
-## 🧭 Find your way around
+Move Match, Clue Chain and Higher or Lower reuse the character roster. Options include multiple-choice or typed answers where supported, timed rounds, hints and resumable attempts. High scores are separate from battle rank and quiz XP.
 
-These are paths inside the running app, not links to a deployed website.
+![Guessing games setup with Move Match, Clue Chain and Higher or Lower options](docs/screenshots/games.png)
 
-| Navigation | Path | What happens today |
-| --- | --- | --- |
-| 🏠 Home | `/` | Hero, anime portals, Battle banner and playable Daily Challenge link |
-| ⚔️ Battle | `/battle` | Five-card CPU/local-friend arena, results and replays; guest flag available |
-| 🧠 Quizzes | `/quizzes` | Classic, Mixed, Timed Blitz, Daily Challenge and saved attempts |
-| 🎮 Games | `/games` | Move Match, Clue Chain, Higher or Lower, saved sessions and high scores |
-| 👤 Login | `/login` | Local account login; returns to the requested page |
-| ✨ Create account | `/signup` | Local signup with validation |
-| 🏅 Profile | `/profile` | Protected profile, avatar picker, stats, rank and logout |
-| 🧬 **Characters & Power** | `/characters` | Browse ratings, compare forms, understand selection and tiers |
-| 🌌 Anime portals | `/anime/:animeId` | Naruto, One Piece or Bleach introduction |
-| 🌀 Unknown page | Any unmatched path | A 404 page with a way home |
+### Characters and forms — `/characters`
 
-On mobile, use the menu button at the top right. Choosing a page closes the menu. On desktop, the main sections appear across the navbar.
+Explore 120 identities across the three worlds and 237 authored form snapshots in the accepted scope. The form guide displays weighted stats, game power tiers, signature moves, limitations and editorial references. Forms are not complete canon inventories; ratings are provisional gameplay estimates.
 
-## 🚀 Run the website
+![Character form explorer showing Luffy Gear Five, stats, moves and limitations](docs/screenshots/character-forms.png)
 
-### ☁️ GitHub Codespaces — easiest way to try it
+### Profile — `/profile`
 
-1. Select **Code → Codespaces → Create codespace on main** in this repository.
-2. Wait for the Node 22 container to finish setup; dependencies install automatically.
-3. Run this in the terminal at the repository root:
+A protected profile combines an avatar, rank, battle record, quiz progress, game high scores and achievements. Online accounts persist across devices. Account security controls support password changes and revoking all sessions.
 
-```bash
-npm run dev
+## Technology and architecture
+
+| Layer | Implementation |
+| --- | --- |
+| Frontend | React 19, JavaScript, React Router 7 |
+| Build and styling | Vite 6, Tailwind CSS 4, custom CSS |
+| Animation and icons | Framer Motion, Lucide React |
+| Backend | Node.js Vercel Functions, same-origin JSON API |
+| Database | PostgreSQL via `pg`; production deployment uses Neon Free |
+| Authentication | Salted scrypt passwords, hashed opaque sessions, HttpOnly cookies |
+| Multiplayer | Server-owned state, private invites, row locks, revision checks and HTTP polling |
+| Game rules | Shared pure JavaScript engines with seeded randomness and versioned replays |
+| Quality checks | Node test runner, Vitest, Playwright, axe and JSON validators |
+| Hosting | Vercel Hobby with a tracked SPA rewrite configuration |
+
+This project uses **React + Vite, not Next.js**. Production authentication is not JWT-based. Character catalogs and questions are authored JSON; no external anime API or image downloader is required.
+
+```mermaid
+flowchart TD
+  UI[React pages and shared components] --> Services[API and local service adapters]
+  Services --> API[Vercel Node API]
+  Services --> Local[Guest and explicit demo storage]
+  API --> Rules[Account, match and activity rules]
+  Rules --> DB[PostgreSQL transactions]
+  Rules --> Engines[Shared game engines and JSON catalogs]
 ```
 
-4. Open **Ports → 5173 → Open in Browser**. Keep the port **Private**.
-5. Keep the terminal running while you test. Stop it with `Ctrl+C`.
+The browser manages presentation and input. The server verifies identity, permissions, transitions and official scores. Match/profile changes use transactions and locks; stale revisions return conflicts. The frontend refreshes latest state and carefully limits retries. See the [code walkthrough](docs/architecture-interview-guide.md) for request flows, important functions and tradeoffs.
 
-Codespaces uses a forwarded HTTPS address; your own computer’s localhost is not the remote Codespace. If setup did not install dependencies, run `npm ci` first.
+## Run locally
 
-### 💻 On your computer
-
-Use **Node.js 22.12+**. `.nvmrc` selects Node 22.
+Requires Node.js 22.12+; CI uses Node 24.
 
 ```bash
 git clone https://github.com/kushagrapandey-cmd/WWW-of-Anime.git
@@ -95,106 +96,55 @@ npm ci
 npm run dev
 ```
 
-Open **http://localhost:5173**. If the port is occupied, stop the old server or use `npm run dev -- --port 5174`.
+Open `http://localhost:5173`. Local development defaults to the browser-local prototype unless online mode is configured. Demo accounts do not automatically migrate to production. Do not use a valuable password for the local prototype.
 
-### 📦 Check the production build
+For online development, configure `.env.local` using `.env.example`, provision PostgreSQL, set the documented origin/auth mode, and run migrations and the API in addition to Vite:
+
+```bash
+npm run db:migrate
+npm run dev:api
+```
+
+Follow [deployment configuration](docs/deployment.md) for exact environment requirements. Never commit `.env.local` or expose database credentials in `VITE_*` variables. A static preview alone does not run the online API.
+
+## Validation
 
 ```bash
 npm run validate:data
 npm test
 npm run build
-npm run preview
-```
-
-Open **http://localhost:4173**, or forwarded port **4173** in Codespaces. This previews the build without publishing it.
-
-### 🧪 Browser and accessibility smoke checks
-
-```bash
 npx playwright install --with-deps chromium
 npm run test:e2e
+npm run test:e2e:online
 ```
 
-Playwright runs CPU/local-friend battles, quizzes, guessing games, navigation, image/storage errors and lazy-route recovery at desktop and 360px using the production build. It checks keyboard focus, clipped headings, horizontal overflow and axe accessibility rules. `npm test` runs 67 unit tests; browser checks run separately. Reports/traces are ignored by Git. CI runs both suites on Node 24.
+CI runs data validation, authentication/server/unit tests, and prototype/online Chromium checks on pushes and pull requests. The online test harness uses PGlite for reproducible database tests. Test counts and results should be taken from the latest run rather than a fixed README claim. Broader browser/device and assistive-technology coverage remains ongoing work.
 
-### 🔄 Already have a Codespace?
+## Design choices and current limits
 
-Save or commit your own changes first. Stop the development server, then update from `main`:
+- CharacterAvatar provides initials, anime gradients, rarity framing and role icons; optional image loading failures retain the fallback. No third-party character artwork is bundled.
+- Five-round battle outcomes combine authored power, bounded ability counters, team synergy and seeded luck. Game balance and canon accuracy are separate concerns.
+- Turn-based multiplayer uses four-second polling rather than WebSockets. This simplifies serverless hosting but introduces update latency and request load.
+- Online scores are server-calculated. Public authored question/roster data means this is not a cheat-proof competitive system.
+- Optional sound is generated with Web Audio and starts only after opt-in. Reduced motion and keyboard navigation are supported.
+- Email recovery, policy/account-deletion workflows, stronger operational monitoring/backups, further roster calibration and wider compatibility checks remain future work.
+- The optional artwork pipeline is deferred; no `fetch-images` command exists.
 
-```bash
-git pull --ff-only
-npm ci
-npm run dev
-```
+## Development approach
 
-If Git reports local conflicts, resolve those before updating. Do not discard your changes to force a pull.
+This is an **AI-assisted project**. AI coding tools helped with implementation, documentation, debugging and test generation. The project creator defined the product direction and provided hands-on feedback. Specific authorship and review responsibility should be described accurately; AI-generated code still requires understanding, verification and maintenance.
 
-## 🔊 Optional sound
+## Documentation
 
-The footer **Sound off** button enables short generated effects for game reveals, answers and results. Off by default; your preference stays in this browser. Muting stops active tones. No audio files are downloaded.
+- [Architecture, function walkthrough and interview preparation](docs/architecture-interview-guide.md)
+- [Development structure](docs/development.md)
+- [Deployment and environment configuration](docs/deployment.md)
+- [Online upgrade](docs/online-upgrade.md)
+- [Character forms policy](docs/character-forms.md)
+- [Power rubric](docs/phase-2-power-rubric.md)
+- [Expansion checklist](docs/expansion.md)
+- [Task history](TASKS.md) and [state summary](STATE_SUMMARY.md)
 
-## 🚢 Deployment and expansion
+## Fan-project notice
 
-[Deployment steps](docs/deployment.md) cover the Vercel Functions + PostgreSQL setup and tracked SPA rewrites. Build command: `npm run build`; output: `dist`; Node 24. Production is hosted at https://www-of-anime.vercel.app/.
-
-To add an anime later, add its entry to `src/data/anime-catalog.json`, matching character/stats and quiz JSON, and optional form JSON. Imports, filters and themes update automatically at build time. Validate and test every game pool; [the full checklist](docs/expansion.md) specifies schemas/minimums and optional local images. Phase 3 remains parked; no image downloader exists yet.
-
-The [backend roadmap](docs/expansion.md#backend-roadmap) covers Express, Postgres/MongoDB, JWT sessions, server-owned battle/draft and game scoring, atomic progress receipts and leaderboards. Current accounts and scores remain browser-local demo data.
-
-## 🗺️ Roadmap
-
-| Phase | Milestone | Status |
-| --- | --- | --- |
-| 0 | Master brief | ✅ Complete |
-| 1 | Scaffold, theme, home and navigation | ✅ Built; Chromium QA in Phase 8 |
-| 2 A | Power rubric, calibration and 120-character roster proposal | ✅ Approved |
-| 2 B | Character database and forms | ✅ Current scope accepted: 120 identities / 237 snapshots; further review deferred |
-| 3 | Optional character image pipeline | ⏸️ Parked; no gameplay dependency |
-| 4 | Accounts and profiles | ✅ Local prototype implemented; Chromium QA in Phase 8 |
-| 5 | Battle Arena | ✅ Implemented and tested; Chromium QA in Phase 8 |
-| 6 | Quizzes and Daily Challenge | ✅ Implemented and tested; Chromium QA in Phase 8 |
-| 7 | Guessing games | ✅ Implemented and tested; Chromium QA in Phase 8 |
-| 8 | Polish, tests, expansion and deployment | ✅ Implemented; hosting prepared |
-
-We build one phase at a time. Phase 2 is closed at the user’s accepted scope, and Phases 4–8 local accounts, Battle Arena, quizzes, guessing games, polish and QA are implemented. Phase 3 is optional and parked. Nothing is publicly deployed yet.
-
-## 🛠️ Under the hood
-
-**React · Vite · Tailwind CSS · React Router · Framer Motion · JavaScript**
-
-- 🎨 Anime palettes and manga cutoffs live in `src/data/anime-catalog.json`; JSON banks/forms load automatically.
-- 🧩 Shared UI includes Button, Card, Modal, Badge, ProgressBar, CharacterAvatar and CharacterCard. Cards include stats, power and ability chips with no artwork dependency.
-- 📂 `src/data` holds characters/forms; `src/game` contains the pure seeded draft, battle engine and rank calculation.
-- 🔌 `src/services/AuthService.js` exposes async local account/profile operations and can later swap to an API adapter.
-- ♿ Keyboard focus, skip navigation, reduced motion and tested WCAG checks pass in desktop/360px Chromium; other browsers and assistive technology still need release checks.
-
-[Development structure & test checklist](docs/development.md) · [Full phased brief](docs/project-brief.md) · [Approved power rubric](docs/phase-2-power-rubric.md) · [Naruto batch 1 audit](docs/naruto-batch-1-audit.md) · [Naruto batch 2 audit](docs/naruto-batch-2-audit.md) · [Naruto batch 3 audit](docs/naruto-batch-3-audit.md) · [One Piece batch 1 audit](docs/onepiece-batch-1-audit.md) · [One Piece batch 2 audit](docs/onepiece-batch-2-audit.md) · [Forms policy & coverage](docs/character-forms.md) · [Naruto forms audit 1](docs/naruto-forms-batch-1-audit.md) · [Forms audit 2](docs/naruto-forms-batch-2-audit.md) · [Forms audit 3](docs/naruto-forms-batch-3-audit.md) · [One Piece forms audit 1](docs/onepiece-forms-batch-1-audit.md) · [Roster completion review](docs/roster-completion-review.md) · [One Piece final batch](docs/onepiece-batch-3-audit.md) · [Bleach audits](docs/bleach-batch-1-audit.md) · [Task memory & execution order](TASKS.md) · [Later phase prompts](docs/phases-4-to-8.md) · [Phase 4 accounts](docs/phase-4-accounts.md) · [Phase 5 arena and testing](docs/phase-5-arena.md) · [Phase 6 quizzes and testing](docs/phase-6-quizzes.md) · [Phase 7 games and testing](docs/phase-7-games.md) · [Phase 8 polish & browser QA](docs/phase-8-polish.md) · [Deployment](docs/deployment.md) · [Expansion & backend roadmap](docs/expansion.md) · [Latest State Summary](STATE_SUMMARY.md)
-
-## 📚 About the characters and scores
-
-Character forms and abilities will be based on a fixed manga snapshot. The approved Phase 2 rubric specifies the cutoff, evidence policy, and uncertainty rules. Peak forms can contain major spoilers.
-
-All **120 character identities** are loaded: **40 Naruto, 40 One Piece and 40 Bleach**. Visit **Characters** to explore their selected peak ratings and **237 form snapshots across 55 identities** (170 Naruto snapshots across all 40 characters, plus 67 One Piece snapshots across its first 15 identities). One Piece additions include early Luffy Gears/Nightmare, Zoro’s sword/Asura states, Sanji’s suit/Ifrit, Chopper’s Points and Robin’s giant blooms. Naruto forms separate Pain’s bodies, Obito’s Kamui/host states, Madara’s eye/host configurations and Killer B’s cloaks/Gyuki. Forms also include Sasuke’s curse marks and eyes, Kakashi’s temporary dual Sharingan, Guy/Lee’s gates, Choji’s pills and Gaara’s Shukaku states. Counts describe authored records; complete canon and inventory review is deferred. Unexpanded characters are clearly marked deferred; the user accepted the current character scope and deferred additional forms and complete calibration. Character images remain empty; polished fallback avatars are the default. Phase 3 is parked, so accounts, battles and text games proceed without artwork. Power score and tier are game estimates; player rank is separate and now shown on local profiles.
-
-Cross-series scores are fan-made gameplay estimates. Rarity reflects those scores; it is not a measure of a character’s popularity or importance to the story.
-
-## 🎨 Artwork is optional
-
-All 120 characters use the shared **CharacterAvatar** fallback: initials, anime gradients, rarity glow and role icons. A future `image` value uses lazy-loaded art; loading errors return to the fallback.
-
-You can manually add `home.jpg`, `naruto.jpg`, `onepiece.jpg` and `bleach.jpg` in [`public/hero/`](public/hero/README.md). Missing files retain the CSS gradients. Portal names stay as comic-font text. No character or cover artwork is fetched from the web.
-
-Optional later roadmap: reopen Phase 3 and implement/run `fetch-images` after gameplay is solid. This command does **not** exist yet.
-
-## 🤝 Fan-project note
-
-WWW-of-Anime is an unofficial fan prototype. Naruto, One Piece, Bleach and their characters belong to their respective rights holders. No third-party character artwork is bundled yet; future artwork requires appropriate usage rights before a public launch.
-
-**Built for the rivalry. Stay for the next arc. ⚡**
-
-
-## Online accounts and multiplayer
-
-Production now uses **Vercel Functions + PostgreSQL** for accounts, invites, private drafts and shared results. Sign-in and progress work across devices after the database is configured. Guests can practice quizzes/games locally. Browser-only prototype accounts do not migrate automatically.
-
-Start with [Vercel deployment and environment setup](docs/deployment.md) and the [online upgrade handoff](docs/online-upgrade.md). **A static deployment alone does not activate the backend.** Production is deployed on Vercel Hobby with Neon Free PostgreSQL. Email recovery and production operations remain pending.
+WWW-of-Anime is unofficial and is not affiliated with the rights holders of Naruto, One Piece or Bleach. Names and characters belong to their respective owners. Character stats and crossover outcomes are fan-made game mechanics. Future artwork requires appropriate usage rights. Content may contain spoilers.
