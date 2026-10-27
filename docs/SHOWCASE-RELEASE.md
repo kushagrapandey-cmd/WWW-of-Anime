@@ -10,7 +10,11 @@ Plan:
 - Shared progression goals/profile presentation, existing account data as source of truth.
 - Relevant tests, asset validation, README and production deployment.
 
-Status: implementation and local verification complete; production release pending deployment confirmation.
+Status: released to production and verified on 27 October 2026.
+
+Live: https://www-of-anime.vercel.app
+
+Feature commit: `828777598dfcbf2e1a3efb881cd57ddc4533a513`. Vercel deployment: `dpl_CyQxT69gZQQ3orDhhoHeXAU5KbW1` (READY).
 
 Later roadmap (not part of this release): ranked asynchronous challenges, full Draft Lab, spoiler-tagged question filtering, live matchmaking, real redemption.
 
@@ -40,3 +44,9 @@ Verification completed:
 - Axe accessibility checks, keyboard navigation, reduced-motion behavior, portrait failures, saved progress, separate-account invites, avatar persistence, PNG downloads and replay ledger invariance covered.
 - The 100-seed stress test retains all assertions with a 20-second timeout for shared CI hardware.
 - Production build passes. No database migration, new paid service or changes to coin award rules.
+
+Production verification:
+- Live browser: three hero portraits decoded, homepage Blitz quick play, Clue Chain answer reveal, character/form comparison, 120 source credits and 360px layout pass.
+- Five direct portrait responses returned successful WebP content, including the corrected Nagato, Sabo and Nelliel portraits.
+- No uncaught browser errors; deployment error/fatal log scan returned no entries at verification time.
+- No production QA accounts or feedback emails created during this smoke test. Full authenticated flows were verified against the isolated test backend.

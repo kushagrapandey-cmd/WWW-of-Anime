@@ -2,7 +2,7 @@
 
 ## Showcase update — 27 October 2026
 
-Implementation and local verification complete: 120 identity portraits (shared across forms), online round reveals/replays, quick-play cards, 180 quiz questions, searchable roster/form comparisons, character profile avatars, cosmetic goals/titles, share/download result cards, adaptive polling and public artwork credits. See [release notes](docs/SHOWCASE-RELEASE.md) and [portrait audit](docs/character-portrait-audit.md). The earlier artwork deferral below records the previous phase decision; this release supersedes it for identity portraits.
+Released and verified in production: 120 identity portraits (shared across forms), online round reveals/replays, quick-play cards, 180 quiz questions, searchable roster/form comparisons, character profile avatars, cosmetic goals/titles, share/download result cards, adaptive polling and public artwork credits. See [release notes](docs/SHOWCASE-RELEASE.md) and [portrait audit](docs/character-portrait-audit.md). The earlier artwork deferral below records the previous phase decision; this release supersedes it for identity portraits.
 
 
 ## User decision — 2026-10-02, India time
