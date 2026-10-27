@@ -1,3 +1,5 @@
+import { acknowledgeMilestone } from '../src/services/CoinsService.js';
+import { feedbackRoute } from './feedback.js';
 import { randomUUID } from 'node:crypto';
 import { getDatabase } from './db.js';
 import { authRoute,currentUser,updateAvatar,accountSecurity } from './auth.js';
@@ -23,7 +25,7 @@ async function body(req) {
   try { return JSON.parse(Buffer.concat(chunks).toString() || '{}'); } catch { fail(400,'Invalid JSON request.'); }
 }
 export function createHandler({ database, origin=process.env.APP_ORIGIN, secret=process.env.RATE_LIMIT_SECRET,
-  secure=process.env.NODE_ENV==='production' || Boolean(process.env.VERCEL), logger=console }={}) {
+  sendFeedback, secure=process.env.NODE_ENV==='production' || Boolean(process.env.VERCEL), logger=console }={}) {
   return async (req,res) => {
     const requestId=randomUUID();
     res.setHeader('Content-Type','application/json; charset=utf-8');
@@ -32,13 +34,18 @@ export function createHandler({ database, origin=process.env.APP_ORIGIN, secret=
     try {
       if (!origin || !secret || secret.length<32) fail(503,'Online service is not configured.');
       const url=new URL(req.url,origin), route=url.searchParams.get('route');
-      if (typeof route!=='string' || !/^(auth|profile|match|activity)\/[a-z]+$/.test(route)) fail(404,'Endpoint not found.');
+      if (typeof route!=='string' || !/^(auth|profile|match|activity|contact)\/[a-z]+$/.test(route)) fail(404,'Endpoint not found.');
       if (req.method!==(methods[route]??'POST')) fail(405,'Method not allowed.');
       checkOrigin(req,origin);
       const db=database??getDatabase(), ip=rateKey(req,secret);
       // Shared DB limits survive function cold starts. Polling is capped per authenticated account below.
       if (route.startsWith('auth/')) {
         const value=await authRoute(db,route.split('/')[1],validData(await body(req)),req,res,secure,ip);
+        res.statusCode=200;res.end(JSON.stringify({data:value}));return;
+      }
+      if (route==='contact/feedback') {
+        await rateLimit(db,`feedback:${ip}`,3,3600);
+        const value=await feedbackRoute(validData(await body(req)),sendFeedback);
         res.statusCode=200;res.end(JSON.stringify({data:value}));return;
       }
       const user=await currentUser(db,req,secure);if(!user) fail(401,'Sign in to use online features.');
@@ -48,6 +55,17 @@ export function createHandler({ database, origin=process.env.APP_ORIGIN, secret=
       if (route==='profile/password' || route==='profile/sessions') {
         await rateLimit(db,`security:${user.id}`,10,900);
         value=await accountSecurity(db,user,data,route.split('/')[1]);
+      }
+      else if (route==='profile/milestone') {
+        value=await db.transaction(async client=>{
+          const {rows}=await client.query('SELECT profile FROM app_users WHERE id=$1 FOR UPDATE',[user.id]);
+          const profile=rows[0].profile;
+          let coins;
+          try { coins=acknowledgeMilestone(profile,data.milestone); } catch { fail(400,'Milestone has not been earned.'); }
+          const next={...profile,coins};
+          await client.query('UPDATE app_users SET profile=$2 WHERE id=$1',[user.id,JSON.stringify(next)]);
+          return next;
+        });
       }
       else if (route==='profile/avatar') value=await updateAvatar(db,user,data.avatar);
       else if (route.startsWith('match/')) {

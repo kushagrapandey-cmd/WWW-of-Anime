@@ -4,6 +4,7 @@ export class ApiAuthService {
   signUp(data){return api('auth/signup',data);}
   logIn(data){return api('auth/login',data);}
   logOut(){return api('auth/logout');}
+  acknowledgeCoinMilestone(milestone){return api('profile/milestone',{milestone});}
   updateProfile(data){return api('profile/avatar',data);}
   async updateStats(){throw new Error('Online rank is awarded by the match server.');}
   async getBattleReceipt(){return null;}

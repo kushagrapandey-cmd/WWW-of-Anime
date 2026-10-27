@@ -148,3 +148,9 @@ This is an **AI-assisted project**. AI coding tools helped with implementation, 
 ## Fan-project notice
 
 WWW-of-Anime is unofficial and is not affiliated with the rights holders of Naruto, One Piece or Bleach. Names and characters belong to their respective owners. Character stats and crossover outcomes are fan-made game mechanics. Future artwork requires appropriate usage rights. Content may contain spoilers.
+
+### Showcase coins and feedback
+
+Battle Arena wins now earn display-only coins through the server-owned match result. The account stores a transaction ledger, current reward streak and acknowledged milestones; no coin-purchase or redemption feature is enabled. The homepage footer includes contact links and a visitor feedback form.
+
+See [implementation choices, file plan, setup and manual tests](docs/coins-and-feedback.md). Feedback delivery requires a server-only Resend key; the direct email link remains available when delivery is not configured.

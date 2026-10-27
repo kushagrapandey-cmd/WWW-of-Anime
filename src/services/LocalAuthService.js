@@ -1,3 +1,4 @@
+import { settleCoins, acknowledgeMilestone } from './CoinsService.js';
 import { MINI } from '../minigames/config.js';
 import { applyMiniResult } from '../minigames/engine.js';
 import { validDate } from '../quiz/date.js';
@@ -81,6 +82,9 @@ export class LocalAuthService {
     if (!avatarIds.has(avatar)) throw new Error('Choose an available avatar.');
     return this.updateCurrent(record => ({ ...record, avatar }));
   }
+  async acknowledgeCoinMilestone(milestone) {
+    return this.updateCurrent(record => ({ ...record, coins: acknowledgeMilestone(record, milestone) }));
+  }
   async getGameReceipt(id) {
     const session = this.store.read(SESSION_KEY, null);
     const record = this.readUsers().find(user => user.id === session?.userId);
@@ -122,9 +126,9 @@ export class LocalAuthService {
         if (record.id !== battle.ownerId) throw new Error('The signed-in account changed. This battle belongs to its original player.');
         if (typeof battle.id !== 'string' || !/^battle-[a-zA-Z0-9-]{1,80}$/.test(battle.id)) throw new Error('Invalid battle ID.');
         const receipts = record.battleReceipts ?? [];
-        if (receipts.some(receipt => receipt.id === battle.id)) return record;
+        if (receipts.some(receipt => receipt.id === battle.id) || record.coins?.ledger.some(item => item.matchId === battle.id)) return record;
         const result = applyBattleResult(record, battle);
-        return { ...record, battleStats: result.battleStats, achievements: result.achievements,
+        return { ...record, coins: settleCoins(record, { matchId: battle.id, won: battle.won }), battleStats: result.battleStats, achievements: result.achievements,
           battleReceipts: [...receipts, { id: battle.id, delta: result.delta, rankPoints: result.battleStats.rankPoints }].slice(-GAME.receiptLimit) };
       }
       const battleStats = updates.battleStats === undefined ? record.battleStats : numericStats(record.battleStats, updates.battleStats, battleDefaults);

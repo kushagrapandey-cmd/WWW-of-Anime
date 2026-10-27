@@ -34,7 +34,7 @@ export default function OnlineBattle() {
     async function load(){
       try {
         if(invite){const next=await api('match/join',{invite});if(version===generation.current){accept(next);setParams({match:next.id},{replace:true});}}
-        else if(id){const next=await api('match/view',{id},'GET');if(version===generation.current)accept(next);}
+        else if(id){const next=await api('match/view',{id},'GET');if(version===generation.current){accept(next);if(next.stage==='complete')await refreshRef.current();}}
         else {const records=await api('match/list',{},'GET');if(version===generation.current)setHistory(records);}
       }catch(reason){if(version===generation.current)setError(reason.message);}
     }

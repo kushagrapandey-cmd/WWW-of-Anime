@@ -1,3 +1,4 @@
+import { settleCoins } from '../src/services/CoinsService.js';
 import { randomUUID } from 'node:crypto';
 import { newMatch, changeMatch, matchPlayer, matchView } from './matchEngine.js';
 import { applyBattleResult } from '../src/game/profileResult.js';
@@ -58,6 +59,6 @@ async function award(client,row) {
     if (!profile) continue;
     const result = applyBattleResult(profile,{won:row.state.result.outcome.winner===player,opponentPoints:ratings[1-player]});
     row.state.ranks[player] = { delta:result.delta,rankPoints:result.battleStats.rankPoints };
-    await client.query('UPDATE app_users SET profile=$2 WHERE id=$1',[profile.id,JSON.stringify({...profile,battleStats:result.battleStats,achievements:result.achievements})]);
+    await client.query('UPDATE app_users SET profile=$2 WHERE id=$1',[profile.id,JSON.stringify({...profile,coins:settleCoins(profile,{matchId:row.id,won:row.state.result.outcome.winner===player}),battleStats:result.battleStats,achievements:result.achievements})]);
   }
 }

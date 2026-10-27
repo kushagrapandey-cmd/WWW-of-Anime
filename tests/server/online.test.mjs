@@ -5,12 +5,14 @@ import { createServer } from 'node:http';
 import { PGlite } from '@electric-sql/pglite';
 import { createHandler } from '../../server/handler.js';
 import { sessionCookie,hashPassword,verifyPassword } from '../../server/security.js';
+import { settleCoins } from '../../src/services/CoinsService.js';
 import { newMatch,changeMatch,matchView } from '../../server/matchEngine.js';
 import { questions,miniRoster } from '../../server/catalog.js';
 import { createAttempt } from '../../src/quiz/engine.js';
 import { createSession } from '../../src/minigames/engine.js';
 import { activityView } from '../../server/activities.js';
 let db,server,origin,alice,bob,charlie;
+const feedbackMessages=[];
 const password='a correct horse battery staple';
 async function client(name){
  let cookie='';
@@ -28,7 +30,7 @@ before(async()=>{
  db=new PGlite();await db.exec(readFileSync(new URL('../../server/schema.sql',import.meta.url),'utf8'));
  server=createServer((req,res)=>handler(req,res));await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
  origin=`http://127.0.0.1:${server.address().port}`;
- globalThis.handler=createHandler({database:db,origin,secret:'s'.repeat(48),secure:false,logger:{error(){}}});
+ globalThis.handler=createHandler({database:db,origin,secret:'s'.repeat(48),secure:false,logger:{error(){}},sendFeedback:async message=>{feedbackMessages.push(message);}});
  alice=await client('OnlineAlice');bob=await client('OnlineBob');charlie=await client('OnlineCharlie');
 });
 after(async()=>{await new Promise(resolve=>server.close(resolve));await db.close();});
@@ -87,11 +89,17 @@ test('drafts stay private, player IDs cannot spoof turns, stale writes fail and 
  b=(await bob.call('match/view',{id:a.id},'GET')).body.data;
  b=(await bob.call('match/lock',{id:a.id,revision:b.revision,order:b.team.map(card=>card.id).reverse()})).body.data;
  assert.equal(b.stage,'complete');assert.equal(b.outcome.rounds.length,5);
+ const credited=(await alice.call('auth/me',{},'GET')).body.data;
+ assert.equal(credited.coins.ledger.length,1);
+ assert.equal(credited.coins.ledger[0].matchId,a.id);
+ assert.equal(credited.coins.ledger[0].amount,credited.battleStats.wins?10:0);
+ assert.equal((await alice.call('profile/milestone',{milestone:100})).status,400);
  const before=(await alice.call('auth/me',{},'GET')).body.data.battleStats;
  assert.equal(before.wins+before.losses,1);
  await alice.call('match/view',{id:a.id},'GET');
  await bob.call('match/lock',{id:a.id,revision:b.revision-1,order:[]});
  assert.deepEqual((await alice.call('auth/me',{},'GET')).body.data.battleStats,before);
+ assert.deepEqual((await alice.call('auth/me',{},'GET')).body.data.coins,credited.coins);
 });
 test('quiz answers and reconstruction seed stay private, results persist across sessions exactly once',async()=>{
  let state=(await alice.call('activity/start',{kind:'quiz',settings:{mode:'classic'}})).body.data;
@@ -164,4 +172,38 @@ test('CPU drafts and simultaneous commands use server state and grant one additi
  assert.equal(state.stage,'complete');assert.equal(new Set(state.record.teams.flat().map(card=>card.id)).size,10);
  const after=(await alice.call('auth/me',{},'GET')).body.data.battleStats;
  assert.equal(after.wins+after.losses,before.wins+before.losses+1);
+});
+
+
+test('milestone acknowledgements persist per account and cannot change ledger or balance',async()=>{
+ const tester=await client('RewardsTester');
+ const profile=tester.user;
+ for(let index=0;index<35;index++)profile.coins=settleCoins(profile,{matchId:`reward-${index}`,won:true});
+ await db.query('UPDATE app_users SET profile=$2 WHERE id=$1',[profile.id,JSON.stringify(profile)]);
+ for(const milestone of [100,500,1000]){
+  const result=await tester.call('profile/milestone',{milestone,amount:999999,userId:bob.user.id});
+  assert.equal(result.status,200);
+  assert.deepEqual(result.body.data.coins.ledger,profile.coins.ledger);
+ }
+ const saved=(await tester.call('auth/me',{},'GET')).body.data.coins;
+ assert.deepEqual(saved.shownMilestones,[100,500,1000]);
+ assert.deepEqual((await tester.call('profile/milestone',{milestone:100})).body.data.coins,saved);
+ assert.equal((await tester.call('profile/milestone',{milestone:42})).status,400);
+ const {rows:others}=await db.query('SELECT profile FROM app_users WHERE id=$1',[bob.user.id]);
+ assert.deepEqual(others[0].profile.coins.shownMilestones,[]);
+});
+test('public feedback reaches email adapter, rejects cross-origin input and enforces persistent limits',async()=>{
+ async function submit(data,requestOrigin=origin){
+  const response=await fetch(`${origin}/api/index?route=contact/feedback`,{method:'POST',headers:{Origin:requestOrigin,'Content-Type':'application/json'},body:JSON.stringify(data)});
+  return {status:response.status,body:await response.json()};
+ }
+ const message={name:'Visitor',email:'visitor@example.com',message:'Please add another anime world.'};
+ assert.equal((await submit(message,'https://evil.example')).status,403);
+ assert.equal((await submit({...message,email:'invalid'})).status,400);
+ assert.equal((await submit(message)).status,200);
+ assert.equal(feedbackMessages.length,1);
+ assert.equal(feedbackMessages[0].message,message.message);
+ assert.equal((await submit({...message,message:'Another useful suggestion.'})).status,200);
+ assert.equal((await submit(message)).status,429);
+ assert.equal(feedbackMessages.length,2);
 });

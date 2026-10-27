@@ -34,6 +34,7 @@ export function AuthProvider({ children }) {
     logOut: () => run('logOut'), updateProfile: data => run('updateProfile', data),
     recordGameResult: session => run('recordGameResult', session),
     recordQuizResult: attempt => run('recordQuizResult', attempt),
+    acknowledgeCoinMilestone: milestone => run('acknowledgeCoinMilestone', milestone),
     updateStats: (data, battle) => run('updateStats', data, battle),
   }}>{children}</AuthContext.Provider>;
 }

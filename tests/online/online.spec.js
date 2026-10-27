@@ -28,6 +28,12 @@ test('two separate accounts accept an invite, keep private teams and receive one
  await draft(rival);await rival.getByRole('button',{name:'Lock lineup',exact:true}).click();
  await expect(rival.locator('.arena-results')).toBeVisible();await expect(page.locator('.arena-results')).toBeVisible({timeout:10000});
  const score=await page.locator('.result-score').innerText();expect(await rival.locator('.result-score').innerText()).toEqual(score);
+ const own=await page.evaluate(async()=> (await (await fetch('/api/index?route=auth%2Fme')).json()).data);
+ const other=await rival.evaluate(async()=> (await (await fetch('/api/index?route=auth%2Fme')).json()).data);
+ expect(own.coins.ledger.length).toBe(1);expect(other.coins.ledger.length).toBe(1);
+ expect(own.coins.ledger[0].amount+other.coins.ledger[0].amount).toBe(10);
+ const winner=own.coins.ledger[0].amount ? page : rival;
+ await expect(winner.locator('.coin-toast')).toContainText('+10 coins');
  expect(errors).toEqual([]);
  const widths=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);expect(widths[0]).toBeLessThanOrEqual(widths[1]);
  await page.reload();await expect(page.locator('.arena-results')).toBeVisible();

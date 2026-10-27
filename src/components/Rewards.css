@@ -1,0 +1,19 @@
+.navigation .coin-nav { font-size: .75rem; color: var(--accent, #c2ff43); white-space: normal; }
+.coin-toast { position: fixed; right: 20px; bottom: 24px; z-index: 90; background: #c2ff43; color: #14121b; padding: 14px 20px; border-radius: 12px; font-weight: 700; box-shadow: 0 8px 24px #0006; }
+.coin-toast button { margin-left: 20px; background: none; border: 0; color: inherit; cursor: pointer; font-size: 1.4rem; }
+.coin-history { list-style: none; padding: 0; max-height: 360px; overflow: auto; }
+.coin-history li { display: grid; gap: 6px; padding: 14px 0; border-bottom: 1px solid #ffffff20; overflow-wrap: anywhere; }
+.coin-history time, .coin-history small { color: #aaa6b5; font-size: .75rem; }
+.contact-footer { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: 48px; padding-bottom: 48px; border-top: 1px solid #ffffff20; text-align: left; }
+.contact-footer h2 { margin: 12px 0; font-size: 2.4rem; }
+.feedback-form h3 { font-size: 1.6rem; }
+.contact-footer h2 span { color: #c2ff43; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; overflow-wrap: anywhere; }
+.contact-links a { color: #c2ff43; }
+.feedback-form { display: grid; gap: 12px; min-width: 0; }
+.feedback-form label { display: grid; gap: 6px; }
+.feedback-form input, .feedback-form textarea { width: 100%; padding: 10px; border: 1px solid #ffffff30; border-radius: 8px; background: #15131e; color: #fff; font: inherit; }
+.feedback-form p { font-size: .85rem; color: #b9b5c6; }
+.feedback-form .feedback-trap { display: none; }
+@media (max-width: 1100px) { .nav-wrap { flex-wrap: wrap; } .navigation { gap: 14px; } }
+@media (max-width: 700px) { .contact-footer { grid-template-columns: 1fr; gap: 24px; } }
