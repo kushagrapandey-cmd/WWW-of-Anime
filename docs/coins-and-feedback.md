@@ -38,7 +38,7 @@ The homepage footer has verified LinkedIn, GitHub and email links. Visitors can 
 
 Set server-only `RESEND_API_KEY` in Vercel Production. It must never have a `VITE_` prefix or be committed. `FEEDBACK_FROM` is optional and defaults to `WWW-of-Anime <onboarding@resend.dev>`. That sender can deliver only to the Resend account owner's address; use a verified sender/domain for other recipients. No paid plan or custom domain is required for owner-directed feedback. Without the key, the endpoint returns an error rather than claiming a message was sent.
 
-During this implementation, automatic approval review blocked transferring the newly created sending-only key to the production Vercel project. The form and endpoint can be deployed, but live email remains pending that configuration approval.
+After explicit user approval, the sending-only Resend key is configured as a server-only Vercel Production variable and the site has been redeployed. No credential is stored in this repository or exposed to visitors.
 
 ## Manual verification
 
