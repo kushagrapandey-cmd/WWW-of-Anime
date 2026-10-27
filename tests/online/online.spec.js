@@ -6,6 +6,11 @@ async function signup(page,name){
  await page.getByRole('button',{name:'Create my profile',exact:true}).click();await expect(page).toHaveURL(/profile/);
 }
 async function draft(page){for(let i=1;i<=5;i++)await page.getByRole('button',{name:`Reveal fighter ${i}`,exact:true}).click();await page.getByRole('button',{name:'Keep team',exact:true}).click();await expect(page.getByRole('button',{name:'Lock lineup',exact:true})).toBeVisible();}
+async function navigate(page,name){
+ const menu=page.getByRole('button',{name:'Open menu',exact:true});
+ if(await menu.isVisible())await menu.click();
+ await page.getByRole('navigation').getByRole('link',{name,exact:true}).click();
+}
 test('two separate accounts accept an invite, keep private teams and receive one shared result',async({browser,page},info)=>{
  const suffix=Date.now().toString().slice(-8)+info.project.name.slice(-3);
  const errors=[];page.on('pageerror',error=>errors.push(error.message));
@@ -67,14 +72,28 @@ test('server quizzes and guessing games resume without browser-owned scores',asy
  await page.getByRole('button',{name:'Resume',exact:true}).first().click();await expect(page.locator('.quiz-count')).toContainText('QUESTION 2');
  for(let i=2;i<=10;i++){await page.locator('.quiz-option').first().click();await expect(page.locator('.quiz-feedback')).toBeVisible();await page.getByRole('button',{name:i===10?'View results':'Next question',exact:true}).click();}
  await expect(page.locator('.quiz-results')).toBeVisible();await expect(page.getByText(/Progress saved to/)).toBeVisible();
- await page.goto('/games');await page.getByRole('button',{name:'Play Move Match',exact:true}).click();
+ // Stay in the same React session: page.goto/reload would mask a stale AuthContext.
+ await page.evaluate(()=>{window.activityNavigationMarker='same-document';});
+ const quizXp=await page.locator('.quiz-result-stats div').filter({has:page.getByText('XP earned',{exact:true})}).locator('dd').innerText();
+ await page.getByRole('link',{name:'View profile',exact:true}).click();
+ await expect(page.locator('.profile-stats div').filter({has:page.getByText('Quizzes played',{exact:true})}).locator('dd')).toHaveText('1');
+ await expect(page.locator('.profile-stats div').filter({has:page.getByText('Quiz XP',{exact:true})}).locator('dd')).toHaveText(quizXp);
+ expect(await page.evaluate(()=>window.activityNavigationMarker)).toBe('same-document');
+ await navigate(page,'Games');await page.getByRole('button',{name:'Play Move Match',exact:true}).click();
  await expect(page.locator('.mini-question-title')).toBeVisible();await page.locator('.mini-options button').first().click();
  await expect(page.locator('.mini-feedback')).toBeVisible();await page.getByRole('button',{name:'Next round',exact:true}).click();
  await page.reload();await page.getByRole('button',{name:'Resume',exact:true}).first().click();await expect(page.locator('.mini-game-meta')).toContainText('ROUND 2');
  for(let i=2;i<=10;i++){await page.locator('.mini-options button').first().click();await expect(page.locator('.mini-feedback')).toBeVisible();await page.getByRole('button',{name:i===10?'View results':'Next round',exact:true}).click();}
  await expect(page.locator('.mini-result-title')).toBeVisible();
- await page.goto('/profile');await expect(page.locator('.profile-stats').filter({has:page.getByText('Quizzes played',{exact:true})}).locator('dd').first()).toHaveText('1');
- await expect(page.locator('.profile-stats').filter({has:page.getByText('Games played',{exact:true})}).locator('dd').first()).toHaveText('1');
+ await page.evaluate(()=>{window.activityNavigationMarker='same-document';});
+ const gameScore=await page.locator('.mini-result-stats div').filter({has:page.getByText('Score',{exact:true})}).locator('dd').innerText();
+ await expect(page.getByRole('button',{name:'Choose another game',exact:true})).toBeEnabled();
+ await page.getByRole('button',{name:'Choose another game',exact:true}).click();
+ await expect(page.locator('.mini-score-list li').filter({hasText:'Move Match'}).locator('strong')).toHaveText(gameScore);
+ await navigate(page,'Profile');
+ await expect(page.locator('.profile-stats div').filter({has:page.getByText('Quizzes played',{exact:true})}).locator('dd')).toHaveText('1');
+ await expect(page.locator('.profile-stats div').filter({has:page.getByText('Games played',{exact:true})}).locator('dd')).toHaveText('1');
+ expect(await page.evaluate(()=>window.activityNavigationMarker)).toBe('same-document');
 });
 test('world details and Home avoid external font and roster requests',async({page})=>{
  const requests=[];page.on('request',request=>requests.push(request.url()));await page.goto('/');

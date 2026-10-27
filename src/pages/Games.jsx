@@ -24,6 +24,8 @@ export default function Games() {
   const [session, setSession] = useState(null), [history, setHistory] = useState([]), [highScores, setHighScores] = useState({});
   const [error, setError] = useState(''), [saveError, setSaveError] = useState(''), [saving, setSaving] = useState(false), [now, setNow] = useState(Date.now());
   const active = useRef(null), actor = useRef(ownerId), pending = useRef(new Set()), lastSettings = useRef(null), page = useRef(null);
+  // Online scores follow AuthContext; a history request can close over an old profile.
+  const displayedHighScores = ONLINE && user ? user.gameProgress?.highScores ?? {} : highScores;
   function replace(next) { active.current = next; setSession(next); }
   async function read(id = ownerId) {
     try { const store = ONLINE && id ? { records: await Remote.history('mini'), highScores: user?.gameProgress?.highScores ?? {} } : MiniGameService.read(id); if (actor.current !== id) return; setHistory(store.records); const scores = { ...store.highScores };
@@ -55,8 +57,11 @@ export default function Games() {
     if (pending.current.has(key)) return;
     pending.current.add(key); setSaving(true); setSaveError('');
     try {
-      const saved = ONLINE && next.ownerId ? await Remote.latest('mini', next) : await MiniGameService.save(next, recordGameResult);
-      if (ONLINE && next.ownerId) await refresh();
+      let saved;
+      if (ONLINE && next.ownerId) {
+        saved = next.saved ? next : await Remote.latest('mini', next);
+        await refresh();
+      } else saved = await MiniGameService.save(next, recordGameResult);
       if (actor.current === next.ownerId) { if (active.current?.id === next.id) replace(saved); read(next.ownerId); }
     } catch (reason) { if (actor.current === next.ownerId) setSaveError(reason.message); }
     finally { pending.current.delete(key); if (actor.current === next.ownerId) setSaving(false); }
@@ -71,7 +76,8 @@ export default function Games() {
       if (!ONLINE || !previous.ownerId) MiniGameService.write(next, previous.revision); replace(next); setError('');
       if (next.answers.length > previous.answers.length) play(scoreSession(next).details.at(-1).correct ? 'correct' : 'wrong');
       else if (next.status === 'complete') play('victory');
-      if (next.status === 'complete' && !next.saved) save(next);
+      // Online completion is already persisted; the profile still needs refreshing.
+      if (next.status === 'complete' && (!next.saved || (ONLINE && next.ownerId))) await save(next);
     } catch (reason) { setError(reason.message); }
     finally { requestPending.current = false; }
   }
@@ -84,7 +90,7 @@ export default function Games() {
       }
       if (actor.current !== latest.ownerId) return;
       lastSettings.current = latest.settings; replace(latest); setNow(Date.now()); setError(''); setSaveError('');
-      if (latest.status === 'complete' && !latest.saved) save(latest);
+      if (latest.status === 'complete' && (!latest.saved || (ONLINE && latest.ownerId))) await save(latest);
     } catch (reason) { setError(reason.message); }
   }
   async function start(settings) { if (requestPending.current) return; requestPending.current = true; try { await open(ONLINE && ownerId ? await Remote.start('mini', settings) : MiniGameService.start(miniRoster, settings, ownerId)); } catch (reason) { setError(reason.message); } finally { requestPending.current = false; } }
@@ -94,14 +100,14 @@ export default function Games() {
   return <div className="container mini-page" ref={page}><header className="mini-heading"><span className="eyebrow"><Gamepad2 size={18} /> THREE WAYS TO GUESS</span><h1>KNOW YOUR <span>FIGHTERS.</span></h1><p>Moves. Clues. Power. Ten rounds to prove your read.</p></header>
     {authError && <p role="alert" className="account-error">{authError}<Button onClick={refresh}>Reload profile</Button></p>}
     {error && <div role="alert" className="account-error">{error}{session && <Button variant="secondary" onClick={() => open(session)}>Load saved session</Button>}</div>}
-    {!session && <GameSetup user={user} history={history} highScores={highScores} initialSettings={lastSettings.current} disabled={loading || Boolean(authError) || saving} onStart={start} onOpen={open} />}
-    {session?.status === 'active' && <GameShell session={session} now={now} highScore={highScores[session.board] ?? 0} onLeave={leave}>
+    {!session && <GameSetup user={user} history={history} highScores={displayedHighScores} initialSettings={lastSettings.current} disabled={loading || Boolean(authError) || saving} onStart={start} onOpen={open} />}
+    {session?.status === 'active' && <GameShell session={session} now={now} highScore={displayedHighScores[session.board] ?? 0} onLeave={leave}>
       {session.settings.mode === 'move' && <MoveRound session={session} disabled={disabled} onAnswer={value => act(() => answerRound(active.current, value), 'answer', value)} />}
       {session.settings.mode === 'clue' && <ClueRound session={session} disabled={disabled} onReveal={() => act(() => revealClue(active.current), 'clue')} onAnswer={value => act(() => answerRound(active.current, value), 'answer', value)} />}
       {session.settings.mode === 'power' && <PowerRound session={session} disabled={disabled} revealed={Boolean(answered)} onAnswer={value => act(() => answerRound(active.current, value), 'answer', value)} />}
       <RoundFeedback session={session} onNext={() => act(() => advanceRound(active.current), 'next')} />
     </GameShell>}
-    {session?.status === 'complete' && <GameResults session={session} highScore={Math.max(highScores[session.board] ?? 0, user?.gameProgress?.highScores?.[session.board] ?? 0)} saving={saving} saveError={saveError} onSave={() => save(active.current)} onAgain={() => start(session.settings)} onNew={leave} />}
+    {session?.status === 'complete' && <GameResults session={session} highScore={displayedHighScores[session.board] ?? 0} saving={saving} saveError={saveError} onSave={() => save(active.current)} onAgain={() => start(session.settings)} onNew={leave} />}
     <p className="mini-note mini-footer">{ONLINE && user ? 'Saved to your online account. Fixed peak forms. Deadlines and scoring are enforced by the server.' : 'Guest progress stays in this browser. Fixed peak forms.'}</p>
   </div>;
 }

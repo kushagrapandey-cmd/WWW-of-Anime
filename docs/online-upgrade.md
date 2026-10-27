@@ -1,5 +1,7 @@
 # Online upgrade and handoff
 
+Historical upgrade record from 2–3 October 2026. Current portraits, 180-question bank, goals, coins and adaptive polling are described in [the 27 October showcase release](SHOWCASE-RELEASE.md). The earlier artwork deferral and test counts below describe this upgrade at the time, not the current release.
+
 ## What changed
 
 - Recovered the published Phase 7–8 files because this resumed workspace was still at Phase 6. Earlier uncommitted backend work was not present; this implementation was rebuilt against published Phase 8 without changing roster data.

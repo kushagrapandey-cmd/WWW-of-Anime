@@ -55,8 +55,11 @@ export default function Quizzes() {
     if (busy.current.has(saveKey)) return;
     busy.current.add(saveKey); setSaving(true); setSaveError('');
     try {
-      const saved = ONLINE && next.ownerId ? await Remote.latest('quiz', next) : await QuizService.save(next, recordQuizResult);
-      if (ONLINE && next.ownerId) await refresh();
+      let saved;
+      if (ONLINE && next.ownerId) {
+        saved = next.saved ? next : await Remote.latest('quiz', next);
+        await refresh();
+      } else saved = await QuizService.save(next, recordQuizResult);
       if (actor.current === next.ownerId) { if (active.current?.id === next.id) replace(saved); readHistory(next.ownerId); }
     } catch (reason) { if (actor.current === next.ownerId) setSaveError(reason.message); }
     finally { busy.current.delete(saveKey); if (actor.current === next.ownerId) setSaving(false); }
@@ -72,7 +75,8 @@ export default function Quizzes() {
       replace(next); setError('');
       if (next.answers.length > previous.answers.length) play(next.answers.at(-1).optionIndex === next.questions[previous.cursor].answerIndex ? 'correct' : 'wrong');
       else if (next.status === 'complete' && previous.status !== 'complete') play('victory');
-      if (next.status === 'complete' && !next.saved) save(next);
+      // Online completion is already persisted; the profile still needs refreshing.
+      if (next.status === 'complete' && (!next.saved || (ONLINE && next.ownerId))) await save(next);
     } catch (reason) { setError(reason.message); }
     finally { requestPending.current = false; }
   }
@@ -85,7 +89,7 @@ export default function Quizzes() {
       }
       if (actor.current !== latest.ownerId) return;
       replace(latest); setNow(Date.now()); setError(''); setSaveError('');
-      if (latest.status === 'complete' && !latest.saved) save(latest);
+      if (latest.status === 'complete' && (!latest.saved || (ONLINE && latest.ownerId))) await save(latest);
     } catch (reason) { setError(reason.message); }
   }
   const quickStarted = useRef(false);

@@ -122,13 +122,13 @@ CI runs data validation, authentication/server/unit tests, and prototype/online 
 
 ## Design choices and current limits
 
-- CharacterAvatar provides initials, anime gradients, rarity framing and role icons; optional image loading failures retain the fallback. No third-party character artwork is bundled.
+- CharacterAvatar provides initials, anime gradients, rarity framing and role icons; portrait loading failures retain the fallback. One bundled third-party portrait per identity is shared across forms, with local thumbnails and public source credits. Attribution does not establish redistribution permission.
 - Five-round battle outcomes combine authored power, bounded ability counters, team synergy and seeded luck. Game balance and canon accuracy are separate concerns.
-- Turn-based multiplayer uses four-second polling rather than WebSockets. This simplifies serverless hosting but introduces update latency and request load.
+- Turn-based multiplayer uses adaptive polling rather than WebSockets: visible friend matches back off from 4 to 15 seconds when unchanged, locked lineups use 4 seconds, CPU matches use 30 seconds, and hidden tabs skip requests. This simplifies serverless hosting but introduces update latency and request load.
 - Online scores are server-calculated. Public authored question/roster data means this is not a cheat-proof competitive system.
 - Optional sound is generated with Web Audio and starts only after opt-in. Reduced motion and keyboard navigation are supported.
 - Email recovery, policy/account-deletion workflows, stronger operational monitoring/backups, further roster calibration and wider compatibility checks remain future work.
-- The optional artwork pipeline is deferred; no `fetch-images` command exists.
+- The identity-portrait pipeline shipped on 27 October 2026: `python3 scripts/prepare-character-images.py` rebuilds missing portraits from the source manifest. A legacy `fetch-images` npm command does not exist.
 
 ## Development approach
 
@@ -147,11 +147,13 @@ This is an **AI-assisted project**. AI coding tools helped with implementation, 
 
 ## Fan-project notice
 
-WWW-of-Anime is unofficial and is not affiliated with the rights holders of Naruto, One Piece or Bleach. Names and characters belong to their respective owners. Character stats and crossover outcomes are fan-made game mechanics. Future artwork requires appropriate usage rights. Content may contain spoilers.
+WWW-of-Anime is unofficial and is not affiliated with the rights holders of Naruto, One Piece or Bleach. Names and characters belong to their respective owners. Character stats and crossover outcomes are fan-made game mechanics. Bundled and future artwork requires appropriate usage rights; the source manifest records attribution, not a license grant. Content may contain spoilers.
 
 ### Showcase coins and feedback
 
 Battle Arena wins now earn display-only coins through the server-owned match result. The account stores a transaction ledger, current reward streak and acknowledged milestones; no coin-purchase or redemption feature is enabled. The homepage footer includes contact links and a visitor feedback form.
+
+Consecutive Arena wins award 10, 10, 15, 20, 25, 30, then 35 coins per win; a loss awards zero and resets the streak. The cap is on the per-win streak bonus, not a daily allowance. The disabled Redeem button is intentional. Online quiz/game completion refreshes profile progress without requiring a page reload; see [the progress fix](docs/activity-progress-fix.md).
 
 See [implementation choices, file plan, setup and manual tests](docs/coins-and-feedback.md). Feedback delivery requires a server-only Resend key; the direct email link remains available when delivery is not configured.
 

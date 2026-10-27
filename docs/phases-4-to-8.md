@@ -1,5 +1,7 @@
 # Execution prompts — Phases 4–8
 
+Historical prototype execution prompts. The artwork deferral and original question/test counts below describe earlier phases. Identity portraits were reopened and shipped on 27 October 2026; see [current state](../STATE_SUMMARY.md) and [showcase release](SHOWCASE-RELEASE.md) before continuing work.
+
 Phase 3 is parked by user instruction. The user closed Phase 2 at current coverage on 2026-10-02 and deferred remaining forms/calibration. Execute these one phase at a time. Shared `CharacterAvatar` is mandatory; no image acquisition prerequisite.
 
 ## Phase 4: Accounts and profile — implemented

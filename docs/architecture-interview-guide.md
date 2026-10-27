@@ -1,12 +1,12 @@
 # WWW-of-Anime: architecture and interview guide
 
-Source-verified against commit `2c3f5f4`. This describes implemented code, not a future design. Learning these explanations does not establish that you personally wrote or reviewed every implementation.
+Core architecture originally verified against commit `2c3f5f4`; updated on 27 October 2026 for the shipped identity portraits, adaptive polling and activity-profile refresh. See [showcase release notes](SHOWCASE-RELEASE.md) for coins, goals, quick play and expanded quiz content, and [the progress fix](activity-progress-fix.md) for completion synchronization. Learning these explanations does not establish that you personally wrote or reviewed every implementation.
 
 ## 1. Accurate project description
 
 WWW-of-Anime is a React 19 single-page application built with Vite. React Router handles navigation. Tailwind CSS 4 and custom CSS provide styling; Framer Motion provides animation; Lucide provides icons. Production uses Node.js Vercel Functions and PostgreSQL, deployed with Neon according to the deployment documentation. There is no Next.js, Express, MongoDB, Redux, Socket.IO or JWT implementation in the current production stack. Do not describe it as MERN or a Next.js application.
 
-The product combines three anime worlds, a character/form explorer, five-fighter battles, private friend invitations, CPU matches, quizzes, daily challenges, guessing games, profiles and generated sound effects. Character content is authored JSON, not a live anime API. Scores are fan-made game estimates. Images are optional and default to CSS/initials avatars.
+The product combines three anime worlds, a character/form explorer, five-fighter battles, private friend invitations, CPU matches, quizzes, daily challenges, guessing games, profiles and generated sound effects. Character content is authored JSON, not a live anime API. Scores are fan-made game estimates. The 120 launch identities have local portraits shared across forms, with CSS/initials fallback when an image is unavailable.
 
 ## 2. Architecture
 
@@ -182,7 +182,7 @@ If two tabs submit revision 4, the first successful mutation advances to 5; the 
 
 ### Synchronization
 
-This is HTTP polling, not WebSockets. The page polls after four-second delays while visible, skips polling during a mutation, and stops on completion/unmount. A recursive timeout schedules the next poll after work finishes, avoiding overlapping interval requests. The UI ignores older revisions. Tradeoff: simple serverless operation but several seconds of update latency and recurring database requests.
+This is HTTP polling, not WebSockets. Visible friend matches start at four-second delays and back off to fifteen seconds when unchanged; locked lineups stay at four seconds, and CPU matches use thirty seconds. Hidden tabs and mutations skip requests; polling stops on completion/unmount. A recursive timeout schedules the next poll after work finishes, avoiding overlapping interval requests. The UI ignores older revisions. Tradeoff: simple serverless operation but several seconds of update latency and recurring database requests.
 
 ## 8. Draft and battle engine
 
@@ -217,7 +217,7 @@ There are 120 base identities and 237 authored form snapshots in the accepted sc
 
 `calculatePower` in `src/data/power.js` combines eight weighted stats: attack 25%, defense 10%, speed 15%, durability 12%, intelligence 8%, versatility 10%, stamina 10%, feats 10%. Its normalization maps the weighted stat scale onto a 1–1000 game score. Rarity tiers then use score ranges.
 
-`CharacterAvatar` computes initials, applies anime CSS variables and rarity color, picks a Lucide role icon, and optionally renders a lazy-loaded image. `onError` remembers the failed source and keeps the fallback visible. This shared component makes future artwork adoption consistent without rewriting every page.
+`CharacterAvatar` computes initials, applies anime CSS variables and rarity color, picks a Lucide role icon, and optionally renders a lazy-loaded image. `onError` remembers the failed source and keeps the fallback visible. It resolves bundled identity portraits (or smaller grid thumbnails), including old saved snapshots that have no explicit image field. Forms share the identity portrait.
 
 ## 10. Quizzes and guessing games
 

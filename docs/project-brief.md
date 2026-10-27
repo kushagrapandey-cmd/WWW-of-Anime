@@ -1,5 +1,7 @@
 # Anime Battle Website: Phased ChatGPT Prompts
 
+Historical prototype execution prompts. The artwork deferral and original question/test counts below describe earlier phases. Identity portraits were reopened and shipped on 27 October 2026; see [current state](../STATE_SUMMARY.md) and [showcase release](SHOWCASE-RELEASE.md) before continuing work.
+
 Paste **Phase 0** first, then one phase at a time. Test after each phase before saying "next".
 
 ## Design decisions baked into the prompts

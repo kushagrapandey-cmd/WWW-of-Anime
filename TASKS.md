@@ -5,9 +5,9 @@
 Released and verified in production: 120 identity portraits (shared across forms), online round reveals/replays, quick-play cards, 180 quiz questions, searchable roster/form comparisons, character profile avatars, cosmetic goals/titles, share/download result cards, adaptive polling and public artwork credits. See [release notes](docs/SHOWCASE-RELEASE.md) and [portrait audit](docs/character-portrait-audit.md). The earlier artwork deferral below records the previous phase decision; this release supersedes it for identity portraits.
 
 
-## User decision — 2026-10-02, India time
+## Historical user decision — 2026-10-02, India time (superseded for identity portraits)
 
-Phase 3 image acquisition is **parked**, not a dependency. Do not search for/download artwork or implement/run `fetch-images` unless the user explicitly reopens it. Retain `imageQuery` and `image: null` in identity data. Every character display uses `CharacterAvatar`; optional images lazy-load, failed/missing images use initials, anime gradient, rarity glow and role icon. Hero covers are manually supplied in `/public/hero/`; gradients work without them. Portal logos remain text.
+At this stage Phase 3 image acquisition was parked so artwork would not block gameplay. The shared `CharacterAvatar` supported optional images and a generated fallback; source records retained `imageQuery` and `image: null`. The user reopened identity portraits on 27 October; the showcase update above is the current decision. No legacy `fetch-images` command was implemented.
 
 ## Publication authorization — 2026-10-02
 
@@ -17,7 +17,9 @@ User explicitly approved publishing the completed Naruto batch to `main` and con
 
 User said the current characters are enough and asked to wind up Phase 2 and move forward. Close the launch character scope at 120 identities and 237 forms across 55 identities. Stop form backfill. Remaining One Piece/Bleach forms and complete inventory/panel/peer calibration are deferred optional work, not prerequisites to Phase 4/5. This is accepted prototype scope, not certified exhaustive canon coverage.
 
-## Execution order and tasks
+## Historical prototype execution log
+
+These entries record the state/check counts at each original phase. The showcase update above and STATE_SUMMARY.md describe current behavior; 90-question and parked-artwork entries below are historical.
 
 - [x] Phase 0: brief and approved rubric.
 - [x] Phase 1: scaffold/home/navigation; shared fallback avatar and stat-rich CharacterCard added. Desktop/360px Chromium QA completed in Phase 8; cross-browser/device release checks remain.
@@ -26,9 +28,9 @@ User said the current characters are enough and asked to wind up Phase 2 and mov
 - [ ] Optional deferred: remaining One Piece/Bleach form inventories. No identity certified fully covered.
 - [ ] Optional deferred: panel/alias inventory, peer calibration, borrowed resource costs, peak consistency and rarity review. Preserve formula/thresholds; never force scores to quotas.
 - [x] User accepted current Phase 2 scope; proceed directly to Phase 4.
-- [ ] Phase 3: PARKED / optional later; no downloader currently exists.
+- [x] Phase 3 identity portraits: originally parked; reopened and shipped on 27 October via `scripts/prepare-character-images.py`. See the showcase update above.
 - [x] Phase 4: local accounts/profile via AuthService, salted PBKDF2, login/signup, protected profile/Battle entry, guest flag, avatars/ranks and logout. Eight auth tests, DOM form/redirect/profile/session/guest checks and production build pass; desktop/360px Chromium QA completed in Phase 8; cross-browser/device release checks remain.
-- [ ] Optional next scope: actual static hosting, backend or accepted content expansion. All planned prototype gameplay phases are implemented; do not invent another phase. Wait for user direction.
+- [x] Subsequent hosting/backend scope shipped through the online upgrade; the 27 October showcase expanded quizzes and added portraits. Further content expansion requires user direction.
 - [x] Phase 5: CPU/local-friend five-card rarity-weighted draft, one reroll each, hidden lineups/handoffs, seeded rounds/explanations/MVP, Elo-style rank/stats/achievements, copy/rematch, last-20 snapshot replays and retry-safe profile receipts. Peak/variant pool fixed before drafting; identity dedup and locked forms. 16 Vitest engine/storage tests plus 8 auth tests, full account/guest DOM arena flows, data validation and build pass. Desktop/360px Chromium QA completed in Phase 8; cross-browser/device release checks remain.
 - [x] Phase 6: 90 four-option manga questions (30 per anime, 10 per difficulty); Classic/Mixed, 60-second Blitz with capped streak multiplier, date-seeded five-question Daily resetting at midnight Asia/Kolkata, one resumable daily attempt per account/guest, feedback/results/review, profile XP/high scores/achievements/streaks and retry-safe receipts. 41 total tests plus account/guest DOM flows, data validation and build pass. Desktop/360px Chromium QA completed in Phase 8; cross-browser/device release checks remain.
 - [x] Phase 7: Move Match (2–3 moves/tags, four choices or safe fuzzy typed names, hard unnamed stats), Clue Chain (decreasing clue rewards), Higher or Lower (unequal peak pairs, optional streak scoring). Shared GameShell, 10 rounds, timers, anime filters, fixed snapshots, saved/resumable sessions and persistent separate high-score boards for accounts/guests. AuthService receipts prevent recount; profiles show game progress without changing battle/quiz stats. 58 total tests, account/guest DOM flows, data validation and build pass. Desktop/360px Chromium QA completed in Phase 8; cross-browser/device release checks remain.
@@ -43,4 +45,4 @@ Use GitHub `kushagrapandey-cmd/WWW-of-Anime`, branch `main`; push completed auth
 
 User selected Vercel and authorized continuing the professional upgrade. Published Phase 8 recovered; prior uncommitted backend work was absent. Added PostgreSQL/Vercel API, secure server sessions, online invites/private drafts/CPU, server-owned quiz/game persistence, world detail metadata, loading improvements and account security. Production selects online by default; local accounts are separate, never silently migrated.
 
-Completed local checks do not certify live deployment. Vercel Hobby deployment and Neon Free database/environment setup are complete at https://www-of-anime.vercel.app/. Database access is Production-only; schema initialized and SQL editor read-only restored. Live API smoke tests pass for two accounts, secure cookies, origin checks, private shared matches, stale-write rejection, exactly-once results and quiz history after re-login. All selected services remain on free plans; never upgrade without explicit approval. Email recovery/verification, owner privacy/contact/deletion policy, monitoring/backups/load checks remain before unrestricted public launch. See docs/deployment.md and docs/online-upgrade.md. Continue authorized publication to main; preserve parked Phase 3 and closed roster scope.
+Completed local checks do not certify live deployment. Vercel Hobby deployment and Neon Free database/environment setup are complete at https://www-of-anime.vercel.app/. Database access is Production-only; schema initialized and SQL editor read-only restored. Live API smoke tests pass for two accounts, secure cookies, origin checks, private shared matches, stale-write rejection, exactly-once results and quiz history after re-login. All selected services remain on free plans; never upgrade without explicit approval. Email recovery/verification, owner privacy/contact/deletion policy, monitoring/backups/load checks remain before unrestricted public launch. See docs/deployment.md and docs/online-upgrade.md. Continue authorized publication to main; preserve the closed roster scope. The 27 October showcase supersedes the earlier artwork deferral for identity portraits.
