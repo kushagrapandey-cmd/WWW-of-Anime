@@ -1,212 +1,1232 @@
 [
   {
-    "id": "onepiece-quiz-01", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-01",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who captains the Straw Hat Pirates?",
-    "options": ["Monkey D. Luffy", "Roronoa Zoro", "Trafalgar Law", "Shanks"], "answerIndex": 0,
+    "options": [
+      "Monkey D. Luffy",
+      "Roronoa Zoro",
+      "Trafalgar Law",
+      "Shanks"
+    ],
+    "answerIndex": 0,
     "explanation": "Luffy is the captain and founder of the Straw Hat Pirates.",
-    "canonReference": {"medium": "manga", "arc": "East Blue", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "East Blue",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-02", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-02",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which Straw Hat uses the Three Sword Style?",
-    "options": ["Roronoa Zoro", "Sanji", "Brook", "Jinbe"], "answerIndex": 0,
+    "options": [
+      "Roronoa Zoro",
+      "Sanji",
+      "Brook",
+      "Jinbe"
+    ],
+    "answerIndex": 0,
     "explanation": "Zoro fights using his Three Sword Style.",
-    "canonReference": {"medium": "manga", "arc": "East Blue", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "East Blue",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-03", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-03",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who is the Straw Hat crew’s navigator?",
-    "options": ["Nami", "Nico Robin", "Vivi", "Perona"], "answerIndex": 0,
+    "options": [
+      "Nami",
+      "Nico Robin",
+      "Vivi",
+      "Perona"
+    ],
+    "answerIndex": 0,
     "explanation": "Nami navigates the crew through the seas and changing weather.",
-    "canonReference": {"medium": "manga", "arc": "East Blue", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "East Blue",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-04", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-04",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who serves as the Straw Hat crew’s cook?",
-    "options": ["Sanji", "Franky", "Usopp", "Jinbe"], "answerIndex": 0,
+    "options": [
+      "Sanji",
+      "Franky",
+      "Usopp",
+      "Jinbe"
+    ],
+    "answerIndex": 0,
     "explanation": "Sanji is the crew’s cook, trained at the Baratie.",
-    "canonReference": {"medium": "manga", "arc": "Baratie", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Baratie",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-05", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-05",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who is the Straw Hat crew’s doctor?",
-    "options": ["Tony Tony Chopper", "Trafalgar Law", "Nico Robin", "Brook"], "answerIndex": 0,
+    "options": [
+      "Tony Tony Chopper",
+      "Trafalgar Law",
+      "Nico Robin",
+      "Brook"
+    ],
+    "answerIndex": 0,
     "explanation": "Chopper is the crew’s doctor and a reindeer who ate a Human-Human Fruit.",
-    "canonReference": {"medium": "manga", "arc": "Drum Island", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Drum Island",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-06", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-06",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who is the archaeologist among the Straw Hats?",
-    "options": ["Nico Robin", "Nami", "Vivi", "Boa Hancock"], "answerIndex": 0,
+    "options": [
+      "Nico Robin",
+      "Nami",
+      "Vivi",
+      "Boa Hancock"
+    ],
+    "answerIndex": 0,
     "explanation": "Robin is an archaeologist who can read Poneglyphs.",
-    "canonReference": {"medium": "manga", "arc": "Alabasta", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Alabasta",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-07", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-07",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which Straw Hat is a living skeleton and musician?",
-    "options": ["Brook", "Franky", "Chopper", "Usopp"], "answerIndex": 0,
+    "options": [
+      "Brook",
+      "Franky",
+      "Chopper",
+      "Usopp"
+    ],
+    "answerIndex": 0,
     "explanation": "Brook is the crew’s musician, revived by his Devil Fruit.",
-    "canonReference": {"medium": "manga", "arc": "Thriller Bark", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thriller Bark",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-08", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-08",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who serves as the Straw Hat crew’s shipwright?",
-    "options": ["Franky", "Brook", "Sanji", "Jinbe"], "answerIndex": 0,
+    "options": [
+      "Franky",
+      "Brook",
+      "Sanji",
+      "Jinbe"
+    ],
+    "answerIndex": 0,
     "explanation": "Franky builds and maintains the crew’s ship.",
-    "canonReference": {"medium": "manga", "arc": "Water Seven and Enies Lobby", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Water Seven and Enies Lobby",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-09", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-09",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who becomes the Straw Hat crew’s helmsman?",
-    "options": ["Jinbe", "Usopp", "Zoro", "Chopper"], "answerIndex": 0,
+    "options": [
+      "Jinbe",
+      "Usopp",
+      "Zoro",
+      "Chopper"
+    ],
+    "answerIndex": 0,
     "explanation": "Jinbe joins the crew as its helmsman.",
-    "canonReference": {"medium": "manga", "arc": "Whole Cake Island and Wano", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Whole Cake Island and Wano",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-10", "anime": "onepiece", "difficulty": "easy", "confidence": "high",
+    "id": "onepiece-quiz-10",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which ship carries the Straw Hats before the Thousand Sunny?",
-    "options": ["Going Merry", "Oro Jackson", "Moby Dick", "Red Force"], "answerIndex": 0,
+    "options": [
+      "Going Merry",
+      "Oro Jackson",
+      "Moby Dick",
+      "Red Force"
+    ],
+    "answerIndex": 0,
     "explanation": "The Going Merry is their ship before the Thousand Sunny.",
-    "canonReference": {"medium": "manga", "arc": "East Blue through Enies Lobby", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "East Blue through Enies Lobby",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-11", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-11",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which sworn brother is shared by Luffy and Ace?",
-    "options": ["Sabo", "Koby", "Law", "Bartolomeo"], "answerIndex": 0,
+    "options": [
+      "Sabo",
+      "Koby",
+      "Law",
+      "Bartolomeo"
+    ],
+    "answerIndex": 0,
     "explanation": "Luffy, Ace and Sabo swear brotherhood as children.",
-    "canonReference": {"medium": "manga", "arc": "Post-war flashback", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Post-war flashback",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-12", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-12",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "What is the name of the Straw Hats’ ship after the Going Merry?",
-    "options": ["Thousand Sunny", "Polar Tang", "Red Force", "Moby Dick"], "answerIndex": 0,
+    "options": [
+      "Thousand Sunny",
+      "Polar Tang",
+      "Red Force",
+      "Moby Dick"
+    ],
+    "answerIndex": 0,
     "explanation": "Franky and other shipwrights build the Thousand Sunny for the crew.",
-    "canonReference": {"medium": "manga", "arc": "Post-Enies Lobby", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Post-Enies Lobby",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-13", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-13",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which mountain route do the Straw Hats use to enter the Grand Line?",
-    "options": ["Reverse Mountain", "Red Mountain", "Drum Mountain", "Mount Colubo"], "answerIndex": 0,
+    "options": [
+      "Reverse Mountain",
+      "Red Mountain",
+      "Drum Mountain",
+      "Mount Colubo"
+    ],
+    "answerIndex": 0,
     "explanation": "Their voyage into the Grand Line passes through Reverse Mountain.",
-    "canonReference": {"medium": "manga", "arc": "Reverse Mountain", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Reverse Mountain",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-14", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-14",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which navigation tool records island magnetic fields in the Grand Line?",
-    "options": ["Log Pose", "Vivre Card", "Den Den Mushi", "Eternal Flame"], "answerIndex": 0,
+    "options": [
+      "Log Pose",
+      "Vivre Card",
+      "Den Den Mushi",
+      "Eternal Flame"
+    ],
+    "answerIndex": 0,
     "explanation": "A Log Pose records island magnetic fields to guide Grand Line travel.",
-    "canonReference": {"medium": "manga", "arc": "Reverse Mountain", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Reverse Mountain",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-15", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-15",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which kingdom is Princess Vivi from?",
-    "options": ["Alabasta", "Dressrosa", "Drum Kingdom", "Goa Kingdom"], "answerIndex": 0,
+    "options": [
+      "Alabasta",
+      "Dressrosa",
+      "Drum Kingdom",
+      "Goa Kingdom"
+    ],
+    "answerIndex": 0,
     "explanation": "Vivi is the princess of Alabasta.",
-    "canonReference": {"medium": "manga", "arc": "Alabasta", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Alabasta",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-16", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-16",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which animal is Rob Lucci’s original Zoan transformation based on?",
-    "options": ["Leopard", "Wolf", "Giraffe", "Falcon"], "answerIndex": 0,
+    "options": [
+      "Leopard",
+      "Wolf",
+      "Giraffe",
+      "Falcon"
+    ],
+    "answerIndex": 0,
     "explanation": "Lucci’s Cat-Cat Fruit, Model: Leopard gives him leopard forms.",
-    "canonReference": {"medium": "manga", "arc": "Enies Lobby", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Enies Lobby",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-17", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-17",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Who loses an arm while saving a young Luffy from a Sea King?",
-    "options": ["Shanks", "Mihawk", "Whitebeard", "Rayleigh"], "answerIndex": 0,
+    "options": [
+      "Shanks",
+      "Mihawk",
+      "Whitebeard",
+      "Rayleigh"
+    ],
+    "answerIndex": 0,
     "explanation": "Shanks sacrifices his arm to save Luffy near Foosha Village.",
-    "canonReference": {"medium": "manga", "arc": "Romance Dawn", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Romance Dawn",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-18", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-18",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which village is Luffy’s childhood home?",
-    "options": ["Foosha Village", "Syrup Village", "Cocoyasi Village", "Shimotsuki Village"], "answerIndex": 0,
+    "options": [
+      "Foosha Village",
+      "Syrup Village",
+      "Cocoyasi Village",
+      "Shimotsuki Village"
+    ],
+    "answerIndex": 0,
     "explanation": "Luffy grows up around Foosha Village in the Goa Kingdom.",
-    "canonReference": {"medium": "manga", "arc": "Romance Dawn", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Romance Dawn",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-19", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-19",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which floating restaurant did Sanji work at before joining Luffy?",
-    "options": ["Baratie", "Thriller Bark", "Galley-La", "Puffing Tom"], "answerIndex": 0,
+    "options": [
+      "Baratie",
+      "Thriller Bark",
+      "Galley-La",
+      "Puffing Tom"
+    ],
+    "answerIndex": 0,
     "explanation": "Sanji works at Zeff’s floating restaurant, the Baratie.",
-    "canonReference": {"medium": "manga", "arc": "Baratie", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Baratie",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-20", "anime": "onepiece", "difficulty": "medium", "confidence": "high",
+    "id": "onepiece-quiz-20",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Who trains Zoro during the two-year time skip?",
-    "options": ["Dracule Mihawk", "Silvers Rayleigh", "Shanks", "Sengoku"], "answerIndex": 0,
+    "options": [
+      "Dracule Mihawk",
+      "Silvers Rayleigh",
+      "Shanks",
+      "Sengoku"
+    ],
+    "answerIndex": 0,
     "explanation": "Zoro trains under Mihawk during the time skip.",
-    "canonReference": {"medium": "manga", "arc": "Post-war and Return to Sabaody", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Post-war and Return to Sabaody",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-21", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-21",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What is the real name of the Corazon who protected Law?",
-    "options": ["Donquixote Rosinante", "Donquixote Doflamingo", "Donquixote Homing", "Vergo"], "answerIndex": 0,
+    "options": [
+      "Donquixote Rosinante",
+      "Donquixote Doflamingo",
+      "Donquixote Homing",
+      "Vergo"
+    ],
+    "answerIndex": 0,
     "explanation": "Rosinante, Doflamingo’s younger brother, protects Law as Corazon.",
-    "canonReference": {"medium": "manga", "arc": "Dressrosa flashback", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Dressrosa flashback",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-22", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-22",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which Devil Fruit does Trafalgar Law possess?",
-    "options": ["Op-Op Fruit", "String-String Fruit", "Calm-Calm Fruit", "Hobby-Hobby Fruit"], "answerIndex": 0,
+    "options": [
+      "Op-Op Fruit",
+      "String-String Fruit",
+      "Calm-Calm Fruit",
+      "Hobby-Hobby Fruit"
+    ],
+    "answerIndex": 0,
     "explanation": "Law’s Op-Op Fruit lets him perform operations within a ROOM.",
-    "canonReference": {"medium": "manga", "arc": "Sabaody and Dressrosa", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Sabaody and Dressrosa",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-23", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-23",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What is the name of Vivi’s loyal duck companion?",
-    "options": ["Karoo", "Laboon", "Pierre", "Chouchou"], "answerIndex": 0,
+    "options": [
+      "Karoo",
+      "Laboon",
+      "Pierre",
+      "Chouchou"
+    ],
+    "answerIndex": 0,
     "explanation": "Karoo is Vivi’s duck companion and a member of the Super Spot-Billed Duck Troops.",
-    "canonReference": {"medium": "manga", "arc": "Alabasta", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Alabasta",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-24", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-24",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which shipwright built Gol D. Roger’s ship, the Oro Jackson?",
-    "options": ["Tom", "Franky", "Iceburg", "Paulie"], "answerIndex": 0,
+    "options": [
+      "Tom",
+      "Franky",
+      "Iceburg",
+      "Paulie"
+    ],
+    "answerIndex": 0,
     "explanation": "Tom builds the Oro Jackson before mentoring Franky and Iceburg.",
-    "canonReference": {"medium": "manga", "arc": "Water Seven flashback", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Water Seven flashback",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-25", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-25",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which whale is waiting for Brook and his old crew at Reverse Mountain?",
-    "options": ["Laboon", "Surume", "Megalo", "Momoo"], "answerIndex": 0,
+    "options": [
+      "Laboon",
+      "Surume",
+      "Megalo",
+      "Momoo"
+    ],
+    "answerIndex": 0,
     "explanation": "Brook’s Rumbar Pirates promised to return to Laboon.",
-    "canonReference": {"medium": "manga", "arc": "Thriller Bark flashback", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thriller Bark flashback",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-26", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-26",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What is the name of Nico Robin’s mother?",
-    "options": ["Nico Olvia", "Bell-mere", "Portgas D. Rouge", "Scarlet"], "answerIndex": 0,
+    "options": [
+      "Nico Olvia",
+      "Bell-mere",
+      "Portgas D. Rouge",
+      "Scarlet"
+    ],
+    "answerIndex": 0,
     "explanation": "Nico Olvia is Robin’s mother and an archaeologist from Ohara.",
-    "canonReference": {"medium": "manga", "arc": "Enies Lobby flashback", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Enies Lobby flashback",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-27", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-27",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Who is Luffy’s father?",
-    "options": ["Monkey D. Dragon", "Monkey D. Garp", "Gol D. Roger", "Silvers Rayleigh"], "answerIndex": 0,
+    "options": [
+      "Monkey D. Dragon",
+      "Monkey D. Garp",
+      "Gol D. Roger",
+      "Silvers Rayleigh"
+    ],
+    "answerIndex": 0,
     "explanation": "Dragon is Luffy’s father; Garp is Luffy’s grandfather.",
-    "canonReference": {"medium": "manga", "arc": "Post-Enies Lobby", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Post-Enies Lobby",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-28", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-28",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What is Whitebeard’s real name?",
-    "options": ["Edward Newgate", "Marshall D. Teach", "Edward Weevil", "Gol D. Roger"], "answerIndex": 0,
+    "options": [
+      "Edward Newgate",
+      "Marshall D. Teach",
+      "Edward Weevil",
+      "Gol D. Roger"
+    ],
+    "answerIndex": 0,
     "explanation": "Edward Newgate is the pirate known as Whitebeard.",
-    "canonReference": {"medium": "manga", "arc": "Marineford", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Marineford",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-29", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-29",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Who is Impel Down’s chief warden when Luffy breaks in?",
-    "options": ["Magellan", "Hannyabal", "Shiryu", "Sengoku"], "answerIndex": 0,
+    "options": [
+      "Magellan",
+      "Hannyabal",
+      "Shiryu",
+      "Sengoku"
+    ],
+    "answerIndex": 0,
     "explanation": "Magellan is the chief warden during Luffy’s Impel Down infiltration.",
-    "canonReference": {"medium": "manga", "arc": "Impel Down", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Impel Down",
+      "cutoffChapter": 1122
+    }
   },
   {
-    "id": "onepiece-quiz-30", "anime": "onepiece", "difficulty": "hard", "confidence": "high",
+    "id": "onepiece-quiz-30",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Who raised Nami and Nojiko as their adoptive mother?",
-    "options": ["Bell-mere", "Nico Olvia", "Dadan", "Dr. Kureha"], "answerIndex": 0,
+    "options": [
+      "Bell-mere",
+      "Nico Olvia",
+      "Dadan",
+      "Dr. Kureha"
+    ],
+    "answerIndex": 0,
     "explanation": "Bell-mere adopts and raises Nami and Nojiko.",
-    "canonReference": {"medium": "manga", "arc": "Arlong Park flashback", "cutoffChapter": 1122}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arlong Park flashback",
+      "cutoffChapter": 1122
+    }
+  },
+  {
+    "id": "onepiece-quiz-31",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which Straw Hat is best known as a sniper?",
+    "options": [
+      "Jinbe",
+      "Usopp",
+      "Franky",
+      "Brook"
+    ],
+    "answerIndex": 1,
+    "explanation": "Usopp serves as the crew’s sniper.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Syrup Village",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-32",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What does Luffy want to become?",
+    "options": [
+      "King of the Pirates",
+      "Fleet Admiral",
+      "World’s greatest swordsman",
+      "King of Alabasta"
+    ],
+    "answerIndex": 0,
+    "explanation": "Luffy sets out to become King of the Pirates.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Romance Dawn",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-33",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which character gave Luffy his straw hat?",
+    "options": [
+      "Mihawk",
+      "Garp",
+      "Rayleigh",
+      "Shanks"
+    ],
+    "answerIndex": 3,
+    "explanation": "Shanks entrusts the straw hat to Luffy before leaving Foosha Village.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Romance Dawn",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-34",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What is Sanji searching for?",
+    "options": [
+      "The Emerald City",
+      "The Golden Bell",
+      "All Blue",
+      "Laugh Tale’s library"
+    ],
+    "answerIndex": 2,
+    "explanation": "Sanji dreams of finding All Blue, where fish from the four seas meet.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Baratie",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-35",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which Straw Hat wants to draw a map of the whole world?",
+    "options": [
+      "Chopper",
+      "Nami",
+      "Robin",
+      "Vivi"
+    ],
+    "answerIndex": 1,
+    "explanation": "Nami’s dream is to chart the entire world.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arlong Park",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-36",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which material are the poneglyph inscriptions carved into?",
+    "options": [
+      "Stone",
+      "Paper",
+      "Wood",
+      "Glass"
+    ],
+    "answerIndex": 0,
+    "explanation": "Poneglyphs are durable stone blocks carrying ancient inscriptions.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Alabasta",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-37",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which pirate has the nickname Straw Hat?",
+    "options": [
+      "Trafalgar Law",
+      "Eustass Kid",
+      "Portgas D. Ace",
+      "Monkey D. Luffy"
+    ],
+    "answerIndex": 3,
+    "explanation": "Luffy is widely known as Straw Hat Luffy.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "East Blue",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-38",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What kind of animal was Chopper before eating his Devil Fruit?",
+    "options": [
+      "Bear",
+      "Fox",
+      "Reindeer",
+      "Raccoon"
+    ],
+    "answerIndex": 2,
+    "explanation": "Chopper is a reindeer who ate the Human-Human Fruit.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Drum Island",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-39",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which Straw Hat uses a slingshot as a signature weapon?",
+    "options": [
+      "Robin",
+      "Usopp",
+      "Zoro",
+      "Sanji"
+    ],
+    "answerIndex": 1,
+    "explanation": "Usopp uses slingshots, including Kabuto, for ranged attacks.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Enies Lobby",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-40",
+    "anime": "onepiece",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which ocean is Luffy from?",
+    "options": [
+      "East Blue",
+      "West Blue",
+      "North Blue",
+      "South Blue"
+    ],
+    "answerIndex": 0,
+    "explanation": "Luffy begins his journey in East Blue.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Romance Dawn",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-41",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Who leads Baroque Works under the codename Mr. 0?",
+    "options": [
+      "Doflamingo",
+      "Moria",
+      "Buggy",
+      "Crocodile"
+    ],
+    "answerIndex": 3,
+    "explanation": "Crocodile leads Baroque Works as Mr. 0.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Alabasta",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-42",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which island is associated with the scholars who raised Robin?",
+    "options": [
+      "Jaya",
+      "Little Garden",
+      "Ohara",
+      "Drum"
+    ],
+    "answerIndex": 2,
+    "explanation": "Robin grew up among the scholars of Ohara.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Enies Lobby",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-43",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "What is the name of Enel’s lightning Devil Fruit?",
+    "options": [
+      "Hie Hie no Mi",
+      "Goro Goro no Mi",
+      "Mera Mera no Mi",
+      "Suna Suna no Mi"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Goro Goro no Mi grants Enel lightning abilities.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Skypiea",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-44",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Who trains Luffy during much of the two-year time skip?",
+    "options": [
+      "Silvers Rayleigh",
+      "Sengoku",
+      "Shanks",
+      "Dragon"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rayleigh teaches Luffy the fundamentals of Haki on Rusukaina.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Post-War",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-45",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which group does Rob Lucci belong to during Enies Lobby?",
+    "options": [
+      "SWORD",
+      "Baroque Works",
+      "Germa 66",
+      "CP9"
+    ],
+    "answerIndex": 3,
+    "explanation": "Lucci is an assassin in Cipher Pol Nine during Enies Lobby.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Enies Lobby",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-46",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which city is famous for its shipbuilding and Galley-La Company?",
+    "options": [
+      "Mock Town",
+      "Shells Town",
+      "Water Seven",
+      "Loguetown"
+    ],
+    "answerIndex": 2,
+    "explanation": "Water Seven is home to Galley-La and many skilled shipwrights.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Water Seven",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-47",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "What is the name of Brook’s original pirate crew?",
+    "options": [
+      "Fire Tank Pirates",
+      "Rumbar Pirates",
+      "Heart Pirates",
+      "Sun Pirates"
+    ],
+    "answerIndex": 1,
+    "explanation": "Brook sailed with the Rumbar Pirates before joining the Straw Hats.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thriller Bark",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-48",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which Marine is Luffy’s grandfather?",
+    "options": [
+      "Monkey D. Garp",
+      "Sengoku",
+      "Smoker",
+      "Tsuru"
+    ],
+    "answerIndex": 0,
+    "explanation": "Garp is Dragon’s father and Luffy’s grandfather.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Post-Enies Lobby",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-49",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which pirate crew does Trafalgar Law captain?",
+    "options": [
+      "Kid Pirates",
+      "Fire Tank Pirates",
+      "Foxy Pirates",
+      "Heart Pirates"
+    ],
+    "answerIndex": 3,
+    "explanation": "Law captains the Heart Pirates.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Sabaody Archipelago",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-50",
+    "anime": "onepiece",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "What does a Vivre Card point toward?",
+    "options": [
+      "The North Pole",
+      "The closest Marine base",
+      "The person it belongs to",
+      "The nearest island"
+    ],
+    "answerIndex": 2,
+    "explanation": "A Vivre Card moves toward the person whose life it represents.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thriller Bark",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-51",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which sword did Zoro receive from Kuina’s father?",
+    "options": [
+      "Sandai Kitetsu",
+      "Wado Ichimonji",
+      "Enma",
+      "Shusui"
+    ],
+    "answerIndex": 1,
+    "explanation": "Koshiro gives Zoro Kuina’s Wado Ichimonji.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Romance Dawn",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-52",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Who gives Zoro the sword Enma?",
+    "options": [
+      "Kozuki Hiyori",
+      "Kozuki Momonosuke",
+      "Tenguyama Hitetsu",
+      "Shimotsuki Yasuie"
+    ],
+    "answerIndex": 0,
+    "explanation": "Hiyori offers Enma in exchange for returning Shusui to Wano.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Wano",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-53",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which scientist worked with Caesar Clown before the Punk Hazard incident?",
+    "options": [
+      "Professor Clover",
+      "Tom",
+      "Clover",
+      "Vegapunk"
+    ],
+    "answerIndex": 3,
+    "explanation": "Caesar and Vegapunk worked on Punk Hazard before Caesar’s disastrous experiment.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Punk Hazard",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-54",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which giant pair duel on Little Garden?",
+    "options": [
+      "Hajrudin and Stansen",
+      "Jarul and Jorul",
+      "Dorry and Brogy",
+      "Oimo and Kashii"
+    ],
+    "answerIndex": 2,
+    "explanation": "Dorry and Brogy have continued their duel on Little Garden for a century.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Little Garden",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-55",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "What is the name of the sea train built by Tom’s Workers?",
+    "options": [
+      "Nostra Castello",
+      "Puffing Tom",
+      "Rocketman Express",
+      "Oro Jackson"
+    ],
+    "answerIndex": 1,
+    "explanation": "Puffing Tom is the successful sea train connecting Water Seven to other islands.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Water Seven",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-56",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which former king of Dressrosa is Rebecca’s grandfather?",
+    "options": [
+      "Riku Doldo III",
+      "Donquixote Homing",
+      "Elizabello II",
+      "Cobra"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rebecca is the granddaughter of King Riku Doldo III.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Dressrosa",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-57",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Devil Fruit allows Bartolomeo to create barriers?",
+    "options": [
+      "Bara Bara no Mi",
+      "Bane Bane no Mi",
+      "Baku Baku no Mi",
+      "Bari Bari no Mi"
+    ],
+    "answerIndex": 3,
+    "explanation": "Bartolomeo uses the Bari Bari no Mi to create barriers.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Dressrosa",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-58",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which island does the giant elephant Zunesha carry?",
+    "options": [
+      "Wano",
+      "Elbaf",
+      "Zou",
+      "Skypiea"
+    ],
+    "answerIndex": 2,
+    "explanation": "The island of Zou sits on Zunesha’s back.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Zou",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-59",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "How many Road Poneglyphs are needed to locate Laugh Tale?",
+    "options": [
+      "Seven",
+      "Four",
+      "Three",
+      "Five"
+    ],
+    "answerIndex": 1,
+    "explanation": "Four Road Poneglyphs mark locations whose intersection reveals Laugh Tale.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Zou",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "onepiece-quiz-60",
+    "anime": "onepiece",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Roger Pirate was known as the Dark King?",
+    "options": [
+      "Silvers Rayleigh",
+      "Scopper Gaban",
+      "Crocus",
+      "Kozuki Oden"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rayleigh, Roger’s first mate, is known as the Dark King.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Sabaody Archipelago",
+      "cutoffChapter": 1122
+    },
+    "dailyFrom": "2026-10-28"
   }
 ]

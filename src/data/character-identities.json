@@ -1,0 +1,602 @@
+[
+  {
+    "id": "naruto-uzumaki",
+    "name": "Naruto Uzumaki",
+    "anime": "naruto"
+  },
+  {
+    "id": "sasuke-uchiha",
+    "name": "Sasuke Uchiha",
+    "anime": "naruto"
+  },
+  {
+    "id": "sakura-haruno",
+    "name": "Sakura Haruno",
+    "anime": "naruto"
+  },
+  {
+    "id": "kakashi-hatake",
+    "name": "Kakashi Hatake",
+    "anime": "naruto"
+  },
+  {
+    "id": "might-guy",
+    "name": "Might Guy",
+    "anime": "naruto"
+  },
+  {
+    "id": "rock-lee",
+    "name": "Rock Lee",
+    "anime": "naruto"
+  },
+  {
+    "id": "neji-hyuga",
+    "name": "Neji Hyuga",
+    "anime": "naruto"
+  },
+  {
+    "id": "hinata-hyuga",
+    "name": "Hinata Hyuga",
+    "anime": "naruto"
+  },
+  {
+    "id": "shikamaru-nara",
+    "name": "Shikamaru Nara",
+    "anime": "naruto"
+  },
+  {
+    "id": "choji-akimichi",
+    "name": "Choji Akimichi",
+    "anime": "naruto"
+  },
+  {
+    "id": "ino-yamanaka",
+    "name": "Ino Yamanaka",
+    "anime": "naruto"
+  },
+  {
+    "id": "kiba-inuzuka",
+    "name": "Kiba Inuzuka",
+    "anime": "naruto"
+  },
+  {
+    "id": "shino-aburame",
+    "name": "Shino Aburame",
+    "anime": "naruto"
+  },
+  {
+    "id": "tenten",
+    "name": "Tenten",
+    "anime": "naruto"
+  },
+  {
+    "id": "gaara",
+    "name": "Gaara",
+    "anime": "naruto"
+  },
+  {
+    "id": "temari",
+    "name": "Temari",
+    "anime": "naruto"
+  },
+  {
+    "id": "kankuro",
+    "name": "Kankuro",
+    "anime": "naruto"
+  },
+  {
+    "id": "jiraiya",
+    "name": "Jiraiya",
+    "anime": "naruto"
+  },
+  {
+    "id": "tsunade",
+    "name": "Tsunade",
+    "anime": "naruto"
+  },
+  {
+    "id": "orochimaru",
+    "name": "Orochimaru",
+    "anime": "naruto"
+  },
+  {
+    "id": "hashirama-senju",
+    "name": "Hashirama Senju",
+    "anime": "naruto"
+  },
+  {
+    "id": "tobirama-senju",
+    "name": "Tobirama Senju",
+    "anime": "naruto"
+  },
+  {
+    "id": "hiruzen-sarutobi",
+    "name": "Hiruzen Sarutobi",
+    "anime": "naruto"
+  },
+  {
+    "id": "minato-namikaze",
+    "name": "Minato Namikaze",
+    "anime": "naruto"
+  },
+  {
+    "id": "itachi-uchiha",
+    "name": "Itachi Uchiha",
+    "anime": "naruto"
+  },
+  {
+    "id": "kisame-hoshigaki",
+    "name": "Kisame Hoshigaki",
+    "anime": "naruto"
+  },
+  {
+    "id": "deidara",
+    "name": "Deidara",
+    "anime": "naruto"
+  },
+  {
+    "id": "sasori",
+    "name": "Sasori",
+    "anime": "naruto"
+  },
+  {
+    "id": "hidan",
+    "name": "Hidan",
+    "anime": "naruto"
+  },
+  {
+    "id": "kakuzu",
+    "name": "Kakuzu",
+    "anime": "naruto"
+  },
+  {
+    "id": "konan",
+    "name": "Konan",
+    "anime": "naruto"
+  },
+  {
+    "id": "nagato",
+    "name": "Nagato",
+    "anime": "naruto"
+  },
+  {
+    "id": "obito-uchiha",
+    "name": "Obito Uchiha",
+    "anime": "naruto"
+  },
+  {
+    "id": "madara-uchiha",
+    "name": "Madara Uchiha",
+    "anime": "naruto"
+  },
+  {
+    "id": "kaguya-otsutsuki",
+    "name": "Kaguya Otsutsuki",
+    "anime": "naruto"
+  },
+  {
+    "id": "kabuto-yakushi",
+    "name": "Kabuto Yakushi",
+    "anime": "naruto"
+  },
+  {
+    "id": "killer-b",
+    "name": "Killer B",
+    "anime": "naruto"
+  },
+  {
+    "id": "fourth-raikage",
+    "name": "Fourth Raikage",
+    "anime": "naruto"
+  },
+  {
+    "id": "onoki",
+    "name": "Onoki",
+    "anime": "naruto"
+  },
+  {
+    "id": "mei-terumi",
+    "name": "Mei Terumi",
+    "anime": "naruto"
+  },
+  {
+    "id": "monkey-d-luffy",
+    "name": "Monkey D. Luffy",
+    "anime": "onepiece"
+  },
+  {
+    "id": "roronoa-zoro",
+    "name": "Roronoa Zoro",
+    "anime": "onepiece"
+  },
+  {
+    "id": "nami",
+    "name": "Nami",
+    "anime": "onepiece"
+  },
+  {
+    "id": "usopp",
+    "name": "Usopp",
+    "anime": "onepiece"
+  },
+  {
+    "id": "sanji",
+    "name": "Sanji",
+    "anime": "onepiece"
+  },
+  {
+    "id": "tony-tony-chopper",
+    "name": "Tony Tony Chopper",
+    "anime": "onepiece"
+  },
+  {
+    "id": "nico-robin",
+    "name": "Nico Robin",
+    "anime": "onepiece"
+  },
+  {
+    "id": "franky",
+    "name": "Franky",
+    "anime": "onepiece"
+  },
+  {
+    "id": "brook",
+    "name": "Brook",
+    "anime": "onepiece"
+  },
+  {
+    "id": "jinbe",
+    "name": "Jinbe",
+    "anime": "onepiece"
+  },
+  {
+    "id": "portgas-d-ace",
+    "name": "Portgas D. Ace",
+    "anime": "onepiece"
+  },
+  {
+    "id": "sabo",
+    "name": "Sabo",
+    "anime": "onepiece"
+  },
+  {
+    "id": "shanks",
+    "name": "Shanks",
+    "anime": "onepiece"
+  },
+  {
+    "id": "edward-newgate",
+    "name": "Edward Newgate",
+    "anime": "onepiece"
+  },
+  {
+    "id": "marshall-d-teach",
+    "name": "Marshall D. Teach",
+    "anime": "onepiece"
+  },
+  {
+    "id": "kaido",
+    "name": "Kaido",
+    "anime": "onepiece"
+  },
+  {
+    "id": "charlotte-linlin",
+    "name": "Charlotte Linlin",
+    "anime": "onepiece"
+  },
+  {
+    "id": "charlotte-katakuri",
+    "name": "Charlotte Katakuri",
+    "anime": "onepiece"
+  },
+  {
+    "id": "king",
+    "name": "King",
+    "anime": "onepiece"
+  },
+  {
+    "id": "queen",
+    "name": "Queen",
+    "anime": "onepiece"
+  },
+  {
+    "id": "donquixote-doflamingo",
+    "name": "Donquixote Doflamingo",
+    "anime": "onepiece"
+  },
+  {
+    "id": "crocodile",
+    "name": "Crocodile",
+    "anime": "onepiece"
+  },
+  {
+    "id": "rob-lucci",
+    "name": "Rob Lucci",
+    "anime": "onepiece"
+  },
+  {
+    "id": "enel",
+    "name": "Enel",
+    "anime": "onepiece"
+  },
+  {
+    "id": "trafalgar-d-water-law",
+    "name": "Trafalgar D. Water Law",
+    "anime": "onepiece"
+  },
+  {
+    "id": "eustass-kid",
+    "name": "Eustass Kid",
+    "anime": "onepiece"
+  },
+  {
+    "id": "killer",
+    "name": "Killer",
+    "anime": "onepiece"
+  },
+  {
+    "id": "boa-hancock",
+    "name": "Boa Hancock",
+    "anime": "onepiece"
+  },
+  {
+    "id": "bartholomew-kuma",
+    "name": "Bartholomew Kuma",
+    "anime": "onepiece"
+  },
+  {
+    "id": "dracule-mihawk",
+    "name": "Dracule Mihawk",
+    "anime": "onepiece"
+  },
+  {
+    "id": "marco",
+    "name": "Marco",
+    "anime": "onepiece"
+  },
+  {
+    "id": "yamato",
+    "name": "Yamato",
+    "anime": "onepiece"
+  },
+  {
+    "id": "sakazuki",
+    "name": "Sakazuki",
+    "anime": "onepiece"
+  },
+  {
+    "id": "kuzan",
+    "name": "Kuzan",
+    "anime": "onepiece"
+  },
+  {
+    "id": "borsalino",
+    "name": "Borsalino",
+    "anime": "onepiece"
+  },
+  {
+    "id": "issho",
+    "name": "Issho",
+    "anime": "onepiece"
+  },
+  {
+    "id": "aramaki",
+    "name": "Aramaki",
+    "anime": "onepiece"
+  },
+  {
+    "id": "monkey-d-garp",
+    "name": "Monkey D. Garp",
+    "anime": "onepiece"
+  },
+  {
+    "id": "sengoku",
+    "name": "Sengoku",
+    "anime": "onepiece"
+  },
+  {
+    "id": "smoker",
+    "name": "Smoker",
+    "anime": "onepiece"
+  },
+  {
+    "id": "ichigo-kurosaki",
+    "name": "Ichigo Kurosaki",
+    "anime": "bleach"
+  },
+  {
+    "id": "rukia-kuchiki",
+    "name": "Rukia Kuchiki",
+    "anime": "bleach"
+  },
+  {
+    "id": "renji-abarai",
+    "name": "Renji Abarai",
+    "anime": "bleach"
+  },
+  {
+    "id": "orihime-inoue",
+    "name": "Orihime Inoue",
+    "anime": "bleach"
+  },
+  {
+    "id": "yasutora-sado",
+    "name": "Yasutora Sado",
+    "anime": "bleach"
+  },
+  {
+    "id": "uryu-ishida",
+    "name": "Uryu Ishida",
+    "anime": "bleach"
+  },
+  {
+    "id": "kisuke-urahara",
+    "name": "Kisuke Urahara",
+    "anime": "bleach"
+  },
+  {
+    "id": "yoruichi-shihouin",
+    "name": "Yoruichi Shihoin",
+    "anime": "bleach"
+  },
+  {
+    "id": "isshin-kurosaki",
+    "name": "Isshin Kurosaki",
+    "anime": "bleach"
+  },
+  {
+    "id": "byakuya-kuchiki",
+    "name": "Byakuya Kuchiki",
+    "anime": "bleach"
+  },
+  {
+    "id": "kenpachi-zaraki",
+    "name": "Kenpachi Zaraki",
+    "anime": "bleach"
+  },
+  {
+    "id": "toshiro-hitsugaya",
+    "name": "Toshiro Hitsugaya",
+    "anime": "bleach"
+  },
+  {
+    "id": "shunsui-kyoraku",
+    "name": "Shunsui Kyoraku",
+    "anime": "bleach"
+  },
+  {
+    "id": "jushiro-ukitake",
+    "name": "Jushiro Ukitake",
+    "anime": "bleach"
+  },
+  {
+    "id": "genryusai-yamamoto",
+    "name": "Genryusai Yamamoto",
+    "anime": "bleach"
+  },
+  {
+    "id": "retsu-unohana",
+    "name": "Retsu Unohana",
+    "anime": "bleach"
+  },
+  {
+    "id": "mayuri-kurotsuchi",
+    "name": "Mayuri Kurotsuchi",
+    "anime": "bleach"
+  },
+  {
+    "id": "soi-fon",
+    "name": "Soi Fon",
+    "anime": "bleach"
+  },
+  {
+    "id": "shinji-hirako",
+    "name": "Shinji Hirako",
+    "anime": "bleach"
+  },
+  {
+    "id": "sajin-komamura",
+    "name": "Sajin Komamura",
+    "anime": "bleach"
+  },
+  {
+    "id": "kensei-muguruma",
+    "name": "Kensei Muguruma",
+    "anime": "bleach"
+  },
+  {
+    "id": "rojuro-otoribashi",
+    "name": "Rojuro Otoribashi",
+    "anime": "bleach"
+  },
+  {
+    "id": "sosuke-aizen",
+    "name": "Sosuke Aizen",
+    "anime": "bleach"
+  },
+  {
+    "id": "gin-ichimaru",
+    "name": "Gin Ichimaru",
+    "anime": "bleach"
+  },
+  {
+    "id": "kaname-tosen",
+    "name": "Kaname Tosen",
+    "anime": "bleach"
+  },
+  {
+    "id": "grimmjow-jaegerjaquez",
+    "name": "Grimmjow Jaegerjaquez",
+    "anime": "bleach"
+  },
+  {
+    "id": "ulquiorra-cifer",
+    "name": "Ulquiorra Cifer",
+    "anime": "bleach"
+  },
+  {
+    "id": "coyote-starrk",
+    "name": "Coyote Starrk",
+    "anime": "bleach"
+  },
+  {
+    "id": "baraggan-louisenbairn",
+    "name": "Baraggan Louisenbairn",
+    "anime": "bleach"
+  },
+  {
+    "id": "tier-harribel",
+    "name": "Tier Harribel",
+    "anime": "bleach"
+  },
+  {
+    "id": "nelliel-tu-odelschwanck",
+    "name": "Nelliel Tu Odelschwanck",
+    "anime": "bleach"
+  },
+  {
+    "id": "nnoitra-gilga",
+    "name": "Nnoitra Gilga",
+    "anime": "bleach"
+  },
+  {
+    "id": "szayelaporro-granz",
+    "name": "Szayelaporro Granz",
+    "anime": "bleach"
+  },
+  {
+    "id": "yhwach",
+    "name": "Yhwach",
+    "anime": "bleach"
+  },
+  {
+    "id": "jugram-haschwalth",
+    "name": "Jugram Haschwalth",
+    "anime": "bleach"
+  },
+  {
+    "id": "bazz-b",
+    "name": "Bazz-B",
+    "anime": "bleach"
+  },
+  {
+    "id": "askin-nakk-le-vaar",
+    "name": "Askin Nakk Le Vaar",
+    "anime": "bleach"
+  },
+  {
+    "id": "gerard-valkyrie",
+    "name": "Gerard Valkyrie",
+    "anime": "bleach"
+  },
+  {
+    "id": "lille-barro",
+    "name": "Lille Barro",
+    "anime": "bleach"
+  },
+  {
+    "id": "ichibe-hyosube",
+    "name": "Ichibe Hyosube",
+    "anime": "bleach"
+  }
+]

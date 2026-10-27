@@ -6,7 +6,7 @@
 
 **Status: public beta.** Production uses Vercel Functions and PostgreSQL for online accounts and progress. An explicit browser-local demo mode remains available for development. Email password recovery and production operations work remain pending.
 
-![WWW-of-Anime home page with crossover hero and primary navigation](docs/screenshots/home.png)
+![WWW-of-Anime home page with crossover hero and primary navigation](docs/screenshots/home-showcase.webp)
 
 ## Product walkthrough
 
@@ -30,31 +30,31 @@ Username/password authentication connects users to a persistent online profile. 
 
 ### Battle Arena — `/battle`
 
-Create a CPU match or invite a friend using a private link. Filter by world and optionally include form variants. Each participant drafts five fighters, uses an optional reroll, orders their lineup and locks it. The server checks account ownership, hides the opponent's lineup until completion, computes results and awards rank. Unfinished matches expire after 24 hours; visible tabs refresh match state every four seconds.
+Create a CPU match or invite a friend using a private link. Filter by world and optionally include form variants. Each participant drafts five fighters, uses an optional reroll, orders their lineup and locks it. The server checks account ownership, hides the opponent's lineup until completion, computes results and awards rank. Unfinished matches expire after 24 hours; visible friend-match tabs use adaptive polling (4–15 seconds), while CPU tabs synchronize every 30 seconds. Completed matches reveal five rounds with pause, skip and replay controls.
 
 ![Online Battle Arena setup with opponent, world and form variant controls](docs/screenshots/battle.png)
 
 ### Anime quizzes — `/quizzes`
 
-A 90-question authored bank supports Classic, Timed Blitz and Daily Challenge modes. Anime/difficulty filters, answer explanations, XP, accuracy and streaks provide progression. Signed-in attempts and scoring are managed by the server; guest practice remains browser-local. Daily challenges reset at midnight India time.
+A 180-question authored bank supports Classic, Timed Blitz and Daily Challenge modes. Anime/difficulty filters, answer explanations, XP, accuracy and streaks provide progression. Signed-in attempts and scoring are managed by the server; guest practice remains browser-local. Daily challenges reset at midnight India time.
 
-![Quiz setup and profile progress showing XP, accuracy and daily streak](docs/screenshots/quizzes.png)
+![Quiz quick-play cards for Blitz, Daily Challenge and Classic](docs/screenshots/quizzes-showcase.webp)
 
 ### Guessing games — `/games`
 
-Move Match, Clue Chain and Higher or Lower reuse the character roster. Options include multiple-choice or typed answers where supported, timed rounds, hints and resumable attempts. High scores are separate from battle rank and quiz XP.
+Move Match, Clue Chain and Higher or Lower reuse the character roster. Options include multiple-choice or typed answers where supported, timed rounds, hints and resumable attempts. Quick-play cards start preset games immediately; optional custom settings retain advanced rules. High scores are separate from battle rank and quiz XP.
 
-![Guessing games setup with Move Match, Clue Chain and Higher or Lower options](docs/screenshots/games.png)
+![Quick-play cards for Move Match, Clue Chain and Higher or Lower](docs/screenshots/games-showcase.webp)
 
 ### Characters and forms — `/characters`
 
-Explore 120 identities across the three worlds and 237 authored form snapshots in the accepted scope. The form guide displays weighted stats, game power tiers, signature moves, limitations and editorial references. Forms are not complete canon inventories; ratings are provisional gameplay estimates.
+Explore 120 identities across the three worlds and 237 authored form snapshots in the accepted scope. Search and filter the portrait roster, then compare two fighters/forms side by side. Dossiers display weighted stats, game power tiers, signature moves and limitations. Forms are not complete canon inventories; ratings are provisional gameplay estimates.
 
-![Character form explorer showing Luffy Gear Five, stats, moves and limitations](docs/screenshots/character-forms.png)
+![Searchable character portrait archive with world filters and fighter dossiers](docs/screenshots/character-forms-showcase.webp)
 
 ### Profile — `/profile`
 
-A protected profile combines an avatar, rank, battle record, quiz progress, game high scores and achievements. Online accounts persist across devices. Account security controls support password changes and revoking all sessions.
+A protected profile combines a selectable character portrait, rank, battle record, quiz progress, game high scores and achievements. Six lifetime objectives unlock cosmetic player titles from saved statistics. Online accounts persist across devices. Account security controls support password changes and revoking all sessions.
 
 ## Technology and architecture
 
@@ -71,7 +71,7 @@ A protected profile combines an avatar, rank, battle record, quiz progress, game
 | Quality checks | Node test runner, Vitest, Playwright, axe and JSON validators |
 | Hosting | Vercel Hobby with a tracked SPA rewrite configuration |
 
-This project uses **React + Vite, not Next.js**. Production authentication is not JWT-based. Character catalogs and questions are authored JSON; no external anime API or image downloader is required.
+This project uses **React + Vite, not Next.js**. Production authentication is not JWT-based. Character catalogs and questions are authored JSON. Runtime uses bundled WebP portraits; no external anime/image API is required. Portrait sources, image processing and rights notes are documented in [the portrait audit](docs/character-portrait-audit.md) and public `/credits`. [Showcase release notes and manual checks](docs/SHOWCASE-RELEASE.md) cover the combined update.
 
 ```mermaid
 flowchart TD
@@ -154,3 +154,7 @@ WWW-of-Anime is unofficial and is not affiliated with the rights holders of Naru
 Battle Arena wins now earn display-only coins through the server-owned match result. The account stores a transaction ledger, current reward streak and acknowledged milestones; no coin-purchase or redemption feature is enabled. The homepage footer includes contact links and a visitor feedback form.
 
 See [implementation choices, file plan, setup and manual tests](docs/coins-and-feedback.md). Feedback delivery requires a server-only Resend key; the direct email link remains available when delivery is not configured.
+
+## Character portraits and share cards
+
+One portrait per identity is shared across forms, including old saved snapshots through `CharacterAvatar`. Grid thumbnails load lazily; broken images retain the generated avatar. `scripts/prepare-character-images.py` rebuilds missing images from the reviewed source manifest (requires Pillow; add `--force` to replace existing images). New source artwork must be reviewed for identity and applicable rights. Result cards are generated in the browser; sharing opens a public play route and does not expose private invites.

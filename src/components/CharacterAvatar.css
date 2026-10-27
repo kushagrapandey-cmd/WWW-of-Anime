@@ -5,3 +5,4 @@
 .avatar-role{position:absolute;right:12px;bottom:12px;display:grid;place-items:center;width:36px;height:36px;background:#10121dd9;border:1px solid var(--avatar-rarity);border-radius:10px;color:var(--avatar-rarity)}
 .guide-avatar{width:100px;flex-shrink:0}
 @media(max-width:700px){.guide-avatar{width:72px}.guide-avatar .avatar-monogram{font-size:2.5rem}.guide-avatar .avatar-role{width:26px;height:26px;right:5px;bottom:5px}.guide-avatar .avatar-role svg{width:16px}}
+.character-avatar img{object-position:center 20%}.character-avatar:has(img)::after{content:'';position:absolute;inset:60% 0 0;background:linear-gradient(transparent,#08081088);pointer-events:none}.avatar-role{z-index:1}

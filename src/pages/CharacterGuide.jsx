@@ -1,80 +1,34 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { characters, characterForms, getFormsForCharacter, getRatedCharacter } from '../data';
-import { peakFormNames } from '../data/peakForms';
+import { characters, getFormsForCharacter, getRatedCharacter } from '../data';
 import { powerTiers, statWeights } from '../data/power';
 import { rarityColors, animeConfig } from '../data/anime';
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import CharacterAvatar from '../components/CharacterAvatar';
+import ProgressBar from '../components/ProgressBar';
 import './CharacterGuide.css';
 const roster = [...characters].sort((a, b) => a.name.localeCompare(b.name));
-const coverage = new Set(characterForms.map(form => form.characterId)).size;
+const featured = ['naruto-uzumaki', 'sasuke-uchiha', 'kakashi-hatake', 'sakura-haruno', 'monkey-d-luffy', 'roronoa-zoro', 'sanji', 'nico-robin', 'ichigo-kurosaki', 'rukia-kuchiki', 'renji-abarai', 'sosuke-aizen'];
+const featuredRank = id => featured.includes(id) ? featured.indexOf(id) : featured.length;
+function FighterDossier({ character }) {
+  return <Card className="guide-rating" style={{ '--tier': rarityColors[character.rarity] }}><div className="guide-rating-heading"><CharacterAvatar character={character} className="guide-avatar" /><div><h3>{character.name}</h3><p>{character.formName || 'Selected peak'}</p><Badge color={rarityColors[character.rarity]}>{character.rarity}</Badge></div><div className="guide-power">{character.powerScore}<small> / 1000</small></div></div><div className="dossier-tags"><Badge>{character.role}</Badge>{character.abilityTags.map(tag => <span key={tag}>{tag.replaceAll('-', ' ')}</span>)}</div><div className="dossier-stats">{Object.entries(character.stats).map(([stat, value]) => <div key={stat}><span>{stat}<strong>{value}</strong></span><ProgressBar value={value} max={100} label={`${character.name} ${stat}`} /></div>)}</div><h4>Signature moves</h4><p>{character.signatureMoves.join(' · ')}</p><details><summary>Strengths, limits & rating notes</summary><p>{character.limitations || character.reasoning}</p><p>Rating confidence: {character.confidence}. Fan-made estimates, not official canon levels or a guaranteed duel result.</p>{character.era && <p>Era: {character.era}</p>}</details></Card>;
+}
 export default function CharacterGuide() {
   const [params] = useSearchParams();
   const initial = roster.find(item => item.anime === params.get('anime'))?.id ?? 'monkey-d-luffy';
-  const [characterId, setCharacterId] = useState(initial);
-  const [formId, setFormId] = useState(initial === 'monkey-d-luffy' ? 'monkey-d-luffy--gear-five' : getFormsForCharacter(initial).at(-1)?.id ?? '');
+  const [characterId, setCharacterId] = useState(initial), [formId, setFormId] = useState('');
+  const [query, setQuery] = useState(''), [world, setWorld] = useState(params.get('anime') || 'all');
+  const [compareId, setCompareId] = useState(''), [compareForm, setCompareForm] = useState('');
+  const [visible, setVisible] = useState(24);
   const forms = getFormsForCharacter(characterId);
-  const character = getRatedCharacter(characterId, formId);
-  const selectedForm = forms.find(form => form.id === formId);
-  const chooseCharacter = event => {
-    const id = event.target.value;
-    setCharacterId(id);
-    setFormId(getFormsForCharacter(id).at(-1)?.id ?? '');
-  };
-  return <div className="container character-guide">
-    <header className="guide-heading">
-      <Badge>KNOW YOUR FIGHTER · MANGA SPOILERS</Badge>
-      <h1>CHARACTERS <span>& POWER</span></h1>
-      <p>Know which version you’re looking at, how it earns its rating, and what the tier means.</p>
-    </header>
-    <section className="guide-rules" aria-labelledby="selection-heading">
-      <Card><h2 id="selection-heading">WHY THESE CHARACTERS?</h2>
-        <p>Our launch roster balances main characters, major opponents, popular supporting characters and different fighting roles across Naruto, One Piece and Bleach. Popularity earns no power bonus.</p>
-        <p>We use manga canon within fixed snapshots: Naruto 1–700, One Piece 1–1122 and Bleach 1–686. Forms from films, filler and Boruto are outside this version.</p>
-      </Card>
-      <Card><h2>WHICH FORM COUNTS?</h2>
-        <p>The original roster rates one supported peak state per character. Alternate forms get their own stats, moves, power and tier. An early-series Base is different from a late-series Base.</p>
-        <p><strong>Battle selection:</strong> each player drafts five random, rarity-weighted fighters with one reroll. Duplicate character identities are excluded across both teams, even when forms differ. The eligible form pool is fixed before drafting.</p>
-        <p>A form keeps one coherent set of abilities. Time limits, preparation, equipment and recovery costs matter. One fighter keeps one identity across forms.</p>
-        <p>Luffy’s sequence is Base, then Gears 2–5. “Gear 1” is an informal label for Base. Gear Four also has Boundman, Snakeman and the demonstrated stuffed Tankman.</p>
-      </Card>
-    </section>
-    <section aria-labelledby="form-heading" className="guide-preview">
-      <div className="section-heading"><div><span className="eyebrow">FORM EXPLORER</span><h2 id="form-heading">PICK A VERSION</h2></div></div>
-      <p>{characters.length} character identities loaded · {characterForms.length} alternate form snapshots across {coverage} characters. These counts show authored snapshots, not completed canon review. Launch character scope is closed at this coverage. More forms and full canon/calibration review are deferred; this is an information preview, not battle setup.</p>
-      <ul className="guide-status">{animeConfig.map(anime => {
-        const ids = new Set(characters.filter(item => item.anime === anime.id).map(item => item.id));
-        const snapshots = characterForms.filter(form => ids.has(form.characterId));
-        return <li key={anime.id}>{anime.name}: {snapshots.length} snapshots across {new Set(snapshots.map(form => form.characterId)).size} / {ids.size} identities</li>;
-      })}</ul>
-      <div className="guide-selectors">
-        <label htmlFor="guide-character">Character<select id="guide-character" value={characterId} onChange={chooseCharacter}>{roster.map(item => <option key={item.id} value={item.id}>{item.name} · {animeConfig.find(anime => anime.id === item.anime)?.name}</option>)}</select></label>
-        <label htmlFor="guide-form">Form<select id="guide-form" value={formId || ''} onChange={event => setFormId(event.target.value)}>
-          {forms.length ? forms.map(form => <option key={form.id} value={form.id}>{form.name}</option>) : <option value="">Selected peak · additional forms deferred</option>}
-        </select></label>
-      </div>
-      <Card className="guide-rating" style={{ '--tier': rarityColors[character.rarity] }}>
-        <div className="guide-rating-heading"><CharacterAvatar key={character.id} character={character} className="guide-avatar" /><div><h3>{character.name}</h3><p>{character.formName || peakFormNames[character.id]}</p>{character.era && <p>Era: {character.era}</p>}</div>
-          <div><Badge color={rarityColors[character.rarity]}>{character.rarity} tier</Badge><p className="guide-power">{character.powerScore}<small> / 1000</small></p></div></div>
-        <p><strong>Rating confidence:</strong> {character.confidence}. Scores are provisional fan estimates, not official canon levels or a guaranteed duel result.</p>
-        <dl className="guide-stats">{Object.entries(character.stats).map(([stat, value]) => <div key={stat}><dt>{stat}</dt><dd>{value}<small> / 100</small></dd></div>)}</dl>
-        <p><strong>Moves:</strong> {character.signatureMoves.join(' · ')}</p>
-        <p><strong>{formId ? 'Form limits' : 'Rating notes'}:</strong> {character.limitations || character.reasoning}</p>
-        {selectedForm && <p><strong>Manga review ranges:</strong> {selectedForm.sourceChapters.map(([start, end]) => start === end ? start : `${start}–${end}`).join(', ')}. Full inventory and panel review are deferred.</p>}
-        {!forms.length && <p className="guide-status">This character has a peak record. Additional forms are deferred; the selected peak is available.</p>}
-      </Card>
-    </section>
-    <section className="guide-rules" aria-label="Understand power levels">
-      <Card><h2>WHAT DOES THE LEVEL MEAN?</h2><p>We show a power score from 1–1000 and its rarity tier. These are game ratings, not official anime levels. Common does not mean unimportant; Mythic does not mean unbeatable.</p>
-        <ul className="guide-tiers">{powerTiers.map(tier => <li key={tier.name}><Badge color={rarityColors[tier.name]}>{tier.name}</Badge><span>{tier.min}–{tier.max}</span></li>)}</ul>
-        <p>Player rank is separate from character power. Your profile tracks it through battle results.</p>
-      </Card>
-      <Card><h2>HOW WE RATE POWER</h2><p>Every series uses the same eight stats and weights. A form’s tier follows its calculated score; there are no series or popularity bonuses.</p>
-        <ul className="guide-weights">{Object.entries(statWeights).map(([stat, weight]) => <li key={stat}><span>{stat}</span><strong>{weight}%</strong></li>)}</ul>
-        <details><summary>See the exact formula and limits</summary><p>Weighted average = sum of each stat × its weight ÷ 100. Power = 1 + round(999 × (weighted average − 1) ÷ 99).</p><p>A score of 600 is not twice the physical strength of 300. Matchups, resource limits and specialized abilities cannot be fully represented by one number.</p></details>
-      </Card>
-    </section>
+  const character = getRatedCharacter(characterId, formId || null);
+  const comparison = compareId ? getRatedCharacter(compareId, compareForm || null) : null;
+  const filtered = roster.filter(item => (world === 'all' || item.anime === world) && item.name.toLowerCase().includes(query.toLowerCase().trim())).sort((a, b) => featuredRank(a.id) - featuredRank(b.id) || a.name.localeCompare(b.name));
+  function choose(id) { setCharacterId(id); setFormId(''); }
+  return <div className="container character-guide"><header className="guide-heading"><Badge>THE FIGHTER ARCHIVE · MANGA SPOILERS</Badge><h1>KNOW YOUR <span>FIGHTERS.</span></h1><p>Explore {characters.length} identities. Compare forms. Find your next arena pick.</p></header>
+    <section className="roster-browser" aria-label="Browse characters"><div className="guide-selectors"><label>Search fighters<input type="search" value={query} placeholder="Try Kakashi, Zoro, Rukia…" onChange={event => { setQuery(event.target.value); setVisible(24); }} /></label><label>World<select value={world} onChange={event => { setWorld(event.target.value); setVisible(24); }}><option value="all">All worlds</option>{animeConfig.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label></div><p className="roster-count">{filtered.length} fighters · Select a portrait to open the dossier below.</p><div className="roster-grid">{filtered.slice(0, visible).map(item => <button className="roster-tile" key={item.id} aria-pressed={characterId === item.id} onClick={() => { choose(item.id); document.getElementById('form-heading')?.focus(); }}><CharacterAvatar character={item} thumbnail /><strong>{item.name}</strong><small>{item.role}</small></button>)}</div>{!filtered.length && <p role="status">No fighters found. Try another name or world.</p>}{filtered.length > visible && <button className="roster-more" onClick={() => setVisible(value => value + 24)}>Show more fighters ({filtered.length - visible} remaining)</button>}</section>
+    <section className="guide-preview" aria-labelledby="form-heading"><div className="section-heading"><div><span className="eyebrow">FIGHTER DOSSIER</span><h2 id="form-heading" tabIndex={-1}>EXPLORE & COMPARE</h2></div></div><p>One identity portrait is shared across forms. Ratings and abilities change with the selected form.</p><div className="guide-selectors"><label htmlFor="guide-character">Character<select id="guide-character" value={characterId} onChange={event => choose(event.target.value)}>{roster.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><label htmlFor="guide-form">Form<select id="guide-form" value={formId} onChange={event => setFormId(event.target.value)}><option value="">Selected peak</option>{forms.map(form => <option key={form.id} value={form.id}>{form.name}</option>)}</select></label><label>Compare with<select value={compareId} onChange={event => { setCompareId(event.target.value); setCompareForm(''); }}><option value="">No comparison</option>{roster.map(item => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label>{compareId && <label>Comparison form<select value={compareForm} onChange={event => setCompareForm(event.target.value)}><option value="">Selected peak</option>{getFormsForCharacter(compareId).map(form => <option key={form.id} value={form.id}>{form.name}</option>)}</select></label>}</div><div className={comparison ? 'dossier-comparison' : ''}><FighterDossier character={character} />{comparison && <FighterDossier character={comparison} />}</div>{comparison && <p className="comparison-note">{character.name} {character.powerScore === comparison.powerScore ? 'has the same power rating as' : character.powerScore > comparison.powerScore ? 'has a higher power rating than' : 'has a lower power rating than'} {comparison.name}. Matchups, synergy and luck still affect arena outcomes.</p>}</section>
+    <details className="guide-methodology"><summary>How character selection, power ratings and tiers work</summary><div className="guide-rules"><Card><h2>THE RULES OF THE WORLD</h2><p>The roster uses manga snapshots: Naruto 1–700, One Piece 1–1122 and Bleach 1–686. Film, filler and Boruto forms are outside this version.</p><p>Each arena player drafts five rarity-weighted fighters with one reroll. Duplicate identities are excluded across both teams. Alternate forms retain the same identity portrait.</p><p>Ratings are provisional fan estimates. Popularity earns no power bonus. Resource limits, matchup advantages and team synergy matter.</p><p>Character portraits identify the fighter; they do not promise an exact depiction of the selected form.</p></Card><Card><h2>POWER & TIERS</h2><ul className="guide-tiers">{powerTiers.map(tier => <li key={tier.name}><Badge color={rarityColors[tier.name]}>{tier.name}</Badge><span>{tier.min}–{tier.max}</span></li>)}</ul><p>Weighted average = sum of each stat × its weight ÷ 100. Power = 1 + round(999 × (weighted average − 1) ÷ 99).</p><ul className="guide-weights">{Object.entries(statWeights).map(([stat, weight]) => <li key={stat}><span>{stat}</span><strong>{weight}%</strong></li>)}</ul><p>Player rank is separate from character power. A Mythic fighter is not unbeatable.</p></Card></div></details>
   </div>;
 }

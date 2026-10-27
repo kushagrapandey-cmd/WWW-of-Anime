@@ -87,7 +87,7 @@ export default function Games() {
       if (latest.status === 'complete' && !latest.saved) save(latest);
     } catch (reason) { setError(reason.message); }
   }
-  async function start(settings) { try { open(ONLINE && ownerId ? await Remote.start('mini', settings) : MiniGameService.start(miniRoster, settings, ownerId)); } catch (reason) { setError(reason.message); } }
+  async function start(settings) { if (requestPending.current) return; requestPending.current = true; try { await open(ONLINE && ownerId ? await Remote.start('mini', settings) : MiniGameService.start(miniRoster, settings, ownerId)); } catch (reason) { setError(reason.message); } finally { requestPending.current = false; } }
   function leave() { replace(null); setError(''); read(); }
   const answered = session && session.answers.length > session.cursor;
   const disabled = Boolean(answered || (session && now >= session.deadline));

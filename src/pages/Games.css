@@ -80,3 +80,4 @@
   .power-fighter h3 { font-size: 1.1rem; }
   .mini-score-list li { font-size: .85rem; }
 }
+.mini-options button:has(.choice-portrait){display:flex;align-items:center;gap:12px;text-align:left}.choice-portrait{width:42px;min-width:42px;aspect-ratio:1;border-width:1px;border-radius:8px;box-shadow:none}.choice-portrait .avatar-monogram{font-size:1rem}.choice-portrait .avatar-role{display:none}

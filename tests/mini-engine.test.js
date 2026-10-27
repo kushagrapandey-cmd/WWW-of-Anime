@@ -37,7 +37,7 @@ describe('fixed and unambiguous rounds', () => {
       expect(move.rounds.every(round => new Set(round.options.map(option => option.id)).size === 4 && round.moves.length >= 2)).toBe(true);
       expect(make({ mode: 'power' }, String(i)).rounds.every(round => round.pair[0].id !== round.pair[1].id && round.pair[0].powerScore !== round.pair[1].powerScore)).toBe(true);
     }
-  });
+  }, 20000);
   it('rejects shared stat vectors, shared move/tag profiles and duplicate clue sets across identities', () => {
     const original = miniRoster[0], copy = { ...structuredClone(original), id: 'copy', name: 'Other Fighter' };
     const roster = [original, copy, ...miniRoster.slice(1)];

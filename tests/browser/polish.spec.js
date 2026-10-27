@@ -35,12 +35,12 @@ test('lazy-route failure retains navigation and can recover after reload', async
   await page.goto('/games'); await expect(page.getByRole('heading', { name: 'THIS ARC DIDN’T LOAD.' })).toBeVisible();
   await expect(page.getByRole('navigation', { includeHidden: true })).toBeAttached();
   await page.unroute('**/assets/Games-*.js'); await page.getByRole('button', { name: 'Reload page' }).click();
-  await expect(page.getByRole('button', { name: 'Start game' })).toBeVisible(); await checkPage(page);
+  await expect(page.getByRole('button', { name: 'Play Move Match', exact: true })).toBeVisible(); await checkPage(page);
 });
 test('corrupt game storage is preserved and explains the failure', async ({ page }) => {
   await page.goto('/games'); await page.evaluate(() => localStorage.setItem('www-of-anime:minigames:v1:guest', '{broken'));
   await page.reload(); await expect(page.getByRole('alert')).toContainText('Existing data has been preserved');
-  await page.getByRole('button', { name: 'Start game' }).click();
+  await page.getByRole('button', { name: 'Play Move Match', exact: true }).click();
   expect(await page.evaluate(() => localStorage.getItem('www-of-anime:minigames:v1:guest'))).toBe('{broken');
   await checkPage(page);
 });

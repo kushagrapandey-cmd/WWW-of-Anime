@@ -6,7 +6,7 @@ import { animeConfig } from '../data/anime';
 import Button from '../components/Button';
 import ArenaDraft from '../components/battle/ArenaDraft';
 import ArenaLineup from '../components/battle/ArenaLineup';
-import ArenaResults from '../components/battle/ArenaResults';
+import Showdown from '../components/battle/Showdown';
 import './BattleArena.css';
 const retryableDraftActions = new Set(['draw','reroll','keep','lock']);
 function ownDraftKey(value) {
@@ -41,17 +41,17 @@ export default function OnlineBattle() {
     load();return()=>{generation.current++;};
   },[id,invite,user.id]);
   useEffect(()=>{
-    if(!id||match?.stage==='complete')return;
-    let stopped=false,timer;
+    if(!id||!match||match.stage==='complete')return;
+    let stopped=false,timer,unchanged=0;
     async function poll(){
       if(!document.hidden&&!working.current){
-        try{const next=await api('match/view',{id},'GET');if(!stopped){accept(next);setError('');if(next.stage==='complete')await refreshRef.current();}}
-        catch(reason){if(!stopped){if(reason.status===410){current.current=null;setMatch(null);}setError(reason.message);}}
+        try{const next=await api('match/view',{id},'GET');if(!stopped){unchanged=next.revision===current.current?.revision?unchanged+1:0;accept(next);setError('');if(next.stage==='complete'){await refreshRef.current();return;}}}
+        catch(reason){unchanged++;if(!stopped){if(reason.status===410){current.current=null;setMatch(null);}setError(reason.message);}}
       }
-      if(!stopped)timer=setTimeout(poll,4000);
+      if(!stopped)timer=setTimeout(poll,document.hidden||current.current?.mode==='cpu'?30000:current.current?.locked?4000:Math.min(15000,4000+unchanged*2000));
     }
-    timer=setTimeout(poll,4000);return()=>{stopped=true;clearTimeout(timer);};
-  },[id,match?.stage]);
+    timer=setTimeout(poll,match.mode==='cpu'?30000:4000);return()=>{stopped=true;clearTimeout(timer);};
+  },[id,match?.stage,match?.mode,match?.locked]);
   async function action(name,extra={}){
     if(working.current)return;working.current=true;setBusy(true);setError('');
     const version=generation.current;
@@ -96,9 +96,9 @@ export default function OnlineBattle() {
       <fieldset className="online-controls" disabled={busy} aria-busy={busy}>
       {!match.kept&&<ArenaDraft name={user.username} player={0} draft={{teams:[match.team,[]],rerolls:[match.rerolls,0]}} onDraw={()=>action('draw')} onReroll={()=>action('reroll')} onLock={()=>action('keep')}/>}
       {match.kept&&!match.locked&&<ArenaLineup name={user.username} team={order.length?order:match.team} onChange={setOrder} onLock={()=>action('lock',{order:(order.length?order:match.team).map(card=>card.id)})}/>}
-      {match.locked&&<section className="arena-panel"><h2>YOUR LINEUP IS LOCKED.</h2><p>Waiting for your rival. The result appears automatically when both players lock.</p></section>}</fieldset></>}
-    {match?.stage==='complete'&&<ArenaResults record={match.record} outcome={match.outcome} replay={false} saveState={{busy:false,error:''}} onRematch={()=>action('create',{...match.options,mode:match.mode})} onNew={()=>setParams({})}/>}
+      {match.locked&&<section className="arena-panel"><h2>YOUR LINEUP IS LOCKED.</h2><p>Waiting for your rival. The showdown begins automatically when both players lock.</p></section>}</fieldset></>}
+    {match?.stage==='complete'&&<Showdown key={match.id} match={match} onRematch={()=>action('create',{...match.options,mode:match.mode})} onNew={()=>setParams({})}/>}
     {id&&<Button variant="secondary" onClick={()=>setParams({})}>Back to match list</Button>}
-    <p className="arena-note arena-footer">Online results and profiles are stored in the database. Match updates refresh every four seconds while this tab is visible.</p>
+    <p className="arena-note arena-footer">Online results and profiles are stored in the database. Friend matches refresh automatically while this tab is visible, slowing down when nothing changes.</p>
   </div>;
 }

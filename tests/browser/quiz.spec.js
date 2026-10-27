@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { signup, checkPage, noErrors } from './helpers.js';
 test('Classic quiz saves once, resumes feedback and restores the local account', async ({ page }) => {
   const verifyErrors = await noErrors(page); await signup(page);
-  await page.goto('/quizzes'); await page.getByRole('combobox', { name: 'Anime', exact: true }).selectOption('naruto'); await page.getByLabel('Difficulty').selectOption('easy');
+  await page.goto('/quizzes'); await page.getByText('Customize your quiz', { exact: true }).click(); await page.getByRole('combobox', { name: 'Anime', exact: true }).selectOption('naruto'); await page.getByLabel('Difficulty').selectOption('easy');
   await page.getByRole('button', { name: 'Start quiz', exact: true }).click(); await checkPage(page);
   for (let index = 0; index < 10; index++) {
     const attempt = await page.evaluate(() => {

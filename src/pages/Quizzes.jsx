@@ -88,12 +88,25 @@ export default function Quizzes() {
       if (latest.status === 'complete' && !latest.saved) save(latest);
     } catch (reason) { setError(reason.message); }
   }
+  const quickStarted = useRef(false);
+  useEffect(() => {
+    if (params.get('play') !== 'blitz' || loading || authError || quickStarted.current) return;
+    quickStarted.current = true;
+    start({ mode: 'blitz', anime: 'all', difficulty: 'all' });
+  }, [loading, authError, params]);
+  async function start(settings) {
+    if (requestPending.current) return;
+    requestPending.current = true;
+    try { await open(ONLINE && ownerId ? await Remote.start('quiz', settings) : QuizService.start(quizQuestions, settings, ownerId)); }
+    catch (reason) { setError(reason.message); }
+    finally { requestPending.current = false; }
+  }
   function leave() { replace(null); setError(''); readHistory(); }
   const today = challengeDate(now);
   return <div ref={section} className="container quiz-page"><header className="quiz-heading"><span className="eyebrow"><CircleHelp size={18} /> THE KNOWLEDGE ARC</span><h1>ANIME <span>QUIZZES.</span></h1><p>{quizQuestions.length} questions. Bring your memory.</p></header>
     {authError && <p role="alert" className="account-error">{authError}<Button onClick={refresh}>Reload profile</Button></p>}
     {error && <div role="alert" className="account-error">{error}{attempt && <Button variant="secondary" onClick={() => open(attempt)}>Load saved attempt</Button>}</div>}
-    {!attempt && <QuizSetup key={`${ownerId}:${params.get('mode')}`} user={user} initialMode={params.get('mode') === 'daily' ? 'daily' : 'classic'} today={today} history={history} disabled={loading || Boolean(authError) || saving} onStart={async settings => { try { open(ONLINE && ownerId ? await Remote.start('quiz', settings) : QuizService.start(quizQuestions, settings, ownerId)); } catch (reason) { setError(reason.message); } }} onOpen={open} />}
+    {!attempt && <QuizSetup key={`${ownerId}:${params.get('mode')}`} user={user} initialMode={params.get('mode') === 'daily' ? 'daily' : 'classic'} today={today} now={now} history={history} disabled={loading || Boolean(authError) || saving} onStart={start} onOpen={open} />}
     {attempt?.status === 'active' && <QuizQuestion attempt={attempt} now={now} onAnswer={index => act(() => answerAttempt(active.current, index), 'answer', index)} onNext={() => act(() => advanceAttempt(active.current), 'next')} onLeave={leave} />}
     {attempt?.status === 'complete' && <QuizResults attempt={attempt} user={user} saving={saving} saveError={saveError} onSave={() => save(active.current)} onNew={leave} />}
     <p className="quiz-note quiz-footer">{ONLINE && user ? 'Your attempts and results follow your online account. Daily reset: midnight Asia/Kolkata. Timers are enforced by the server.' : 'Guest progress stays in this browser. Daily reset: midnight Asia/Kolkata.'}</p>

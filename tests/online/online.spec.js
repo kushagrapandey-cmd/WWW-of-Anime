@@ -26,7 +26,9 @@ test('two separate accounts accept an invite, keep private teams and receive one
  await expect(page.getByRole('heading',{name:'YOUR LINEUP IS LOCKED.'})).toBeVisible();
  await expect(rival.getByRole('button',{name:'Reveal fighter 1',exact:true})).toBeVisible();
  await draft(rival);await rival.getByRole('button',{name:'Lock lineup',exact:true}).click();
- await expect(rival.locator('.arena-results')).toBeVisible();await expect(page.locator('.arena-results')).toBeVisible({timeout:10000});
+ await expect(rival.locator('.arena-rounds')).toBeVisible(); await rival.getByRole('button',{name:'Skip to results',exact:true}).click();
+ await expect(page.locator('.arena-rounds')).toBeVisible({timeout:20000}); await page.getByRole('button',{name:'Skip to results',exact:true}).click();
+ await expect(rival.locator('.arena-results')).toBeVisible();await expect(page.locator('.arena-results')).toBeVisible();
  const score=await page.locator('.result-score').innerText();expect(await rival.locator('.result-score').innerText()).toEqual(score);
  const own=await page.evaluate(async()=> (await (await fetch('/api/index?route=auth%2Fme')).json()).data);
  const other=await rival.evaluate(async()=> (await (await fetch('/api/index?route=auth%2Fme')).json()).data);
@@ -36,7 +38,7 @@ test('two separate accounts accept an invite, keep private teams and receive one
  await expect(winner.locator('.coin-toast')).toContainText('+10 coins');
  expect(errors).toEqual([]);
  const widths=await page.evaluate(()=>[document.documentElement.scrollWidth,innerWidth]);expect(widths[0]).toBeLessThanOrEqual(widths[1]);
- await page.reload();await expect(page.locator('.arena-results')).toBeVisible();
+ await page.reload();await expect(page.locator('.arena-rounds')).toBeVisible();await page.getByRole('button',{name:'Skip to results',exact:true}).click();await expect(page.locator('.arena-results')).toBeVisible();
  await rivalContext.close();
 });
 test('same-account tabs do not replay a stale draft action',async({page},info)=>{
@@ -58,14 +60,14 @@ test('same-account tabs do not replay a stale draft action',async({page},info)=>
 });
 test('server quizzes and guessing games resume without browser-owned scores',async({page},info)=>{
  await signup(page,`Scholar${Date.now().toString().slice(-8)}${info.project.name.slice(-3)}`);
- await page.goto('/quizzes');await page.getByRole('button',{name:'Start quiz',exact:true}).click();
+ await page.goto('/quizzes');await page.getByRole('button',{name:'Play Classic Quiz',exact:true}).click();
  await expect(page.locator('.quiz-question-title')).toBeVisible();await page.locator('.quiz-option').first().click();
  await expect(page.locator('.quiz-feedback')).toBeVisible();await page.getByRole('button',{name:'Next question',exact:true}).click();
  await page.reload();await expect(page.getByRole('button',{name:'Resume',exact:true}).first()).toBeVisible();
  await page.getByRole('button',{name:'Resume',exact:true}).first().click();await expect(page.locator('.quiz-count')).toContainText('QUESTION 2');
  for(let i=2;i<=10;i++){await page.locator('.quiz-option').first().click();await expect(page.locator('.quiz-feedback')).toBeVisible();await page.getByRole('button',{name:i===10?'View results':'Next question',exact:true}).click();}
  await expect(page.locator('.quiz-results')).toBeVisible();await expect(page.getByText(/Progress saved to/)).toBeVisible();
- await page.goto('/games');await page.getByRole('button',{name:'Start game',exact:true}).click();
+ await page.goto('/games');await page.getByRole('button',{name:'Play Move Match',exact:true}).click();
  await expect(page.locator('.mini-question-title')).toBeVisible();await page.locator('.mini-options button').first().click();
  await expect(page.locator('.mini-feedback')).toBeVisible();await page.getByRole('button',{name:'Next round',exact:true}).click();
  await page.reload();await page.getByRole('button',{name:'Resume',exact:true}).first().click();await expect(page.locator('.mini-game-meta')).toContainText('ROUND 2');

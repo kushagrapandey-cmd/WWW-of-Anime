@@ -15,9 +15,9 @@ function complete(attempt, choices = []) {
   return attempt;
 }
 describe('quiz bank and selection', () => {
-  it('has 90 unique four-option high-confidence manga questions, 10 per anime/difficulty', () => {
-    validateQuestions(quizQuestions); expect(quizQuestions).toHaveLength(90);
-    for (const anime of ['naruto', 'onepiece', 'bleach']) for (const difficulty of ['easy', 'medium', 'hard']) expect(quizQuestions.filter(question => question.anime === anime && question.difficulty === difficulty)).toHaveLength(10);
+  it('has 180 unique four-option high-confidence manga questions, 20 per anime/difficulty', () => {
+    validateQuestions(quizQuestions); expect(quizQuestions).toHaveLength(180);
+    for (const anime of ['naruto', 'onepiece', 'bleach']) for (const difficulty of ['easy', 'medium', 'hard']) expect(quizQuestions.filter(question => question.anime === anime && question.difficulty === difficulty)).toHaveLength(20);
     expect(quizQuestions.every(question => question.canonReference.medium === 'manga')).toBe(true);
   });
   it('filters anime/difficulty and reproducibly shuffles questions and their answer mappings', () => {
@@ -37,6 +37,16 @@ describe('quiz bank and selection', () => {
     expect(first.questions).toEqual(second.questions); expect(first.questions).toHaveLength(5);
     const tomorrow = createAttempt(quizQuestions, { mode: 'daily' }, { id: 'quiz-tomorrow', seed: 'different', now: start + QUIZ.dayMs });
     expect(first.questions.map(question => question.id)).not.toEqual(tomorrow.questions.map(question => question.id));
+  });
+  it('keeps the published daily pool stable until new questions become available at reset', () => {
+    const options = { id: 'quiz-release', seed: 'release', ownerId: null, now: Date.parse('2026-10-27T10:00:00Z') };
+    const beforeExpansion = quizQuestions.filter(question => !question.dailyFrom);
+    expect(createAttempt(quizQuestions, { mode: 'daily' }, options).questions).toEqual(createAttempt(beforeExpansion, { mode: 'daily' }, options).questions);
+    const nextDay = { ...options, now: Date.parse('2026-10-28T10:00:00Z') };
+    const available = createAttempt(quizQuestions, { mode: 'daily' }, nextDay);
+    const unrestricted = createAttempt(quizQuestions.map(({ dailyFrom, ...question }) => question), { mode: 'daily' }, nextDay);
+    expect(available.questions.map(question => question.id)).toEqual(unrestricted.questions.map(question => question.id));
+    expect(make({ mode: 'blitz' }).questions).toHaveLength(180);
   });
   it('rejects bad pools, options, confidence, unknown settings and corrupt saved attempts', () => {
     expect(() => createAttempt([], {}, {})).toThrow(/question/);
@@ -62,9 +72,10 @@ describe('answers, scores and deadlines', () => {
     expect(scoreAttempt(finished)).toMatchObject({ correct: 8, answered: 10, accuracy: 80, score: 800, xp: 80, bestStreak: 6 });
   });
   it('caps the Blitz multiplier, resets it on misses and uses answered accuracy', () => {
-    const finished = complete(make({ mode: 'blitz', anime: 'naruto', difficulty: 'easy' }));
+    const ten = () => createAttempt(quizQuestions.filter(q => q.anime === 'naruto' && q.difficulty === 'easy').slice(0, 10), { mode: 'blitz', anime: 'naruto', difficulty: 'easy' }, { id: 'quiz-blitz-fixture', seed: 'fixed', now: start, ownerId: 'tester' });
+    const finished = complete(ten());
     expect(scoreAttempt(finished)).toMatchObject({ score: 2500, accuracy: 100, xp: 250, bestStreak: 10 });
-    const missed = complete(make({ mode: 'blitz', anime: 'naruto', difficulty: 'easy' }), [true, true, true, false]);
+    const missed = complete(ten(), [true, true, true, false]);
     expect(scoreAttempt(missed).score).toBe(1500);
     let partial = make({ mode: 'blitz' }); partial = answerAttempt(partial, partial.questions[0].answerIndex, start);
     partial = finishAttempt(partial, start + 60000); expect(scoreAttempt(partial).accuracy).toBe(100);

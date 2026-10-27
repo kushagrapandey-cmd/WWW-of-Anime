@@ -10,7 +10,7 @@ export function createAttempt(bank, settings, { id, ownerId = null, seed, now = 
   if (!['classic', 'blitz', 'daily'].includes(mode) || !['all', 'easy', 'medium', 'hard'].includes(difficulty)) throw new Error('Unknown quiz settings.');
   const date = mode === 'daily' ? challengeDate(now) : null;
   const effectiveSeed = date ? `daily:v${QUIZ.version}:${date}` : seed;
-  const pool = bank.filter(item => mode === 'daily' || ((anime === 'all' || item.anime === anime) && (difficulty === 'all' || item.difficulty === difficulty)));
+  const pool = bank.filter(item => (mode === 'daily' ? (!item.dailyFrom || item.dailyFrom <= date) : ((anime === 'all' || item.anime === anime) && (difficulty === 'all' || item.difficulty === difficulty))));
   const count = mode === 'daily' ? QUIZ.dailyCount : mode === 'classic' ? QUIZ.classicCount : pool.length;
   if (pool.length < count || !pool.length) throw new Error('Not enough questions for those settings.');
   const questions = shuffle(pool, `${effectiveSeed}:questions`).slice(0, count).map(item => {

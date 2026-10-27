@@ -1,212 +1,1232 @@
 [
   {
-    "id": "bleach-quiz-01", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-01",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Who initially transfers Soul Reaper powers to Ichigo?",
-    "options": ["Rukia Kuchiki", "Orihime Inoue", "Yoruichi Shihoin", "Rangiku Matsumoto"], "answerIndex": 0,
+    "options": [
+      "Rukia Kuchiki",
+      "Orihime Inoue",
+      "Yoruichi Shihoin",
+      "Rangiku Matsumoto"
+    ],
+    "answerIndex": 0,
     "explanation": "Rukia transfers her powers to Ichigo so he can protect his family.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-02", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-02",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which spiritual group does Uryu Ishida belong to?",
-    "options": ["Quincy", "Arrancar", "Visored", "Soul Reapers"], "answerIndex": 0,
+    "options": [
+      "Quincy",
+      "Arrancar",
+      "Visored",
+      "Soul Reapers"
+    ],
+    "answerIndex": 0,
     "explanation": "Uryu is a Quincy who fights with spirit-energy weapons.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-03", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-03",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which friend of Ichigo uses healing and defensive rejection abilities?",
-    "options": ["Orihime Inoue", "Rukia Kuchiki", "Tatsuki Arisawa", "Yuzu Kurosaki"], "answerIndex": 0,
+    "options": [
+      "Orihime Inoue",
+      "Rukia Kuchiki",
+      "Tatsuki Arisawa",
+      "Yuzu Kurosaki"
+    ],
+    "answerIndex": 0,
     "explanation": "Orihime’s Shun Shun Rikka can reject phenomena to protect and heal.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-04", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-04",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "What is Chad’s real name?",
-    "options": ["Yasutora Sado", "Uryu Ishida", "Keigo Asano", "Mizuiro Kojima"], "answerIndex": 0,
+    "options": [
+      "Yasutora Sado",
+      "Uryu Ishida",
+      "Keigo Asano",
+      "Mizuiro Kojima"
+    ],
+    "answerIndex": 0,
     "explanation": "Yasutora Sado is commonly called Chad by his friends.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-05", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-05",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "What is the name of Ichigo’s Zanpakuto?",
-    "options": ["Zangetsu", "Zabimaru", "Senbonzakura", "Hyōrinmaru"], "answerIndex": 0,
+    "options": [
+      "Zangetsu",
+      "Zabimaru",
+      "Senbonzakura",
+      "Hyōrinmaru"
+    ],
+    "answerIndex": 0,
     "explanation": "Ichigo’s Zanpakuto is named Zangetsu.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-06", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-06",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which spiritual realm is home to the Soul Reapers?",
-    "options": ["Soul Society", "Hueco Mundo", "Karakura Town", "The Dangai"], "answerIndex": 0,
+    "options": [
+      "Soul Society",
+      "Hueco Mundo",
+      "Karakura Town",
+      "The Dangai"
+    ],
+    "answerIndex": 0,
     "explanation": "Soul Reapers live and serve in Soul Society.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-07", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-07",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which town is Ichigo’s home?",
-    "options": ["Karakura Town", "Naruki City", "Seireitei", "Rukongai"], "answerIndex": 0,
+    "options": [
+      "Karakura Town",
+      "Naruki City",
+      "Seireitei",
+      "Rukongai"
+    ],
+    "answerIndex": 0,
     "explanation": "Ichigo lives in Karakura Town in the World of the Living.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-08", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-08",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which physical feature commonly identifies a Hollow?",
-    "options": ["A mask", "A forehead protector", "A straw hat", "A captain’s haori"], "answerIndex": 0,
+    "options": [
+      "A mask",
+      "A forehead protector",
+      "A straw hat",
+      "A captain’s haori"
+    ],
+    "answerIndex": 0,
     "explanation": "Hollows characteristically have masks and holes in their bodies.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-09", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-09",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which modified soul commonly occupies a stuffed lion?",
-    "options": ["Kon", "Renji", "Hanataro", "Ganju"], "answerIndex": 0,
+    "options": [
+      "Kon",
+      "Renji",
+      "Hanataro",
+      "Ganju"
+    ],
+    "answerIndex": 0,
     "explanation": "Kon is a modified soul who often inhabits a stuffed lion toy.",
-    "canonReference": {"medium": "manga", "arc": "Substitute Soul Reaper", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-10", "anime": "bleach", "difficulty": "easy", "confidence": "high",
+    "id": "bleach-quiz-10",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
     "question": "Which family name do Rukia and Byakuya share?",
-    "options": ["Kuchiki", "Kurosaki", "Shiba", "Ishida"], "answerIndex": 0,
+    "options": [
+      "Kuchiki",
+      "Kurosaki",
+      "Shiba",
+      "Ishida"
+    ],
+    "answerIndex": 0,
     "explanation": "Rukia is adopted into the Kuchiki family, making Byakuya her adoptive older brother.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-11", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-11",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "What is Ichigo’s Bankai called?",
-    "options": ["Tensa Zangetsu", "Hakka no Togame", "Senbonzakura Kageyoshi", "Daiguren Hyōrinmaru"], "answerIndex": 0,
+    "options": [
+      "Tensa Zangetsu",
+      "Hakka no Togame",
+      "Senbonzakura Kageyoshi",
+      "Daiguren Hyōrinmaru"
+    ],
+    "answerIndex": 0,
     "explanation": "Ichigo reveals Tensa Zangetsu during his fight with Byakuya.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-12", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-12",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which Zanpakuto belongs to Renji Abarai?",
-    "options": ["Zabimaru", "Nozarashi", "Shinso", "Wabisuke"], "answerIndex": 0,
+    "options": [
+      "Zabimaru",
+      "Nozarashi",
+      "Shinso",
+      "Wabisuke"
+    ],
+    "answerIndex": 0,
     "explanation": "Renji wields Zabimaru, a segmented blade in its Shikai form.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-13", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-13",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which Zanpakuto belongs to Byakuya Kuchiki?",
-    "options": ["Senbonzakura", "Zangetsu", "Sode no Shirayuki", "Suzumushi"], "answerIndex": 0,
+    "options": [
+      "Senbonzakura",
+      "Zangetsu",
+      "Sode no Shirayuki",
+      "Suzumushi"
+    ],
+    "answerIndex": 0,
     "explanation": "Byakuya’s Senbonzakura scatters into numerous small blades.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-14", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-14",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which ice-type Zanpakuto belongs to Toshiro Hitsugaya?",
-    "options": ["Hyōrinmaru", "Ryujin Jakka", "Benihime", "Minazuki"], "answerIndex": 0,
+    "options": [
+      "Hyōrinmaru",
+      "Ryujin Jakka",
+      "Benihime",
+      "Minazuki"
+    ],
+    "answerIndex": 0,
     "explanation": "Hitsugaya wields the ice-type Zanpakuto Hyōrinmaru.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-15", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-15",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which Zanpakuto belongs to Gin Ichimaru?",
-    "options": ["Shinso", "Zabimaru", "Sogyo no Kotowari", "Ashisogi Jizo"], "answerIndex": 0,
+    "options": [
+      "Shinso",
+      "Zabimaru",
+      "Sogyo no Kotowari",
+      "Ashisogi Jizo"
+    ],
+    "answerIndex": 0,
     "explanation": "Gin wields Shinso, whose blade can extend rapidly.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-16", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-16",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which Zanpakuto gives Aizen his hypnosis ability?",
-    "options": ["Kyoka Suigetsu", "Senbonzakura", "Katen Kyokotsu", "Sakanade"], "answerIndex": 0,
+    "options": [
+      "Kyoka Suigetsu",
+      "Senbonzakura",
+      "Katen Kyokotsu",
+      "Sakanade"
+    ],
+    "answerIndex": 0,
     "explanation": "Aizen uses Kyoka Suigetsu for complete hypnosis.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-17", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-17",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which squad does Kenpachi Zaraki captain during the Soul Society arc?",
-    "options": ["Squad 11", "Squad 6", "Squad 10", "Squad 12"], "answerIndex": 0,
+    "options": [
+      "Squad 11",
+      "Squad 6",
+      "Squad 10",
+      "Squad 12"
+    ],
+    "answerIndex": 0,
     "explanation": "Zaraki commands Squad 11, known for its combat-focused members.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-18", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-18",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Whose planned execution brings Ichigo’s group to Soul Society?",
-    "options": ["Rukia Kuchiki", "Renji Abarai", "Orihime Inoue", "Uryu Ishida"], "answerIndex": 0,
+    "options": [
+      "Rukia Kuchiki",
+      "Renji Abarai",
+      "Orihime Inoue",
+      "Uryu Ishida"
+    ],
+    "answerIndex": 0,
     "explanation": "Ichigo and his friends enter Soul Society to rescue Rukia.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-19", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-19",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which animal form does Yoruichi use when first guiding Ichigo’s friends?",
-    "options": ["A black cat", "A fox", "A hawk", "A wolf"], "answerIndex": 0,
+    "options": [
+      "A black cat",
+      "A fox",
+      "A hawk",
+      "A wolf"
+    ],
+    "answerIndex": 0,
     "explanation": "Yoruichi initially guides the group while in black-cat form.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-20", "anime": "bleach", "difficulty": "medium", "confidence": "high",
+    "id": "bleach-quiz-20",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
     "question": "Which squad did Kisuke Urahara formerly captain?",
-    "options": ["Squad 12", "Squad 1", "Squad 8", "Squad 13"], "answerIndex": 0,
+    "options": [
+      "Squad 12",
+      "Squad 1",
+      "Squad 8",
+      "Squad 13"
+    ],
+    "answerIndex": 0,
     "explanation": "Urahara formerly captains Squad 12 and establishes its research institute.",
-    "canonReference": {"medium": "manga", "arc": "Turn Back the Pendulum", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Turn Back the Pendulum",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-21", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-21",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What is the name of Kenpachi Zaraki’s Zanpakuto?",
-    "options": ["Nozarashi", "Zabimaru", "Kazeshini", "Itegumo"], "answerIndex": 0,
+    "options": [
+      "Nozarashi",
+      "Zabimaru",
+      "Kazeshini",
+      "Itegumo"
+    ],
+    "answerIndex": 0,
     "explanation": "Zaraki learns his Zanpakuto’s name, Nozarashi, during the final war.",
-    "canonReference": {"medium": "manga", "arc": "Thousand-Year Blood War", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thousand-Year Blood War",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-22", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-22",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What is Rukia’s Bankai called?",
-    "options": ["Hakka no Togame", "Daiguren Hyōrinmaru", "Tensa Zangetsu", "Kamishini no Yari"], "answerIndex": 0,
+    "options": [
+      "Hakka no Togame",
+      "Daiguren Hyōrinmaru",
+      "Tensa Zangetsu",
+      "Kamishini no Yari"
+    ],
+    "answerIndex": 0,
     "explanation": "Rukia reveals Hakka no Togame against As Nodt.",
-    "canonReference": {"medium": "manga", "arc": "Thousand-Year Blood War", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thousand-Year Blood War",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-23", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-23",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which Zanpakuto belongs to Shunsui Kyoraku?",
-    "options": ["Katen Kyokotsu", "Sogyo no Kotowari", "Ryujin Jakka", "Kinshara"], "answerIndex": 0,
+    "options": [
+      "Katen Kyokotsu",
+      "Sogyo no Kotowari",
+      "Ryujin Jakka",
+      "Kinshara"
+    ],
+    "answerIndex": 0,
     "explanation": "Shunsui wields the paired Zanpakuto Katen Kyokotsu.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-24", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-24",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which Zanpakuto belongs to Jushiro Ukitake?",
-    "options": ["Sogyo no Kotowari", "Katen Kyokotsu", "Suzumushi", "Sakanade"], "answerIndex": 0,
+    "options": [
+      "Sogyo no Kotowari",
+      "Katen Kyokotsu",
+      "Suzumushi",
+      "Sakanade"
+    ],
+    "answerIndex": 0,
     "explanation": "Ukitake wields the paired Zanpakuto Sogyo no Kotowari.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-25", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-25",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Who held the title of the first Kenpachi?",
-    "options": ["Retsu Unohana", "Genryusai Yamamoto", "Yoruichi Shihoin", "Kisuke Urahara"], "answerIndex": 0,
+    "options": [
+      "Retsu Unohana",
+      "Genryusai Yamamoto",
+      "Yoruichi Shihoin",
+      "Kisuke Urahara"
+    ],
+    "answerIndex": 0,
     "explanation": "Unohana, originally Yachiru Unohana, is revealed as the first Kenpachi.",
-    "canonReference": {"medium": "manga", "arc": "Thousand-Year Blood War", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thousand-Year Blood War",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-26", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-26",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which Zanpakuto belongs to Genryusai Yamamoto?",
-    "options": ["Ryujin Jakka", "Hyōrinmaru", "Benihime", "Tenken"], "answerIndex": 0,
+    "options": [
+      "Ryujin Jakka",
+      "Hyōrinmaru",
+      "Benihime",
+      "Tenken"
+    ],
+    "answerIndex": 0,
     "explanation": "Yamamoto’s Ryujin Jakka is a fire-type Zanpakuto.",
-    "canonReference": {"medium": "manga", "arc": "Soul Society", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-27", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-27",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What Espada number does Ulquiorra Cifer hold?",
-    "options": ["4", "3", "5", "6"], "answerIndex": 0,
+    "options": [
+      "4",
+      "3",
+      "5",
+      "6"
+    ],
+    "answerIndex": 0,
     "explanation": "Ulquiorra is the Fourth Espada.",
-    "canonReference": {"medium": "manga", "arc": "Arrancar", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arrancar",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-28", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-28",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What Espada number does Grimmjow Jaegerjaquez hold when he fights Ichigo in Hueco Mundo?",
-    "options": ["6", "4", "7", "8"], "answerIndex": 0,
+    "options": [
+      "6",
+      "4",
+      "7",
+      "8"
+    ],
+    "answerIndex": 0,
     "explanation": "Grimmjow holds the Sixth Espada position during their Hueco Mundo battle.",
-    "canonReference": {"medium": "manga", "arc": "Hueco Mundo", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Hueco Mundo",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-29", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-29",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "What Espada number does Tier Harribel hold?",
-    "options": ["3", "2", "4", "5"], "answerIndex": 0,
+    "options": [
+      "3",
+      "2",
+      "4",
+      "5"
+    ],
+    "answerIndex": 0,
     "explanation": "Harribel is the Third Espada.",
-    "canonReference": {"medium": "manga", "arc": "Fake Karakura Town", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Fake Karakura Town",
+      "cutoffChapter": 686
+    }
   },
   {
-    "id": "bleach-quiz-30", "anime": "bleach", "difficulty": "hard", "confidence": "high",
+    "id": "bleach-quiz-30",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
     "question": "Which Squad Zero member is credited with creating Zanpakuto?",
-    "options": ["Oh-Etsu Nimaiya", "Ichibe Hyosube", "Tenjiro Kirinji", "Kirio Hikifune"], "answerIndex": 0,
+    "options": [
+      "Oh-Etsu Nimaiya",
+      "Ichibe Hyosube",
+      "Tenjiro Kirinji",
+      "Kirio Hikifune"
+    ],
+    "answerIndex": 0,
     "explanation": "Nimaiya, the Blade God, created the Zanpakuto.",
-    "canonReference": {"medium": "manga", "arc": "Thousand-Year Blood War", "cutoffChapter": 686}
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thousand-Year Blood War",
+      "cutoffChapter": 686
+    }
+  },
+  {
+    "id": "bleach-quiz-31",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What is the name of the group of thirteen Soul Reaper squads?",
+    "options": [
+      "Xcution",
+      "Gotei 13",
+      "Espada",
+      "Sternritter"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Gotei 13 are the thirteen court guard squads.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-32",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which character runs the shop where Ichigo receives early training?",
+    "options": [
+      "Kisuke Urahara",
+      "Mayuri Kurotsuchi",
+      "Gin Ichimaru",
+      "Shinji Hirako"
+    ],
+    "answerIndex": 0,
+    "explanation": "Urahara runs the shop and trains Ichigo before the Soul Society rescue.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-33",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What weapon do Soul Reapers typically carry?",
+    "options": [
+      "Quincy crossbow",
+      "Clima-Tact",
+      "Kunai",
+      "Zanpakuto"
+    ],
+    "answerIndex": 3,
+    "explanation": "A Zanpakuto is the characteristic weapon of a Soul Reaper.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-34",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which character is Ichigo’s father?",
+    "options": [
+      "Kisuke Urahara",
+      "Jushiro Ukitake",
+      "Isshin Kurosaki",
+      "Ryuken Ishida"
+    ],
+    "answerIndex": 2,
+    "explanation": "Isshin is Ichigo’s father.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-35",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which character is Rukia’s adoptive older brother?",
+    "options": [
+      "Gin Ichimaru",
+      "Byakuya Kuchiki",
+      "Renji Abarai",
+      "Kaien Shiba"
+    ],
+    "answerIndex": 1,
+    "explanation": "Byakuya adopts Rukia into the Kuchiki family.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-36",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which realm is associated with the Hollows?",
+    "options": [
+      "Hueco Mundo",
+      "Karakura Town",
+      "Rukongai",
+      "Dangai"
+    ],
+    "answerIndex": 0,
+    "explanation": "Hueco Mundo is the realm inhabited by Hollows.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arrancar",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-37",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What is the advanced release of a Zanpakuto generally called?",
+    "options": [
+      "Shunpo",
+      "Cero",
+      "Sonido",
+      "Bankai"
+    ],
+    "answerIndex": 3,
+    "explanation": "Bankai is the advanced release beyond Shikai.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-38",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which character is famous for seeking strong opponents and enjoying battle?",
+    "options": [
+      "Kon",
+      "Keigo Asano",
+      "Kenpachi Zaraki",
+      "Hanataro Yamada"
+    ],
+    "answerIndex": 2,
+    "explanation": "Kenpachi relentlessly pursues challenging fights.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-39",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "What color is Ichigo’s hair?",
+    "options": [
+      "Blue",
+      "Orange",
+      "Black",
+      "White"
+    ],
+    "answerIndex": 1,
+    "explanation": "Ichigo’s distinctive hair is orange.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Substitute Soul Reaper",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-40",
+    "anime": "bleach",
+    "difficulty": "easy",
+    "confidence": "high",
+    "question": "Which organization includes the Espada?",
+    "options": [
+      "Aizen’s Arrancar army",
+      "The Gotei 13",
+      "Xcution",
+      "The Royal Guard"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Espada are elite Arrancar serving Aizen.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arrancar",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-41",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which movement technique is commonly called Flash Step?",
+    "options": [
+      "Sonido",
+      "Hirenkyaku",
+      "Bringer Light",
+      "Shunpo"
+    ],
+    "answerIndex": 3,
+    "explanation": "Soul Reapers use Shunpo, commonly translated as Flash Step.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-42",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which Arrancar movement technique is analogous to Flash Step?",
+    "options": [
+      "Bankai",
+      "Hakuda",
+      "Sonido",
+      "Shunpo"
+    ],
+    "answerIndex": 2,
+    "explanation": "Arrancar use Sonido for high-speed movement.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arrancar",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-43",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Who is the captain of Squad Two during the Soul Society rescue?",
+    "options": [
+      "Mayuri Kurotsuchi",
+      "Soi Fon",
+      "Retsu Unohana",
+      "Sajin Komamura"
+    ],
+    "answerIndex": 1,
+    "explanation": "Soi Fon leads Squad Two and the stealth forces.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-44",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which lieutenant accompanies Kenpachi during the Soul Society arc?",
+    "options": [
+      "Yachiru Kusajishi",
+      "Nanao Ise",
+      "Momo Hinamori",
+      "Rangiku Matsumoto"
+    ],
+    "answerIndex": 0,
+    "explanation": "Yachiru is Squad Eleven’s lieutenant during that arc.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-45",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which character is Uryu’s father?",
+    "options": [
+      "Soken Ishida",
+      "Isshin Kurosaki",
+      "Quilge Opie",
+      "Ryuken Ishida"
+    ],
+    "answerIndex": 3,
+    "explanation": "Ryuken is Uryu’s father; Soken is his grandfather.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arrancar",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-46",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "What is the name of the fortress occupied by Aizen in Hueco Mundo?",
+    "options": [
+      "Silbern",
+      "Karakura Clinic",
+      "Las Noches",
+      "Seireitei"
+    ],
+    "answerIndex": 2,
+    "explanation": "Aizen and the Espada occupy Las Noches.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Hueco Mundo",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-47",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which group consists of Soul Reapers who acquired Hollow powers?",
+    "options": [
+      "Sternritter",
+      "Visored",
+      "Fullbringers",
+      "Bounts"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Visored combine Soul Reaper abilities with Hollow powers.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Arrancar",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-48",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Who leads Xcution when Ichigo first encounters the group?",
+    "options": [
+      "Kugo Ginjo",
+      "Shukuro Tsukishima",
+      "Yukio Hans Vorarlberna",
+      "Giriko Kutsuzawa"
+    ],
+    "answerIndex": 0,
+    "explanation": "Ginjo leads Xcution during Ichigo’s Fullbring training.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Lost Agent",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-49",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which ability category uses objects with which the user has a special affinity?",
+    "options": [
+      "Bankai",
+      "Resurreccion",
+      "Vollstandig",
+      "Fullbring"
+    ],
+    "answerIndex": 3,
+    "explanation": "Fullbringers draw out the souls of matter, often through a personally significant object.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Lost Agent",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-50",
+    "anime": "bleach",
+    "difficulty": "medium",
+    "confidence": "high",
+    "question": "Which squad is associated with healing under Retsu Unohana?",
+    "options": [
+      "Squad Two",
+      "Squad Six",
+      "Squad Four",
+      "Squad Eleven"
+    ],
+    "answerIndex": 2,
+    "explanation": "Unohana leads the medical-focused Fourth Squad.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-51",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "What is the name of Soi Fon’s Zanpakuto?",
+    "options": [
+      "Tobiume",
+      "Suzumebachi",
+      "Haineko",
+      "Wabisuke"
+    ],
+    "answerIndex": 1,
+    "explanation": "Soi Fon’s Suzumebachi marks targets with its first strike.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-52",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Zanpakuto belongs to Rangiku Matsumoto?",
+    "options": [
+      "Haineko",
+      "Tobiume",
+      "Sode no Shirayuki",
+      "Minazuki"
+    ],
+    "answerIndex": 0,
+    "explanation": "Rangiku’s Haineko turns its blade into ash.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-53",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Zanpakuto belongs to Izuru Kira?",
+    "options": [
+      "Kazeshini",
+      "Hozukimaru",
+      "Itegumo",
+      "Wabisuke"
+    ],
+    "answerIndex": 3,
+    "explanation": "Kira uses Wabisuke, which increases the weight of what it strikes.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-54",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Zanpakuto belongs to Shuhei Hisagi?",
+    "options": [
+      "Suzumebachi",
+      "Ashisogi Jizo",
+      "Kazeshini",
+      "Wabisuke"
+    ],
+    "answerIndex": 2,
+    "explanation": "Hisagi’s Kazeshini takes the form of chained, double-bladed scythes.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Fake Karakura Town",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-55",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which scientist captains Squad Twelve after Urahara?",
+    "options": [
+      "Tessai Tsukabishi",
+      "Mayuri Kurotsuchi",
+      "Akon",
+      "Hachigen Ushoda"
+    ],
+    "answerIndex": 1,
+    "explanation": "Mayuri succeeds Urahara as Squad Twelve captain.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Soul Society",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-56",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Who holds the Primera Espada rank under Aizen?",
+    "options": [
+      "Coyote Starrk",
+      "Baraggan Louisenbairn",
+      "Yammy Llargo",
+      "Nnoitra Gilga"
+    ],
+    "answerIndex": 0,
+    "explanation": "Starrk holds the Primera Espada rank.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Fake Karakura Town",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-57",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "What is the name of Grimmjow’s Resurreccion?",
+    "options": [
+      "Murcielago",
+      "Tiburon",
+      "Santa Teresa",
+      "Pantera"
+    ],
+    "answerIndex": 3,
+    "explanation": "Grimmjow releases Pantera.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Hueco Mundo",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-58",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "What is the name of Ulquiorra’s Resurreccion?",
+    "options": [
+      "Los Lobos",
+      "Arrogante",
+      "Murcielago",
+      "Pantera"
+    ],
+    "answerIndex": 2,
+    "explanation": "Ulquiorra’s Resurreccion is Murcielago.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Hueco Mundo",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-59",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Squad Zero member’s Zanpakuto is Ichimonji?",
+    "options": [
+      "Senjumaru Shutara",
+      "Ichibe Hyosube",
+      "Oetsu Nimaiya",
+      "Tenjiro Kirinji"
+    ],
+    "answerIndex": 1,
+    "explanation": "Ichibe uses Ichimonji, whose ink can strip names and power.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thousand-Year Blood War",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
+  },
+  {
+    "id": "bleach-quiz-60",
+    "anime": "bleach",
+    "difficulty": "hard",
+    "confidence": "high",
+    "question": "Which Sternritter is known by the letter B, The Balance?",
+    "options": [
+      "Jugram Haschwalth",
+      "Bazz-B",
+      "Askin Nakk Le Vaar",
+      "Lille Barro"
+    ],
+    "answerIndex": 0,
+    "explanation": "Jugram Haschwalth holds the Schrift The Balance.",
+    "canonReference": {
+      "medium": "manga",
+      "arc": "Thousand-Year Blood War",
+      "cutoffChapter": 686
+    },
+    "dailyFrom": "2026-10-28"
   }
 ]

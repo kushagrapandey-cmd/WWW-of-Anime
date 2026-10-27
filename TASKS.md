@@ -1,5 +1,10 @@
 # Project tasks and execution memory
 
+## Showcase update — 27 October 2026
+
+Implementation and local verification complete: 120 identity portraits (shared across forms), online round reveals/replays, quick-play cards, 180 quiz questions, searchable roster/form comparisons, character profile avatars, cosmetic goals/titles, share/download result cards, adaptive polling and public artwork credits. See [release notes](docs/SHOWCASE-RELEASE.md) and [portrait audit](docs/character-portrait-audit.md). The earlier artwork deferral below records the previous phase decision; this release supersedes it for identity portraits.
+
+
 ## User decision — 2026-10-02, India time
 
 Phase 3 image acquisition is **parked**, not a dependency. Do not search for/download artwork or implement/run `fetch-images` unless the user explicitly reopens it. Retain `imageQuery` and `image: null` in identity data. Every character display uses `CharacterAvatar`; optional images lazy-load, failed/missing images use initials, anime gradient, rarity glow and role icon. Hero covers are manually supplied in `/public/hero/`; gradients work without them. Portal logos remain text.

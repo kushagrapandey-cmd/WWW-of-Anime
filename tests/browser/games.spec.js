@@ -5,7 +5,7 @@ const snapshot = page => page.evaluate(key => JSON.parse(localStorage.getItem(ke
 async function next(page, round) { await page.getByRole('button', { name: round === 9 ? 'View results' : 'Next round', exact: true }).click(); }
 test('hard typed Move Match, resume and completed power/clue games', async ({ page }, testInfo) => {
   const verifyErrors = await noErrors(page);
-  await page.goto('/games'); await checkPage(page);
+  await page.goto('/games'); await page.getByText('Customize world, difficulty & rules', { exact: true }).click(); await checkPage(page);
   await page.getByLabel('Answer style').selectOption('typed'); await page.getByLabel('Hard mode').check();
   await page.getByRole('button', { name: 'Start game', exact: true }).click();
   await expect(page.locator('.mini-question-title')).toBeFocused();
@@ -23,7 +23,7 @@ test('hard typed Move Match, resume and completed power/clue games', async ({ pa
   }
   await expect(page.getByRole('status')).toContainText('Result and high score saved.'); await checkPage(page);
   expect((await page.evaluate(key => JSON.parse(localStorage.getItem(key)).highScores, storeKey))['move:all:hard:typed']).toBe(1500);
-  await page.getByRole('button', { name: 'Choose another game' }).click();
+  await page.getByRole('button', { name: 'Choose another game' }).click(); await page.getByText('Customize world, difficulty & rules', { exact: true }).click();
   await page.getByRole('combobox', { name: 'Game', exact: true }).selectOption('power'); await page.getByRole('button', { name: 'Start game', exact: true }).click();
   for (let round = 0; round < 10; round++) {
     const [reference, challenger] = (await snapshot(page)).rounds[round].pair;
@@ -33,7 +33,7 @@ test('hard typed Move Match, resume and completed power/clue games', async ({ pa
   }
   await expect(page.getByRole('status')).toContainText('Result and high score saved.');
   expect((await snapshot(page)).settings.mode).toBe('power'); await checkPage(page);
-  await page.getByRole('button', { name: 'Choose another game' }).click(); await page.getByRole('combobox', { name: 'Game', exact: true }).selectOption('clue');
+  await page.getByRole('button', { name: 'Choose another game' }).click(); await page.getByText('Customize world, difficulty & rules', { exact: true }).click(); await page.getByRole('combobox', { name: 'Game', exact: true }).selectOption('clue');
   await page.getByRole('button', { name: 'Start game', exact: true }).click();
   for (let round = 0; round < 10; round++) {
     for (let clue = 0; clue < Math.min(round, 2); clue++) await page.getByRole('button', { name: 'Reveal next clue', exact: true }).click();
@@ -46,7 +46,7 @@ test('hard typed Move Match, resume and completed power/clue games', async ({ pa
 test('optional avatar images display and broken sources return to the monogram', async ({ page }) => {
   await page.route('**/characters/qa-valid.svg', route => route.fulfill({ contentType: 'image/svg+xml', body: '<svg xmlns="http://www.w3.org/2000/svg" width="100" height="120"><rect width="100" height="120" fill="#252035"/></svg>' }));
   await page.route('**/characters/qa-missing.svg', route => route.fulfill({ status: 404, body: '' }));
-  await page.goto('/games'); await page.getByRole('combobox', { name: 'Game', exact: true }).selectOption('power'); await page.getByRole('button', { name: 'Start game', exact: true }).click();
+  await page.goto('/games'); await page.getByText('Customize world, difficulty & rules', { exact: true }).click(); await page.getByRole('combobox', { name: 'Game', exact: true }).selectOption('power'); await page.getByRole('button', { name: 'Start game', exact: true }).click();
   await page.getByRole('button', { name: 'Save and leave' }).click();
   await page.evaluate(key => {
     const store = JSON.parse(localStorage.getItem(key)); store.records[0].rounds[0].pair[0].image = '/characters/qa-missing.svg'; store.records[0].rounds[0].pair[1].image = '/characters/qa-valid.svg'; localStorage.setItem(key, JSON.stringify(store));

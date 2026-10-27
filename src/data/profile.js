@@ -1,3 +1,4 @@
+import identities from './character-identities.json' with { type: 'json' };
 export const profileAvatars = [
   { id: 'leaf', name: 'Leaf Ninja', anime: 'naruto', role: 'Striker' },
   { id: 'sage', name: 'Sage Scholar', anime: 'naruto', role: 'Tactician' },
@@ -5,6 +6,7 @@ export const profileAvatars = [
   { id: 'navigator', name: 'Storm Navigator', anime: 'onepiece', role: 'Support' },
   { id: 'reaper', name: 'Soul Reaper', anime: 'bleach', role: 'Striker' },
   { id: 'guardian', name: 'Spirit Guardian', anime: 'bleach', role: 'Tank' },
+  ...identities.map(character => ({ ...character, role: 'Hybrid' })),
 ].map(avatar => ({ ...avatar, rarity: 'Common', image: null }));
 export const ranks = [
   { name: 'Rookie', min: 0, color: '#b7b2c8' },

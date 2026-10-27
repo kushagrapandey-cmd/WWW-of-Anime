@@ -7,7 +7,7 @@ describe('data-driven expansion', () => {
   it('loads the accepted roster, forms and quiz banks in catalog order', () => {
     expect(Object.keys(charactersByAnime)).toEqual(animeConfig.map(item => item.id));
     expect(Object.keys(quizBanks)).toEqual(animeConfig.map(item => item.id));
-    expect(characters).toHaveLength(120); expect(characterForms).toHaveLength(237); expect(quizQuestions).toHaveLength(90);
+    expect(characters).toHaveLength(120); expect(characterForms).toHaveLength(237); expect(quizQuestions).toHaveLength(180);
     expect(charactersByAnime.naruto.every(card => card.anime === 'naruto')).toBe(true);
   });
   it('registers a fourth anime using metadata and matching files without series-specific code', () => {
