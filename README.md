@@ -10,6 +10,8 @@
 
 ## Product walkthrough
 
+Documentation checked against the repository on **29 October 2026**. This describes implemented behavior; it is not a fresh production QA certification.
+
 The screenshots below were supplied by the project creator. They illustrate the interface, not automated proof that every workflow passes. Some captures show page sections rather than the entire viewport.
 
 ### Home — `/`
@@ -56,6 +58,29 @@ Explore 120 identities across the three worlds and 237 authored form snapshots i
 
 A protected profile combines a selectable character portrait, rank, battle record, quiz progress, game high scores and achievements. Six lifetime objectives unlock cosmetic player titles from saved statistics. Online accounts persist across devices. Account security controls support password changes and revoking all sessions.
 
+### Coins and milestones — Arena results and `/profile`
+
+Arena wins, including CPU wins, earn display-only coins. Consecutive wins award 10, 10, 15, 20, 25, 30, then 35 coins per win; a loss earns zero and resets the reward streak. Profile history records match-linked ledger entries. Milestones appear at 100, 500 and 1,000 coins and their dismissals persist online. Coins have no monetary value; purchasing and redemption are not implemented, and Redeem is intentionally disabled. Promotional future-merch copy is not an available feature.
+
+### Result sharing — completed activities
+
+Use Share result or Download result card where shown on results. Text sharing uses the browser share sheet or clipboard, with a manual-copy fallback. PNG cards are generated locally with Canvas. Shared links point to public play routes rather than private match invites.
+
+### Contact and feedback — homepage footer
+
+Visitors can follow the creator's GitHub, LinkedIn and email links or submit feedback without an account. The server validates and rate-limits submissions, then sends through Resend when configured. Failed submissions retain the visitor's text and offer direct email; a form alone does not guarantee email delivery.
+
+### Suggested first-visit walkthrough
+
+1. Open Home and inspect the three world introductions.
+2. Open Characters, search for a fighter, inspect a form and compare two fighters.
+3. Sign in, create a CPU Arena match, draft five fighters, optionally reroll, arrange the lineup and lock it. Watch the five-round reveal and inspect the result/reward.
+4. For friend play, open the private invitation with a **different account in a separate browser profile**. Each participant controls their own lineup; drafts stay private until completion. Never publish the invite in a showcase video.
+5. Start a quick quiz, answer a question and show its explanation. Classic, Blitz and Daily offer different pacing; Daily resets at midnight India time.
+6. Start one guessing game through quick play, then show the other available modes.
+7. Open Profile to show saved progress, goals, coins and account security controls. Demonstrate result-card download where available.
+8. Finish at the homepage contact footer. Use demo content and avoid displaying passwords, session data or private invitations in recordings.
+
 ## Technology and architecture
 
 | Layer | Implementation |
@@ -84,6 +109,20 @@ flowchart TD
 ```
 
 The browser manages presentation and input. The server verifies identity, permissions, transitions and official scores. Match/profile changes use transactions and locks; stale revisions return conflicts. The frontend refreshes latest state and carefully limits retries. See the [code walkthrough](docs/architecture-interview-guide.md) for request flows, important functions and tradeoffs.
+
+### Technical reference: feature to implementation
+
+| Feature | Main code | Reason for the design |
+| --- | --- | --- |
+| Private online battles | `server/matches.js`, `server/matchEngine.js`, `src/pages/OnlineBattle.jsx` | Session-derived participant ownership, hidden drafts, row locks and revisions protect match transitions. Adaptive HTTP polling fits turn-based play on serverless hosting. |
+| Reproducible results | `src/game` | Shared pure rules and seeded randomness support repeatable simulations and replays; power is a fan-made estimate. |
+| Quiz and game progress | `server/activities.js`, `src/quiz`, `src/minigames` | The online server owns scoring/completion; profile refresh makes earned progress visible after completion. |
+| Portraits and forms | `src/components/CharacterAvatar.jsx`, `src/data/forms` | One portrait per identity serves multiple forms; small thumbnails, lazy images and generated fallbacks reduce asset duplication. |
+| Coins | `src/services/CoinsService.js`, `src/config/coins.js`, `server/matches.js` | Match-linked ledger entries settle with profile rewards in a transaction; the browser cannot choose its award amount. |
+| Result cards | `src/components/ShareResult.jsx` | Canvas exports a PNG without a separate image-generation backend. |
+| Feedback | `server/feedback.js`, `src/components/ContactFooter.jsx` | Server-only email credentials, validation, honeypot and shared rate limits protect the public form. |
+
+For authentication flows, React hooks, database tables, exact game formulas and interview exercises, read the [architecture and interview guide](docs/architecture-interview-guide.md).
 
 ## Run locally
 

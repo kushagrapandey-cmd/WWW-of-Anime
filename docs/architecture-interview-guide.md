@@ -274,7 +274,7 @@ You do not have to manually type every HTML element to own a product. Ownership 
 7. Can users award themselves rank? The online client adapter refuses direct rank updates; match completion computes awards on the server.
 8. What prevents duplicate XP? Ownership/revision checks, account locks and the completion saved flag in one transaction.
 9. Why deterministic RNG? Reproducible drafts/replays and tests; never use it for credentials.
-10. What remains unfinished? Email recovery, stronger operational monitoring/backup procedures, policy/deletion workflows, wider browser verification, deeper content/balance review and optional artwork.
+10. What remains unfinished? Email recovery, stronger operational monitoring/backup procedures, policy/deletion workflows, wider browser verification, deeper content/balance review and artwork-rights review. Identity portraits are already implemented.
 
 ### Practical exercises before presenting yourself as the maintainer
 
